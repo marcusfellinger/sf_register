@@ -123,12 +123,11 @@
         },
         {
             "name": "cggrafing/user-template",
-            "version": "dev-master",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./extensions/user_template",
-                "reference": "e2698bdd6207b0f25a659123d45847a824412e23",
-                "shasum": null
+                "reference": "7f04e5b28d545d8975344618da53208a3721942f"
             },
             "type": "typo3-cms-extension",
             "autoload": {
@@ -146,7 +145,10 @@
                     "role": "Developer"
                 }
             ],
-            "description": "Template für christliche Gemeinde Grafing"
+            "description": "Template für christliche Gemeinde Grafing",
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "cogpowered/finediff",
@@ -1929,29 +1931,36 @@
         },
         {
             "name": "sjbr/static-info-tables",
-            "version": "6.7.4",
-            "dist": {
-                "type": "path",
-                "url": "./extensions/static_info_tables-a509e63",
-                "reference": "60e166cd636deb5f838dec085c22b17ab745efad",
-                "shasum": null
+            "version": "v6.9.6",
+            "source": {
+                "type": "git",
+                "url": "https://codeberg.org/sjbr/static-info-tables",
+                "reference": "1fb67c181babb03ec4d94c3aa48394235deef87e"
             },
             "require": {
-                "php": ">= 7.0, <7.3",
-                "typo3/cms-core": ">=8.7, <10.0"
+                "php": "^7.0",
+                "typo3/cms-core": ">=9.5, <11.0"
             },
             "replace": {
-                "static_info_tables": "self.version",
                 "typo3-ter/static-info-tables": "self.version"
             },
             "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "static_info_tables"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "SJBR\\StaticInfoTables\\": "Classes/"
-                }
+                },
+                "exclude-from-classmap": [
+                    "Classes/Domain/Model/*"
+                ]
             },
+            "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0+"
+                "GPL-2.0-or-later"
             ],
             "authors": [
                 {
@@ -1965,13 +1974,15 @@
                 }
             ],
             "description": "Data and API for countries, languages and currencies for use in TYPO3 CMS.",
-            "homepage": "https://forge.typo3.org/projects/extension-static_info_tables",
+            "homepage": "https://codeberg.org/sjbr/static-info-tables",
             "keywords": [
-                "TYPO3"
+                "Static Info Tables",
+                "typo3"
             ],
             "support": {
-                "issues": "https://forge.typo3.org/projects/extension-static_info_tables/issues"
-            }
+                "issues": "https://codeberg.org/sjbr/static-info-tables/issues"
+            },
+            "time": "2021-08-21T12:49:50+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -5015,5 +5026,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "2.1.0"
 }
