@@ -1,0 +1,167 @@
+lib {
+    fluidContent {
+        templateRootPaths {
+            100 = EXT:user_template/Resources/Private/Templates
+        }
+    }
+
+    stdContent = FLUIDTEMPLATE
+    stdContent {
+        templateName = Home
+        layoutRootPaths {
+            10 = EXT:user_template/Resources/Private/Layouts
+        }
+
+        partialRootPaths {
+            10 = EXT:user_template/Resources/Private/Partials
+        }
+
+        templateRootPaths {
+            10 = EXT:user_template/Resources/Private/Templates
+        }
+
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                special = directory
+                special.value = {$plugin.user_template.view.headerID}
+                levels = 2
+                includeSpacer = 1
+                as = headerMenu
+                expandAll = 1
+            }
+
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                special = directory
+                special.value = {$plugin.user_template.view.footerID}
+                levels = 2
+                includeSpacer = 1
+                as = footerMenu
+                expandAll = 1
+            }
+
+        }
+
+        variables {
+            brandSlogan = {$plugin.user_template.view.brandSlogan}
+            mainContent < styles.content.get
+        }
+    }
+
+    contentElement {
+        templateRootPaths {
+            200 = EXT:user_template/Resources/Private/Templates/
+        }
+    }
+}
+
+settings {
+    overrideFlexformSettingsIfEmpty {
+        list.paginate.itemsPerPage = 10
+    }
+}
+
+tt_content {
+    fs_slider < lib.fluidContent
+    fs_slider {
+        templateName = FluidStyledSlider
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = assets
+            }
+
+            20 = CGGrafing\Template\FluidStyledSlider\DataProcessing\FluidStyledSliderProcessor
+        }
+    }
+
+    cg_teaser < lib.contentElement
+    cg_teaser {
+        templateName = Teaser
+    }
+}
+
+[frontend.user.isLoggedIn]
+    lib.stdContent.dataProcessing.20.excludeUidList = 12
+[end]
+
+["{$plugin.tx_usertemplate.settings.includejQuery}" == "1"]
+    page.includeJSFooterlibs {
+        jquery = EXT:user_template/Resources/Public/Vendor/jquery/dist/jquery.min.js
+        jquery.disableCompression = 1
+    }
+[global]
+
+config {
+    doctype = <!DOCTYPE html>
+    htmlTag_setParams = lang="de" class="wide wow-animation"
+}
+
+page = PAGE
+page {
+    meta.format-detection = telephone=no
+    meta.viewport = width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0
+    meta.X-UA-Compatible = IE=edge
+    meta.X-UA-Compatible.httpEquivalent = 1
+    meta.charset = utf-8
+    config.pageTitleFirst = 1
+    config.pageTitleSeparator = -
+    1 < lib.stdContent
+    includeCSS {
+        1 = EXT:user_template/Resources/Public/Css/style.css
+        2 = //fonts.googleapis.com/css?family=Roboto:400%7CRoboto+Condensed:300,400,700
+        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
+        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
+    }
+
+    includeJS {
+        1 = EXT:user_template/Resources/Public/JavaScript/html5shiv.min.js
+    }
+
+    includeJSFooter {
+        core = EXT:user_template/Resources/Public/JavaScript/core.min.js
+        script = EXT:user_template/Resources/Public/JavaScript/script.js
+        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
+        slick.disableCompression = 1
+        fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
+    }
+}
+
+plugin.tx_seo {
+    config {
+        xmlSitemap {
+            sitemaps {
+                news {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = news_table
+                        sortField = sorting
+                        lastModifiedField = tstamp
+                        additionalWhere = AND (no_index = 0 OR no_follow = 0)
+                        pid = 28
+                        recursive = 0
+                        url {
+                            pageId = 30
+                            fieldToParameterMap {
+                                uid = tx_extension_pi1[news]
+                            }
+                            additionalGetParameters {
+                                tx_extension_pi1.controller = News
+                                tx_extension_pi1.action = detail
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+# Restricted area starts at pid 123.
+# Check if user is logged in:
+[24 in tree.rootLineIds] && [!frontend.user.isLoggedIn]
+page.config >
+page.config.additionalHeaders = Location: https://www.cg-grafing.de/anmelden
+[end]

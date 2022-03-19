@@ -1,0 +1,32 @@
+//
+// Sections
+// --------------------------------------------------
+
+// Section Spacing
+// -------------------------
+
+$insets: (40px, 60px, 80px, 94px, 100px, 105px, 110px, 114px, 125px, 135px, 145px, 150px, 160px, 245px);
+
+@include indent-responsive(section, '', (margin-top, margin-bottom), $medias, $insets);
+@include indent-responsive(section, top, margin-top, $medias, $insets);
+@include indent-responsive(section, bottom, margin-bottom, $medias, $insets);
+
+.ce-column {
+  width: 100%;
+}
+
+.ce-gallery figure {
+  width: 100%;
+}
+
+.ce-inner {
+  width: 100%;
+}
+
+.ce-outer {
+  width: 100%;
+}
+
+.ce-row {
+  display: flex;
+}

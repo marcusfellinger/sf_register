@@ -1,0 +1,71 @@
+@import "../variables";
+//
+// Icons
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+.icon {
+  display: inline-block;
+  text-align: center;
+  &:before {
+    position: relative;
+    display: inline-block;
+    font-weight: 400;
+    font-style: normal;
+    speak: none;
+    text-transform: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+.icon-image {
+  width: 5.5rem;
+  height: 5.5rem;
+}
+
+// Alternate icons
+// --------------------------------------------------
+
+.icon-default {
+  color: $text-color;
+}
+
+.icon-primary {
+  color: $brand-primary;
+}
+
+a {
+  &.icon {
+    &, &:active, &:focus, &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &.icon-default {
+    @include icon-link($text-color, $brand-primary);
+  }
+
+  &.icon-primary {
+    @include icon-link($brand-primary, $white);
+  }
+}
+
+
+// Button Sizes
+// --------------------------------------------------
+
+.icon-xs {
+  @include icon-sizing(22px);
+}
+
+.icon-sm {
+  @include icon-sizing(30px);
+}
+
+.icon-lg {
+  @include icon-sizing(80px);
+}
+

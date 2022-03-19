@@ -1,0 +1,13 @@
+plugin.user_template {
+    view {
+        # cat=plugin.user_template/file; type=int; label=Page ID for Header menu (FE)
+        headerID = 7
+        # cat=plugin.user_template/file; type=string; label=Brand Slogan (FE)
+        brandSlogan = Christliche Gemeinde Grafing
+    }
+
+    settings {
+        # cat=plugin.user_template/include; type=check; label=Include jQuery in JSFooterLibs
+        includejQuery = 1
+    }
+}

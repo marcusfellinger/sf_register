@@ -1,0 +1,11 @@
+/vendor
+/extensions/a509e63b2e752fb943086dfe95f5ec5b335f7cf3.zip
+/var
+/public/fileadmin/Predigten
+/public/fileadmin/user_upload
+/public/fileadmin/_processed_
+/public/fileadmin/_temp_
+/public/typo3temp
+/public/typo3
+/public/typo3conf/ext
+/.idea

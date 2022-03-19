@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en"
+          datatype="plaintext"
+          original="messages"
+          date="2018-10-28T07:20:0Z"
+          product-name="user_template">
+        <header/>
+        <body>
+            <trans-unit id="wizard.title">
+                <source>Teaser</source>
+            </trans-unit>
+            <trans-unit id="wizard.description">
+                <source>A Teaser based on fluid styled content.</source>
+            </trans-unit>
+            <trans-unit id="tca.tab.sliderElements">
+                <source>Slider Elements</source>
+            </trans-unit>
+            <trans-unit id="flexform.link">
+                <source>Target Page</source>
+            </trans-unit>
+            <trans-unit id="flexform.header">
+                <source>Header</source>
+            </trans-unit>
+            <trans-unit id="flexform.image">
+                <source>Logo</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

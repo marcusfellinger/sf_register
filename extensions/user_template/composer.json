@@ -1,0 +1,18 @@
+{
+  "name": "cggrafing/user-template",
+  "description": "Template für christliche Gemeinde Grafing",
+  "license": "GPL-2.0-or-later",
+  "type": "typo3-cms-extension",
+  "authors": [
+    {
+      "name": "Marcus Fellinger",
+      "email": "marcus@felliweb.de",
+      "role": "Developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "CGGrafing\\Template\\": "Classes/"
+    }
+  }
+}
