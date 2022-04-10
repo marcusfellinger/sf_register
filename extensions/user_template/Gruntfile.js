@@ -92,4 +92,17 @@ module.exports = function(grunt) {
    * - compiles TypeScript files
    */
   grunt.registerTask('build', ['clear-build', 'update', 'concurrent:copy_static', 'concurrent:compile_assets', 'concurrent:minify_assets', 'imagemin']);
+
+  /**
+   * grunt clear-build task
+   *
+   * call "$ grunt clear-build"
+   *
+   * Removes all build-related assets, e.g. cache and built files
+   */
+  grunt.registerTask('clear-build', function () {
+    grunt.option('force');
+    grunt.file.delete('.cache');
+    grunt.file.delete('JavaScript');
+  });
 };
