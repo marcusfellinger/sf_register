@@ -78,4 +78,18 @@ module.exports = function(grunt) {
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
+  /**
+   * grunt build task
+   *
+   * call "$ grunt build"
+   *
+   * this task does the following things:
+   * - execute update task
+   * - execute copy task
+   * - compile sass files
+   * - uglify js files
+   * - minifies svg files
+   * - compiles TypeScript files
+   */
+  grunt.registerTask('build', ['clear-build', 'update', 'concurrent:copy_static', 'concurrent:compile_assets', 'concurrent:minify_assets', 'imagemin']);
 };
