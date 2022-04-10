@@ -105,4 +105,16 @@ module.exports = function(grunt) {
     grunt.file.delete('.cache');
     grunt.file.delete('JavaScript');
   });
+
+
+  /**
+   * grunt update task
+   *
+   * call "$ grunt update"
+   *
+   * this task does the following things:
+   * - yarn install
+   * - copy some components to a specific destinations because they need to be included via PHP
+   */
+  grunt.registerTask('update', ['exec:yarn-install', 'rollup', 'concurrent:npmcopy']);
 };
