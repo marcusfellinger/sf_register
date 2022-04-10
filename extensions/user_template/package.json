@@ -2,7 +2,8 @@
   "name": "cg-grafing-template",
   "license": "GPL-2.0+",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 14.15.0",
+    "yarn": "^1.22.0"
   },
   "devDependencies": {
     "grunt": "1.4.1",
