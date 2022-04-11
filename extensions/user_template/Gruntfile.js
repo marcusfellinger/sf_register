@@ -29,7 +29,7 @@ module.exports = function (grunt) {
                 'copy:module_icons',
                 'copy:extension_icons',
                 'copy:fonts',
-//                'copy:t3editor'
+                'copy:t3editor'
             ],
             minify_assets: [
 //                'terser:thirdparty',
