@@ -132,6 +132,19 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        eslint: {
+            options: {
+                cache: true,
+                cacheLocation: './.cache/eslintcache/',
+                overrideConfigFile: 'eslintrc.json'
+            },
+            files: {
+                src: [
+                    '<%= paths.typescript %>/**/*.ts',
+                    './types/**/*.ts'
+                ]
+            }
+        },
         exec: {
             'yarn-install': 'yarn install'
         },
