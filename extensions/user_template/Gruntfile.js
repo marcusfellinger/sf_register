@@ -146,6 +146,7 @@ module.exports = function (grunt) {
             }
         },
         exec: {
+            ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
             'yarn-install': 'yarn install'
         },
         formatsass: {
