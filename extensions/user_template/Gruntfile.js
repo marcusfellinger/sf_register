@@ -490,21 +490,6 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-rollup');
 
-    // Default task.
-    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-
-    /**
-     * grunt scripts task
-     *
-     * call "$ grunt scripts"
-     *
-     * this task does the following things:
-     * - 1) Compiles TypeScript (see compile-typescript)
-     * - 2) Copy all generated JavaScript files to public folders
-     * - 3) Minify build
-     */
-    grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript', 'newer:copy:ts_files']);
-
     /**
      * grunt build task
      *
@@ -532,6 +517,33 @@ module.exports = function (grunt) {
         grunt.file.delete('.cache');
         grunt.file.delete('JavaScript');
     });
+
+    /**
+     * grunt css task
+     *
+     * call "$ grunt css"
+     *
+     * this task does the following things:
+     * - formatsass
+     * - sass
+     * - postcss
+     */
+    grunt.registerTask('css', ['formatsass', 'newer:sass', 'newer:postcss']);
+
+    // Default task.
+    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
+
+    /**
+     * grunt scripts task
+     *
+     * call "$ grunt scripts"
+     *
+     * this task does the following things:
+     * - 1) Compiles TypeScript (see compile-typescript)
+     * - 2) Copy all generated JavaScript files to public folders
+     * - 3) Minify build
+     */
+    grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript', 'newer:copy:ts_files']);
 
     /**
      * grunt update task
