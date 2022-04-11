@@ -6,6 +6,7 @@
     "yarn": "^1.22.0"
   },
   "devDependencies": {
+    "@claviska/jquery-minicolors": "^2.3.6",
     "autosize": "^5.0.1",
     "chosen-js": "^1.8.7",
     "ckeditor4": "^4.18.0",
