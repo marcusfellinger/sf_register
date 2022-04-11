@@ -140,6 +140,52 @@ module.exports = function (grunt) {
                     'jquery-ui/widget.js': 'jquery-ui/ui/widget.js',
                 }
             },
+            umdToEs6: {
+                options: {
+                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+                            let imports = [], prefix = '';
+
+                            if (srcpath === 'node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js') {
+                                imports.push('jquery');
+                            }
+
+                            if (srcpath === 'node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js') {
+                                imports.push('jquery');
+                            }
+
+                            if (srcpath === 'node_modules/imagesloaded/imagesloaded.js') {
+                                imports.push('ev-emitter');
+                            }
+
+                            if (srcpath === 'node_modules/tablesort/dist/sorts/tablesort.dotsep.min.js') {
+                                prefix = 'import Tablesort from "tablesort";';
+                            }
+
+                            return require('./util/cjs-to-esm.js').cjsToEsm(source, imports, prefix);
+                        }
+                    }
+                },
+                files: {
+                    'autosize.js': 'autosize/dist/autosize.min.js',
+                    'broadcastchannel.js': 'broadcastchannel-polyfill/index.js',
+                    'ev-emitter.js': 'ev-emitter/ev-emitter.js',
+                    'flatpickr/flatpickr.min.js': 'flatpickr/dist/flatpickr.js',
+                    'flatpickr/locales.js': 'flatpickr/dist/l10n/index.js',
+                    'imagesloaded.js': 'imagesloaded/imagesloaded.js',
+                    'jquery.js': 'jquery/dist/jquery.js',
+                    'jquery.autocomplete.js': 'devbridge-autocomplete/dist/jquery.autocomplete.min.js',
+                    'jquery/minicolors.js': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js',
+                    'moment.js': 'moment/min/moment-with-locales.min.js',
+                    'moment-timezone.js': 'moment-timezone/builds/moment-timezone-with-data.min.js',
+                    'nprogress.js': 'nprogress/nprogress.js',
+                    'sortablejs.js': 'sortablejs/dist/sortable.umd.js',
+                    'tablesort.js': 'tablesort/dist/tablesort.min.js',
+                    'tablesort.dotsep.js': 'tablesort/dist/sorts/tablesort.dotsep.min.js',
+                    'taboverride.js': 'taboverride/build/output/taboverride.js',
+                }
+            },
         },
         paths: {
             sources: 'Sources/',
