@@ -30,7 +30,7 @@ module.exports = function (grunt) {
 //                'npmcopy:ckeditor_externalplugins',
                 'npmcopy:dashboard',
 //                'npmcopy:umdToEs6',
-                'npmcopy:jqueryUi',
+//                'npmcopy:jqueryUi',
 //                'npmcopy:install',
                 'npmcopy:all'],
         },
