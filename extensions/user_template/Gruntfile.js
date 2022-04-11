@@ -561,6 +561,17 @@ module.exports = function (grunt) {
     });
 
     /**
+     * grunt compile-typescript task
+     *
+     * call "$ grunt compile-typescript"
+     *
+     * This task does the following things:
+     * - 1) Check all TypeScript files (*.ts) with ESLint which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
+     * - 2) Compiles all TypeScript files (*.ts) which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
+     */
+    grunt.registerTask('compile-typescript', ['tsconfig', 'eslint', 'exec:ts']);
+
+    /**
      * grunt css task
      *
      * call "$ grunt css"
