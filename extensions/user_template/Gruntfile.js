@@ -533,6 +533,34 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-rollup');
 
     /**
+     * Grunt stylefmt task
+     */
+    grunt.registerMultiTask('formatsass', 'Grunt task for stylefmt', function () {
+        var done = this.async(),
+            stylefmt = require('stylefmt'),
+            scss = require('postcss-scss'),
+            files = this.filesSrc.filter(function (file) {
+                return grunt.file.isFile(file);
+            }),
+            counter = 0;
+        this.files.forEach(function (file) {
+            file.src.filter(function (filepath) {
+                var content = grunt.file.read(filepath);
+                var settings = {
+                    from: filepath,
+                    syntax: scss
+                };
+                stylefmt.process(content, settings).then(function (result) {
+                    grunt.file.write(file.dest, result.css);
+                    grunt.log.success('Source file "' + filepath + '" was processed.');
+                    counter++;
+                    if (counter >= files.length) done(true);
+                });
+            });
+        });
+    });
+
+    /**
      * grunt build task
      *
      * call "$ grunt build"
