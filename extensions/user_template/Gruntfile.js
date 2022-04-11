@@ -23,7 +23,9 @@ module.exports = function (grunt) {
         },
         concurrent: {
             compile_assets: ['scripts', 'css'],
-            copy_static: ['copy:core_icons', 'copy:install_icons', 'copy:module_icons', 'copy:extension_icons', 'copy:fonts', 'copy:t3editor'],
+            copy_static: ['copy:core_icons', 'copy:install_icons',
+//                'copy:module_icons',
+                'copy:extension_icons', 'copy:fonts', 'copy:t3editor'],
             minify_assets: ['terser:thirdparty', 'terser:t3editor'],
             npmcopy: [
 //                'npmcopy:ckeditor',
