@@ -647,7 +647,8 @@ module.exports = function (grunt) {
      */
     grunt.registerTask('compile-typescript', ['tsconfig',
 //        'eslint',
-        'exec:ts']);
+//        'exec:ts'
+    ]);
 
     /**
      * grunt css task
