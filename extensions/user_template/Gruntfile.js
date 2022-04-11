@@ -494,6 +494,18 @@ module.exports = function (grunt) {
     grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
     /**
+     * grunt scripts task
+     *
+     * call "$ grunt scripts"
+     *
+     * this task does the following things:
+     * - 1) Compiles TypeScript (see compile-typescript)
+     * - 2) Copy all generated JavaScript files to public folders
+     * - 3) Minify build
+     */
+    grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript', 'newer:copy:ts_files']);
+
+    /**
      * grunt build task
      *
      * call "$ grunt build"
@@ -520,7 +532,6 @@ module.exports = function (grunt) {
         grunt.file.delete('.cache');
         grunt.file.delete('JavaScript');
     });
-
 
     /**
      * grunt update task
