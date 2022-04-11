@@ -34,6 +34,22 @@ module.exports = function (grunt) {
                     dest: '<%= paths.sysext %>core/Resources/Public/Icons/T3Icons/',
                 }]
             },
+            extension_icons: {
+                files: [
+                    {
+                        dest: '<%= paths.sysext %>form/Resources/Public/Icons/Extension.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-form.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>rte_ckeditor/Resources/Public/Icons/Extension.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-rte-ckeditor.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>linkvalidator/Resources/Public/Icons/Extension.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-linkvalidator.svg'
+                    }
+                ]
+            },
             fonts: {
                 files: [
                     {
