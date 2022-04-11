@@ -32,7 +32,7 @@ module.exports = function (grunt) {
                 'copy:t3editor'
             ],
             minify_assets: [
-                'terser:thirdparty',
+//                'terser:thirdparty',
                 'terser:t3editor'
             ],
             npmcopy: [
