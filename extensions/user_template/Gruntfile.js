@@ -674,7 +674,8 @@ module.exports = function (grunt) {
      * - 2) Copy all generated JavaScript files to public folders
      * - 3) Minify build
      */
-    grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript',
+    grunt.registerTask('scripts', ['compile-typescript',
+//        'newer:terser:typescript',
 //        'newer:copy:ts_files'
     ]);
 
