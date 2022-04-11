@@ -66,6 +66,34 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            module_icons: {
+                files: [
+                    {
+                        dest: '<%= paths.sysext %>adminpanel/Resources/Public/Icons/module-adminpanel.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-adminpanel.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-install.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-environment.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-install-environment.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-maintenance.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-install-maintenance.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-settings.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-install-settings.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-upgrade.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-install-upgrade.svg'
+                    }
+                ]
+            },
             t3editor: {
                 files: [
                     {
