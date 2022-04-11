@@ -41,6 +41,23 @@ module.exports = function (grunt) {
             }
         },
         npmcopy: {
+            ckeditor: {
+                options: {
+                    copyOptions: {
+                        // Using null encoding to allow passthrough of binary files in `process`
+                        encoding: null,
+                        // Convert CRLF to LF in plain text files to mimic git's autocrlf behaviour
+                        process: (content, srcpath) => srcpath.match(/\.(css|js|txt|html|md)$/) ? content.toString('utf8').replace(/\r\n/g, '\n') : content
+                    },
+                    destPrefix: "<%= paths.ckeditor %>Public/JavaScript/Contrib"
+                },
+                files: {
+                    'ckeditor.js': 'ckeditor4/ckeditor.js',
+                    'plugins/': 'ckeditor4/plugins/',
+                    'skins/': 'ckeditor4/skins/',
+                    'lang/': 'ckeditor4/lang/'
+                }
+            },
             ckeditor_externalplugins: {
                 options: {
                     copyOptions: {
