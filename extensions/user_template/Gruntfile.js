@@ -41,6 +41,17 @@ module.exports = function (grunt) {
             }
         },
         npmcopy: {
+            all: {
+                options: {
+                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib"
+                },
+                files: {
+                    'require.js': 'requirejs/require.js',
+                    'cropperjs.js': 'cropperjs/dist/cropper.esm.js',
+                    'es-module-shims.js': 'es-module-shims/dist/es-module-shims.js',
+                    '../../../../../backend/Resources/Public/Images/colorpicker/jquery.minicolors.png': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.png',
+                }
+            },
             ckeditor: {
                 options: {
                     copyOptions: {
