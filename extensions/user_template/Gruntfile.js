@@ -66,6 +66,16 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            install_icons: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= paths.t3icons %>svgs/install/',
+                        src: ['**/*.svg'],
+                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/modules/',
+                    }
+                ]
+            },
             module_icons: {
                 files: [
                     {
