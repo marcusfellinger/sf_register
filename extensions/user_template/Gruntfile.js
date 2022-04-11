@@ -25,6 +25,24 @@ module.exports = function (grunt) {
             copy_static: ['copy:core_icons', 'copy:install_icons', 'copy:module_icons', 'copy:extension_icons', 'copy:fonts', 'copy:t3editor'],
             npmcopy: ['npmcopy:ckeditor', 'npmcopy:ckeditor_externalplugins', 'npmcopy:dashboard', 'npmcopy:umdToEs6', 'npmcopy:jqueryUi', 'npmcopy:install', 'npmcopy:all'],
         },
+        copy: {
+            fonts: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= paths.node_modules %>source-sans-pro',
+                        src: ['WOFF/OTF/**', 'WOFF2/TTF/**'],
+                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/SourceSansPro'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= paths.node_modules %>font-awesome/fonts',
+                        src: ['**/*', '!FontAwesome.otf'],
+                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/FontAwesome'
+                    }
+                ]
+            },
+        },
         exec: {
             'yarn-install': 'yarn install'
         },
