@@ -39,6 +39,26 @@ module.exports = function(grunt) {
         ]
       }
     },
+    paths: {
+      sources: 'Sources/',
+      root: '../',
+      sass: '<%= paths.sources %>Sass/',
+      typescript: '<%= paths.sources %>TypeScript/',
+      sysext: '<%= paths.root %>typo3/sysext/',
+      form: '<%= paths.sysext %>form/Resources/',
+      dashboard: '<%= paths.sysext %>dashboard/Resources/',
+      frontend: '<%= paths.sysext %>frontend/Resources/',
+      adminpanel: '<%= paths.sysext %>adminpanel/Resources/',
+      install: '<%= paths.sysext %>install/Resources/',
+      linkvalidator: '<%= paths.sysext %>linkvalidator/Resources/',
+      backend: '<%= paths.sysext %>backend/Resources/',
+      t3editor: '<%= paths.sysext %>t3editor/Resources/',
+      workspaces: '<%= paths.sysext %>workspaces/Resources/',
+      ckeditor: '<%= paths.sysext %>rte_ckeditor/Resources/',
+      core: '<%= paths.sysext %>core/Resources/',
+      node_modules: 'node_modules/',
+      t3icons: '<%= paths.node_modules %>@typo3/icons/dist/'
+    },
     rollup: {
       options: {
         format: 'esm',
