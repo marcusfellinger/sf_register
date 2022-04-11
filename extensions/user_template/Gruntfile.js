@@ -584,6 +584,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-npmcopy');
     grunt.loadNpmTasks('grunt-rollup');
+    grunt.loadNpmTasks('grunt-terser');
 
     /**
      * Grunt stylefmt task
