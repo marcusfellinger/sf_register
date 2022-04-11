@@ -633,6 +633,25 @@ module.exports = function (grunt) {
     grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript', 'newer:copy:ts_files']);
 
     /**
+     * grunt tsconfig task
+     *
+     * call "$ grunt tsconfig"
+     *
+     * this task updates the tsconfig.json file with modules paths for all sysexts
+     */
+    grunt.task.registerTask('tsconfig', function () {
+        const config = grunt.file.readJSON("tsconfig.json");
+        const typescriptPath = grunt.config.get('paths.typescript');
+        config.compilerOptions.paths = {};
+        grunt.file.expand(typescriptPath + '*/').map(dir => dir.replace(typescriptPath, '')).forEach((path) => {
+            const extname = path.match(/^([^\/]+?)\//)[1].replace(/_/g, '-')
+            config.compilerOptions.paths['@typo3/' + extname + '/*'] = [path + '*'];
+        });
+
+        grunt.file.write('tsconfig.json', JSON.stringify(config, null, 4) + '\n');
+    });
+
+    /**
      * grunt update task
      *
      * call "$ grunt update"
