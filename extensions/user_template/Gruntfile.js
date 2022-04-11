@@ -26,6 +26,14 @@ module.exports = function (grunt) {
             npmcopy: ['npmcopy:ckeditor', 'npmcopy:ckeditor_externalplugins', 'npmcopy:dashboard', 'npmcopy:umdToEs6', 'npmcopy:jqueryUi', 'npmcopy:install', 'npmcopy:all'],
         },
         copy: {
+            core_icons: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.t3icons %>',
+                    src: ['**/*.svg', 'icons.json', '!install/*', '!module/*'],
+                    dest: '<%= paths.sysext %>core/Resources/Public/Icons/T3Icons/',
+                }]
+            },
             fonts: {
                 files: [
                     {
