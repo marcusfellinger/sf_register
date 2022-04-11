@@ -5,47 +5,70 @@ module.exports = function (grunt) {
     grunt.initConfig({
         // Metadata.
         pkg: grunt.file.readJSON('package.json'),
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-        // Task configuration.
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: true
-            },
-            dist: {
-                src: ['lib/<%= pkg.name %>.js'],
-                dest: 'dist/<%= pkg.name %>.js'
+        paths: {
+            sources: 'Sources/',
+            root: '../',
+            sass: '<%= paths.sources %>Sass/',
+            typescript: '<%= paths.sources %>TypeScript/',
+            sysext: '<%= paths.root %>typo3/sysext/',
+            form: '<%= paths.sysext %>form/Resources/',
+            dashboard: '<%= paths.sysext %>dashboard/Resources/',
+            frontend: '<%= paths.sysext %>frontend/Resources/',
+            adminpanel: '<%= paths.sysext %>adminpanel/Resources/',
+            install: '<%= paths.sysext %>install/Resources/',
+            linkvalidator: '<%= paths.sysext %>linkvalidator/Resources/',
+            backend: '<%= paths.sysext %>backend/Resources/',
+            t3editor: '<%= paths.sysext %>t3editor/Resources/',
+            workspaces: '<%= paths.sysext %>workspaces/Resources/',
+            ckeditor: '<%= paths.sysext %>rte_ckeditor/Resources/',
+            core: '<%= paths.sysext %>core/Resources/',
+            node_modules: 'node_modules/',
+            t3icons: '<%= paths.node_modules %>@typo3/icons/dist/'
+        },
+        stylelint: {},
+        formatsass: {
+            sass: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.sass %>',
+                    src: ['**/*.scss'],
+                    dest: '<%= paths.sass %>'
+                }]
             }
         },
-        concurrent: {
-            compile_assets: ['scripts', 'css'],
-            copy_static: [
-                'copy:core_icons',
-                'copy:install_icons',
-                'copy:module_icons',
-                'copy:extension_icons',
-                'copy:fonts',
-                'copy:t3editor'
-            ],
-            minify_assets: [
-//                'terser:thirdparty',
-                'terser:t3editor'
-            ],
-            npmcopy: [
-                'npmcopy:ckeditor',
-                'npmcopy:ckeditor_externalplugins',
-//                'npmcopy:dashboard',
-//                'npmcopy:umdToEs6',
-                'npmcopy:jqueryUi',
-                'npmcopy:install',
-                'npmcopy:all'
-            ],
+        sass: {},
+        postcss: {},
+        exec: {
+            ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
+            'yarn-install': 'yarn install'
+        },
+        eslint: {
+            options: {
+                cache: true,
+                cacheLocation: './.cache/eslintcache/',
+                overrideConfigFile: 'eslintrc.json'
+            },
+            files: {
+                src: [
+                    '<%= paths.typescript %>/**/*.ts',
+                    './types/**/*.ts'
+                ]
+            }
+        },
+        watch: {
+            gruntfile: {
+                files: '<%= jshint.gruntfile.src %>',
+                tasks: ['jshint:gruntfile']
+            },
+            lib_test: {
+                files: '<%= jshint.lib_test.src %>',
+                tasks: ['jshint:lib_test', 'qunit']
+            }
         },
         copy: {
+            options: {
+                punctuation: ''
+            },
             core_icons: {
                 files: [{
                     expand: true,
@@ -53,38 +76,6 @@ module.exports = function (grunt) {
                     src: ['**/*.svg', 'icons.json', '!install/*', '!module/*'],
                     dest: '<%= paths.sysext %>core/Resources/Public/Icons/T3Icons/',
                 }]
-            },
-            extension_icons: {
-                files: [
-                    {
-                        dest: '<%= paths.sysext %>form/Resources/Public/Icons/Extension.svg',
-                        src: '<%= paths.t3icons %>svgs/module/module-form.svg'
-                    },
-                    {
-                        dest: '<%= paths.sysext %>rte_ckeditor/Resources/Public/Icons/Extension.svg',
-                        src: '<%= paths.t3icons %>svgs/module/module-rte-ckeditor.svg'
-                    },
-                    {
-                        dest: '<%= paths.sysext %>linkvalidator/Resources/Public/Icons/Extension.svg',
-                        src: '<%= paths.t3icons %>svgs/module/module-linkvalidator.svg'
-                    }
-                ]
-            },
-            fonts: {
-                files: [
-                    {
-                        expand: true,
-                        cwd: '<%= paths.node_modules %>source-sans-pro',
-                        src: ['WOFF/OTF/**', 'WOFF2/TTF/**'],
-                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/SourceSansPro'
-                    },
-                    {
-                        expand: true,
-                        cwd: '<%= paths.node_modules %>font-awesome/fonts',
-                        src: ['**/*', '!FontAwesome.otf'],
-                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/FontAwesome'
-                    }
-                ]
             },
             install_icons: {
                 files: [
@@ -124,8 +115,37 @@ module.exports = function (grunt) {
                     }
                 ]
             },
-            options: {
-                punctuation: ''
+            extension_icons: {
+                files: [
+                    {
+                        dest: '<%= paths.sysext %>form/Resources/Public/Icons/Extension.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-form.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>rte_ckeditor/Resources/Public/Icons/Extension.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-rte-ckeditor.svg'
+                    },
+                    {
+                        dest: '<%= paths.sysext %>linkvalidator/Resources/Public/Icons/Extension.svg',
+                        src: '<%= paths.t3icons %>svgs/module/module-linkvalidator.svg'
+                    }
+                ]
+            },
+            fonts: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= paths.node_modules %>source-sans-pro',
+                        src: ['WOFF/OTF/**', 'WOFF2/TTF/**'],
+                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/SourceSansPro'
+                    },
+                    {
+                        expand: true,
+                        cwd: '<%= paths.node_modules %>font-awesome/fonts',
+                        src: ['**/*', '!FontAwesome.otf'],
+                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/FontAwesome'
+                    }
+                ]
             },
             t3editor: {
                 files: [
@@ -138,252 +158,10 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        eslint: {
-            options: {
-                cache: true,
-                cacheLocation: './.cache/eslintcache/',
-                overrideConfigFile: 'eslintrc.json'
-            },
-            files: {
-                src: [
-                    '<%= paths.typescript %>/**/*.ts',
-                    './types/**/*.ts'
-                ]
-            }
-        },
-        exec: {
-            ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
-            'yarn-install': 'yarn install'
-        },
-        formatsass: {
-            sass: {
-                files: [{
-                    expand: true,
-                    cwd: '<%= paths.sass %>',
-                    src: ['**/*.scss'],
-                    dest: '<%= paths.sass %>'
-                }]
-            }
-        },
-        imagemin: {
-            flags: {
-                files: [
-                    {
-                        cwd: '<%= paths.sysext %>core/Resources/Public/Icons/Flags',
-                        src: ['**/*.{png,jpg,gif}'],
-                        dest: '<%= paths.sysext %>core/Resources/Public/Icons/Flags',
-                        expand: true
-                    }
-                ]
-            }
-        },
         newer: {
             options: {
                 cache: './.cache/grunt-newer/'
             }
-        },
-        npmcopy: {
-            all: {
-                options: {
-                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib"
-                },
-                files: {
-                    'require.js': 'requirejs/require.js',
-                    'cropperjs.js': 'cropperjs/dist/cropper.esm.js',
-                    'es-module-shims.js': 'es-module-shims/dist/es-module-shims.js',
-                    '../../../../../backend/Resources/Public/Images/colorpicker/jquery.minicolors.png': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.png',
-                }
-            },
-            ckeditor: {
-                options: {
-                    copyOptions: {
-                        // Using null encoding to allow passthrough of binary files in `process`
-                        encoding: null,
-                        // Convert CRLF to LF in plain text files to mimic git's autocrlf behaviour
-                        process: (content, srcpath) => srcpath.match(/\.(css|js|txt|html|md)$/) ? content.toString('utf8').replace(/\r\n/g, '\n') : content
-                    },
-                    destPrefix: "<%= paths.ckeditor %>Public/JavaScript/Contrib"
-                },
-                files: {
-                    'ckeditor.js': 'ckeditor4/ckeditor.js',
-                    'plugins/': 'ckeditor4/plugins/',
-                    'skins/': 'ckeditor4/skins/',
-                    'lang/': 'ckeditor4/lang/'
-                }
-            },
-            ckeditor_externalplugins: {
-                options: {
-                    copyOptions: {
-                        // Using null encoding to allow passthrough of binary files in `process`
-                        encoding: null,
-                        // Convert CRLF to LF in plain text files to mimic git's autocrlf behaviour
-                        process: (content, srcpath) => srcpath.match(/\.(css|js|txt|html|md)$/) ? content.toString('utf8').replace(/\r\n/g, '\n') : content
-                    },
-                    destPrefix: "<%= paths.ckeditor %>Public/JavaScript/Contrib/plugins"
-                },
-                files: {
-                    'wordcount/plugin.js': 'ckeditor-wordcount-plugin/wordcount/plugin.js',
-                    'wordcount/lang/': 'ckeditor-wordcount-plugin/wordcount/lang/',
-                    'wordcount/css/': 'ckeditor-wordcount-plugin/wordcount/css/',
-                }
-            },
-            dashboard: {
-                options: {
-                    destPrefix: "<%= paths.dashboard %>Public",
-                    copyOptions: {
-                        process: (source, srcpath) => {
-                            if (srcpath.match(/.*\.js$/)) {
-                                const imports = [];
-
-                                if (srcpath === 'node_modules/chart.js/dist/Chart.min.js') {
-                                    imports.push('moment');
-                                }
-                                return require('./util/cjs-to-esm.js').cjsToEsm(source, imports);
-                            }
-
-                            return source;
-                        }
-                    }
-                },
-                files: {
-                    'JavaScript/Contrib/muuri.js': 'muuri/dist/muuri.min.js',
-                    'JavaScript/Contrib/chartjs.js': 'chart.js/dist/Chart.min.js',
-                    'JavaScript/Contrib/web-animate.js': 'web-animate/dist/web-animate.min.js',
-                    'Css/Contrib/chart.css': 'chart.js/dist/Chart.min.css'
-                }
-            },
-            install: {
-                options: {
-                    destPrefix: "<%= paths.install %>Public/JavaScript",
-                    copyOptions: {
-                        process: (source, srcpath) => {
-                            if (srcpath === 'node_modules/chosen-js/chosen.jquery.js') {
-                                source = 'import jQuery from \'jquery\';\n' + source;
-                            }
-
-                            return source;
-                        }
-                    }
-                },
-                files: {
-                    'chosen.jquery.min.js': 'chosen-js/chosen.jquery.js',
-                }
-            },
-            jqueryUi: {
-                options: {
-                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
-                    copyOptions: {
-                        process: (source, srcpath) => {
-
-                            const imports = {
-                                core: [],
-                                draggable: ['core', 'mouse', 'widget'],
-                                droppable: ['core', 'widget', 'mouse', 'draggable'],
-                                mouse: ['widget'],
-                                position: [],
-                                resizable: ['core', 'mouse', 'widget'],
-                                selectable: ['core', 'mouse', 'widget'],
-                                sortable: ['core', 'mouse', 'widget'],
-                                widget: []
-                            };
-
-                            const moduleName = require('path').basename(srcpath, '.js');
-
-                            const code = [
-                                'import jQuery from "jquery";',
-                            ];
-
-                            if (moduleName in imports) {
-                                imports[moduleName].forEach(importName => {
-                                    code.push('import "jquery-ui/' + importName + '.js";');
-                                });
-                            }
-
-                            code.push('let define = null;');
-                            code.push(source);
-
-                            return code.join('\n');
-                        }
-                    }
-                },
-                files: {
-                    'jquery-ui/core.js': 'jquery-ui/ui/core.js',
-                    'jquery-ui/draggable.js': 'jquery-ui/ui/draggable.js',
-                    'jquery-ui/droppable.js': 'jquery-ui/ui/droppable.js',
-                    'jquery-ui/mouse.js': 'jquery-ui/ui/mouse.js',
-                    'jquery-ui/position.js': 'jquery-ui/ui/position.js',
-                    'jquery-ui/resizable.js': 'jquery-ui/ui/resizable.js',
-                    'jquery-ui/selectable.js': 'jquery-ui/ui/selectable.js',
-                    'jquery-ui/sortable.js': 'jquery-ui/ui/sortable.js',
-                    'jquery-ui/widget.js': 'jquery-ui/ui/widget.js',
-                }
-            },
-            umdToEs6: {
-                options: {
-                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
-                    copyOptions: {
-                        process: (source, srcpath) => {
-                            let imports = [], prefix = '';
-
-                            if (srcpath === 'node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js') {
-                                imports.push('jquery');
-                            }
-
-                            if (srcpath === 'node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js') {
-                                imports.push('jquery');
-                            }
-
-                            if (srcpath === 'node_modules/imagesloaded/imagesloaded.js') {
-                                imports.push('ev-emitter');
-                            }
-
-                            if (srcpath === 'node_modules/tablesort/dist/sorts/tablesort.dotsep.min.js') {
-                                prefix = 'import Tablesort from "tablesort";';
-                            }
-
-                            return require('./util/cjs-to-esm.js').cjsToEsm(source, imports, prefix);
-                        }
-                    }
-                },
-                files: {
-                    'autosize.js': 'autosize/dist/autosize.min.js',
-                    'broadcastchannel.js': 'broadcastchannel-polyfill/index.js',
-                    'ev-emitter.js': 'ev-emitter/ev-emitter.js',
-                    'flatpickr/flatpickr.min.js': 'flatpickr/dist/flatpickr.js',
-                    'flatpickr/locales.js': 'flatpickr/dist/l10n/index.js',
-                    'imagesloaded.js': 'imagesloaded/imagesloaded.js',
-                    'jquery.js': 'jquery/dist/jquery.js',
-                    'jquery.autocomplete.js': 'devbridge-autocomplete/dist/jquery.autocomplete.min.js',
-                    'jquery/minicolors.js': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js',
-                    'moment.js': 'moment/min/moment-with-locales.min.js',
-                    'moment-timezone.js': 'moment-timezone/builds/moment-timezone-with-data.min.js',
-                    'nprogress.js': 'nprogress/nprogress.js',
-                    'sortablejs.js': 'sortablejs/dist/sortable.umd.js',
-                    'tablesort.js': 'tablesort/dist/tablesort.min.js',
-                    'tablesort.dotsep.js': 'tablesort/dist/sorts/tablesort.dotsep.min.js',
-                    'taboverride.js': 'taboverride/build/output/taboverride.js',
-                }
-            },
-        },
-        paths: {
-            sources: 'Sources/',
-            root: '../',
-            sass: '<%= paths.sources %>Sass/',
-            typescript: '<%= paths.sources %>TypeScript/',
-            sysext: '<%= paths.root %>typo3/sysext/',
-            form: '<%= paths.sysext %>form/Resources/',
-            dashboard: '<%= paths.sysext %>dashboard/Resources/',
-            frontend: '<%= paths.sysext %>frontend/Resources/',
-            adminpanel: '<%= paths.sysext %>adminpanel/Resources/',
-            install: '<%= paths.sysext %>install/Resources/',
-            linkvalidator: '<%= paths.sysext %>linkvalidator/Resources/',
-            backend: '<%= paths.sysext %>backend/Resources/',
-            t3editor: '<%= paths.sysext %>t3editor/Resources/',
-            workspaces: '<%= paths.sysext %>workspaces/Resources/',
-            ckeditor: '<%= paths.sysext %>rte_ckeditor/Resources/',
-            core: '<%= paths.sysext %>core/Resources/',
-            node_modules: 'node_modules/',
-            t3icons: '<%= paths.node_modules %>@typo3/icons/dist/'
         },
         rollup: {
             options: {
@@ -482,23 +260,190 @@ module.exports = function (grunt) {
                 }
             }
         },
-        terser: {
-            t3editor: {
-                files: [
-                    {
-                        expand: true,
-                        src: [
-                            '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror/**/*.js',
-                            '!<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror/**/*.min.js'
-                        ],
-                        dest: '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror',
-                        cwd: '.',
-                        rename: function (dest, src) {
-                            return src;
+        npmcopy: {
+            ckeditor: {
+                options: {
+                    copyOptions: {
+                        // Using null encoding to allow passthrough of binary files in `process`
+                        encoding: null,
+                        // Convert CRLF to LF in plain text files to mimic git's autocrlf behaviour
+                        process: (content, srcpath) => srcpath.match(/\.(css|js|txt|html|md)$/) ? content.toString('utf8').replace(/\r\n/g, '\n') : content
+                    },
+                    destPrefix: "<%= paths.ckeditor %>Public/JavaScript/Contrib"
+                },
+                files: {
+                    'ckeditor.js': 'ckeditor4/ckeditor.js',
+                    'plugins/': 'ckeditor4/plugins/',
+                    'skins/': 'ckeditor4/skins/',
+                    'lang/': 'ckeditor4/lang/'
+                }
+            },
+            ckeditor_externalplugins: {
+                options: {
+                    copyOptions: {
+                        // Using null encoding to allow passthrough of binary files in `process`
+                        encoding: null,
+                        // Convert CRLF to LF in plain text files to mimic git's autocrlf behaviour
+                        process: (content, srcpath) => srcpath.match(/\.(css|js|txt|html|md)$/) ? content.toString('utf8').replace(/\r\n/g, '\n') : content
+                    },
+                    destPrefix: "<%= paths.ckeditor %>Public/JavaScript/Contrib/plugins"
+                },
+                files: {
+                    'wordcount/plugin.js': 'ckeditor-wordcount-plugin/wordcount/plugin.js',
+                    'wordcount/lang/': 'ckeditor-wordcount-plugin/wordcount/lang/',
+                    'wordcount/css/': 'ckeditor-wordcount-plugin/wordcount/css/',
+                }
+            },
+            dashboard: {
+                options: {
+                    destPrefix: "<%= paths.dashboard %>Public",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+                            if (srcpath.match(/.*\.js$/)) {
+                                const imports = [];
+
+                                if (srcpath === 'node_modules/chart.js/dist/Chart.min.js') {
+                                    imports.push('moment');
+                                }
+                                return require('./util/cjs-to-esm.js').cjsToEsm(source, imports);
+                            }
+
+                            return source;
                         }
                     }
-                ]
+                },
+                files: {
+                    'JavaScript/Contrib/muuri.js': 'muuri/dist/muuri.min.js',
+                    'JavaScript/Contrib/chartjs.js': 'chart.js/dist/Chart.min.js',
+                    'JavaScript/Contrib/web-animate.js': 'web-animate/dist/web-animate.min.js',
+                    'Css/Contrib/chart.css': 'chart.js/dist/Chart.min.css'
+                }
             },
+            umdToEs6: {
+                options: {
+                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+                            let imports = [], prefix = '';
+
+                            if (srcpath === 'node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js') {
+                                imports.push('jquery');
+                            }
+
+                            if (srcpath === 'node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js') {
+                                imports.push('jquery');
+                            }
+
+                            if (srcpath === 'node_modules/imagesloaded/imagesloaded.js') {
+                                imports.push('ev-emitter');
+                            }
+
+                            if (srcpath === 'node_modules/tablesort/dist/sorts/tablesort.dotsep.min.js') {
+                                prefix = 'import Tablesort from "tablesort";';
+                            }
+
+                            return require('./util/cjs-to-esm.js').cjsToEsm(source, imports, prefix);
+                        }
+                    }
+                },
+                files: {
+                    'autosize.js': 'autosize/dist/autosize.min.js',
+                    'broadcastchannel.js': 'broadcastchannel-polyfill/index.js',
+                    'ev-emitter.js': 'ev-emitter/ev-emitter.js',
+                    'flatpickr/flatpickr.min.js': 'flatpickr/dist/flatpickr.js',
+                    'flatpickr/locales.js': 'flatpickr/dist/l10n/index.js',
+                    'imagesloaded.js': 'imagesloaded/imagesloaded.js',
+                    'jquery.js': 'jquery/dist/jquery.js',
+                    'jquery.autocomplete.js': 'devbridge-autocomplete/dist/jquery.autocomplete.min.js',
+                    'jquery/minicolors.js': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js',
+                    'moment.js': 'moment/min/moment-with-locales.min.js',
+                    'moment-timezone.js': 'moment-timezone/builds/moment-timezone-with-data.min.js',
+                    'nprogress.js': 'nprogress/nprogress.js',
+                    'sortablejs.js': 'sortablejs/dist/sortable.umd.js',
+                    'tablesort.js': 'tablesort/dist/tablesort.min.js',
+                    'tablesort.dotsep.js': 'tablesort/dist/sorts/tablesort.dotsep.min.js',
+                    'taboverride.js': 'taboverride/build/output/taboverride.js',
+                }
+            },
+            install: {
+                options: {
+                    destPrefix: "<%= paths.install %>Public/JavaScript",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+                            if (srcpath === 'node_modules/chosen-js/chosen.jquery.js') {
+                                source = 'import jQuery from \'jquery\';\n' + source;
+                            }
+
+                            return source;
+                        }
+                    }
+                },
+                files: {
+                    'chosen.jquery.min.js': 'chosen-js/chosen.jquery.js',
+                }
+            },
+            jqueryUi: {
+                options: {
+                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+
+                            const imports = {
+                                core: [],
+                                draggable: ['core', 'mouse', 'widget'],
+                                droppable: ['core', 'widget', 'mouse', 'draggable'],
+                                mouse: ['widget'],
+                                position: [],
+                                resizable: ['core', 'mouse', 'widget'],
+                                selectable: ['core', 'mouse', 'widget'],
+                                sortable: ['core', 'mouse', 'widget'],
+                                widget: []
+                            };
+
+                            const moduleName = require('path').basename(srcpath, '.js');
+
+                            const code = [
+                                'import jQuery from "jquery";',
+                            ];
+
+                            if (moduleName in imports) {
+                                imports[moduleName].forEach(importName => {
+                                    code.push('import "jquery-ui/' + importName + '.js";');
+                                });
+                            }
+
+                            code.push('let define = null;');
+                            code.push(source);
+
+                            return code.join('\n');
+                        }
+                    }
+                },
+                files: {
+                    'jquery-ui/core.js': 'jquery-ui/ui/core.js',
+                    'jquery-ui/draggable.js': 'jquery-ui/ui/draggable.js',
+                    'jquery-ui/droppable.js': 'jquery-ui/ui/droppable.js',
+                    'jquery-ui/mouse.js': 'jquery-ui/ui/mouse.js',
+                    'jquery-ui/position.js': 'jquery-ui/ui/position.js',
+                    'jquery-ui/resizable.js': 'jquery-ui/ui/resizable.js',
+                    'jquery-ui/selectable.js': 'jquery-ui/ui/selectable.js',
+                    'jquery-ui/sortable.js': 'jquery-ui/ui/sortable.js',
+                    'jquery-ui/widget.js': 'jquery-ui/ui/widget.js',
+                }
+            },
+            all: {
+                options: {
+                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib"
+                },
+                files: {
+                    'require.js': 'requirejs/require.js',
+                    'cropperjs.js': 'cropperjs/dist/cropper.esm.js',
+                    'es-module-shims.js': 'es-module-shims/dist/es-module-shims.js',
+                    '../../../../../backend/Resources/Public/Images/colorpicker/jquery.minicolors.png': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.png',
+                }
+            },
+        },
+        terser: {
             thirdparty: {
                 files: {
                     "<%= paths.core %>Public/JavaScript/Contrib/es-module-shims.js": ["<%= paths.core %>Public/JavaScript/Contrib/es-module-shims.js"],
@@ -523,6 +468,57 @@ module.exports = function (grunt) {
                     "<%= paths.install %>Public/JavaScript/chosen.jquery.min.js": ["<%= paths.install %>Public/JavaScript/chosen.jquery.min.js"]
                 }
             },
+            t3editor: {
+                files: [
+                    {
+                        expand: true,
+                        src: [
+                            '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror/**/*.js',
+                            '!<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror/**/*.min.js'
+                        ],
+                        dest: '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror',
+                        cwd: '.',
+                        rename: function (dest, src) {
+                            return src;
+                        }
+                    }
+                ]
+            },
+        },
+        imagemin: {
+            flags: {
+                files: [
+                    {
+                        cwd: '<%= paths.sysext %>core/Resources/Public/Icons/Flags',
+                        src: ['**/*.{png,jpg,gif}'],
+                        dest: '<%= paths.sysext %>core/Resources/Public/Icons/Flags',
+                        expand: true
+                    }
+                ]
+            }
+        },
+        lintspaces: {},
+        concurrent: {
+            npmcopy: ['npmcopy:ckeditor', 'npmcopy:ckeditor_externalplugins', 'npmcopy:dashboard', 'npmcopy:umdToEs6', 'npmcopy:jqueryUi', 'npmcopy:install', 'npmcopy:all'],
+            compile_assets: ['scripts', 'css'],
+            minify_assets: ['terser:thirdparty', 'terser:t3editor'],
+            copy_static: ['copy:core_icons', 'copy:install_icons', 'copy:module_icons', 'copy:extension_icons', 'copy:fonts', 'copy:t3editor'],
+        },
+        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
+            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
+            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
+            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
+            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
+        // Task configuration.
+        concat: {
+            options: {
+                banner: '<%= banner %>',
+                stripBanners: true
+            },
+            dist: {
+                src: ['lib/<%= pkg.name %>.js'],
+                dest: 'dist/<%= pkg.name %>.js'
+            }
         },
         uglify: {
             options: {
@@ -558,34 +554,28 @@ module.exports = function (grunt) {
         },
         qunit: {
             files: ['test/**/*.html']
-        },
-        watch: {
-            gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
-            },
-            lib_test: {
-                files: '<%= jshint.lib_test.src %>',
-                tasks: ['jshint:lib_test', 'qunit']
-            }
         }
     });
 
     // These plugins provide necessary tasks.
+    grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-rollup');
+    grunt.loadNpmTasks('grunt-npmcopy');
+    grunt.loadNpmTasks('grunt-terser');
+    grunt.loadNpmTasks('grunt-postcss');
+    grunt.loadNpmTasks('grunt-contrib-copy');
+    grunt.loadNpmTasks('grunt-exec');
+    grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-concurrent');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-copy');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-eslint');
-    grunt.loadNpmTasks('grunt-exec');
-    grunt.loadNpmTasks('grunt-newer');
-    grunt.loadNpmTasks('grunt-npmcopy');
-    grunt.loadNpmTasks('grunt-rollup');
-    grunt.loadNpmTasks('grunt-terser');
+
+    // Default task.
+    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
     /**
      * Grunt stylefmt task
@@ -616,19 +606,50 @@ module.exports = function (grunt) {
     });
 
     /**
-     * grunt build task
+     * grunt css task
      *
-     * call "$ grunt build"
+     * call "$ grunt css"
      *
      * this task does the following things:
-     * - execute update task
-     * - execute copy task
-     * - compile sass files
-     * - uglify js files
-     * - minifies svg files
-     * - compiles TypeScript files
+     * - formatsass
+     * - sass
+     * - postcss
      */
-    grunt.registerTask('build', ['clear-build', 'update', 'concurrent:copy_static', 'concurrent:compile_assets', 'concurrent:minify_assets', 'imagemin']);
+    grunt.registerTask('css', ['formatsass', 'newer:sass', 'newer:postcss']);
+
+    /**
+     * grunt update task
+     *
+     * call "$ grunt update"
+     *
+     * this task does the following things:
+     * - yarn install
+     * - copy some components to a specific destinations because they need to be included via PHP
+     */
+    grunt.registerTask('update', ['exec:yarn-install', 'rollup', 'concurrent:npmcopy']);
+
+    /**
+     * grunt compile-typescript task
+     *
+     * call "$ grunt compile-typescript"
+     *
+     * This task does the following things:
+     * - 1) Check all TypeScript files (*.ts) with ESLint which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
+     * - 2) Compiles all TypeScript files (*.ts) which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
+     */
+    grunt.registerTask('compile-typescript', ['tsconfig', 'eslint', 'exec:ts']);
+
+    /**
+     * grunt scripts task
+     *
+     * call "$ grunt scripts"
+     *
+     * this task does the following things:
+     * - 1) Compiles TypeScript (see compile-typescript)
+     * - 2) Copy all generated JavaScript files to public folders
+     * - 3) Minify build
+     */
+    grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript', 'newer:copy:ts_files']);
 
     /**
      * grunt clear-build task
@@ -642,51 +663,6 @@ module.exports = function (grunt) {
         grunt.file.delete('.cache');
         grunt.file.delete('JavaScript');
     });
-
-    /**
-     * grunt compile-typescript task
-     *
-     * call "$ grunt compile-typescript"
-     *
-     * This task does the following things:
-     * - 1) Check all TypeScript files (*.ts) with ESLint which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
-     * - 2) Compiles all TypeScript files (*.ts) which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
-     */
-    grunt.registerTask('compile-typescript', [
-        'tsconfig',
-        'eslint',
-        'exec:ts'
-    ]);
-
-    /**
-     * grunt css task
-     *
-     * call "$ grunt css"
-     *
-     * this task does the following things:
-     * - formatsass
-     * - sass
-     * - postcss
-     */
-    grunt.registerTask('css', ['formatsass', 'newer:sass', 'newer:postcss']);
-
-    // Default task.
-    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
-
-    /**
-     * grunt scripts task
-     *
-     * call "$ grunt scripts"
-     *
-     * this task does the following things:
-     * - 1) Compiles TypeScript (see compile-typescript)
-     * - 2) Copy all generated JavaScript files to public folders
-     * - 3) Minify build
-     */
-    grunt.registerTask('scripts', ['compile-typescript',
-        'newer:terser:typescript',
-        'newer:copy:ts_files'
-    ]);
 
     /**
      * grunt tsconfig task
@@ -708,17 +684,17 @@ module.exports = function (grunt) {
     });
 
     /**
-     * grunt update task
+     * grunt build task
      *
-     * call "$ grunt update"
+     * call "$ grunt build"
      *
      * this task does the following things:
-     * - yarn install
-     * - copy some components to a specific destinations because they need to be included via PHP
+     * - execute update task
+     * - execute copy task
+     * - compile sass files
+     * - uglify js files
+     * - minifies svg files
+     * - compiles TypeScript files
      */
-    grunt.registerTask('update', [
-        'exec:yarn-install',
-//        'rollup',
-        'concurrent:npmcopy'
-    ]);
+    grunt.registerTask('build', ['clear-build', 'update', 'concurrent:copy_static', 'concurrent:compile_assets', 'concurrent:minify_assets', 'imagemin']);
 };
