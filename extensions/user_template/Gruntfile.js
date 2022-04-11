@@ -580,6 +580,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-npmcopy');
