@@ -432,6 +432,24 @@ module.exports = function (grunt) {
                 }
             }
         },
+        terser: {
+            t3editor: {
+                files: [
+                    {
+                        expand: true,
+                        src: [
+                            '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror/**/*.js',
+                            '!<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror/**/*.min.js'
+                        ],
+                        dest: '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror',
+                        cwd: '.',
+                        rename: function (dest, src) {
+                            return src;
+                        }
+                    }
+                ]
+            },
+        },
         uglify: {
             options: {
                 banner: '<%= banner %>'
