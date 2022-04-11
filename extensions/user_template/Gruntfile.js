@@ -39,6 +39,103 @@ module.exports = function(grunt) {
         ]
       }
     },
+    rollup: {
+      options: {
+        format: 'esm',
+        entryFileNames: '[name].js'
+      },
+      'd3-selection': {
+        options: {
+          preserveModules: false,
+          plugins: () => [
+            {
+              name: 'terser',
+              renderChunk: code => require('terser').minify(code, grunt.config.get('terser.options'))
+            }
+          ]
+        },
+        files: {
+          '<%= paths.core %>Public/JavaScript/Contrib/d3-selection.js': [
+            'node_modules/d3-selection/src/index.js'
+          ]
+        }
+      },
+      'd3-dispatch': {
+        options: {
+          preserveModules: false,
+          plugins: () => [
+            {
+              name: 'terser',
+              renderChunk: code => require('terser').minify(code, grunt.config.get('terser.options'))
+            }
+          ]
+        },
+        files: {
+          '<%= paths.core %>Public/JavaScript/Contrib/d3-dispatch.js': [
+            'node_modules/d3-dispatch/src/index.js'
+          ]
+        }
+      },
+      'd3-drag': {
+        options: {
+          preserveModules: false,
+          plugins: () => [
+            {
+              name: 'terser',
+              renderChunk: code => require('terser').minify(code, grunt.config.get('terser.options'))
+            },
+            {
+              name: 'externals',
+              resolveId: (source) => {
+                if (source === 'd3-selection') {
+                  return {id: 'd3-selection', external: true}
+                }
+                if (source === 'd3-dispatch') {
+                  return {id: 'd3-dispatch', external: true}
+                }
+                return null
+              }
+            }
+          ]
+        },
+        files: {
+          '<%= paths.core %>Public/JavaScript/Contrib/d3-drag.js': [
+            'node_modules/d3-drag/src/index.js'
+          ]
+        }
+      },
+      'bootstrap': {
+        options: {
+          preserveModules: false,
+          plugins: () => [
+            {
+              name: 'terser',
+              renderChunk: code => require('terser').minify(code, grunt.config.get('terser.options'))
+            },
+            {
+              name: 'externals',
+              resolveId: (source) => {
+                if (source === 'jquery') {
+                  return {id: 'jquery', external: true}
+                }
+                if (source === 'bootstrap') {
+                  return {id: 'node_modules/bootstrap/dist/js/bootstrap.esm.js'}
+                }
+                if (source === '@popperjs/core') {
+                  return {id: 'node_modules/@popperjs/core/dist/esm/index.js'}
+                }
+                return null
+              }
+            }
+          ]
+        },
+        files: {
+          '<%= paths.core %>Public/JavaScript/Contrib/bootstrap.js': [
+            'Sources/JavaScript/core/Resources/Public/JavaScript/Contrib/bootstrap.js'
+          ]
+        }
+      }
+    },
     uglify: {
       options: {
         banner: '<%= banner %>'
@@ -95,6 +192,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-qunit');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-rollup');
 
   // Default task.
   grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
