@@ -32,7 +32,8 @@ module.exports = function (grunt) {
 //                'npmcopy:umdToEs6',
 //                'npmcopy:jqueryUi',
 //                'npmcopy:install',
-                'npmcopy:all'],
+//                'npmcopy:all'
+            ],
         },
         copy: {
             core_icons: {
