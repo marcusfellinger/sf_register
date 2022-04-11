@@ -28,7 +28,7 @@ module.exports = function (grunt) {
             npmcopy: [
 //                'npmcopy:ckeditor',
 //                'npmcopy:ckeditor_externalplugins',
-                'npmcopy:dashboard',
+//                'npmcopy:dashboard',
 //                'npmcopy:umdToEs6',
 //                'npmcopy:jqueryUi',
 //                'npmcopy:install',
