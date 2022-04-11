@@ -50,6 +50,16 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            t3editor: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: '<%= paths.node_modules %>codemirror',
+                        dest: '<%= paths.t3editor %>Public/JavaScript/Contrib/codemirror',
+                        src: ['**/*', '!**/src/**', '!rollup.config.js']
+                    }
+                ]
+            }
         },
         exec: {
             'yarn-install': 'yarn install'
