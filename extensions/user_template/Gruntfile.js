@@ -27,7 +27,7 @@ module.exports = function (grunt) {
                 'copy:core_icons',
                 'copy:install_icons',
                 'copy:module_icons',
-//                'copy:extension_icons',
+                'copy:extension_icons',
 //                'copy:fonts',
 //                'copy:t3editor'
             ],
