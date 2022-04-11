@@ -31,7 +31,10 @@ module.exports = function (grunt) {
 //                'copy:fonts',
 //                'copy:t3editor'
             ],
-            minify_assets: ['terser:thirdparty', 'terser:t3editor'],
+            minify_assets: [
+//                'terser:thirdparty',
+                'terser:t3editor'
+            ],
             npmcopy: [
 //                'npmcopy:ckeditor',
 //                'npmcopy:ckeditor_externalplugins',
