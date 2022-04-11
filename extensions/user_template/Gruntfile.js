@@ -32,17 +32,17 @@ module.exports = function (grunt) {
                 'copy:t3editor'
             ],
             minify_assets: [
-//                'terser:thirdparty',
-//                'terser:t3editor'
+                'terser:thirdparty',
+                'terser:t3editor'
             ],
             npmcopy: [
-//                'npmcopy:ckeditor',
-//                'npmcopy:ckeditor_externalplugins',
-//                'npmcopy:dashboard',
-//                'npmcopy:umdToEs6',
-//                'npmcopy:jqueryUi',
-//                'npmcopy:install',
-//                'npmcopy:all'
+                'npmcopy:ckeditor',
+                'npmcopy:ckeditor_externalplugins',
+                'npmcopy:dashboard',
+                'npmcopy:umdToEs6',
+                'npmcopy:jqueryUi',
+                'npmcopy:install',
+                'npmcopy:all'
             ],
         },
         copy: {
@@ -582,6 +582,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-npmcopy');
     grunt.loadNpmTasks('grunt-rollup');
 
     /**
@@ -650,9 +651,9 @@ module.exports = function (grunt) {
      * - 2) Compiles all TypeScript files (*.ts) which are located in sysext/<EXTKEY>/Resources/Private/TypeScript/*.ts
      */
     grunt.registerTask('compile-typescript', [
-//        'tsconfig',
-//        'eslint',
-//        'exec:ts'
+        'tsconfig',
+        'eslint',
+        'exec:ts'
     ]);
 
     /**
@@ -681,8 +682,8 @@ module.exports = function (grunt) {
      * - 3) Minify build
      */
     grunt.registerTask('scripts', ['compile-typescript',
-//        'newer:terser:typescript',
-//        'newer:copy:ts_files'
+        'newer:terser:typescript',
+        'newer:copy:ts_files'
     ]);
 
     /**
