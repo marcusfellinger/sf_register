@@ -1,6 +1,9 @@
-rootPageId: 1
 base: 'https://www.cg-grafing.de/'
-baseVariants: {  }
+baseVariants:
+  -
+    base: 'https://cg-grafing.ddev.site'
+    condition: 'getenv("IS_DDEV_PROJECT") == "true"'
+errorHandling: {  }
 languages:
   -
     title: Deutsch
@@ -14,8 +17,7 @@ languages:
     hreflang: ''
     direction: ''
     flag: de
-errorHandling: {  }
-routes: {  }
+rootPageId: 1
 routeEnhancers:
   News:
     type: Extbase
@@ -25,7 +27,8 @@ routeEnhancers:
       - 5
       - 17
     routes:
-      - routePath: '/{news-title}'
+      -
+        routePath: '/{news-title}'
         _controller: 'News::detail'
         _arguments:
           news-title: news
@@ -34,3 +37,4 @@ routeEnhancers:
         type: PersistedAliasMapper
         tableName: tx_news_domain_model_news
         routeFieldName: path_segment
+routes: {  }
