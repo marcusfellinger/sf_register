@@ -58,6 +58,55 @@ module.exports = function (grunt) {
                     'chosen.jquery.min.js': 'chosen-js/chosen.jquery.js',
                 }
             },
+            jqueryUi: {
+                options: {
+                    destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+
+                            const imports = {
+                                core: [],
+                                draggable: ['core', 'mouse', 'widget'],
+                                droppable: ['core', 'widget', 'mouse', 'draggable'],
+                                mouse: ['widget'],
+                                position: [],
+                                resizable: ['core', 'mouse', 'widget'],
+                                selectable: ['core', 'mouse', 'widget'],
+                                sortable: ['core', 'mouse', 'widget'],
+                                widget: []
+                            };
+
+                            const moduleName = require('path').basename(srcpath, '.js');
+
+                            const code = [
+                                'import jQuery from "jquery";',
+                            ];
+
+                            if (moduleName in imports) {
+                                imports[moduleName].forEach(importName => {
+                                    code.push('import "jquery-ui/' + importName + '.js";');
+                                });
+                            }
+
+                            code.push('let define = null;');
+                            code.push(source);
+
+                            return code.join('\n');
+                        }
+                    }
+                },
+                files: {
+                    'jquery-ui/core.js': 'jquery-ui/ui/core.js',
+                    'jquery-ui/draggable.js': 'jquery-ui/ui/draggable.js',
+                    'jquery-ui/droppable.js': 'jquery-ui/ui/droppable.js',
+                    'jquery-ui/mouse.js': 'jquery-ui/ui/mouse.js',
+                    'jquery-ui/position.js': 'jquery-ui/ui/position.js',
+                    'jquery-ui/resizable.js': 'jquery-ui/ui/resizable.js',
+                    'jquery-ui/selectable.js': 'jquery-ui/ui/selectable.js',
+                    'jquery-ui/sortable.js': 'jquery-ui/ui/sortable.js',
+                    'jquery-ui/widget.js': 'jquery-ui/ui/widget.js',
+                }
+            },
         },
         paths: {
             sources: 'Sources/',
