@@ -40,6 +40,25 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        npmcopy: {
+            install: {
+                options: {
+                    destPrefix: "<%= paths.install %>Public/JavaScript",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+                            if (srcpath === 'node_modules/chosen-js/chosen.jquery.js') {
+                                source = 'import jQuery from \'jquery\';\n' + source;
+                            }
+
+                            return source;
+                        }
+                    }
+                },
+                files: {
+                    'chosen.jquery.min.js': 'chosen-js/chosen.jquery.js',
+                }
+            },
+        },
         paths: {
             sources: 'Sources/',
             root: '../',
