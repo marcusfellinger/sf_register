@@ -12,6 +12,7 @@
     "ckeditor-wordcount-plugin": "^1.17.9",
     "cropperjs": "^1.5.12",
     "eslint": "^8.13.0",
+    "es-module-shims": "^1.5.4",
     "grunt": "^1.4.1",
     "grunt-concurrent": "^3.0.0",
     "grunt-contrib-copy": "^1.0.0",
