@@ -132,6 +132,11 @@ module.exports = function (grunt) {
                 ]
             }
         },
+        newer: {
+            options: {
+                cache: './.cache/grunt-newer/'
+            }
+        },
         npmcopy: {
             all: {
                 options: {
@@ -530,6 +535,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-qunit');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-rollup');
 
     /**
