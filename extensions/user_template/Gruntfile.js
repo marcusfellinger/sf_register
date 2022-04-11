@@ -74,6 +74,31 @@ module.exports = function (grunt) {
                     'wordcount/css/': 'ckeditor-wordcount-plugin/wordcount/css/',
                 }
             },
+            dashboard: {
+                options: {
+                    destPrefix: "<%= paths.dashboard %>Public",
+                    copyOptions: {
+                        process: (source, srcpath) => {
+                            if (srcpath.match(/.*\.js$/)) {
+                                const imports = [];
+
+                                if (srcpath === 'node_modules/chart.js/dist/Chart.min.js') {
+                                    imports.push('moment');
+                                }
+                                return require('./util/cjs-to-esm.js').cjsToEsm(source, imports);
+                            }
+
+                            return source;
+                        }
+                    }
+                },
+                files: {
+                    'JavaScript/Contrib/muuri.js': 'muuri/dist/muuri.min.js',
+                    'JavaScript/Contrib/chartjs.js': 'chart.js/dist/Chart.min.js',
+                    'JavaScript/Contrib/web-animate.js': 'web-animate/dist/web-animate.min.js',
+                    'Css/Contrib/chart.css': 'chart.js/dist/Chart.min.css'
+                }
+            },
             install: {
                 options: {
                     destPrefix: "<%= paths.install %>Public/JavaScript",
