@@ -135,6 +135,16 @@ module.exports = function (grunt) {
         exec: {
             'yarn-install': 'yarn install'
         },
+        formatsass: {
+            sass: {
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.sass %>',
+                    src: ['**/*.scss'],
+                    dest: '<%= paths.sass %>'
+                }]
+            }
+        },
         imagemin: {
             flags: {
                 files: [
