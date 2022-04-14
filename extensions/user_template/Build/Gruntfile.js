@@ -1,9 +1,52 @@
-/*global module:false*/
+/*
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
+ */
+
 module.exports = function (grunt) {
+
+    const sass = require('node-sass');
+    const esModuleLexer = require('es-module-lexer');
+
+    /**
+     * Grunt stylefmt task
+     */
+    grunt.registerMultiTask('formatsass', 'Grunt task for stylefmt', function () {
+        var options = this.options(),
+            done = this.async(),
+            stylefmt = require('stylefmt'),
+            scss = require('postcss-scss'),
+            files = this.filesSrc.filter(function (file) {
+                return grunt.file.isFile(file);
+            }),
+            counter = 0;
+        this.files.forEach(function (file) {
+            file.src.filter(function (filepath) {
+                var content = grunt.file.read(filepath);
+                var settings = {
+                    from: filepath,
+                    syntax: scss
+                };
+                stylefmt.process(content, settings).then(function (result) {
+                    grunt.file.write(file.dest, result.css);
+                    grunt.log.success('Source file "' + filepath + '" was processed.');
+                    counter++;
+                    if (counter >= files.length) done(true);
+                });
+            });
+        });
+    });
 
     // Project configuration.
     grunt.initConfig({
-        // Metadata.
         pkg: grunt.file.readJSON('package.json'),
         paths: {
             sources: 'Sources/',
@@ -25,7 +68,12 @@ module.exports = function (grunt) {
             node_modules: 'node_modules/',
             t3icons: '<%= paths.node_modules %>@typo3/icons/dist/'
         },
-        stylelint: {},
+        stylelint: {
+            options: {
+                configFile: '<%= paths.root %>.stylelintrc',
+            },
+            sass: ['<%= paths.sass %>**/*.scss']
+        },
         formatsass: {
             sass: {
                 files: [{
@@ -36,8 +84,105 @@ module.exports = function (grunt) {
                 }]
             }
         },
-        sass: {},
-        postcss: {},
+        sass: {
+            options: {
+                implementation: sass,
+                outputStyle: 'expanded',
+                precision: 8
+            },
+            backend: {
+                files: {
+                    "<%= paths.backend %>Public/Css/backend.css": "<%= paths.sass %>backend.scss"
+                }
+            },
+            form: {
+                files: {
+                    "<%= paths.form %>Public/Css/form.css": "<%= paths.sass %>form.scss"
+                }
+            },
+            dashboard: {
+                files: {
+                    "<%= paths.dashboard %>Public/Css/dashboard.css": "<%= paths.sass %>dashboard.scss"
+                }
+            },
+            dashboard_modal: {
+                files: {
+                    "<%= paths.dashboard %>Public/Css/Modal/style.css": "<%= paths.sass %>dashboard_modal.scss"
+                }
+            },
+            adminpanel: {
+                files: {
+                    "<%= paths.adminpanel %>Public/Css/adminpanel.css": "<%= paths.sass %>adminpanel.scss"
+                }
+            },
+            workspaces: {
+                files: {
+                    "<%= paths.workspaces %>Public/Css/preview.css": "<%= paths.sass %>workspace.scss"
+                }
+            },
+            t3editor: {
+                files: {
+                    '<%= paths.t3editor %>Public/Css/t3editor.css': '<%= paths.sass %>editor.scss'
+                }
+            }
+        },
+        postcss: {
+            options: {
+                map: false,
+                processors: [
+                    require('autoprefixer')(),
+                    require('postcss-clean')({
+                        rebase: false,
+                        level: {
+                            1: {
+                                specialComments: 0
+                            }
+                        }
+                    }),
+                    require('postcss-banner')({
+                        banner: 'This file is part of the TYPO3 CMS project.\n' +
+                            '\n' +
+                            'It is free software; you can redistribute it and/or modify it under\n' +
+                            'the terms of the GNU General Public License, either version 2\n' +
+                            'of the License, or any later version.\n' +
+                            '\n' +
+                            'For the full copyright and license information, please read the\n' +
+                            'LICENSE.txt file that was distributed with this source code.\n' +
+                            '\n' +
+                            'The TYPO3 project - inspiring people to share!',
+                        important: true,
+                        inline: false
+                    })
+                ]
+            },
+            adminpanel: {
+                src: '<%= paths.adminpanel %>Public/Css/*.css'
+            },
+            backend: {
+                src: '<%= paths.backend %>Public/Css/*.css'
+            },
+            core: {
+                src: '<%= paths.core %>Public/Css/*.css'
+            },
+            dashboard: {
+                src: '<%= paths.dashboard %>Public/Css/*.css'
+            },
+            dashboard_modal: {
+                src: '<%= paths.dashboard %>Public/Css/Modal/*.css'
+            },
+            form: {
+                src: '<%= paths.form %>Public/Css/*.css'
+            },
+            linkvalidator: {
+                src: '<%= paths.linkvalidator %>Public/Css/*.css'
+            },
+            t3editor: {
+                src: '<%= paths.t3editor %>Public/Css/**/*.css'
+            },
+            workspaces: {
+                src: '<%= paths.workspaces %>Public/Css/*.css'
+            }
+        },
         exec: {
             ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
             'yarn-install': 'yarn install'
@@ -56,18 +201,46 @@ module.exports = function (grunt) {
             }
         },
         watch: {
-            gruntfile: {
-                files: '<%= jshint.gruntfile.src %>',
-                tasks: ['jshint:gruntfile']
+            options: {
+                livereload: true
             },
-            lib_test: {
-                files: '<%= jshint.lib_test.src %>',
-                tasks: ['jshint:lib_test', 'qunit']
+            sass: {
+                files: '<%= paths.sass %>**/*.scss',
+                tasks: 'css'
+            },
+            ts: {
+                files: '<%= paths.typescript %>/**/*.ts',
+                tasks: 'scripts'
             }
         },
         copy: {
             options: {
                 punctuation: ''
+            },
+            ts_files: {
+                options: {
+                    process: (source, srcpath) => {
+                        const [imports, exports] = esModuleLexer.parse(source, srcpath);
+
+                        source = require('./util/map-import.js').mapImports(source, srcpath, imports);
+
+                        // Workaround for https://github.com/microsoft/TypeScript/issues/35802 to avoid
+                        // rollup from complaining in karma/jsunit test setup:
+                        //   The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
+                        source = source.replace('__decorate=this&&this.__decorate||function', '__decorate=function');
+
+                        return source;
+                    }
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.root %>Build/JavaScript/',
+                    src: ['**/*.js', '**/*.js.map'],
+                    dest: '<%= paths.sysext %>',
+                    rename: (dest, src) => dest + src
+                        .replace('/', '/Resources/Public/JavaScript/')
+                        .replace('/Resources/Public/JavaScript/tests/', '/Tests/JavaScript/')
+                }]
             },
             core_icons: {
                 files: [{
@@ -146,6 +319,43 @@ module.exports = function (grunt) {
                         dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/FontAwesome'
                     }
                 ]
+            },
+            lit: {
+                options: {
+                    process: (content, srcpath) => content.replace(/\/\/# sourceMappingURL=[^ ]+/, '')
+                },
+                files: [{
+                    expand: true,
+                    cwd: '<%= paths.node_modules %>',
+                    dest: '<%= paths.core %>Public/JavaScript/Contrib/',
+                    rename: function (dest, src) {
+                        let [packageName, ...paths] = src.split('/');
+                        let packageJson = `${grunt.config.get('paths.node_modules')}/${packageName}/package.json`;
+                        let scopedPackageJson = `${grunt.config.get('paths.node_modules')}/${packageName}/${paths[0]}/package.json`;
+
+                        let version = '';
+                        if (grunt.file.exists(packageJson)) {
+                            version = '@' + grunt.file.readJSON(packageJson).version;
+                        } else if (grunt.file.exists(scopedPackageJson)) {
+                            version = '@' + grunt.file.readJSON(scopedPackageJson).version;
+                            packageName += '/' + paths[0];
+                            paths.shift();
+                        }
+
+                        return `${dest}${packageName}${version}/${paths.join('/')}`;
+                    },
+                    src: [
+                        'lit/*.js',
+                        'lit/decorators/*.js',
+                        'lit/directives/*.js',
+                        'lit-html/*.js',
+                        'lit-html/directives/*.js',
+                        'lit-element/*.js',
+                        'lit-element/decorators/*.js',
+                        '@lit/reactive-element/*.js',
+                        '@lit/reactive-element/decorators/*.js',
+                    ],
+                }]
             },
             t3editor: {
                 files: [
@@ -261,6 +471,11 @@ module.exports = function (grunt) {
             }
         },
         npmcopy: {
+            options: {
+                clean: false,
+                report: false,
+                srcPrefix: "node_modules/"
+            },
             ckeditor: {
                 options: {
                     copyOptions: {
@@ -305,7 +520,7 @@ module.exports = function (grunt) {
                                 if (srcpath === 'node_modules/chart.js/dist/Chart.min.js') {
                                     imports.push('moment');
                                 }
-                                return require('./util/cjs-to-esm.js').cjsToEsm(source, imports);
+                                return require('./util/cjs-to-esm.js').cjsToEsm(source);
                             }
 
                             return source;
@@ -441,9 +656,14 @@ module.exports = function (grunt) {
                     'es-module-shims.js': 'es-module-shims/dist/es-module-shims.js',
                     '../../../../../backend/Resources/Public/Images/colorpicker/jquery.minicolors.png': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.png',
                 }
-            },
+            }
         },
         terser: {
+            options: {
+                output: {
+                    ecma: 8
+                }
+            },
             thirdparty: {
                 files: {
                     "<%= paths.core %>Public/JavaScript/Contrib/es-module-shims.js": ["<%= paths.core %>Public/JavaScript/Contrib/es-module-shims.js"],
@@ -484,6 +704,36 @@ module.exports = function (grunt) {
                     }
                 ]
             },
+            typescript: {
+                options: {
+                    output: {
+                        preamble: '/*\n' +
+                            ' * This file is part of the TYPO3 CMS project.\n' +
+                            ' *\n' +
+                            ' * It is free software; you can redistribute it and/or modify it under\n' +
+                            ' * the terms of the GNU General Public License, either version 2\n' +
+                            ' * of the License, or any later version.\n' +
+                            ' *\n' +
+                            ' * For the full copyright and license information, please read the\n' +
+                            ' * LICENSE.txt file that was distributed with this source code.\n' +
+                            ' *\n' +
+                            ' * The TYPO3 project - inspiring people to share!' +
+                            '\n' +
+                            ' */',
+                        comments: /^!/
+                    }
+                },
+                files: [
+                    {
+                        expand: true,
+                        src: [
+                            '<%= paths.root %>Build/JavaScript/**/*.js',
+                        ],
+                        dest: '<%= paths.root %>Build',
+                        cwd: '.',
+                    }
+                ]
+            }
         },
         imagemin: {
             flags: {
@@ -497,67 +747,28 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        lintspaces: {},
+        lintspaces: {
+            html: {
+                src: [
+                    '<%= paths.sysext %>*/Resources/Private/**/*.html'
+                ],
+                options: {
+                    editorconfig: '../.editorconfig'
+                }
+            }
+        },
         concurrent: {
             npmcopy: ['npmcopy:ckeditor', 'npmcopy:ckeditor_externalplugins', 'npmcopy:dashboard', 'npmcopy:umdToEs6', 'npmcopy:jqueryUi', 'npmcopy:install', 'npmcopy:all'],
+            lint: ['eslint', 'stylelint', 'lintspaces'],
             compile_assets: ['scripts', 'css'],
             minify_assets: ['terser:thirdparty', 'terser:t3editor'],
             copy_static: ['copy:core_icons', 'copy:install_icons', 'copy:module_icons', 'copy:extension_icons', 'copy:fonts', 'copy:t3editor'],
+            build: ['copy:core_icons', 'copy:install_icons', 'copy:module_icons', 'copy:extension_icons', 'copy:fonts', 'copy:t3editor'],
         },
-        banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %> - ' +
-            '<%= grunt.template.today("yyyy-mm-dd") %>\n' +
-            '<%= pkg.homepage ? "* " + pkg.homepage + "\\n" : "" %>' +
-            '* Copyright (c) <%= grunt.template.today("yyyy") %> <%= pkg.author.name %>;' +
-            ' Licensed <%= _.pluck(pkg.licenses, "type").join(", ") %> */\n',
-        // Task configuration.
-        concat: {
-            options: {
-                banner: '<%= banner %>',
-                stripBanners: true
-            },
-            dist: {
-                src: ['lib/<%= pkg.name %>.js'],
-                dest: 'dist/<%= pkg.name %>.js'
-            }
-        },
-        uglify: {
-            options: {
-                banner: '<%= banner %>'
-            },
-            dist: {
-                src: '<%= concat.dist.dest %>',
-                dest: 'dist/<%= pkg.name %>.min.js'
-            }
-        },
-        jshint: {
-            options: {
-                curly: true,
-                eqeqeq: true,
-                immed: true,
-                latedef: true,
-                newcap: true,
-                noarg: true,
-                sub: true,
-                undef: true,
-                unused: true,
-                boss: true,
-                eqnull: true,
-                browser: true,
-                globals: {}
-            },
-            gruntfile: {
-                src: 'Gruntfile.js'
-            },
-            lib_test: {
-                src: ['lib/**/*.js', 'test/**/*.js']
-            }
-        },
-        qunit: {
-            files: ['test/**/*.html']
-        }
     });
 
-    // These plugins provide necessary tasks.
+    // Register tasks
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-rollup');
     grunt.loadNpmTasks('grunt-npmcopy');
@@ -566,44 +777,32 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-eslint');
+    grunt.loadNpmTasks('grunt-stylelint');
+    grunt.loadNpmTasks('grunt-lintspaces');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-contrib-concat');
-    grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-contrib-qunit');
-    grunt.loadNpmTasks('grunt-contrib-jshint');
-
-    // Default task.
-    grunt.registerTask('default', ['jshint', 'qunit', 'concat', 'uglify']);
 
     /**
-     * Grunt stylefmt task
+     * grunt default task
+     *
+     * call "$ grunt"
+     *
+     * this will trigger the CSS build
      */
-    grunt.registerMultiTask('formatsass', 'Grunt task for stylefmt', function () {
-        var done = this.async(),
-            stylefmt = require('stylefmt'),
-            scss = require('postcss-scss'),
-            files = this.filesSrc.filter(function (file) {
-                return grunt.file.isFile(file);
-            }),
-            counter = 0;
-        this.files.forEach(function (file) {
-            file.src.filter(function (filepath) {
-                var content = grunt.file.read(filepath);
-                var settings = {
-                    from: filepath,
-                    syntax: scss
-                };
-                stylefmt.process(content, settings).then(function (result) {
-                    grunt.file.write(file.dest, result.css);
-                    grunt.log.success('Source file "' + filepath + '" was processed.');
-                    counter++;
-                    if (counter >= files.length) done(true);
-                });
-            });
-        });
-    });
+    grunt.registerTask('default', ['css']);
+
+    /**
+     * grunt lint
+     *
+     * call "$ grunt lint"
+     *
+     * this task does the following things:
+     * - eslint
+     * - stylelint
+     * - lintspaces
+     */
+    grunt.registerTask('lint', ['concurrent:lint']);
 
     /**
      * grunt css task
