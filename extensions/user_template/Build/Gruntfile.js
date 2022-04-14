@@ -53,18 +53,18 @@ module.exports = function (grunt) {
             root: '../',
             sass: '<%= paths.sources %>Sass/',
             typescript: '<%= paths.sources %>TypeScript/',
-            sysext: '<%= paths.root %>typo3/sysext/',
-            form: '<%= paths.sysext %>form/Resources/',
-            dashboard: '<%= paths.sysext %>dashboard/Resources/',
-            frontend: '<%= paths.sysext %>frontend/Resources/',
-            adminpanel: '<%= paths.sysext %>adminpanel/Resources/',
-            install: '<%= paths.sysext %>install/Resources/',
-            linkvalidator: '<%= paths.sysext %>linkvalidator/Resources/',
-            backend: '<%= paths.sysext %>backend/Resources/',
-            t3editor: '<%= paths.sysext %>t3editor/Resources/',
-            workspaces: '<%= paths.sysext %>workspaces/Resources/',
-            ckeditor: '<%= paths.sysext %>rte_ckeditor/Resources/',
-            core: '<%= paths.sysext %>core/Resources/',
+            sysext: '<%= paths.root %>',
+            form: '<%= paths.sysext %>Resources/',
+            dashboard: '<%= paths.sysext %>Resources/',
+            frontend: '<%= paths.sysext %>Resources/',
+            adminpanel: '<%= paths.sysext %>Resources/',
+            install: '<%= paths.sysext %>Resources/',
+            linkvalidator: '<%= paths.sysext %>Resources/',
+            backend: '<%= paths.sysext %>Resources/',
+            t3editor: '<%= paths.sysext %>Resources/',
+            workspaces: '<%= paths.sysext %>Resources/',
+            ckeditor: '<%= paths.sysext %>Resources/',
+            core: '<%= paths.sysext %>Resources/',
             node_modules: 'node_modules/',
             t3icons: '<%= paths.node_modules %>@typo3/icons/dist/'
         },
@@ -247,7 +247,7 @@ module.exports = function (grunt) {
                     expand: true,
                     cwd: '<%= paths.t3icons %>',
                     src: ['**/*.svg', 'icons.json', '!install/*', '!module/*'],
-                    dest: '<%= paths.sysext %>core/Resources/Public/Icons/T3Icons/',
+                    dest: '<%= paths.core %>Public/Icons/T3Icons/',
                 }]
             },
             install_icons: {
@@ -256,34 +256,34 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: '<%= paths.t3icons %>svgs/install/',
                         src: ['**/*.svg'],
-                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/modules/',
+                        dest: '<%= paths.install %>Public/Icons/modules/',
                     }
                 ]
             },
             module_icons: {
                 files: [
                     {
-                        dest: '<%= paths.sysext %>adminpanel/Resources/Public/Icons/module-adminpanel.svg',
+                        dest: '<%= paths.adminpanel %>Public/Icons/module-adminpanel.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-adminpanel.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install.svg',
+                        dest: '<%= paths.install %>Public/Icons/module-install.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-install.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-environment.svg',
+                        dest: '<%= paths.install %>Public/Icons/module-install-environment.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-install-environment.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-maintenance.svg',
+                        dest: '<%= paths.install %>Public/Icons/module-install-maintenance.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-install-maintenance.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-settings.svg',
+                        dest: '<%= paths.install %>Public/Icons/module-install-settings.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-install-settings.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>install/Resources/Public/Icons/module-install-upgrade.svg',
+                        dest: '<%= paths.install %>Public/Icons/module-install-upgrade.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-install-upgrade.svg'
                     }
                 ]
@@ -291,15 +291,15 @@ module.exports = function (grunt) {
             extension_icons: {
                 files: [
                     {
-                        dest: '<%= paths.sysext %>form/Resources/Public/Icons/Extension.svg',
+                        dest: '<%= paths.form %>Public/Icons/Extension.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-form.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>rte_ckeditor/Resources/Public/Icons/Extension.svg',
+                        dest: '<%= paths.ckeditor %>Public/Icons/Extension.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-rte-ckeditor.svg'
                     },
                     {
-                        dest: '<%= paths.sysext %>linkvalidator/Resources/Public/Icons/Extension.svg',
+                        dest: '<%= paths.linkvalidator %>Public/Icons/Extension.svg',
                         src: '<%= paths.t3icons %>svgs/module/module-linkvalidator.svg'
                     }
                 ]
@@ -310,13 +310,13 @@ module.exports = function (grunt) {
                         expand: true,
                         cwd: '<%= paths.node_modules %>source-sans-pro',
                         src: ['WOFF/OTF/**', 'WOFF2/TTF/**'],
-                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/SourceSansPro'
+                        dest: '<%= paths.backend %>Public/Fonts/SourceSansPro'
                     },
                     {
                         expand: true,
                         cwd: '<%= paths.node_modules %>font-awesome/fonts',
                         src: ['**/*', '!FontAwesome.otf'],
-                        dest: '<%= paths.sysext %>backend/Resources/Public/Fonts/FontAwesome'
+                        dest: '<%= paths.backend %>Public/Fonts/FontAwesome'
                     }
                 ]
             },
@@ -465,7 +465,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     '<%= paths.core %>Public/JavaScript/Contrib/bootstrap.js': [
-                        'Sources/JavaScript/core/Resources/Public/JavaScript/Contrib/bootstrap.js'
+                        'Sources/JavaScript/core/Public/JavaScript/Contrib/bootstrap.js'
                     ]
                 }
             }
@@ -654,7 +654,7 @@ module.exports = function (grunt) {
                     'require.js': 'requirejs/require.js',
                     'cropperjs.js': 'cropperjs/dist/cropper.esm.js',
                     'es-module-shims.js': 'es-module-shims/dist/es-module-shims.js',
-                    '../../../../../backend/Resources/Public/Images/colorpicker/jquery.minicolors.png': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.png',
+                    '../../../../Resources/Public/Images/colorpicker/jquery.minicolors.png': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.png',
                 }
             }
         },
@@ -739,9 +739,9 @@ module.exports = function (grunt) {
             flags: {
                 files: [
                     {
-                        cwd: '<%= paths.sysext %>core/Resources/Public/Icons/Flags',
+                        cwd: '<%= paths.core %>Public/Icons/Flags',
                         src: ['**/*.{png,jpg,gif}'],
-                        dest: '<%= paths.sysext %>core/Resources/Public/Icons/Flags',
+                        dest: '<%= paths.core %>Public/Icons/Flags',
                         expand: true
                     }
                 ]
@@ -750,7 +750,7 @@ module.exports = function (grunt) {
         lintspaces: {
             html: {
                 src: [
-                    '<%= paths.sysext %>*/Resources/Private/**/*.html'
+                    '<%= paths.sysext %>*/Private/**/*.html'
                 ],
                 options: {
                     editorconfig: '../.editorconfig'
