@@ -49,24 +49,9 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         paths: {
-            sources: 'Sources/',
             root: '../',
-            sass: '<%= paths.sources %>Sass/',
+            sources: '<%= paths.root %>Sources/',
             typescript: '<%= paths.sources %>TypeScript/',
-            sysext: '<%= paths.root %>',
-            form: '<%= paths.sysext %>Resources/',
-            dashboard: '<%= paths.sysext %>Resources/',
-            frontend: '<%= paths.sysext %>Resources/',
-            adminpanel: '<%= paths.sysext %>Resources/',
-            install: '<%= paths.sysext %>Resources/',
-            linkvalidator: '<%= paths.sysext %>Resources/',
-            backend: '<%= paths.sysext %>Resources/',
-            t3editor: '<%= paths.sysext %>Resources/',
-            workspaces: '<%= paths.sysext %>Resources/',
-            ckeditor: '<%= paths.sysext %>Resources/',
-            core: '<%= paths.sysext %>Resources/',
-            node_modules: 'node_modules/',
-            t3icons: '<%= paths.node_modules %>@typo3/icons/dist/'
         },
         stylelint: {
             options: {
