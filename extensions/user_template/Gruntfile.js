@@ -16,34 +16,6 @@ module.exports = function (grunt) {
     const sass = require('node-sass');
     const esModuleLexer = require('es-module-lexer');
 
-    /**
-     * Grunt stylefmt task
-     */
-    grunt.registerMultiTask('formatsass', 'Grunt task for stylefmt', function () {
-        var done = this.async(),
-            stylefmt = require('stylefmt'),
-            scss = require('postcss-scss'),
-            files = this.filesSrc.filter(function (file) {
-                return grunt.file.isFile(file);
-            }),
-            counter = 0;
-        this.files.forEach(function (file) {
-            file.src.filter(function (filepath) {
-                var content = grunt.file.read(filepath);
-                var settings = {
-                    from: filepath,
-                    syntax: scss
-                };
-                stylefmt.process(content, settings).then(function (result) {
-                    grunt.file.write(file.dest, result.css);
-                    grunt.log.success('Source file "' + filepath + '" was processed.');
-                    counter++;
-                    if (counter >= files.length) done(true);
-                });
-            });
-        });
-    });
-
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
@@ -52,8 +24,7 @@ module.exports = function (grunt) {
             resources: '<%= paths.root %>Resources/',
             private: '<%= paths.resources %>Private/',
             sass: '<%= paths.private %>Sass/',
-            sources: '<%= paths.root %>Sources/',
-            typescript: '<%= paths.sources %>TypeScript/',
+            typescript: '<%= paths.private %>TypeScript/',
         },
         stylelint: {
             options: {
@@ -61,7 +32,7 @@ module.exports = function (grunt) {
             },
             sass: ['<%= paths.sass %>**/*.scss']
         },
-        formatsass: {
+        prettier: {
             sass: {
                 files: [{
                     expand: true,
@@ -205,12 +176,95 @@ module.exports = function (grunt) {
                 cache: './.cache/grunt-newer/'
             }
         },
+        rollup: {
+            options: {
+                format: 'esm',
+                entryFileNames: '[name].js'
+            },
+            'bootstrap': {
+                options: {
+                    preserveModules: false,
+                    plugins: () => [
+                        {
+                            name: 'terser',
+                            renderChunk: code => require('terser').minify(code, grunt.config.get('terser.options'))
+                        },
+                        {
+                            name: 'externals',
+                            resolveId: (source) => {
+                                if (source === 'jquery') {
+                                    return {id: 'jquery', external: true}
+                                }
+                                if (source === 'bootstrap') {
+                                    return {id: 'node_modules/bootstrap/dist/js/bootstrap.esm.js'}
+                                }
+                                if (source === '@popperjs/core') {
+                                    return {id: 'node_modules/@popperjs/core/dist/esm/index.js'}
+                                }
+                                return null
+                            }
+                        }
+                    ]
+                },
+                files: {
+                    '<%= paths.core %>Public/JavaScript/Contrib/bootstrap.js': [
+                        'Sources/JavaScript/core/Resources/Public/JavaScript/Contrib/bootstrap.js'
+                    ]
+                }
+            }
+        },
         npmcopy: {
             options: {
                 clean: false,
                 report: false,
                 srcPrefix: "node_modules/"
             },
+        },
+        umdToEs6: {
+            options: {
+                destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
+                copyOptions: {
+                    process: (source, srcpath) => {
+                        let imports = [], prefix = '';
+
+                        if (srcpath === 'node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js') {
+                            imports.push('jquery');
+                        }
+
+                        if (srcpath === 'node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js') {
+                            imports.push('jquery');
+                        }
+
+                        if (srcpath === 'node_modules/imagesloaded/imagesloaded.js') {
+                            imports.push('ev-emitter');
+                        }
+
+                        if (srcpath === 'node_modules/tablesort/dist/sorts/tablesort.dotsep.min.js') {
+                            prefix = 'import Tablesort from "tablesort";';
+                        }
+
+                        return require('./util/cjs-to-esm.js').cjsToEsm(source, imports, prefix);
+                    }
+                }
+            },
+            files: {
+                'autosize.js': 'autosize/dist/autosize.min.js',
+                'broadcastchannel.js': 'broadcastchannel-polyfill/index.js',
+                'ev-emitter.js': 'ev-emitter/ev-emitter.js',
+                'flatpickr/flatpickr.min.js': 'flatpickr/dist/flatpickr.js',
+                'flatpickr/locales.js': 'flatpickr/dist/l10n/index.js',
+                'imagesloaded.js': 'imagesloaded/imagesloaded.js',
+                'jquery.js': 'jquery/dist/jquery.js',
+                'jquery.autocomplete.js': 'devbridge-autocomplete/dist/jquery.autocomplete.min.js',
+                'jquery/minicolors.js': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js',
+                'moment.js': 'moment/min/moment-with-locales.min.js',
+                'moment-timezone.js': 'moment-timezone/builds/moment-timezone-with-data.min.js',
+                'nprogress.js': 'nprogress/nprogress.js',
+                'sortablejs.js': 'sortablejs/dist/sortable.umd.js',
+                'tablesort.js': 'tablesort/dist/tablesort.min.js',
+                'tablesort.dotsep.js': 'tablesort/dist/sorts/tablesort.dotsep.min.js',
+                'taboverride.js': 'taboverride/build/output/taboverride.js',
+            }
         },
         terser: {
             options: {
@@ -249,18 +303,6 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        imagemin: {
-            flags: {
-                files: [
-                    {
-                        cwd: '<%= paths.core %>Public/Icons/Flags',
-                        src: ['**/*.{png,jpg,gif}'],
-                        dest: '<%= paths.core %>Public/Icons/Flags',
-                        expand: true
-                    }
-                ]
-            }
-        },
         lintspaces: {
             html: {
                 src: [
@@ -283,10 +325,10 @@ module.exports = function (grunt) {
 
     // Register tasks
     grunt.loadNpmTasks('grunt-concurrent');
-    grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('grunt-prettier');
 
     /**
      * grunt default task
@@ -319,7 +361,7 @@ module.exports = function (grunt) {
      * - sass
      * - postcss
      */
-    grunt.registerTask('css', ['formatsass', 'newer:sass', 'newer:postcss']);
+    grunt.registerTask('css', ['prettier', 'newer:sass', 'newer:postcss']);
 
     /**
      * grunt update task
@@ -400,5 +442,5 @@ module.exports = function (grunt) {
      * - minifies svg files
      * - compiles TypeScript files
      */
-    grunt.registerTask('build', ['clear-build', 'update', 'concurrent:copy_static', 'concurrent:compile_assets', 'concurrent:minify_assets', 'imagemin']);
+    grunt.registerTask('build', ['clear-build', 'update', 'concurrent:copy_static', 'concurrent:compile_assets', 'concurrent:minify_assets']);
 };
