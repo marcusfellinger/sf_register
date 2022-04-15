@@ -20,8 +20,7 @@ module.exports = function (grunt) {
      * Grunt stylefmt task
      */
     grunt.registerMultiTask('formatsass', 'Grunt task for stylefmt', function () {
-        var options = this.options(),
-            done = this.async(),
+        var done = this.async(),
             stylefmt = require('stylefmt'),
             scss = require('postcss-scss'),
             files = this.filesSrc.filter(function (file) {
@@ -50,6 +49,9 @@ module.exports = function (grunt) {
         pkg: grunt.file.readJSON('package.json'),
         paths: {
             root: '../',
+            resources: '<%= paths.root %>Resources/',
+            private: '<%= paths.resources %>Private/',
+            sass: '<%= paths.private %>Sass/',
             sources: '<%= paths.root %>Sources/',
             typescript: '<%= paths.sources %>TypeScript/',
         },
@@ -75,41 +77,11 @@ module.exports = function (grunt) {
                 outputStyle: 'expanded',
                 precision: 8
             },
-            backend: {
+            styles: {
                 files: {
-                    "<%= paths.backend %>Public/Css/backend.css": "<%= paths.sass %>backend.scss"
+                    "<%= paths.backend %>Public/Css/styles.css": "<%= paths.sass %>styles.scss"
                 }
             },
-            form: {
-                files: {
-                    "<%= paths.form %>Public/Css/form.css": "<%= paths.sass %>form.scss"
-                }
-            },
-            dashboard: {
-                files: {
-                    "<%= paths.dashboard %>Public/Css/dashboard.css": "<%= paths.sass %>dashboard.scss"
-                }
-            },
-            dashboard_modal: {
-                files: {
-                    "<%= paths.dashboard %>Public/Css/Modal/style.css": "<%= paths.sass %>dashboard_modal.scss"
-                }
-            },
-            adminpanel: {
-                files: {
-                    "<%= paths.adminpanel %>Public/Css/adminpanel.css": "<%= paths.sass %>adminpanel.scss"
-                }
-            },
-            workspaces: {
-                files: {
-                    "<%= paths.workspaces %>Public/Css/preview.css": "<%= paths.sass %>workspace.scss"
-                }
-            },
-            t3editor: {
-                files: {
-                    '<%= paths.t3editor %>Public/Css/t3editor.css': '<%= paths.sass %>editor.scss'
-                }
-            }
         },
         postcss: {
             options: {
