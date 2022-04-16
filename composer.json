@@ -13,6 +13,7 @@
   "description": "TYPO3 CMS Base Distribution",
   "license": "GPL-2.0-or-later",
   "require": {
+    "b13/container": "^1.5",
     "helhum/typo3-console": "^5",
     "typo3/cms-about": "^9.5",
     "typo3/cms-adminpanel": "^9.5",
@@ -44,8 +45,6 @@
     "cggrafing/user-template": "@dev",
     "typo3/cms-rte-ckeditor": "^9.5",
     "typo3/cms-setup": "^9.5",
-    "gridelementsteam/gridelements": "^9",
-    "laxap/bootstrap-grids": "^2",
     "janhelke/cal": "^2.0",
     "friendsoftypo3/typo3db-legacy": "^1.1",
     "evoweb/sf-register":  "^9",
@@ -70,8 +69,17 @@
     },
     "helhum/typo3-console": {
       "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
-      "install-extension-dummy": false
+      "install-extension-dummy": false,
+      "active-packages": [
+        "container"
+      ]
     }
   },
-  "minimum-stability": "stable"
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "helhum/typo3-console-plugin": true
+    }
+  }
 }

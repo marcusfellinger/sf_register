@@ -14,5 +14,8 @@
     "psr-4": {
       "CGGrafing\\Template\\": "Classes/"
     }
+  },
+  "require": {
+    "b13/container": "*"
   }
 }

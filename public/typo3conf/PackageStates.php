@@ -86,12 +86,6 @@ return [
         'viewpage' => [
             'packagePath' => 'typo3/sysext/viewpage/',
         ],
-        'gridelements' => [
-            'packagePath' => 'typo3conf/ext/gridelements/',
-        ],
-        'bootstrap_grids' => [
-            'packagePath' => 'typo3conf/ext/bootstrap_grids/',
-        ],
         'static_info_tables' => [
             'packagePath' => 'typo3conf/ext/static_info_tables/',
         ],
@@ -106,6 +100,9 @@ return [
         ],
         'static_info_tables_de' => [
             'packagePath' => 'typo3conf/ext/static_info_tables_de/',
+        ],
+        'container' => [
+            'packagePath' => 'typo3conf/ext/container/',
         ],
         'fal_securedownload' => [
             'packagePath' => 'typo3conf/ext/fal_securedownload/',

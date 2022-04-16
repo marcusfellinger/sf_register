@@ -80,40 +80,37 @@ $document.ready(function () {
      * getSwiperHeight
      * @description  calculate the height of swiper slider basing on data attr
      */
-    function getSwiperHeight(object, attr) {
+    function getSwiperHeight(object: JQuery, attr: string) {
         var val = object.attr("data-" + attr),
             dim;
 
         if (!val) {
-            return undefined;
-        }
+            dim = val.match(/(px)|(%)|(vh)$/i);
 
-        dim = val.match(/(px)|(%)|(vh)$/i);
-
-        if (dim.length) {
-            switch (dim[0]) {
-                case "px":
-                    return parseFloat(val);
-                case "vh":
-                    return $(window).height() * (parseFloat(val) / 100);
-                case "%":
-                    return object.width() * (parseFloat(val) / 100);
+            if (dim.length) {
+                switch (dim[0]) {
+                    case "px":
+                        return parseFloat(val);
+                    case "vh":
+                        return $(window).height() * (parseFloat(val) / 100);
+                    case "%":
+                        return object.width() * (parseFloat(val) / 100);
+                }
             }
-        } else {
-            return undefined;
         }
+        return undefined;
     }
 
     /**
      * toggleSwiperInnerVideos
      * @description  toggle swiper videos on active slides
      */
-    function toggleSwiperInnerVideos(swiper) {
+    function toggleSwiperInnerVideos(swiper: { slides: { [x: string]: string; }; previousIndex: string | number; activeIndex: string | number; }) {
         var prevSlide = $(swiper.slides[swiper.previousIndex]),
             nextSlide = $(swiper.slides[swiper.activeIndex]),
             videos;
 
-        prevSlide.find("video").each(function () {
+        prevSlide.find("video").each(() => {
             this.pause();
         });
 
@@ -127,13 +124,13 @@ $document.ready(function () {
      * toggleSwiperCaptionAnimation
      * @description  toggle swiper animations on active slides
      */
-    function toggleSwiperCaptionAnimation(swiper) {
+    function toggleSwiperCaptionAnimation(swiper: { container: string; slides: { [x: string]: string; }; activeIndex: string | number; }) {
         var prevSlide = $(swiper.container),
             nextSlide = $(swiper.slides[swiper.activeIndex]);
 
         prevSlide
             .find("[data-caption-animate]")
-            .each(function () {
+            .each(() => {
                 var $this = $(this);
                 $this
                     .removeClass("animated")
@@ -143,7 +140,7 @@ $document.ready(function () {
 
         nextSlide
             .find("[data-caption-animate]")
-            .each(function () {
+            .each(() => {
                 var $this = $(this),
                     delay = $this.attr("data-caption-delay");
 
@@ -160,7 +157,7 @@ $document.ready(function () {
      * makeParallax
      * @description  create swiper parallax scrolling effect
      */
-    function makeParallax(el, speed, wrapper, prevScroll) {
+    function makeParallax(el: JQuery, speed: number, wrapper: JQuery, prevScroll: number | boolean) {
         var scrollY = window.scrollY || window.pageYOffset;
 
         if (prevScroll != scrollY) {
@@ -200,7 +197,7 @@ $document.ready(function () {
      * isScrolledIntoView
      * @description  check the element whas been scrolled into the view
      */
-    function isScrolledIntoView(elem) {
+    function isScrolledIntoView(elem: JQuery) {
         var $window = $(window);
         return elem.offset().top + elem.outerHeight() >= $window.scrollTop() && elem.offset().top <= $window.scrollTop() + $window.height();
     }
@@ -209,7 +206,7 @@ $document.ready(function () {
      * initOnView
      * @description  calls a function when element has been scrolled into the view
      */
-    function lazyInit(element, func) {
+    function lazyInit(element: JQuery, func: { (): void; call?: any; }) {
         var $win = jQuery(window);
         $win.on('load scroll', function () {
             if ((!element.hasClass('lazy-loaded') && (isScrolledIntoView(element)))) {
@@ -223,7 +220,7 @@ $document.ready(function () {
      * Live Search
      * @description  create live search results
      */
-    function liveSearch(options) {
+    function liveSearch(options: { live: string; current: number; spin: { addClass: (arg0: string) => void; parents: (arg0: string) => { (): any; new(): any; find: { (arg0: string): { (): any; new(): any; removeClass: { (arg0: string): void; new(): any; }; }; new(): any; }; }; }; term: string; liveCount: any; filter: any; template: any; processed: number; }) {
         $('#' + options.live).removeClass('cleared').html();
         options.current++;
         options.spin.addClass('loading');
@@ -252,7 +249,7 @@ $document.ready(function () {
      * attachFormValidator
      * @description  attach form validation to elements
      */
-    function attachFormValidator(elements) {
+    function attachFormValidator(elements: JQuery | string[]) {
         for (var i = 0; i < elements.length; i++) {
             var o = $(elements[i]), v;
             o.addClass("form-control-has-validation").after("<span class='form-validation'></span>");
@@ -263,7 +260,7 @@ $document.ready(function () {
         }
 
         elements
-            .on('input change propertychange blur', function (e) {
+            .on('input change propertychange blur', function (e: { type: string; }) {
                 var $this = $(this), results;
 
                 if (e.type != "blur") {
@@ -291,7 +288,7 @@ $document.ready(function () {
      * isValidated
      * @description  check if all elemnts pass validation
      */
-    function isValidated(elements) {
+    function isValidated(elements: string | any[] | JQuery) {
         var results, errors = 0;
         if (elements.length) {
             for (j = 0; j < elements.length; j++) {
