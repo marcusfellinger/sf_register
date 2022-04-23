@@ -1,8 +1,9 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html data-namespace-typo3-fluid="true" lang="de" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
     <f:layout name="Default"/>
     <f:section name="Header">
         <header class="page-head">
-            <f:render arguments="{_all}" partial="Home/Navbar" section="main"/>
+            <f:render arguments="{_all}" partial="Navbar" section="main"/>
         </header>
     </f:section>
 
@@ -16,14 +17,7 @@
         </main>
     </f:section>
 
-    <f:section name="footerNavigation">
-        <div class="cell-xs-12 cell-sm-8 cell-md-6 cell-lg-5">
-            <p><span class="rights">&#169;&nbsp;<span id="copyright-year"></span></span>
-                <f:for as="footerMenuItem" each="{footerMenu}">
-                    &nbsp;|&nbsp;<a class="{f:if(condition: footerMenuItem.active, then: 'active')}"
-                                    href="{footerMenuItem.link}">{footerMenuItem.title}</a>
-                </f:for>
-            </p>
-        </div>
+    <f:section name="Footer">
+        <f:render partial="Footer"/>
     </f:section>
 </html>
