@@ -1,13 +1,18 @@
-<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<html data-namespace-typo3-fluid="true" lang="de" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
     <f:section name="main">
         <div class="rd-navbar-wrap">
-            <nav data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+            <nav class="rd-navbar"
+                 data-layout="rd-navbar-fixed"
+                 data-lg-device-layout="rd-navbar-static"
+                 data-lg-layout="rd-navbar-static"
+                 data-lg-stick-up-offset="180px"
                  data-md-device-layout="rd-navbar-fixed"
-                 class="rd-navbar" data-lg-device-layout="rd-navbar-static"
-                 data-lg-layout="rd-navbar-static" data-lg-stick-up-offset="180px"
                  data-md-layout="rd-navbar-static"
-                 data-md-stick-up-offset="180px" data-stick-up-clone="true">
-                <f:render arguments="{_all}" partial="Home/Navbar-Inner" section="main"/>
+                 data-md-stick-up-offset="180px"
+                 data-sm-layout="rd-navbar-fixed"
+                 data-stick-up-clone="true">
+                <f:render arguments="{_all}" partial="Navbar-Inner" section="main"/>
             </nav>
         </div>
     </f:section>
