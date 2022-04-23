@@ -8,7 +8,7 @@ lib {
 
     stdContent = FLUIDTEMPLATE
     stdContent {
-        templateName = Home
+        templateName = Page
         layoutRootPaths {
             10 = EXT:user_template/Resources/Private/Layouts
         }
@@ -52,7 +52,7 @@ lib {
 
     contentElement {
         templateRootPaths {
-            200 = EXT:user_template/Resources/Private/Templates/
+            10 = EXT:user_template/Resources/Private/Templates
         }
     }
 }
@@ -64,15 +64,6 @@ settings {
 }
 
 tt_content {
-    b13-2cols-with-header-container < lib.contentElement
-    b13-2cols-with-header-container {
-        templateName = 2ColsWithHeader
-        templateRootPaths.10 = EXT:container_example/Resources/Private/Templates
-        dataProcessing {
-            200 = B13\Container\DataProcessing\ContainerProcessor
-        }
-    }
-
     fs_slider < lib.fluidContent
     fs_slider {
         templateName = FluidStyledSlider
@@ -171,7 +162,9 @@ plugin.tx_seo {
 
 # Restricted area starts at pid 123.
 # Check if user is logged in:
-[24 in tree.rootLineIds] && [!frontend.user.isLoggedIn]
+[(24 in tree.rootLineIds) && (!frontend.user.isLoggedIn)]
 page.config >
-page.config.additionalHeaders = Location: https://www.cg-grafing.de/anmelden
+page.config.additionalHeaders = Location: /anmelden
 [end]
+
+@import 'EXT:user_template/Configuration/TypoScript/2cols.typoscript'
