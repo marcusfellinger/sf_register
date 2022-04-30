@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../variables";
 @import "../bootstrap/mixins/vendor-prefixes";
 //
@@ -338,7 +340,7 @@
     padding: $padding-base-vertical $padding-base-horizontal;
     font-weight: 700;
     font-size: 16px;
-    line-height: (30/16);
+    line-height: math.div(30, 16);
     white-space: nowrap;
   }
 
@@ -513,7 +515,7 @@
       cursor: pointer;
       display: inline-block;
       font-weight: bold;
-      margin-right: $padding-base-vertical / 2;
+      margin-right: math.div($padding-base-vertical, 2);
 
       &:hover {
         color: $brand-primary;
@@ -557,7 +559,7 @@
       .select2-selection__choice {
         font-size: $font-size-small;
         line-height: $line-height-small;
-        margin: ($padding-small-vertical - 1) 0 0 $padding-small-horizontal/2;
+        margin: ($padding-small-vertical - 1) 0 0 math.div($padding-small-horizontal, 2);
         padding: 0 $padding-small-vertical;
       }
 
@@ -591,7 +593,7 @@
           border-width: $caret-width-large $caret-width-large 0 $caret-width-large;
           margin-left: -$caret-width-large;
           margin-left: -$padding-large-vertical;
-          margin-top: -$caret-width-large/2;
+          margin-top: math.div(-$caret-width-large, 2);
         }
       }
     }
@@ -603,7 +605,7 @@
         font-size: $font-size-large;
         line-height: $line-height-large;
         border-radius: 4px;
-        margin: ($padding-large-vertical - 1) 0 0 $padding-large-horizontal/2;
+        margin: ($padding-large-vertical - 1) 0 0 math.div($padding-large-horizontal, 2);
         padding: 0 $padding-large-vertical;
       }
 
@@ -666,7 +668,7 @@
 
       .select2-selection__choice {
         margin-left: 0;
-        margin-right: $padding-base-horizontal/2;
+        margin-right: math.div($padding-base-horizontal, 2);
       }
 
       .select2-selection__choice__remove {

@@ -1,20 +1,22 @@
 // CSS Flex Grid Framework
 
+@use "sass:math";
+
 @mixin make-shell($gutter: 30px) {
   margin-right: auto;
   margin-left: auto;
-  padding-left: ($gutter / 2);
-  padding-right: ($gutter / 2);
+  padding-left: math.div($gutter, 2);
+  padding-right: math.div($gutter, 2);
 }
 
 @mixin make-range($gutter: 30px) {
-  margin-left: ceil(($gutter / -2));
-  margin-right: floor(($gutter / -2));
+  margin-left: ceil(((math.div($gutter, -2))));
+  margin-right: floor(((math.div($gutter, -2))));
 }
 
 @mixin make-cell-spacing($gutter: 30px) {
-  padding-left: ceil(($gutter / 2));
-  padding-right: floor(($gutter / 2));
+  padding-left: ceil(math.div($gutter, 2));
+  padding-right: floor(math.div($gutter, 2));
 }
 
 @mixin make-cell($resolution, $count: 12) {
@@ -24,11 +26,11 @@
 
   @for $i from 1 through $count {
     .cell-#{$resolution}-#{$i} {
-      @include flex-basis(percentage($i / $count));
+      @include flex-basis(percentage(math.div($i, $count)));
     }
 
     .cell-#{$resolution}-preffix-#{$i} {
-      margin-left: percentage($i / $count);
+      margin-left: percentage(math.div($i, $count));
     }
 
     .cell-#{$resolution}-push-#{$i} {
@@ -46,7 +48,7 @@
     .cell-xs-#{$i}{
       margin-left: auto;
       margin-right: auto;
-      max-width: percentage($i / $count);
+      max-width: percentage(math.div($i, $count));
     }
   }
 
@@ -60,7 +62,7 @@
     .cell-sm-#{$i}{
       margin-left: auto;
       margin-right: auto;
-      max-width: percentage($i / $count);
+      max-width: percentage(math.div($i, $count));
     }
   }
 
@@ -74,7 +76,7 @@
     .cell-md-#{$i}{
       margin-left: auto;
       margin-right: auto;
-      max-width: percentage($i / $count);
+      max-width: percentage(math.div($i, $count));
     }
   }
 
@@ -88,7 +90,7 @@
     .cell-lg-#{$i} {
       margin-left: auto;
       margin-right: auto;
-      max-width: percentage($i / $count);
+      max-width: percentage(math.div($i, $count));
     }
   }
 

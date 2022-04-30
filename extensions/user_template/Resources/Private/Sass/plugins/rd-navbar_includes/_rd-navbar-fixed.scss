@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*
 * Fixed Layout
 */
@@ -49,7 +51,7 @@
     left: 0;
     top: 0;
     right: 0;
-    padding: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+    padding: math.div(($rd-navbar-fixed-height - $rd-navbar-fixed-line-height), 2);
     height: $rd-navbar-fixed-height;
     color: $rd-navbar-fixed-panel-color;
     z-index: 999;
@@ -264,7 +266,7 @@
 
       &-submit {
         position: absolute;
-        top: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+        top: math.div(($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) , 2);
         right: 4px;
         opacity: 0;
         visibility: hidden;
@@ -363,7 +365,7 @@
   .rd-navbar-collapse,
   .rd-navbar-search-toggle {
     position: fixed;
-    top: ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) / 2;
+    top: math.div($rd-navbar-fixed-height - $rd-navbar-fixed-line-height, 2);
     height: $rd-navbar-fixed-line-height;
     z-index: 1000;
 
@@ -396,8 +398,8 @@
   }
 
   .rd-navbar-aside-toggle {
-    top: ($rd-navbar-fixed-height - $rd-navbar-min-line-height) / 2;
-    right: ($rd-navbar-fixed-height - $rd-navbar-min-line-height) / 2;
+    top: math.div($rd-navbar-fixed-height - $rd-navbar-min-line-height, 2);
+    right: math.div($rd-navbar-fixed-height - $rd-navbar-min-line-height, 2);
     width: $rd-navbar-min-line-height;
     @include make-toggle(
       'collapse-preset-1',

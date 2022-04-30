@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @import "../variables";
 /*
 * @subsection   RD Navbar
@@ -650,7 +652,7 @@
     }
 
     & + li, > img + a, > a + a, > a + ul {
-      margin-top: ($rd-navbar-min-height - $rd-navbar-min-line-height) / 2;
+      margin-top: math.div(($rd-navbar-min-height - $rd-navbar-min-line-height), 2);
     }
   }
 }

@@ -2,6 +2,7 @@
 // Functions
 // --------------------------------------------------
 
+@use "sass:math";
 
 @function str-replace($string, $search, $replace: '') {
   $index: str-index($string, $search);
@@ -14,7 +15,7 @@
 }
 
 @function rem($px-size) {
-  @return str-replace(#{($px-size/100)}, px, rem);
+  @return str-replace(#{math.div($px-size,100)}, px, rem);
 }
 
 @function remove($list, $value, $recursive: false) {
@@ -53,7 +54,7 @@
     $sum: $sum + $i;
   }
 
-  @return $sum / length($list);
+  @return math.div($sum, length($list));
 }
 
 @function headings() {
@@ -105,7 +106,7 @@
 // @return {Number} - Unitless number
 @function strip-unit($number) {
   @if type-of($number) == 'number' and not unitless($number) {
-    @return $number / ($number * 0 + 1);
+    @return math.div($number, ($number) * 0 + 1);
   }
 
   @return $number;

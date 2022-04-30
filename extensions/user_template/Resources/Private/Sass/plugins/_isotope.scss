@@ -1,3 +1,5 @@
+@use "sass:math";
+
 /*
 * @subsection   Isotope
 */
@@ -15,7 +17,7 @@ $isotope-masonry-item-offset: 30px;
   &:after{
     content: '';
     position: absolute;
-    margin-top: $isotope-masonry-item-offset / 2;
+    margin-top: math.div($isotope-masonry-item-offset, 2);
     width: 64px;
     height: 64px;
     top: 50%;
