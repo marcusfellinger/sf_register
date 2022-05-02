@@ -75,14 +75,14 @@
   .caption {
     &:before {
       position: relative;
-      @include scale(.8);
+      transform: scale(.8);
     }
     background: rgba($brand-primary, .8);
   }
 
   &:hover {
     .caption:before {
-      @include scale(1);
+      transform: scale(1);
     }
   }
 }

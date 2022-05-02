@@ -368,7 +368,7 @@ address {
       bottom: 0;
       background: inherit;
       width: 2050px;
-      @include scale(-1, 1);
+      transform: scale(-1, 1);
     }
 
     &:before {

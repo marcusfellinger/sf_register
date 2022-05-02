@@ -61,7 +61,7 @@
     background: transparent;
 
     &:before, &:after {
-      @include transform-origin(50% 50%);
+      transform-origin: 50% 50%;
       top: 0;
     }
 

@@ -1,7 +1,6 @@
 @use "sass:math";
 
 @import "../variables";
-@import "../bootstrap/mixins/vendor-prefixes";
 //
 // Select 2
 // --------------------------------------------------
@@ -28,7 +27,7 @@
 
   .select2-container--focus .select2-selection,
   .select2-container--open .select2-selection {
-    @include box-shadow($shadow);
+    box-shadow: $shadow;
     border-color: darken($color, 10%);
   }
 
@@ -347,7 +346,7 @@
   &.select2-container--focus,
   &.select2-container--open {
     .select2-selection {
-      @include transition(border-color ease-in-out .15s, box-shadow ease-in-out .15s);
+      transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
       border-color: $input-border-focus;
     }
   }
@@ -363,13 +362,15 @@
     // Handle border radii of the container when the dropdown is showing.
     &.select2-container--below {
       .select2-selection {
-        @include border-bottom-radius(0);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
       }
     }
 
     &.select2-container--above {
       .select2-selection {
-        @include border-top-radius(0);
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
       }
     }
   }
@@ -392,7 +393,7 @@
 
     .select2-selection {
       border-color: $input-border;
-      @include box-shadow(none);
+      box-shadow: none;
     }
 
     .select2-selection,
@@ -447,7 +448,7 @@
           height: 20px;
           line-height: 20px;
           content: '\e313';
-          font-family: 'Material Icons';
+          font-family: 'Material Icons', fantasy;
           font-size: 20px;
         }
       }
@@ -591,7 +592,6 @@
 
         b {
           border-width: $caret-width-large $caret-width-large 0 $caret-width-large;
-          margin-left: -$caret-width-large;
           margin-left: -$padding-large-vertical;
           margin-top: math.div(-$caret-width-large, 2);
         }
@@ -705,13 +705,15 @@
 
 .input-group.select2-bootstrap-prepend .select2-container--bootstrap {
   .select2-selection {
-    @include border-left-radius(0);
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 }
 
 .input-group.select2-bootstrap-append .select2-container--bootstrap {
   .select2-selection {
-    @include border-right-radius(0);
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
   }
 }
 

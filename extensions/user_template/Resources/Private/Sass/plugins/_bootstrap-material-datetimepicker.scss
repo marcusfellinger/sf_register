@@ -224,7 +224,7 @@
     margin-left: -2px;
     background: $gray-dark;
     @include transform(rotate(0deg));
-    @include transform-origin(bottom);
+    transform-origin: bottom;
     z-index: 1;
     html[class*="ie"] & {
       display: none;

@@ -100,7 +100,7 @@
     background: rgba($white, .1);
     opacity: 0;
     visibility: hidden;
-    @include scale(.9);
+    transform: scale(.9);
     will-change: transform;
     transition: .4s all ease-in-out;
   }
@@ -109,7 +109,7 @@
     &:after {
       opacity: 1;
       visibility: visible;
-      @include scale(1);
+      transform: scale(1);
     }
   }
 }

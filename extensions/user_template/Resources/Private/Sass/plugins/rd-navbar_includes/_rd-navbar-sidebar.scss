@@ -87,7 +87,7 @@ html.rd-navbar-sidebar-linked {
     left: 0;
     padding-top: 45px;
     @include transform(scale(.7));
-    @include transform-origin(0% 0%);
+    transform-origin: 0 0;
     opacity: 0;
     visibility: hidden;
   }

@@ -1,5 +1,4 @@
 @import "../../variables";
-@import "../../bootstrap/mixins/vendor-prefixes";
 // Custom button variants
 //
 
@@ -22,7 +21,7 @@
   &:active,
   &.active,
   .open > &.dropdown-toggle {
-    @include box-shadow($shadow-area-sm);
+    box-shadow: $shadow-area-sm;
 
     // TODO Optimize css export
     &:hover,
