@@ -148,7 +148,7 @@
   span {
     &:before,
     &:after {
-      @include transform-origin($font-size/14 center);
+      transform-origin: math.div($font-size, 14) center;
     }
   }
 
@@ -174,8 +174,7 @@
     @include transform(rotate(180deg));
     &:before,
     &:after {
-      @include transform-origin($font-size/14 center);
-      @include transform-origin($font-size/14 center);
+      transform-origin: math.div($font-size, 14) center;
     }
   }
 
