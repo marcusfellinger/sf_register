@@ -9,8 +9,14 @@ plugin.user_template {
         brandSlogan =
     }
 
-    settings {
-        # cat=plugin.user_template/include; type=check; label=Include jQuery in JSFooterLibs
-        includejQuery = 1
+        settings {
+            # cat=plugin.user_template/include; type=check; label=Include jQuery in JSFooterLibs
+            includejQuery = 1
+        }
+    }
+    tx_sfregister {
+        settings {
+            captchaId = srfreecap
+        }
     }
 }

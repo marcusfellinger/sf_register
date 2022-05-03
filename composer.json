@@ -43,6 +43,8 @@
     "cggrafing/user-template": "*",
     "georgringer/news": "*",
     "helhum/typo3-console": "*",
+    "evoweb/sf-register": "*",
+    "sjbr/sr-freecap": "*",
     "typo3/cms-adminpanel": "*",
     "typo3/cms-felogin": "*",
     "typo3/cms-fluid-styled-content": "*",
