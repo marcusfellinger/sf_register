@@ -74,13 +74,22 @@ body {
 *               of common elements in page footer
 */
 
-.page-foot {
-  //padding: 63px 0;
+footer {
   background-color: $footer-bg;
   color: $footer-color;
+  margin-top: 1em;
+  padding: 1em 0;
+
+  @media screen and (min-width: $screen-sm-min) {
+    padding: 4em 0;
+  }
 
   a {
     color: $footer-color;
+  }
+
+  .col-12 {
+    padding-bottom: 1em;
   }
 
   .contact-info-contrast {
@@ -97,12 +106,8 @@ body {
   }
 
   .range {
-    padding: 1em 0;
     margin-top: 0;
 
-    @media screen and (min-width: $screen-sm-min) {
-      padding: 4em 0;
-    }
   }
 
   .rights {
@@ -337,10 +342,6 @@ hr {
   a {
     &, &:active, &:focus {
       color: $brand-primary;
-    }
-
-    &:hover {
-      color: $white;
     }
   }
 }

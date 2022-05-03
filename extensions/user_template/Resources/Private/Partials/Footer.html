@@ -1,48 +1,43 @@
 <html data-namespace-typo3-fluid="true" lang="de" xmlns="http://www.w3.org/1999/xhtml"
       xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
     <f:section name="main">
-        <div class="shell">
-            <div class="range range-sm-bottom range-sm-justify range-lg-left offset-top-30 offset-sm-top-60
-            offset-md-top-100">
-                <div class="cell-xs-12 cell-sm-8 cell-md-6 cell-lg-5">
-                    <p><span class="rights">&#169;&nbsp;<span id="copyright-year"></span></span>
-                        <f:for as="footerMenuItem" each="{footerMenu}">
-                            &nbsp;|&nbsp;<f:link class="{f:if(condition: footerMenuItem.active, then: 'active')}"
-                                                 href="{footerMenuItem.link}">{footerMenuItem.title}
-                        </f:link>
-                        </f:for>
-                    </p>
-                </div>
-                <div class="cell-xs-12 cell-sm-8 cell-md-3 cell-lg-4">
-                    <div class="inset-1"><a href="/" class="brand brand-xl">
-                        <div class="brand-body">
-                            <div class="brand-name">
-
-                            </div>
-                            <div class="brand-slogan"></div>
+        <div class="shell-wide">
+            <div class="row align-items-end">
+                <div class="col-12 col-md-8 col-xxl-9">
+                    <div class="row align-items-end">
+                        <div class="col-12 col-lg-9 col-xl-7 col-xxl-6">
+                            <span class="rights">&#169;&nbsp;<span id="copyright-year"></span></span>
+                            <f:for as="footerMenuItem" each="{footerMenu}">
+                                &nbsp;|&nbsp;<a class="{f:if(condition: footerMenuItem.active, then: 'active')}"
+                                                href="{footerMenuItem.link}">{footerMenuItem.title}
+                            </a>
+                            </f:for>
                         </div>
-                        <div class="brand-right">
-                            <img src="/typo3conf/ext/user_template/Resources/Public/Images/Logo%20Gemeinde1%21weiss.png"
-                                 alt="" width="519" height="184">
+                        <div class="col-12 col-lg-3 col-xl-5 col-xxl-6">
+                            <a href="/" class="brand brand-xl">
+                                <img src="/typo3conf/ext/user_template/Resources/Public/Images/Logo%20Gemeinde1%21weiss.png"
+                                     alt="" width="519" height="184">
+                            </a>
                         </div>
-                    </a></div>
+                    </div>
                 </div>
-            </div>
-
-            <div class="cell-xs-12 cell-sm-4 cell-md-3 cell-lg-3 offset-top-20 offset-md-top-0">
-                <address class="contact-info contact-info-contrast">
-                    <p class="text-style-2 text-primary">Telefon:</p>
-                    <a href="tel:+498092230930" class="link link-md link-primary offset-top-0">08092-2309330</a>
-                    <p class="offset-top-9 text-style-2 text-primary">
-                        Christliche Gemeinde Grafing, Tegernauer Straße 3,
-                        85567 Grafing
-                    </p>
-                    <dl class="dl-inline">
-                        <dt class="text-style-2">Email</dt>
-                        <dd class="text-style-2"><a href="mailto:info@cg-grafing.de" class="link">info@cg-grafing.de</a>
-                        </dd>
-                    </dl>
-                </address>
+                <div class="col-12 col-md-4 col-xxl-3">
+                    <address class="contact-info contact-info-contrast">
+                        <p class="text-style-2">Telefon:</p>
+                        <a href="tel:+498092230930" class="link link-md link-primary offset-top-0">08092-2309330</a>
+                        <p class="offset-top-9 text-style-2">
+                            Christliche Gemeinde Grafing,<br />
+                            Tegernauer Straße 3,<br />
+                            85567 Grafing
+                        </p>
+                        <dl class="dl-inline">
+                            <dt class="text-style-2">Email</dt>
+                            <dd class="text-style-2"><a href="mailto:info@cg-grafing.de"
+                                                        class="link">info@cg-grafing.de</a>
+                            </dd>
+                        </dl>
+                    </address>
+                </div>
             </div>
         </div>
     </f:section>
