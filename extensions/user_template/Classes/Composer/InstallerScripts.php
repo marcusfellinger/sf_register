@@ -122,7 +122,9 @@ class InstallerScripts implements InstallerScriptsRegistration, InstallerScript
         $target = $sourcePath . DIRECTORY_SEPARATOR . $file;
         $target = $this->getRelativePath($link, $target);
         echo "$target => $link\n";
-        unlink($link);
+        if(file_exists($link)) {
+            unlink($link);
+        }
         symlink($target, $link);
     }
 }
