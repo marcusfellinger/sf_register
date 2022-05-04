@@ -104,6 +104,9 @@ return [
         'container' => [
             'packagePath' => 'typo3conf/ext/container/',
         ],
+        'user_template' => [
+            'packagePath' => 'typo3conf/ext/user_template/',
+        ],
         'fal_securedownload' => [
             'packagePath' => 'typo3conf/ext/fal_securedownload/',
         ],
@@ -115,9 +118,6 @@ return [
         ],
         'typo3db_legacy' => [
             'packagePath' => 'typo3conf/ext/typo3db_legacy/',
-        ],
-        'user_template' => [
-            'packagePath' => 'typo3conf/ext/user_template/',
         ],
     ],
     'version' => 5,
