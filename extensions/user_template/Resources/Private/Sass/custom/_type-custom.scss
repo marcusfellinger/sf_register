@@ -356,7 +356,7 @@ address {
   background-repeat: no-repeat;
   -webkit-background-size: auto;
   background-size: auto;
-  background-image: url('../images/home-1-2050x1296.jpg');
+  background-image: url('../../../Public/Images/home-1-2050x1296.jpg');
 
   @media (min-width: 2050px) {
     background-color: $gray-light;
@@ -397,7 +397,7 @@ address {
 
     background-position: center 86.8%;
     background-repeat: no-repeat;
-    background-image: url('../images/home-1-2050x1296-blur.jpg');
+    background-image: url('../../../Public/Images/home-1-2050x1296-blur.jpg');
 
     @media (min-width: $screen-md-min) {
       background-position: center 78.7%;
