@@ -15,18 +15,18 @@
 .shell,
 .shell-wide{
   min-width: $shell-width;
-  max-width: $shell-xs-width;
+  //max-width: $shell-xs-width;
 
   @media (min-width: $screen-sm-min) {
-    max-width: $shell-sm-width;
+    //max-width: $shell-sm-width;
   }
 
   @media (min-width: $screen-md-min) {
-    max-width: $shell-md-width;
+    //max-width: $shell-md-width;
   }
 
   @media (min-width: $screen-lg-min) {
-    max-width: $shell-lg-width;
+    //max-width: $shell-lg-width;
   }
 }
 

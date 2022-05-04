@@ -24,8 +24,15 @@
     "twbs/bootstrap": "*"
   },
   "require-dev": {
-    "roave/security-advisories": "dev-latest"
+    "roave/security-advisories": "dev-latest",
+    "phpunit/phpunit": "*"
   },
   "type": "typo3-cms-extension",
-  "version": "v1.0.0"
+  "version": "v1.0.0",
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true
+    }
+  }
 }
