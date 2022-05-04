@@ -7002,12 +7002,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "d086677fd11abf47d22bffa8806efa422a15c9d0"
+                "reference": "54c08f02765d00fd520897873f163703b08f68f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/d086677fd11abf47d22bffa8806efa422a15c9d0",
-                "reference": "d086677fd11abf47d22bffa8806efa422a15c9d0",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/54c08f02765d00fd520897873f163703b08f68f2",
+                "reference": "54c08f02765d00fd520897873f163703b08f68f2",
                 "shasum": ""
             },
             "conflict": {
@@ -7194,6 +7194,7 @@
                 "livewire/livewire": ">2.2.4,<2.2.6",
                 "lms/routes": "<2.1.1",
                 "localizationteam/l10nmgr": "<7.4|>=8,<8.7|>=9,<9.2",
+                "luyadev/yii-helpers": "<1.2.1",
                 "magento/community-edition": ">=2,<2.2.10|>=2.3,<2.3.3",
                 "magento/magento1ce": "<1.9.4.3",
                 "magento/magento1ee": ">=1,<1.14.4.3",
@@ -7481,7 +7482,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-05-03T21:04:27+00:00"
+            "time": "2022-05-04T03:31:04+00:00"
         },
         {
             "name": "typo3/fluid-schema-generator",
