@@ -13,7 +13,7 @@
 
 module.exports = function (grunt) {
 
-    const sass = require('node-sass');
+    const sass = require('sass');
     const esModuleLexer = require('es-module-lexer');
 
     // Project configuration.
@@ -324,6 +324,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-newer');
     grunt.loadNpmTasks('grunt-prettier');
+    grunt.loadNpmTasks('grunt-sass');
 
     /**
      * grunt default task
