@@ -20,7 +20,7 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         paths: {
-            root: '../',
+            root: './',
             resources: '<%= paths.root %>Resources/',
             private: '<%= paths.resources %>Private/',
             sass: '<%= paths.private %>Sass/',
@@ -50,7 +50,7 @@ module.exports = function (grunt) {
             },
             styles: {
                 files: {
-                    "<%= paths.backend %>Public/Css/styles.css": "<%= paths.sass %>styles.scss"
+                    "<%= paths.backend %>Public/Css/style.css": "<%= paths.sass %>style.scss"
                 }
             },
         },
@@ -170,11 +170,6 @@ module.exports = function (grunt) {
                         .replace('/Resources/Public/JavaScript/tests/', '/Tests/JavaScript/')
                 }]
             },
-        },
-        newer: {
-            options: {
-                cache: './.cache/grunt-newer/'
-            }
         },
         rollup: {
             options: {
