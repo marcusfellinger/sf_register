@@ -41,8 +41,9 @@
     display: inline;
     font: inherit;
     letter-spacing: inherit;
-    transition: .33s all ease;
-    &, &:active, &:focus {
+    transition: 0.33s all ease;
+    &, &:active,
+    &:focus {
       color: $brand-primary;
     }
 

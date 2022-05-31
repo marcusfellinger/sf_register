@@ -74,8 +74,8 @@ $isotope-masonry-item-offset: 30px;
         cursor: pointer;
         padding: 3px 6px 16px;
         position: relative;
-        transition: .3s;
-        &:after{
+        transition: 0.3s;
+        &:after {
           content: '';
           position: absolute;
           bottom: 0;

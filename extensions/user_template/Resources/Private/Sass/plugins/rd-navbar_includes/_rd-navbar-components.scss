@@ -50,8 +50,10 @@
     font-size: 12px;
     line-height: 1;
     text-transform: uppercase;
-    letter-spacing: .15em;
-    &, &:focus, &:active, &:hover {
+    letter-spacing: 0.15em;
+    &, &:focus,
+    &:active,
+    &:hover {
       color: $brand-primary;
     }
   }

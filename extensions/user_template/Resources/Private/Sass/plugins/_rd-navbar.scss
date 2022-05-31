@@ -296,8 +296,9 @@
       font-family: $font-family-sec;
       font-size: 18px;
       font-weight: 400;
-      letter-spacing: .1em;
-      &, &:focus, &:active {
+      letter-spacing: 0.1em;
+      &, &:focus,
+      &:active {
         color: $rd-navbar-dropdown-item-color;
       }
       background: $rd-navbar-dropdown-item-background;

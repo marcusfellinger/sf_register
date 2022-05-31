@@ -296,10 +296,10 @@ yx-axis
 .mCSB_scrollTools .mCSB_buttonDown,
 .mCSB_scrollTools .mCSB_buttonLeft,
 .mCSB_scrollTools .mCSB_buttonRight {
-  -webkit-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
-  -moz-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
-  -o-transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
-  transition: opacity .2s ease-in-out, background-color .2s ease-in-out;
+  -webkit-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  -moz-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  -o-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar, /* auto-expanded scrollbar */
