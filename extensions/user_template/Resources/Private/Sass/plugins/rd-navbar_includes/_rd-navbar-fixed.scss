@@ -51,7 +51,10 @@
     left: 0;
     top: 0;
     right: 0;
-    padding: math.div(($rd-navbar-fixed-height - $rd-navbar-fixed-line-height), 2);
+    padding: math.div(
+      ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height),
+      2
+    );
     height: $rd-navbar-fixed-height;
     color: $rd-navbar-fixed-panel-color;
     z-index: 999;
@@ -124,7 +127,8 @@
       &.focus,
       &.active,
       &.opened {
-        > a, > a:hover {
+        > a,
+        > a:hover {
           color: $rd-navbar-fixed-panel-item-hover-color;
           background: $rd-navbar-fixed-panel-item-hover-background;
         }
@@ -220,7 +224,8 @@
       }
     }
 
-    &-form, .rd-navbar-live-search-results {
+    &-form,
+    .rd-navbar-live-search-results {
       position: fixed;
       margin-right: 0;
       margin-left: auto;
@@ -267,7 +272,10 @@
 
       &-submit {
         position: absolute;
-        top: math.div(($rd-navbar-fixed-height - $rd-navbar-fixed-line-height) , 2);
+        top: math.div(
+          ($rd-navbar-fixed-height - $rd-navbar-fixed-line-height),
+          2
+        );
         right: 4px;
         opacity: 0;
         visibility: hidden;
@@ -277,7 +285,6 @@
         &:focus {
           outline: none;
         }
-
       }
     }
 
@@ -297,7 +304,8 @@
     }
 
     @media (min-width: $screen-md-min) {
-      &-form, .rd-navbar-live-search-results {
+      &-form,
+      .rd-navbar-live-search-results {
         max-width: 340px;
       }
 
@@ -379,7 +387,8 @@
 
   // RD Navbar aside
   .rd-navbar-aside {
-    &, .rd-navbar-aside-toggle {
+    &,
+    .rd-navbar-aside-toggle {
       position: fixed;
       z-index: 1000;
       display: block;
