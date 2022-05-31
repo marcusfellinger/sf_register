@@ -14,14 +14,14 @@
 // RD Navbar Toggle
 .rd-navbar-toggle {
   @include make-toggle(
-          $rd-navbar-toggle-preset,
-          $rd-navbar-min-line-height,
-          $rd-navbar-min-font-size,
-          $rd-navbar-fixed-toggle-color
+    $rd-navbar-toggle-preset,
+    $rd-navbar-min-line-height,
+    $rd-navbar-min-font-size,
+    $rd-navbar-fixed-toggle-color
   );
   background-color: transparent;
   border: none;
-  &:focus{
+  &:focus {
     outline: none;
   }
   display: none;
@@ -41,7 +41,10 @@
     line-height: 1;
     text-transform: uppercase;
 
-    &, &:focus, &:active, &:hover {
+    &,
+    &:focus,
+    &:active,
+    &:hover {
       color: $brand-primary;
     }
   }
@@ -73,13 +76,16 @@
     display: inline-block;
     font: 400 18px/36px "FontAwesome";
 
-    &, &:before, &:after {
+    &,
+    &:before,
+    &:after {
       text-align: center;
       width: 36px;
       height: 36px;
     }
 
-    &:before, &:after {
+    &:before,
+    &:after {
       position: absolute;
       left: 0;
       top: 0;
@@ -109,7 +115,8 @@
       }
     }
 
-    .rd-navbar-fixed &, .rd-navbar-fixed &:before {
+    .rd-navbar-fixed &,
+    .rd-navbar-fixed &:before {
       width: $rd-navbar-min-line-height;
       line-height: $rd-navbar-min-line-height;
     }
@@ -117,10 +124,10 @@
 
   &-form-submit {
     @include make-toggle(
-            $rd-navbar-search-toggle-preset,
-            $rd-navbar-min-line-height,
-            $rd-navbar-min-font-size,
-            $rd-navbar-panel-color
+      $rd-navbar-search-toggle-preset,
+      $rd-navbar-min-line-height,
+      $rd-navbar-min-font-size,
+      $rd-navbar-panel-color
     );
   }
 }
@@ -128,7 +135,8 @@
 .rd-navbar-search-results {
   .result-item {
     padding: 35px 5px;
-    &, * {
+    &,
+    * {
       text-align: left;
     }
     & + .result-item {
@@ -251,7 +259,9 @@
 .rd-navbar-aside {
   pointer-events: none;
 
-  > * { pointer-events: auto; }
+  > * {
+    pointer-events: auto;
+  }
 }
 
 .rd-navbar-aside-toggle {

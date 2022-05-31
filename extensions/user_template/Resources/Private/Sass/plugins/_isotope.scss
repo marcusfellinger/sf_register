@@ -6,7 +6,7 @@
 
 $isotope-masonry-item-offset: 30px;
 
-[data-isotope-layout]{
+[data-isotope-layout] {
   position: relative;
   @include transform(translateY(-$isotope-masonry-item-offset));
   display: block;
@@ -29,7 +29,7 @@ $isotope-masonry-item-offset: 30px;
     @include transform(translate(-50%, -50%));
   }
 
-  [class*="col-"]{
+  [class*="col-"] {
     display: block;
     margin-top: $isotope-masonry-item-offset;
     opacity: 0;
@@ -41,19 +41,19 @@ $isotope-masonry-item-offset: 30px;
     //width: 100%;
   }
 
-  &.isotope--loaded{
-    [class*="col-"]{
+  &.isotope--loaded {
+    [class*="col-"] {
       opacity: 1;
     }
 
-    &:after{
+    &:after {
       opacity: 0;
       visibility: hidden;
     }
   }
 }
 
-.isotope-filters{
+.isotope-filters {
   margin-bottom: 41px;
   margin-top: 57px;
   > * {
@@ -61,15 +61,15 @@ $isotope-masonry-item-offset: 30px;
     display: inline-block;
     vertical-align: middle;
   }
-  .inline-list{
+  .inline-list {
     margin-bottom: 0;
     padding: 0 0 12px;
     border-bottom: 1px solid $gray;
-    li{
+    li {
       display: inline-block;
       text-transform: uppercase;
       margin-top: 20px;
-      a{
+      a {
         color: $gray-dark;
         cursor: pointer;
         padding: 3px 6px 16px;
@@ -85,7 +85,7 @@ $isotope-masonry-item-offset: 30px;
           transition: 0.3s;
         }
         &.active,
-        &:hover{
+        &:hover {
           &:after {
             left: 0;
             width: 100%;
@@ -94,24 +94,24 @@ $isotope-masonry-item-offset: 30px;
         }
       }
     }
-    li + li{
+    li + li {
       margin-left: 2px;
     }
   }
 
   @media (min-width: 992px) {
     .inline-list {
-      li{
+      li {
         margin-top: 0;
       }
-      li + li{
+      li + li {
         margin-left: 22px;
       }
     }
   }
 
   @media (min-width: $screen-md-min) {
-    .isotope-filters-trigger{
+    .isotope-filters-trigger {
       display: none;
     }
   }

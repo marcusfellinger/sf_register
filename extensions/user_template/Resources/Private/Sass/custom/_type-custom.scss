@@ -139,7 +139,8 @@ code {
   border-radius: 2px;
 }
 
-mark, .mark {
+mark,
+.mark {
   background-color: $brand-primary;
   padding: 0.1em;
 }
@@ -234,13 +235,17 @@ address {
 // Contextual backgrounds
 //
 %context-dark {
-  &, #{headings()} {
+  &,
+  #{headings()} {
     color: $text-color;
   }
 
   #{headings()} {
     a {
-      &, &:active, &:focus, &:hover {
+      &,
+      &:active,
+      &:focus,
+      &:hover {
         color: inherit;
       }
 
@@ -251,7 +256,9 @@ address {
   }
 
   a {
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       color: $white;
     }
 
@@ -328,7 +335,6 @@ address {
   background-position: center bottom;
   -webkit-background-size: cover;
   background-size: cover;
-
 
   @media (max-width: $screen-xs-max) {
     position: relative;
@@ -417,8 +423,6 @@ address {
         background-position: center 87.5%;
       }
     }
-
-
   }
 }
 
