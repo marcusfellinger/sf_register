@@ -60,7 +60,8 @@
   &.active span {
     background: transparent;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       transform-origin: 50% 50%;
       top: 0;
     }
@@ -76,7 +77,8 @@
 
 @mixin button-lines__cross-2($size: 48px, $font-size: 24px, $color: #111) {
   span {
-    &:before, &:after {
+    &:before,
+    &:after {
       -webkit-transition-duration: 0.3s, 0.3s;
       transition-duration: 0.3s, 0.3s;
       -webkit-transition-delay: 0.3s, 0s;
@@ -90,7 +92,8 @@
     transition: background 0.3s 0s ease;
     background: transparent;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       top: 0;
       -webkit-transition-delay: 0s, 0.3s;
       transition-delay: 0s, 0.3s;
@@ -110,7 +113,8 @@
 
 @mixin button-lines__cross-3($size: 48px, $font-size: 24px, $color: #111) {
   span {
-    &:before, &:after {
+    &:before,
+    &:after {
       -webkit-transition-duration: 0.3s, 0.3s;
       transition-duration: 0.3s, 0.3s;
       -webkit-transition-delay: 0.3s, 0s;
@@ -125,7 +129,8 @@
     transition: background 0.3s 0s ease;
     background: transparent;
 
-    &:before, &:after {
+    &:before,
+    &:after {
       top: 0;
       -webkit-transition-delay: 0s, 0.3s;
       transition-delay: 0s, 0.3s;
@@ -219,7 +224,7 @@
   text-align: center;
   font-size: $font-size;
 
-  &:before{
+  &:before {
     content: "\f002";
     font-weight: 400;
     font-family: "FontAwesome";
@@ -231,11 +236,13 @@
 }
 
 @mixin collapse-preset-1($size: 48px, $font-size: 24px, $color: #111) {
-   span {
+  span {
     top: 50%;
     margin-top: -((math.div($size, 16)));
 
-    &, &:before, &:after {
+    &,
+    &:before,
+    &:after {
       position: absolute;
       width: math.div($size, 8);
       height: math.div($size, 8);
@@ -266,19 +273,30 @@
 
   &.active {
     span {
-    @include transform(scale(0.7));
+      @include transform(scale(0.7));
       &:before {
-        @include transform(translateY(((math.div($size, 8)))*2 + ((math.div($size, 16)))*2));
+        @include transform(
+          translateY(((math.div($size, 8))) * 2 + ((math.div($size, 16))) * 2)
+        );
       }
 
       &:after {
-        @include transform(translateY(-(((math.div($size, 8)))*2 + ((math.div($size, 16)))*2)));
+        @include transform(
+          translateY(
+            -(((math.div($size, 8))) * 2 + ((math.div($size, 16))) * 2)
+          )
+        );
       }
     }
   }
 }
 
-@mixin make-toggle($preset: "button-lines-arrow-2", $size: 48px, $font-size: 24px, $color: #111) {
+@mixin make-toggle(
+  $preset: "button-lines-arrow-2",
+  $size: 48px,
+  $font-size: 24px,
+  $color: #111
+) {
   display: inline-block;
   position: relative;
   width: $size;

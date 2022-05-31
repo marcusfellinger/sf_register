@@ -1,6 +1,5 @@
 @import "../variables";
 
-
 //
 // Custom form styles
 // --------------------------------------------------
@@ -24,8 +23,6 @@
   }
 }
 
-
-
 // Normalize non-controls
 // --------------------------------------------------
 
@@ -43,7 +40,8 @@ label {
 .form-control {
   font-size: $input-font-size;
 
-  &, &:focus {
+  &,
+  &:focus {
     box-shadow: none;
   }
 }
@@ -120,7 +118,9 @@ textarea.form-control {
 .form-label-outside {
   @media (min-width: $screen-sm-min) {
     position: static;
-    &, &.focus, &.auto-fill {
+    &,
+    &.focus,
+    &.auto-fill {
       @include transform(none);
       color: $input-color-placeholder;
       font-size: $input-font-size;
@@ -144,27 +144,42 @@ textarea.form-control {
 // Error Styling
 //
 .has-error {
-  @include form-control-validation-custom($state-danger-text, $state-danger-bg, $state-danger-bg);
+  @include form-control-validation-custom(
+    $state-danger-text,
+    $state-danger-bg,
+    $state-danger-bg
+  );
 }
 
 // Success Styling
 //
 .has-success {
-  @include form-control-validation-custom($state-success-text, $state-success-bg, $state-success-bg);
+  @include form-control-validation-custom(
+    $state-success-text,
+    $state-success-bg,
+    $state-success-bg
+  );
 }
 
 // Warning Styling
 //
 .has-warning {
-  @include form-control-validation-custom($state-warning-text, $state-warning-bg, $state-warning-bg);
+  @include form-control-validation-custom(
+    $state-warning-text,
+    $state-warning-bg,
+    $state-warning-bg
+  );
 }
 
 // Info Styling
 //
 .has-info {
-  @include form-control-validation-custom($state-info-text, $state-info-bg, $state-info-bg);
+  @include form-control-validation-custom(
+    $state-info-text,
+    $state-info-bg,
+    $state-info-bg
+  );
 }
-
 
 // Form output
 // -------------------------
@@ -222,7 +237,8 @@ textarea.form-control {
 .checkbox-inline .checkbox-custom {
   opacity: 0;
 
-  &, &-dummy {
+  &,
+  &-dummy {
     position: absolute;
     width: 14px;
     height: 14px;

@@ -15,7 +15,9 @@
   }
 
   .link-darker {
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       color: $gray-darker;
     }
 
@@ -25,7 +27,9 @@
   }
 
   .link-primary {
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       color: $brand-primary;
     }
 
@@ -75,7 +79,9 @@
 
   .link-group-contrast {
     a {
-      &, &:active, &:focus {
+      &,
+      &:active,
+      &:focus {
         color: $white;
       }
 

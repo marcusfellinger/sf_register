@@ -14,7 +14,8 @@
   overflow: hidden;
   /* Fix of Webkit flickering */
   z-index: 1;
-  &, .swiper-wrapper {
+  &,
+  .swiper-wrapper {
     height: auto;
     min-height: 44.22vw;
   }
@@ -276,18 +277,30 @@
 }
 
 .swiper-container-3d .swiper-slide-shadow-left {
-  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to left,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .swiper-container-3d .swiper-slide-shadow-right {
 }
 
 .swiper-container-3d .swiper-slide-shadow-top {
-  background-image: linear-gradient(to top, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 .swiper-container-3d .swiper-slide-shadow-bottom {
-  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0));
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.5),
+    rgba(0, 0, 0, 0)
+  );
 }
 
 /* Coverflow */
@@ -495,24 +508,21 @@
 
 @media (min-width: $screen-sm-min) {
   .swiper-slide-caption {
-   p {
+    p {
       display: block;
     }
   }
 }
 
 @media (min-width: $screen-md-min) {
-
 }
 
 @media (min-width: $screen-lg-min) {
   .swiper-slide-caption {
-
   }
 }
 
 @media (min-width: $screen-xl-min) {
   .swiper-slide-caption {
-
   }
 }

@@ -107,7 +107,6 @@ footer {
 
   .range {
     margin-top: 0;
-
   }
 
   .rights {
@@ -132,7 +131,9 @@ a {
   text-decoration: none;
   transition: 0.33s all ease-out;
 
-  &, &:active, &:focus {
+  &,
+  &:active,
+  &:focus {
     color: $link-color;
   }
 
@@ -249,8 +250,12 @@ hr {
   font-size: 20px;
   text-transform: uppercase;
   transition: none;
-  &, &:active, &:focus, &:hover {
-    &, * {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
+    &,
+    * {
       color: $brand-primary;
     }
   }
@@ -340,7 +345,9 @@ hr {
   text-transform: uppercase;
 
   a {
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       color: $brand-primary;
     }
   }

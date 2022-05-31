@@ -8,14 +8,19 @@
   $index: str-index($string, $search);
 
   @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
   }
 
   @return $string;
 }
 
 @function rem($px-size) {
-  @return str-replace(#{math.div($px-size,100)}, px, rem);
+  @return str-replace(#{math.div($px-size, 100)}, px, rem);
 }
 
 @function remove($list, $value, $recursive: false) {
@@ -64,10 +69,17 @@
 @function cols($resolution) {
   $selector: ();
   @each $j in 1, 2, 3, 4, 6, 12 {
-    $selector: append($selector, "> .col-#{$resolution}-#{$j}:nth-child(n + #{(12/$j)+1})", comma);
+    $selector: append(
+      $selector,
+      "> .col-#{$resolution}-#{$j}:nth-child(n + #{(12/$j)+1})",
+      comma
+    );
   }
 
-  $selector: append($selector, "> .col-#{$resolution}-8.col-#{$resolution}-preffix-2");
+  $selector: append(
+    $selector,
+    "> .col-#{$resolution}-8.col-#{$resolution}-preffix-2"
+  );
 
   @return $selector;
 }
@@ -75,10 +87,17 @@
 @function cells($resolution) {
   $selector: ();
   @each $j in 1, 2, 3, 4, 6, 12 {
-    $selector: append($selector, "> .cell-#{$resolution}-#{$j}:nth-child(n + #{(12/$j)+1})", comma);
+    $selector: append(
+      $selector,
+      "> .cell-#{$resolution}-#{$j}:nth-child(n + #{(12/$j)+1})",
+      comma
+    );
   }
 
-  $selector: append($selector, "> .cell-#{$resolution}-8.cell-#{$resolution}-preffix-2");
+  $selector: append(
+    $selector,
+    "> .cell-#{$resolution}-8.cell-#{$resolution}-preffix-2"
+  );
 
   @return $selector;
 }
@@ -86,7 +105,11 @@
 @function cols-full($resolution) {
   $selector: ();
   @for $j from 1 through 12 {
-    $selector: append($selector, "> .col-#{$resolution}-#{$j}:nth-child(n)", comma);
+    $selector: append(
+      $selector,
+      "> .col-#{$resolution}-#{$j}:nth-child(n)",
+      comma
+    );
   }
 
   @return $selector;
@@ -94,7 +117,11 @@
 @function cells-full($resolution) {
   $selector: ();
   @for $j from 1 through 12 {
-    $selector: append($selector, "> .cell-#{$resolution}-#{$j}:nth-child(n)", comma);
+    $selector: append(
+      $selector,
+      "> .cell-#{$resolution}-#{$j}:nth-child(n)",
+      comma
+    );
   }
 
   @return $selector;

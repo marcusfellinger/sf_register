@@ -353,7 +353,9 @@ table {
 
   a {
     font-weight: 500;
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       //color: $curious-blue;
     }
 
@@ -440,7 +442,6 @@ table {
           }
         }
       }
-
     }
   }
 }

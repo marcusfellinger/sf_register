@@ -3,14 +3,14 @@
 // Formstone Stepper Plugin
 // --------------------------------------------------
 
-.stepper{
+.stepper {
   position: relative;
   display: inline-block;
   max-width: 70px;
   width: 70px;
   margin-bottom: $form-group-margin-bottom;
 
-  input[type="number"]{
+  input[type="number"] {
     width: 100%;
     padding-left: 20px;
     padding-right: 20px;
@@ -22,7 +22,7 @@
     -webkit-appearance: none;
   }
 
-  &-arrow{
+  &-arrow {
     position: absolute;
     top: 50%;
     margin-top: -10px;
@@ -39,7 +39,7 @@
       color: $brand-primary;
     }
 
-    &.up{
+    &.up {
       right: 0;
       text-align: left;
 
@@ -48,7 +48,7 @@
       }
     }
 
-    &.down{
+    &.down {
       left: 0;
       text-align: right;
 
@@ -58,8 +58,8 @@
     }
   }
 
-  &.disabled{
-    .stepper-arrow{
+  &.disabled {
+    .stepper-arrow {
       pointer-events: none;
       opacity: 0.5;
     }

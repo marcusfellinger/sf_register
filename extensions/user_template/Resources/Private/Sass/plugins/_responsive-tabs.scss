@@ -30,7 +30,6 @@ $tab-padding: 20px;
     cursor: pointer;
 
     &:hover {
-
     }
   }
 }
@@ -53,7 +52,8 @@ $tab-padding: 20px;
     word-spacing: $tabs-btn-indent - 0.25em;
   }
 
-  .resp-accordion, .resp-tabs-list > li {
+  .resp-accordion,
+  .resp-tabs-list > li {
     display: inline-block;
     word-spacing: normal;
     padding: $tabs-btn-padding;
@@ -66,7 +66,8 @@ $tab-padding: 20px;
     cursor: pointer;
     transition: 0.33s all ease-out;
 
-    &:hover, &.resp-tab-active {
+    &:hover,
+    &.resp-tab-active {
       color: $tabs-btn-active-color;
       background: $tabs-btn-active-background;
     }
@@ -101,8 +102,8 @@ $tab-padding: 20px;
       display: inline-block;
 
       &.resp-tab-active {
-
-        &:before, &:after {
+        &:before,
+        &:after {
           display: block;
         }
 
@@ -148,9 +149,10 @@ $tab-padding: 20px;
     }
   }
 
-  .resp-accordion, .resp-tabs-list > li {
-    &:hover, &.resp-tab-active {
-
+  .resp-accordion,
+  .resp-tabs-list > li {
+    &:hover,
+    &.resp-tab-active {
     }
 
     &.resp-tab-active {

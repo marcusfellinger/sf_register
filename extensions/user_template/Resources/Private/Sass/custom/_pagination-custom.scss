@@ -13,7 +13,9 @@ $pagination-offset: 20px;
   }
 
   li a {
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       color: $pagination-color;
     }
 
@@ -42,7 +44,8 @@ $pagination-offset: 20px;
   }
 
   li.active {
-    &, a {
+    &,
+    a {
       color: $pagination-active-color;
     }
   }

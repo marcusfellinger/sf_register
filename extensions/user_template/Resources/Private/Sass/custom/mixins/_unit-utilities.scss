@@ -1,5 +1,11 @@
 // Unit Utilities
-@mixin unit-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint){
+@mixin unit-variant(
+  $spacing-t,
+  $spacing-r,
+  $spacing-b,
+  $spacing-l,
+  $breakpoint
+) {
   .unit#{$breakpoint}-align-center {
     @include justify-content(center);
   }
@@ -20,50 +26,50 @@
     @include justify-content(space-around);
   }
 
-  .unit#{$breakpoint}-top{
+  .unit#{$breakpoint}-top {
     @include align-items(flex-start);
   }
 
-  .unit#{$breakpoint}-middle{
+  .unit#{$breakpoint}-middle {
     @include align-items(center);
   }
 
-  .unit#{$breakpoint}-bottom{
+  .unit#{$breakpoint}-bottom {
     @include align-items(flex-end);
   }
 
-  .unit#{$breakpoint}-grow-1{
+  .unit#{$breakpoint}-grow-1 {
     @include flex-grow(1);
   }
 
-  .unit#{$breakpoint}-grow-2{
+  .unit#{$breakpoint}-grow-2 {
     @include flex-grow(2);
   }
 
-  .unit#{$breakpoint}-grow-3{
+  .unit#{$breakpoint}-grow-3 {
     @include flex-grow(3);
   }
 
-  .unit-item#{$breakpoint}-top{
+  .unit-item#{$breakpoint}-top {
     @include align-self(flex-start);
   }
 
-  .unit-item#{$breakpoint}-middle{
+  .unit-item#{$breakpoint}-middle {
     @include align-self(center);
   }
 
-  .unit-item#{$breakpoint}-bottom{
+  .unit-item#{$breakpoint}-bottom {
     @include align-self(flex-end);
   }
-  .unit-item#{$breakpoint}-narrow{
+  .unit-item#{$breakpoint}-narrow {
     @include flex-grow(0);
   }
 
-  .unit-item#{$breakpoint}-standart{
+  .unit-item#{$breakpoint}-standart {
     @include flex-grow(1);
   }
 
-  .unit-item#{$breakpoint}-wide{
+  .unit-item#{$breakpoint}-wide {
     @include flex-grow(2);
   }
 
@@ -133,7 +139,13 @@
   }
 }
 
-@mixin unit-spacing-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint){
+@mixin unit-spacing-variant(
+  $spacing-t,
+  $spacing-r,
+  $spacing-b,
+  $spacing-l,
+  $breakpoint
+) {
   &.unit#{$breakpoint},
   &.unit#{$breakpoint}-vertical {
     > [class*="unit-"]:first-child {
@@ -190,12 +202,24 @@
   }
 }
 
-@mixin unit-spacing($medias, $spacing-t, $spacing-r:$spacing-t, $spacing-b:$spacing-t, $spacing-l:$spacing-r){
+@mixin unit-spacing(
+  $medias,
+  $spacing-t,
+  $spacing-r: $spacing-t,
+  $spacing-b: $spacing-t,
+  $spacing-l: $spacing-r
+) {
   @each $resolution, $alias in $medias {
     @if ($alias != "" and $alias != null) {
       $breakpoint: -#{$alias};
       @media (min-width: $resolution) {
-        @include unit-spacing-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint);
+        @include unit-spacing-variant(
+          $spacing-t,
+          $spacing-r,
+          $spacing-b,
+          $spacing-l,
+          $breakpoint
+        );
       }
     } @else {
       $breakpoint: "";
@@ -210,19 +234,25 @@
   }
 }
 
-@mixin unit-responsive($medias, $spacing-t, $spacing-r:$spacing-t, $spacing-b:$spacing-t, $spacing-l:$spacing-r) {
+@mixin unit-responsive(
+  $medias,
+  $spacing-t,
+  $spacing-r: $spacing-t,
+  $spacing-b: $spacing-t,
+  $spacing-l: $spacing-r
+) {
   .unit {
     @include display-flex();
     @include flex(0 1 100%);
     @include flex-direction(column);
   }
 
-  .unit-body{
+  .unit-body {
     @include flex(0 1 auto);
   }
 
   .unit-left,
-  .unit-right{
+  .unit-right {
     @include flex(0 0 auto);
     max-width: 100%;
   }
@@ -231,7 +261,13 @@
     @if ($alias != "" and $alias != null) {
       $breakpoint: -#{$alias};
       @media (min-width: $resolution) {
-        @include unit-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint);
+        @include unit-variant(
+          $spacing-t,
+          $spacing-r,
+          $spacing-b,
+          $spacing-l,
+          $breakpoint
+        );
       }
     } @else {
       $breakpoint: "";

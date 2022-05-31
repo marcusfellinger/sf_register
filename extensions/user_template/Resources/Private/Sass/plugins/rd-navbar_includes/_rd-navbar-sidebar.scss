@@ -16,8 +16,8 @@ html.rd-navbar-sidebar-linked {
     li {
       &:hover,
       &.focus {
-
-        > a, > a:hover {
+        > a,
+        > a:hover {
           color: $rd-navbar-nav-hover-color;
           background: $rd-navbar-nav-active-background;
         }
@@ -51,7 +51,7 @@ html.rd-navbar-sidebar-linked {
         > .rd-navbar-submenu-toggle {
           color: #fff;
           &::after {
-            @include transform (rotate(180deg));
+            @include transform(rotate(180deg));
           }
         }
       }
