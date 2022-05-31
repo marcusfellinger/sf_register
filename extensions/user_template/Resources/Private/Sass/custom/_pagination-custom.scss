@@ -24,14 +24,14 @@ $pagination-offset: 20px;
 
   li:first-child {
     a:before {
-      content: '<';
+      content: "<";
       padding-right: 10px;
     }
   }
 
   li:last-child {
     a:after {
-      content: '>';
+      content: ">";
       padding-left: 10px;
     }
   }

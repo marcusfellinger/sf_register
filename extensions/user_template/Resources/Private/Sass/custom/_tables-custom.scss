@@ -206,7 +206,7 @@ th {
         position: relative;
         &:before,
         &:after {
-          content: '';
+          content: "";
           position: absolute;
           left: 50%;
           @include transform(translateX(-50%));
@@ -368,11 +368,11 @@ table {
 // Exact selectors below required to override `.table-striped` and prevent
 // inheritance to nested tables.
 // Generate the contextual variants
-@include table-variant('active', $table-bg-active);
-@include table-variant('success', $state-success-bg);
-@include table-variant('info', $state-info-bg);
-@include table-variant('warning', $state-warning-bg);
-@include table-variant('danger', $state-danger-bg);
+@include table-variant("active", $table-bg-active);
+@include table-variant("success", $state-success-bg);
+@include table-variant("info", $state-info-bg);
+@include table-variant("warning", $state-warning-bg);
+@include table-variant("danger", $state-danger-bg);
 
 // Responsive tables
 //

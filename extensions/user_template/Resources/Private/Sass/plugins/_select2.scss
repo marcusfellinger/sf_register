@@ -282,13 +282,13 @@
     }
 
     // Disabled results.
-    &[aria-disabled=true] {
+    &[aria-disabled="true"] {
       color: $dropdown-link-disabled-color;
       cursor: $cursor-disabled;
     }
 
     // Hover state.
-    &[aria-selected=true] {
+    &[aria-selected="true"] {
       background-color: $dropdown-link-hover-bg;
       color: $dropdown-link-hover-color;
     }
@@ -447,8 +447,8 @@
           right: 0;
           height: 20px;
           line-height: 20px;
-          content: '\e313';
-          font-family: 'Material Icons', fantasy;
+          content: "\e313";
+          font-family: "Material Icons", fantasy;
           font-size: 20px;
         }
       }

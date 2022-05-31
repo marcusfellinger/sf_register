@@ -2,9 +2,9 @@
 
 @mixin make-text-alignment($resolution: null) {
   @if ($resolution == null) {
-    $resolution: ''
+    $resolution: "";
   } @else {
-    $resolution: str_insert($resolution, '-', str_length($resolution) + 1);
+    $resolution: str_insert($resolution, "-", str_length($resolution) + 1);
   }
   .text-#{$resolution}left {
     text-align: left;

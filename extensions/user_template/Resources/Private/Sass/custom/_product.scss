@@ -30,7 +30,7 @@
   }
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -108,7 +108,7 @@
     padding: 15px;
     white-space: nowrap;
     &:after {
-      content: '';
+      content: "";
       display: inline-block;
       vertical-align: middle;
       height: 100%;

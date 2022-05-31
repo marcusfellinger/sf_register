@@ -2,9 +2,9 @@
 
 @mixin make-visible( $type: block, $resolution: null){
   @if ($resolution == null) {
-    $resolution: ''
+    $resolution: "";
   } @else {
-    $resolution: str_insert($resolution, '-', str_length($resolution) + 1);
+    $resolution: str_insert($resolution, "-", str_length($resolution) + 1);
   }
 
   @if ($type == flex) {
@@ -24,9 +24,9 @@
 
 @mixin make-hidden($resolution: null){
   @if ($resolution == null) {
-    $resolution: ''
+    $resolution: "";
   } @else {
-    $resolution: str_insert($resolution, '-', 0);
+    $resolution: str_insert($resolution, "-", 0);
   }
 
   .veil#{$resolution}{

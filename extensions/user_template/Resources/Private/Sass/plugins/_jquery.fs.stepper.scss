@@ -18,7 +18,7 @@
     -moz-appearance: textfield;
   }
 
-  input[type=number]::-webkit-inner-spin-button {
+  input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
   }
 
@@ -30,7 +30,7 @@
     height: 20px;
     line-height: 20px;
     font-size: 16px;
-    font-family: 'Material Icons';
+    font-family: "Material Icons";
     cursor: pointer;
     color: $gray-dark;
     transition: 0.3s all ease;
@@ -43,8 +43,8 @@
       right: 0;
       text-align: left;
 
-      &:before{
-        content: '\e316';
+      &:before {
+        content: "\e316";
       }
     }
 
@@ -52,8 +52,8 @@
       left: 0;
       text-align: right;
 
-      &:before{
-        content: '\e313';
+      &:before {
+        content: "\e313";
       }
     }
   }

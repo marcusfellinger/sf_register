@@ -71,7 +71,7 @@
   .unit#{$breakpoint}-vertical {
     @include flex-direction(column);
 
-    > [class*='unit-']:first-child {
+    > [class*="unit-"]:first-child {
       padding-top: 0;
     }
 
@@ -109,11 +109,11 @@
     &.unit#{$breakpoint}-vertical {
       @include flex-direction(column-reverse);
 
-      > [class*='unit-']:first-child {
+      > [class*="unit-"]:first-child {
         padding-top: $spacing-t;
       }
 
-      > [class*='unit-']:last-child {
+      > [class*="unit-"]:last-child {
         padding-top: 0;
       }
     }
@@ -121,12 +121,12 @@
     &.unit#{$breakpoint}-horizontal {
       @include flex-direction(row-reverse);
 
-      > [class*='unit-']:first-child {
+      > [class*="unit-"]:first-child {
         padding-top: 0;
         padding-left: $spacing-l;
       }
 
-      > [class*='unit-']:last-child {
+      > [class*="unit-"]:last-child {
         padding-left: 0;
       }
     }
@@ -136,7 +136,7 @@
 @mixin unit-spacing-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint){
   &.unit#{$breakpoint},
   &.unit#{$breakpoint}-vertical {
-    > [class*='unit-']:first-child {
+    > [class*="unit-"]:first-child {
       padding-top: 0;
     }
 
@@ -168,22 +168,22 @@
   &.unit#{$breakpoint}-inverse {
     &,
     &.unit#{$breakpoint}-vertical {
-      > [class*='unit-']:first-child {
+      > [class*="unit-"]:first-child {
         padding-top: $spacing-t;
       }
 
-      > [class*='unit-']:last-child {
+      > [class*="unit-"]:last-child {
         padding-top: 0;
       }
     }
 
     &.unit#{$breakpoint}-horizontal {
-      > [class*='unit-']:first-child {
+      > [class*="unit-"]:first-child {
         padding-top: 0;
         padding-left: $spacing-l;
       }
 
-      > [class*='unit-']:last-child {
+      > [class*="unit-"]:last-child {
         padding-left: 0;
       }
     }
@@ -192,14 +192,20 @@
 
 @mixin unit-spacing($medias, $spacing-t, $spacing-r:$spacing-t, $spacing-b:$spacing-t, $spacing-l:$spacing-r){
   @each $resolution, $alias in $medias {
-    @if ($alias != '' and $alias != null) {
+    @if ($alias != "" and $alias != null) {
       $breakpoint: -#{$alias};
       @media (min-width: $resolution) {
         @include unit-spacing-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint);
       }
     } @else {
-      $breakpoint: '';
-      @include unit-spacing-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint);
+      $breakpoint: "";
+      @include unit-spacing-variant(
+        $spacing-t,
+        $spacing-r,
+        $spacing-b,
+        $spacing-l,
+        $breakpoint
+      );
     }
   }
 }
@@ -222,14 +228,20 @@
   }
 
   @each $resolution, $alias in $medias {
-    @if ($alias != '' and $alias != null) {
+    @if ($alias != "" and $alias != null) {
       $breakpoint: -#{$alias};
       @media (min-width: $resolution) {
         @include unit-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint);
       }
     } @else {
-      $breakpoint: '';
-      @include unit-variant($spacing-t, $spacing-r, $spacing-b, $spacing-l, $breakpoint);
+      $breakpoint: "";
+      @include unit-variant(
+        $spacing-t,
+        $spacing-r,
+        $spacing-b,
+        $spacing-l,
+        $breakpoint
+      );
     }
   }
 }

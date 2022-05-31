@@ -146,8 +146,8 @@ a {
     outline: 0;
   }
 
-  &[href*='callto'],
-  &[href*='mailto'] {
+  &[href*="callto"],
+  &[href*="mailto"] {
     white-space: nowrap;
   }
 }

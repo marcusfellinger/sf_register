@@ -134,7 +134,7 @@
   pointer-events: auto;
 
   &:before {
-    font-family: 'Material Design Icons';
+    font-family: "Material Design Icons";
     font-size: 53px;
     line-height: 1;
     color: $white;
@@ -162,13 +162,13 @@
 
 .swiper-button-prev {
   &:before {
-    content: '\f14a';
+    content: "\f14a";
   }
 }
 
 .swiper-button-next {
   &:before {
-    content: '\f14f';
+    content: "\f14f";
   }
 }
 
@@ -468,8 +468,9 @@
   background-position: center center;
 
   &:not(.vide):not(.rd-parallax):before,
-  .parallax_cnt:before, .vide__body:before {
-    content: '';
+  .parallax_cnt:before,
+  .vide__body:before {
+    content: "";
     display: inline-block;
     height: 50%;
   }

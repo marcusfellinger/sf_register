@@ -248,8 +248,9 @@
       transition: 0.3s all ease;
     }
 
-    &:before, &:after {
-      content: '';
+    &:before,
+    &:after {
+      content: "";
     }
 
     &:before {

@@ -2087,9 +2087,9 @@
   content: "\f295";
 }
 
-[class*='fa-'] {
+[class*="fa-"] {
   &:before {
     font-weight: 400;
-    font-family: 'FontAwesome';
+    font-family: "FontAwesome";
   }
 }  

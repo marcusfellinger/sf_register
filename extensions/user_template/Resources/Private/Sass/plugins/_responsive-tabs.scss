@@ -126,8 +126,9 @@ $tab-padding: 20px;
         }
       }
 
-      &:before, &:after {
-        content: '';
+      &:before,
+      &:after {
+        content: "";
         display: none;
         position: absolute;
         width: 5000px;

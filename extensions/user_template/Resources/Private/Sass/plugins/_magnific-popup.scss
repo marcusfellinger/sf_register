@@ -116,7 +116,7 @@ $mfp-use-visuallyhidden:              false !default;                      // Hi
 // Vertical centerer helper
 .mfp-container {
   &:before {
-    content: '';
+    content: "";
     display: inline-block;
     height: 100%;
     vertical-align: middle;
@@ -359,7 +359,7 @@ button {
     &:after,
     .mfp-b,
     .mfp-a {
-      content: '';
+      content: "";
       display: block;
       width: 0;
       height: 0;
@@ -476,7 +476,7 @@ button {
   .mfp-figure {
     line-height: 0;
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: $mfp-image-padding-top;

@@ -125,7 +125,7 @@
 .rd-navbar-fullwidth {
 
   &:after {
-    content: '';
+    content: "";
     background: $rd-navbar-background;
   }
 
@@ -365,7 +365,7 @@
       & + li {
         padding-left: 10px;
         &:before {
-          content: '';
+          content: "";
           position: absolute;
           top: $rd-navbar-megamenu-gutter;
           bottom: $rd-navbar-megamenu-gutter;
@@ -384,7 +384,7 @@
     cursor: pointer;
     z-index: 100;
     &::after {
-      content: '\f078';
+      content: "\f078";
       position: relative;
       display: inline-block;
       font: 400 14px "FontAwesome";
@@ -615,7 +615,7 @@
 
   &:before,
   &:after {
-    content: '';
+    content: "";
     display: block;
     height: $rd-navbar-min-height;
   }

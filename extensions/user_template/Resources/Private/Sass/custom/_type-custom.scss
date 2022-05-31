@@ -181,7 +181,7 @@ mark, .mark {
   text-transform: uppercase;
 }
 
-[class*='text-spacing'] {
+[class*="text-spacing"] {
   white-space: nowrap;
 }
 
@@ -312,7 +312,7 @@ address {
     }
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
@@ -339,7 +339,7 @@ address {
     }
 
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       right: 0;
@@ -356,13 +356,13 @@ address {
   background-repeat: no-repeat;
   -webkit-background-size: auto;
   background-size: auto;
-  background-image: url('../../../Public/Images/home-1-2050x1296.jpg');
+  background-image: url("../../../Public/Images/home-1-2050x1296.jpg");
 
   @media (min-width: 2050px) {
     background-color: $gray-light;
     &:before,
     &:after {
-      content: '';
+      content: "";
       position: absolute;
       top: 0;
       bottom: 0;
@@ -388,7 +388,7 @@ address {
   overflow: hidden;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: 0;
@@ -397,7 +397,7 @@ address {
 
     background-position: center 86.8%;
     background-repeat: no-repeat;
-    background-image: url('../../../Public/Images/home-1-2050x1296-blur.jpg');
+    background-image: url("../../../Public/Images/home-1-2050x1296-blur.jpg");
 
     @media (min-width: $screen-md-min) {
       background-position: center 78.7%;
@@ -432,11 +432,11 @@ address {
 //
 
 .page {
-  @include text-emphasis-variant('.text-primary', $brand-primary);
-  @include text-emphasis-variant('.text-dark', $gray-dark);
-  @include text-emphasis-variant('.text-gray', $gray);
-  @include text-emphasis-variant('.text-gray-darker', $gray-darker);
-  @include text-emphasis-variant('.text-white', $white);
+  @include text-emphasis-variant(".text-primary", $brand-primary);
+  @include text-emphasis-variant(".text-dark", $gray-dark);
+  @include text-emphasis-variant(".text-gray", $gray);
+  @include text-emphasis-variant(".text-gray-darker", $gray-darker);
+  @include text-emphasis-variant(".text-white", $white);
 }
 
 .frame-type-text {

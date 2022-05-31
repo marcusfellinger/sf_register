@@ -59,8 +59,8 @@ html.lt-ie-10 * + .range,
   margin-top: $range-ws;
 }
 
-html.lt-ie-10 * + [class*='cell-'],
-* + [class*='cell-'],
+html.lt-ie-10 * + [class*="cell-"],
+* + [class*="cell-"],
 html.lt-ie-10 * + .range-sm,
 * + .range-sm {
   margin-top: $range-ws-sm;
@@ -76,12 +76,12 @@ html.lt-ie-10 .range-condensed,
   margin-left: 0;
   margin-right: 0;
 
-  > [class*='cell'] {
+  > [class*="cell"] {
     padding-left: 0;
     padding-right: 0;
   }
 
-  > *  + [class*='cell'] {
+  > * + [class*="cell"] {
     margin-top: 0;
   }
 }
@@ -90,11 +90,11 @@ html.lt-ie-10 .range-narrow,
 .range-narrow {
   @include make-range($cell-spacing-narrow);
 
-  > [class*='cell'] {
+  > [class*="cell"] {
     @include make-cell-spacing($cell-spacing-narrow);
   }
 
-  > *  + [class*='cell'] {
+  > * + [class*="cell"] {
     @include make-cell-spacing($cell-spacing-narrow);
   }
 }
@@ -119,7 +119,7 @@ html.lt-ie-10 .range-narrow,
     @include flex-direction(column);
   }
 
-  .range > [class*='cell'] {
+  .range > [class*="cell"] {
     @include flex(0 0 auto);
     @include flex-basis(100%);
   }
@@ -127,7 +127,7 @@ html.lt-ie-10 .range-narrow,
 
 @each $resolution, $alias in ($screen-xs-min : xs, $screen-sm-min : sm, $screen-md-min : md, $screen-lg-min : lg, $screen-xl-min : xl) {
   @media (min-width: $resolution) {
-    * + [class*='cell-#{$alias}-'] {
+    * + [class*="cell-#{$alias}-"] {
       margin-top: 0;
     }
 

@@ -4,7 +4,7 @@
 
 @use "sass:math";
 
-@function str-replace($string, $search, $replace: '') {
+@function str-replace($string, $search, $replace: "") {
   $index: str-index($string, $search);
 
   @if $index {
@@ -41,7 +41,7 @@
         $value: $item;
       }
     }
-    $sortedlist: append($sortedlist, $value, 'space');
+    $sortedlist: append($sortedlist, $value, "space");
     $list: remove($list, $value);
   }
   @return $sortedlist;
@@ -105,7 +105,7 @@
 // @param {Number} $number - Number to remove unit from
 // @return {Number} - Unitless number
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if type-of($number) == "number" and not unitless($number) {
     @return math.div($number, ($number) * 0 + 1);
   }
 

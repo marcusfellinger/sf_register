@@ -3,11 +3,11 @@
 // --------------------------------------------------
 
 @mixin indent-responsive($preffix, $postfix, $rules, $medias, $offsets) {
-  @if ($postfix != '' and $postfix != null) {
+  @if ($postfix != "" and $postfix != null) {
     $postfix: #{$postfix}-;
   }
 
-  @if ($preffix != '' and $preffix != null) {
+  @if ($preffix != "" and $preffix != null) {
     $preffix: #{$preffix}-;
   }
 

@@ -22,7 +22,7 @@ ol {
   .unit-left {
     vertical-align: middle;
     &:before {
-      content: '';
+      content: "";
       height: 100%;
       width: 0;
       display: inline-block;
@@ -58,7 +58,7 @@ ol {
     padding-right: 3px;
 
     &:before {
-      content: '';
+      content: "";
       height: 100%;
       display: inline-block;
       width: 0;
@@ -165,7 +165,7 @@ dl {
     padding-left: 16px;
 
     &:before {
-      content: '';
+      content: "";
       display: inline-block;
       background: $gray-dark;
       width: 3px;
@@ -178,7 +178,7 @@ dl {
   }
 }
 
-[class*='list-marked'].list-marked-gray {
+[class*="list-marked"].list-marked-gray {
   li:before {
     color: $gray;
   }
@@ -192,8 +192,8 @@ dl {
       position: absolute;
       top: 5px;
       left: 0;
-      content: '\f238';
-      font: 400 14px/14px 'Material Design Icons';
+      content: "\f238";
+      font: 400 14px/14px "Material Design Icons";
       color: $gray-lighter;
     }
 
@@ -221,8 +221,8 @@ dl {
       position: absolute;
       top: 5px;
       left: 0;
-      content: '\f238';
-      font: 400 14px/14px 'Material Design Icons';
+      content: "\f238";
+      font: 400 14px/14px "Material Design Icons";
       color: $gray-lighter;
     }
 
@@ -261,7 +261,7 @@ dl {
 
   li {
     &:after {
-      content: ',';
+      content: ",";
       display: inline-block;
       color: $gray-lighter;
     }
@@ -307,7 +307,7 @@ dl {
       position: absolute;
       top: 0;
       left: 0;
-      content: counter(li, decimal) '.';
+      content: counter(li, decimal) ".";
       counter-increment: li;
     }
   }
@@ -392,7 +392,7 @@ dl {
   }
 
   li:after {
-    content: ';';
+    content: ";";
   }
 
   li:last-child {
@@ -408,7 +408,7 @@ dl {
   }
 
   li:after {
-    content: ',';
+    content: ",";
   }
 
   li:last-child {

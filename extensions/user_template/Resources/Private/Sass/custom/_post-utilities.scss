@@ -23,7 +23,7 @@
 
       &:not(:last-child) {
         &:after {
-          content: '/';
+          content: "/";
           font: inherit;
           color: inherit;
         }
@@ -77,7 +77,7 @@
       font-weight: 700;
       letter-spacing: 0.05em;
       &:before {
-        content: '/';
+        content: "/";
       }
     }
   }
@@ -91,7 +91,7 @@
   transition: none;
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     right: -15px;

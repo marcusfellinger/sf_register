@@ -2,9 +2,9 @@
 
 @mixin make-pull-alignment($resolution: null) {
   @if ($resolution == null) {
-    $resolution: ''
+    $resolution: "";
   } @else {
-    $resolution: str_insert($resolution, '-', str_length($resolution) + 1);
+    $resolution: str_insert($resolution, "-", str_length($resolution) + 1);
   }
   .pull-#{$resolution}left {
     float: left;

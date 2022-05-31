@@ -261,7 +261,7 @@ textarea.form-control {
     border-radius: 50%;
 
     &:after {
-      content: '';
+      content: "";
       top: 3px;
       right: 3px;
       bottom: 3px;
@@ -284,7 +284,7 @@ textarea.form-control {
     left: 0;
 
     &:after {
-      content: '\e5ca';
+      content: "\e5ca";
       font-family: "Material Icons", fantasy;
       font-size: 20px;
       line-height: 10px;

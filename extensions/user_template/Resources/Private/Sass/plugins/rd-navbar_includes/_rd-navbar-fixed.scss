@@ -58,7 +58,7 @@
     background: $rd-navbar-fixed-panel-background;
 
     &:before {
-      content: '';
+      content: "";
       position: absolute;
       left: 0;
       top: 0;
@@ -102,8 +102,9 @@
     line-height: 26px;
     text-align: left;
 
-    &:before, &:after {
-      content: '';
+    &:before,
+    &:after {
+      content: "";
       display: block;
       height: 8px;
     }
@@ -190,7 +191,7 @@
       position: fixed;
       top: 4px;
       right: 56px;
-      font-family: 'Material Icons';
+      font-family: "Material Icons";
       width: 48px;
       height: 48px;
       z-index: 18;
@@ -342,7 +343,7 @@
 
     .rd-navbar-submenu-toggle {
       &::after {
-        content: '\f078';
+        content: "\f078";
         position: absolute;
         top: 22px;
         right: 0;
@@ -402,7 +403,7 @@
     right: math.div($rd-navbar-fixed-height - $rd-navbar-min-line-height, 2);
     width: $rd-navbar-min-line-height;
     @include make-toggle(
-      'collapse-preset-1',
+      "collapse-preset-1",
       $rd-navbar-min-line-height,
       $rd-navbar-min-font-size,
       $rd-navbar-fixed-toggle-color
