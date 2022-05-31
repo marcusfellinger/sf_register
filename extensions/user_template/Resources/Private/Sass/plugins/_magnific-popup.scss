@@ -16,14 +16,14 @@ $mfp-popup-padding-left-mobile:       6px !default;                        // Sa
 $mfp-z-index-base:                    1040 !default;                       // Base z-index of popup
 
 // controls
-$mfp-include-arrows:                  true !default;                       // Include styles for nav arrows
-$mfp-controls-opacity:                0.65 !default;                       // Opacity of controls
-$mfp-controls-color:                  #FFF !default;                       // Color of controls
-$mfp-controls-border-color:           #3F3F3F !default;                    // Border color of controls
-$mfp-inner-close-icon-color:          #333 !default;                       // Color of close button when inside
-$mfp-controls-text-color:             #CCC !default;                       // Color of preloader and "1 of X" indicator
-$mfp-controls-text-color-hover:       #FFF !default;                       // Hover color of preloader and "1 of X" indicator
-$mfp-IE7support:                      true !default;                       // Very basic IE7 support
+$mfp-include-arrows: true !default; // Include styles for nav arrows
+$mfp-controls-opacity: 0.65 !default; // Opacity of controls
+$mfp-controls-color: #fff !default; // Color of controls
+$mfp-controls-border-color: #3f3f3f !default; // Border color of controls
+$mfp-inner-close-icon-color: #333 !default; // Color of close button when inside
+$mfp-controls-text-color: #ccc !default; // Color of preloader and "1 of X" indicator
+$mfp-controls-text-color-hover: #fff !default; // Hover color of preloader and "1 of X" indicator
+$mfp-IE7support: true !default; // Very basic IE7 support
 
 // Iframe-type options
 $mfp-include-iframe-type:             true !default;                       // Enable Iframe-type popups
