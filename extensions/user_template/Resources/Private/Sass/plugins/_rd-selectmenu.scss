@@ -88,7 +88,7 @@ ol, ul {
   font-size: $select-font-size;
   line-height: $select-line-height;
   padding: 5px 20px;
-  transition: .3s all;
+  transition: 0.3s all;
 
   &:hover, &.selected {
     background: $select-selected-background;

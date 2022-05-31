@@ -139,12 +139,12 @@
     line-height: 1;
     color: $white;
     opacity: 1;
-    transition: .33s all ease;
+    transition: 0.33s all ease;
   }
 
   &:hover {
     &:before {
-      opacity: .65;
+      opacity: 0.65;
     }
   }
 
@@ -478,7 +478,7 @@
     display: inline-block;
     width: 100%;
     max-height: 100%;
-    margin-left: -.25em;
+    margin-left: -0.25em;
     vertical-align: middle;
     white-space: normal;
 

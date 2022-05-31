@@ -50,7 +50,7 @@ $datepicker-day-offset-background: transparent;
   color: $datepicker-color;
   background: $datepicker-background;
   border: $datepicker-border;
-  transition: .3s all;
+  transition: 0.3s all;
   z-index: 99;
 
   &-header{
@@ -84,7 +84,7 @@ $datepicker-day-offset-background: transparent;
     color: $datepicker-day-color;
     background: $datepicker-day-background;
     cursor: pointer;
-    transition: .3s all;
+    transition: 0.3s all;
 
     &:hover{
       color: $datepicker-day-hover-color;

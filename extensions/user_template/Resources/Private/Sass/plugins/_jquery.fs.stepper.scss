@@ -33,7 +33,7 @@
     font-family: 'Material Icons';
     cursor: pointer;
     color: $gray-dark;
-    transition: .3s all ease;
+    transition: 0.3s all ease;
 
     &:hover{
       color: $brand-primary
@@ -61,7 +61,7 @@
   &.disabled{
     .stepper-arrow{
       pointer-events: none;
-      opacity: .5;
+      opacity: 0.5;
     }
   }
 }

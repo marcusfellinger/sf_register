@@ -112,7 +112,7 @@ dl {
 .list-terms {
   dt {
     max-width: 700px;
-    letter-spacing: .19em;
+    letter-spacing: 0.19em;
   }
 
   dt + dd {
@@ -324,7 +324,7 @@ dl {
     margin-top: 25px;
 
     span + span {
-      margin-left: .25em;
+      margin-left: 0.25em;
     }
   }
 }
@@ -352,7 +352,7 @@ dl {
     }
 
     > * + * {
-      margin-left: .3em;
+      margin-left: 0.3em;
     }
   }
 

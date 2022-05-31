@@ -38,14 +38,14 @@
     font-family: $font-family-sec;
     font-size: 14px;
     font-weight: 700;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
   }
 
   .link-md {
     font-family: $font-family-sec;
     font-size: 20px;
     font-weight: 400;
-    letter-spacing: .1em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
 
     @media (min-width: $screen-md-min) {

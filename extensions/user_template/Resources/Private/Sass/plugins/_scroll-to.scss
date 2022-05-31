@@ -19,7 +19,7 @@
   z-index: 20;
   &:before{
     display: block;
-    transition: .5s;
+    transition: 0.5s;
     transition-delay: 1.4s;
   }
   &.toTop{

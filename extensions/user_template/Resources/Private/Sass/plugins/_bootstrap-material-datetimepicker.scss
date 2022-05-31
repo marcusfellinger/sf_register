@@ -95,7 +95,7 @@
             text-align: center;
             line-height: 24px;
             border-radius: 50%;
-            transition: .3s all ease;
+            transition: 0.3s all ease;
           }
         }
       }
@@ -126,7 +126,7 @@
   .p10 {
     > a {
       color: $gray-lighter;
-      transition: .3s all ease;
+      transition: 0.3s all ease;
       &:hover {
         color: $white;
       }

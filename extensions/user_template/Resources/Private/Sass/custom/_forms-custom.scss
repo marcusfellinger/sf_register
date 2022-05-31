@@ -12,7 +12,7 @@
   .form-control,
   .form-label {
     font-size: 18px;
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
 
     @media (min-width: $screen-sm-min) {
       font-size: 20px;
@@ -105,7 +105,7 @@ textarea.form-control {
   color: $input-color-placeholder;
   pointer-events: none;
   z-index: 9;
-  transition: .3s;
+  transition: 0.3s;
   @include transform(translateY(-50%));
 
   &.focus {
@@ -138,7 +138,7 @@ textarea.form-control {
   line-height: 11px;
   color: $brand-danger;
   margin-top: 2px;
-  transition: .3s;
+  transition: 0.3s;
 }
 
 // Error Styling
@@ -175,7 +175,7 @@ textarea.form-control {
   left: 15px;
   visibility: hidden;
   @include transform(translateX(-500px));
-  transition: .3s all ease;
+  transition: 0.3s all ease;
   z-index: 9999999;
 
   &.active {
@@ -195,7 +195,7 @@ textarea.form-control {
   font-size: 14px;
   line-height: 1.5;
   margin-top: 2px;
-  transition: .3s;
+  transition: 0.3s;
   opacity: 0;
   visibility: hidden;
 

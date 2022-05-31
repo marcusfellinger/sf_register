@@ -47,7 +47,7 @@
     border-radius: 50%;
     transform: translate(-50%, -50%);
     transform-origin: 0 15%;
-    transition: transform .2s cubic-bezier(.35, 0, .25, 1);
+    transition: transform 0.2s cubic-bezier(0.35, 0, 0.25, 1);
     overflow: visible;
     background-color: $brand-primary;
     background-clip: padding-box;
@@ -105,7 +105,7 @@
       font-size: 12px;
       color: #fff;
       opacity: 0;
-      transition: color .3s cubic-bezier(.35, 0, .25, 1);
+      transition: color 0.3s cubic-bezier(0.35, 0, 0.25, 1);
     }
 
     .rd-range__pointer {
@@ -123,9 +123,9 @@
       width: 28px;
       height: 28px;
       border-radius: 28px;
-      -webkit-transform: scale(.45) translate3d(0, 67.5px, 0);
-      transform: scale(.45) translate3d(0, 67.5px, 0);
-      transition: transform .3s cubic-bezier(.35, 0, .25, 1);
+      -webkit-transform: scale(0.45) translate3d(0, 67.5px, 0);
+      transform: scale(0.45) translate3d(0, 67.5px, 0);
+      transition: transform 0.3s cubic-bezier(0.35, 0, 0.25, 1);
 
       &:before {
         content: none;
@@ -143,7 +143,7 @@
         opacity: 0;
         -webkit-transform: translate3d(0, -8px, 0);
         transform: translate3d(0, -8px, 0);
-        transition: all .2s cubic-bezier(.35, 0, .25, 1);
+        transition: all 0.2s cubic-bezier(0.35, 0, 0.25, 1);
       }
 
       &.active {

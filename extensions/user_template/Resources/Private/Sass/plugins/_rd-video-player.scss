@@ -15,7 +15,7 @@
 
   &.playlist-show {
     video {
-      opacity: .5;
+      opacity: 0.5;
     }
     .rd-video-playlist {
       opacity: 1;
@@ -131,7 +131,7 @@
     bottom: 0;
     right: 0;
     background: rgba($gray-darker, 0.7) no-repeat;
-    transition: .4s all ease;
+    transition: 0.4s all ease;
     opacity: 0;
     visibility: hidden;
     z-index: 5;
@@ -199,7 +199,7 @@
   opacity: 0;
   visibility: hidden;
   overflow: hidden;
-  transition: .4s all ease;
+  transition: 0.4s all ease;
   z-index: 6;
 }
 
@@ -316,14 +316,14 @@
   position: absolute;
   left: 0;
   padding: 10px 10px;
-  transition: .3s all ease;
+  transition: 0.3s all ease;
   z-index: 3;
   @include display-flex;
   @include align-items(center);
   @include justify-content(space-between);
   bottom: 0;
   will-change: opacity;
-  background: rgba($gray-base, .4);
+  background: rgba($gray-base, 0.4);
 
   a {
     color: $white;
@@ -362,7 +362,7 @@
   transition: 0.3s all ease;
   color: $white;
   will-change: opacity;
-  background: rgba($gray-base, .3);
+  background: rgba($gray-base, 0.3);
 
   @media (min-width: $screen-xs) {
     padding: 12px 30px;
@@ -391,7 +391,7 @@
   visibility: hidden;
   will-change: opacity;
   z-index: 1;
-  transition: .3s all ease;
+  transition: 0.3s all ease;
 
   &.show {
     visibility: visible;
@@ -416,8 +416,8 @@
   will-change: opacity;
 
   li {
-    opacity: .7;
-    transition: .3s opacity ease;
+    opacity: 0.7;
+    transition: 0.3s opacity ease;
     will-change: opacity;
 
     &:hover {

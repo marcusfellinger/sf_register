@@ -350,7 +350,7 @@ $input-padding:  $input-padding-vertical - 1px $input-padding-horizontal $input-
 //** Background for the dropdown menu.
 $dropdown-bg:                    #fff;
 //** Dropdown menu `border-color`.
-$dropdown-border:                rgba(0,0,0,.15);
+$dropdown-border: rgba(0, 0, 0, 0.15);
 //** Dropdown menu `border-color` **for IE8**.
 $dropdown-fallback-border:       #ccc;
 //** Divider color for between dropdown items.
@@ -661,7 +661,7 @@ $popover-bg:                          #fff;
 //** Popover maximum width
 $popover-max-width:                   276px;
 //** Popover border color
-$popover-border-color:                rgba(0,0,0,.2);
+$popover-border-color: rgba(0, 0, 0, 0.2);
 //** Popover fallback border color
 $popover-fallback-border-color:       #ccc;
 
@@ -719,14 +719,14 @@ $modal-title-line-height:     $line-height-base;
 //** Background color of modal content area
 $modal-content-bg:                             #fff;
 //** Modal content border color
-$modal-content-border-color:                   rgba(0,0,0,.2);
+$modal-content-border-color: rgba(0, 0, 0, 0.2);
 //** Modal content border color **for IE8**
 $modal-content-fallback-border-color:          #999;
 
 //** Modal backdrop background color
 $modal-backdrop-bg:           #000;
 //** Modal backdrop opacity
-$modal-backdrop-opacity:      .5;
+$modal-backdrop-opacity: 0.5;
 //** Modal header border color
 $modal-header-border-color:   #e5e5e5;
 //** Modal footer border color
@@ -924,12 +924,12 @@ $breadcrumb-separator:          "\f14f";
 //
 //##
 
-$carousel-text-shadow:                        0 1px 2px rgba(0,0,0,.6);
+$carousel-text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
 
-$carousel-control-color:                      #fff;
-$carousel-control-width:                      15%;
-$carousel-control-opacity:                    .5;
-$carousel-control-font-size:                  20px;
+$carousel-control-color: #fff;
+$carousel-control-width: 15%;
+$carousel-control-opacity: 0.5;
+$carousel-control-font-size: 20px;
 
 $carousel-indicator-active-bg:                #fff;
 $carousel-indicator-border-color:             #fff;
@@ -1000,7 +1000,7 @@ $shadow-area-xs: 0 1px 4px 0 rgba(0, 0, 0, 0.15);
 $shadow-area-sm: 0 1px 10px 0 rgba(0, 0, 0, 0.15);
 $shadow-area-md: 0 3px 11px 0 rgba(0, 0, 0, 0.15);
 $shadow-area-lg: 0 5px 23px 0 rgba(0, 0, 0, 0.15);
-$shadow-area-xl: 0 12px 36px 0 rgba(0, 0, 0,.15);
+$shadow-area-xl: 0 12px 36px 0 rgba(0, 0, 0, 0.15);
 
 //== Flex Grid system
 //
@@ -1081,7 +1081,7 @@ $rd-navbar-fixed-font-size: $rd-navbar-min-font-size;
 $rd-navbar-fixed-panel-color: $white;
 $rd-navbar-fixed-toggle-color: $white;
 $rd-navbar-fixed-panel-background: $brand-primary;
-$rd-navbar-fixed-shadow: 0px 2px 10px 0px rgba($gray-dark, .13);
+$rd-navbar-fixed-shadow: 0px 2px 10px 0px rgba($gray-dark, 0.13);
 $rd-navbar-fixed-border: $rd-navbar-border;
 
 $rd-navbar-fixed-panel-item-color: $gray-dark;

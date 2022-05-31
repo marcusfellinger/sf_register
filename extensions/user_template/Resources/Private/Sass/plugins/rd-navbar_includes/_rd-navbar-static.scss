@@ -36,7 +36,7 @@
       display: block;
       margin-top: 9px;
       font-size: 12px;
-      letter-spacing: .15em;
+      letter-spacing: 0.15em;
     }
   }
 
@@ -69,7 +69,7 @@
   &.rd-navbar--is-clone {
     display: block;
     @include transform(translateY(-105%));
-    transition: .4s all ease-in-out;
+    transition: 0.4s all ease-in-out;
 
     &.rd-navbar--is-stuck {
       @include transform(translateY(0));

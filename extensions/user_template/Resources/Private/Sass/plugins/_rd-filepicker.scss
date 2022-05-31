@@ -49,7 +49,7 @@
     color: white;
     cursor: pointer;
 
-    transition: .2s;
+    transition: 0.2s;
 
     &:hover{
       background: darken(rgba(20, 69, 61, 0.78), 5%);
@@ -96,10 +96,10 @@
   text-align: center;
   font-size: 18px;
 
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, 0.1);
   outline: 2px dashed #92b0b3;
   outline-offset: -10px;
-  transition: .2s;
+  transition: 0.2s;
 
   &-logo{
     width: 100px;

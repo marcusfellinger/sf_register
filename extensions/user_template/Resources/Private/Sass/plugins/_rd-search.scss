@@ -46,7 +46,7 @@
   .form-label {
     font-size: 18px;
     line-height: 1.6;
-    letter-spacing: .12em;
+    letter-spacing: 0.12em;
 
     @media (min-width: $screen-sm-min) {
       font-size: 20px;
@@ -68,7 +68,7 @@
   );
   position: absolute;
   right: 0;
-  transition: color .33s;
+  transition: color 0.33s;
 
   &:hover {
     color: $brand-primary;

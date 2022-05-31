@@ -84,7 +84,7 @@
     min-height: 100.5%;
     min-width: 102%;
     opacity: 1;
-    transition: .33s all ease-in-out;
+    transition: 0.33s all ease-in-out;
 
     @include flex-grow(1);
     @include flex-shrink(0);
@@ -126,7 +126,7 @@
       max-width: 100%;
       word-spacing: 100vw;
       text-align: center;
-      letter-spacing: .2em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
     }
   }
@@ -144,7 +144,7 @@
       width: 100%;
       max-width: 280px;
       white-space: normal;
-      word-spacing: .25em;
+      word-spacing: 0.25em;
     }
   }
 }
@@ -157,7 +157,7 @@
         visibility: hidden;
         will-change: opacity;
         background: $gray-darker;
-        transition: .33s all ease;
+        transition: 0.33s all ease;
       }
 
       &:hover {

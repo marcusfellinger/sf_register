@@ -303,7 +303,7 @@ th {
   }
   @media (min-width: $screen-sm-min) {
     > tbody > tr {
-      transition: .33s all ease;
+      transition: 0.33s all ease;
       background: $body-bg;
       &:hover {
         background: $table-bg-hover;

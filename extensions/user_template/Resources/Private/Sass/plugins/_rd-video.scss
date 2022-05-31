@@ -17,7 +17,7 @@
     opacity: 0;
     visibility: hidden;
     &.transition {
-      transition: .3s all linear;
+      transition: 0.3s all linear;
     }
   }
   // Video Wrapper
@@ -68,7 +68,7 @@
     text-align: left;
 
     &.show {
-      background: rgba(#000, .7);
+      background: rgba(#000, 0.7);
       opacity: 1;
       visibility: visible;
      .rd-video-context{
@@ -76,15 +76,15 @@
      }
     }
 
-    transition: .3s background ease;
-    .rd-video-context{
+    transition: 0.3s background ease;
+    .rd-video-context {
       padding: 2px 0;
       background: $white;
       position: absolute;
       left: 0;
       bottom: -100%;
       right: 0;
-      transition: .5s bottom ease;
+      transition: 0.5s bottom ease;
     }
 
     h6 {

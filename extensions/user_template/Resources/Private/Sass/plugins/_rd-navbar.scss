@@ -17,7 +17,7 @@
 
 // RD Navbar Basics
 %rd-navbar-transition {
-  transition: .3s all cubic-bezier(0.785, 0.135, 0.150, 0.860);
+  transition: 0.3s all cubic-bezier(0.785, 0.135, 0.15, 0.86);
 }
 
 %rd-navbar-hidden {
@@ -66,7 +66,7 @@
 .rd-navbar-search-toggle,
 .rd-navbar-live-search-results,
 .rd-navbar-search-form {
-  transition: .33s all ease-out;
+  transition: 0.33s all ease-out;
 }
 
 // RD Navbar Collapse
@@ -161,7 +161,7 @@
         background: $rd-navbar-nav-background;
         border: 1px solid $rd-navbar-border;
         line-height: 1.2;
-        letter-spacing: .1em;
+        letter-spacing: 0.1em;
         font-size: 18px;
         &:first-child {
           //padding-left: 0;
@@ -628,7 +628,7 @@
     background: lighten($rd-navbar-background, 10%);
     border: none;
     border-radius: 0;
-    opacity: .2;
+    opacity: 0.2;
   }
 
   &::-webkit-scrollbar-track {
@@ -663,7 +663,7 @@
   .rd-navbar-search {
     &-form {
       &-submit {
-        @include transform(scale(.7));
+        @include transform(scale(0.7));
       }
     }
   }
