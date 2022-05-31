@@ -31,7 +31,8 @@
     padding: 0.3rem;
     position: relative;
   }
-  &-date, &-time {
+  &-date,
+  &-time {
     background: lighten($brand-primary, 10%);
     text-align: center;
     color: $white;
@@ -44,7 +45,8 @@
   &-actual-month {
     font-size: 1.5em;
   }
-  &-actual-num, &-actual-maxtime {
+  &-actual-num,
+  &-actual-maxtime {
     font-size: 3em;
     line-height: 0.9;
   }
@@ -56,7 +58,8 @@
     padding: 1rem;
     text-align: center;
   }
-  &-picker-month, &-actual-time {
+  &-picker-month,
+  &-actual-time {
     font-weight: 500;
     text-align: center;
   }
@@ -119,7 +122,10 @@
       border-bottom: none;
     }
   }
-  .p10, .p20, .p60, .p80 {
+  .p10,
+  .p20,
+  .p60,
+  .p80 {
     display: inline-block;
     vertical-align: middle;
   }
@@ -147,7 +153,8 @@
     display: none !important;
   }
 
-  &-meridien-am, &-meridien-pm {
+  &-meridien-am,
+  &-meridien-pm {
     position: relative;
     top: 10px;
     color: $gray-base;
@@ -218,7 +225,8 @@
       display: none;
     }
   }
-  &-hand, &-hour-hand {
+  &-hand,
+  &-hour-hand {
     position: absolute;
     width: 4px;
     margin-left: -2px;
@@ -251,7 +259,6 @@
   .right {
     float: right;
   }
-
 }
 
 .dtp table.dtp-picker-days tr > td > a,

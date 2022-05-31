@@ -141,7 +141,8 @@ h6 + *,
   }
 
   dl {
-    dt, dd {
+    dt,
+    dd {
       display: inline-block;
     }
 
@@ -152,7 +153,7 @@ h6 + *,
     }
 
     dt:after {
-      content: ':';
+      content: ":";
       display: inline-block;
       text-align: center;
     }
@@ -171,7 +172,9 @@ h6 + *,
   color: $brand-primary;
 
   a {
-    &, &:active, &:focus {
+    &,
+    &:active,
+    &:focus {
       color: $brand-primary;
     }
 
@@ -256,7 +259,7 @@ h6 + *,
   margin-top: 15px;
   pointer-events: none;
 
-  [class*='cell'] > * {
+  [class*="cell"] > * {
     pointer-events: auto;
   }
 

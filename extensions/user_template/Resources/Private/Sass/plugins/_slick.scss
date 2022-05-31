@@ -119,12 +119,10 @@ $slick-opacity-not-active: 0.25 !default;
   display: none;
 }
 
-
 @function slick-image-url($url) {
   @if function-exists(image-url) {
     @return image-url($url);
-  }
-  @else {
+  } @else {
     @return url($slick-loader-path + $url);
   }
 }
@@ -132,8 +130,7 @@ $slick-opacity-not-active: 0.25 !default;
 @function slick-font-url($url) {
   @if function-exists(font-url) {
     @return font-url($url);
-  }
-  @else {
+  } @else {
     @return url($slick-font-path + $url);
   }
 }
@@ -141,10 +138,10 @@ $slick-opacity-not-active: 0.25 !default;
 // Appearance styles
 // --------------------------------------------------
 
-
 .slick-list {
   .slick-loading & {
-    background: #fff slick-image-url("../images/ajax-loader.gif") no-repeat center center;
+    background: #fff slick-image-url("../images/ajax-loader.gif") no-repeat
+      center center;
   }
 }
 
@@ -153,7 +150,10 @@ $slick-opacity-not-active: 0.25 !default;
   @font-face {
     font-family: "slick";
     src: slick-font-url("slick.eot");
-    src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"), slick-font-url("slick.woff") format("woff"), slick-font-url("slick.ttf") format("truetype"), slick-font-url("slick.svg#slick") format("svg");
+    src: slick-font-url("slick.eot?#iefix") format("embedded-opentype"),
+      slick-font-url("slick.woff") format("woff"),
+      slick-font-url("slick.ttf") format("truetype"),
+      slick-font-url("slick.svg#slick") format("svg");
     font-weight: normal;
     font-style: normal;
   }
@@ -182,7 +182,8 @@ $slick-opacity-not-active: 0.25 !default;
   outline: none;
   z-index: 999;
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     outline: none;
     background: transparent;
     color: transparent;
@@ -195,7 +196,8 @@ $slick-opacity-not-active: 0.25 !default;
   }
 }
 
-.slick-prev:before, .slick-next:before {
+.slick-prev:before,
+.slick-next:before {
   font-family: $slick-font-family;
   font-size: 20px;
   line-height: 1;
@@ -267,7 +269,8 @@ $slick-opacity-not-active: 0.25 !default;
       color: transparent;
       padding: 5px;
       cursor: pointer;
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         outline: none;
         &:before {
           opacity: $slick-opacity-on-hover;

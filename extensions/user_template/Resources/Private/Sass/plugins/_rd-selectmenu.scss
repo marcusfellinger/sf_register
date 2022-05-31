@@ -10,7 +10,7 @@ $select-selected-background: #eee;
 $select-font-size: 18px;
 $select-line-height: 30px;
 
-.form-group{
+.form-group {
   text-align: left;
 }
 
@@ -18,7 +18,8 @@ label {
   display: block;
 }
 
-ol, ul {
+ol,
+ul {
   list-style: none;
 }
 
@@ -36,11 +37,11 @@ ol, ul {
   cursor: pointer;
 }
 
-.rd-select-value{
+.rd-select-value {
   display: block;
 }
 
-.rd-select-value-icon{
+.rd-select-value-icon {
   position: absolute;
   top: 50%;
   right: 5px;
@@ -90,7 +91,8 @@ ol, ul {
   padding: 5px 20px;
   transition: 0.3s all;
 
-  &:hover, &.selected {
+  &:hover,
+  &.selected {
     background: $select-selected-background;
   }
 }
