@@ -65,7 +65,7 @@
 
   // video play pause hover
   &.state-playing .rd-video-play-pause:before {
-    content: '\f4d3';
+    content: "\f4d3";
   }
 
   &.hovered .rd-video-controls, &.hovered .rd-video-top-controls {
@@ -78,7 +78,7 @@
 
 
     .rd-video-fullscreen:before {
-      content: '\f389';
+      content: "\f389";
     }
 
     .rd-video-controls, .rd-video-top-controls, .rd-video-playlist {
@@ -124,7 +124,7 @@
   background: $white;
 
   &:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     top: 0;
