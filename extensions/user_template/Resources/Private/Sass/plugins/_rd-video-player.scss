@@ -52,13 +52,15 @@
   }
 
   // state loading
-  &.state-loading .rd-video-wrap:before, &.state-loading .rd-video-preloader {
+  &.state-loading .rd-video-wrap:before,
+  &.state-loading .rd-video-preloader {
     opacity: 1;
     visibility: visible;
   }
 
   // state playing
-  &.state-playing .rd-video-controls, &.state-playing .rd-video-top-controls {
+  &.state-playing .rd-video-controls,
+  &.state-playing .rd-video-top-controls {
     opacity: 0;
     visibility: hidden;
   }
@@ -68,20 +70,21 @@
     content: "\f4d3";
   }
 
-  &.hovered .rd-video-controls, &.hovered .rd-video-top-controls {
+  &.hovered .rd-video-controls,
+  &.hovered .rd-video-top-controls {
     opacity: 1;
     visibility: visible;
   }
 
   // video fullscreen
   &.fullscreen {
-
-
     .rd-video-fullscreen:before {
       content: "\f389";
     }
 
-    .rd-video-controls, .rd-video-top-controls, .rd-video-playlist {
+    .rd-video-controls,
+    .rd-video-top-controls,
+    .rd-video-playlist {
       z-index: 2147483647;
     }
   }
@@ -206,12 +209,14 @@
 // Video time
 // -------------------------
 
-.rd-video-duration, .rd-video-current-time {
+.rd-video-duration,
+.rd-video-current-time {
   font-size: 13px;
   font-style: italic;
 }
 
-.rd-video-duration, .rd-video-time-divider {
+.rd-video-duration,
+.rd-video-time-divider {
   display: none;
 
   @media (min-width: $screen-xs) {
@@ -258,7 +263,8 @@
 }
 
 // Desktop Styles
-.desktop .rd-video video::-webkit-media-controls, .desktop .rd-video video::-webkit-media-controls-enclosure {
+.desktop .rd-video video::-webkit-media-controls,
+.desktop .rd-video video::-webkit-media-controls-enclosure {
   display: none !important;
 }
 
@@ -343,7 +349,8 @@
 }
 
 .rd-video-controls-buttons {
-  .rd-video-prev, .rd-video-next {
+  .rd-video-prev,
+  .rd-video-next {
     position: relative;
     top: -2px;
   }
