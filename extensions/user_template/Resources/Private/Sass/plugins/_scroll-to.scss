@@ -17,24 +17,26 @@
   text-align: center;
   text-decoration: none;
   z-index: 20;
-  &:before{
+  &:before {
     display: block;
     transition: 0.5s;
     transition-delay: 1.4s;
   }
-  &.toTop{
+  &.toTop {
     animation: rotate 1.6s linear;
     animation-delay: 1s;
-    &:before{
+    &:before {
       transform: rotate(180deg);
     }
   }
 }
 @keyframes rotate {
-  0%, 100%{
+  0%,
+  100% {
     transform: scale(1);
   }
-  30%, 60%{
+  30%,
+  60% {
     transform: scale(0.7);
   }
 }

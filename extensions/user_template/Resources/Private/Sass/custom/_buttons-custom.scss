@@ -34,14 +34,12 @@
   &.active {
     &:focus,
     &.focus {
-
     }
   }
 
   &:hover,
   &:focus,
   &.focus {
-
   }
 
   &:active,
@@ -52,7 +50,6 @@
   &.disabled,
   &[disabled],
   fieldset[disabled] & {
-
   }
 }
 
@@ -61,22 +58,35 @@
 .page {
   .btn-default {
     @include button-variant-custom(
-                    $btn-default-color,
-                    $btn-default-bg,
-                    $btn-default-border,
-                    $white,
-                    $gray-darker,
-                    $gray-darker
+      $btn-default-color,
+      $btn-default-bg,
+      $btn-default-border,
+      $white,
+      $gray-darker,
+      $gray-darker
     );
   }
 
   .btn-primary {
-    @include button-variant-custom($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white, $gray-darker,
-            $gray-darker);
+    @include button-variant-custom(
+      $btn-primary-color,
+      $btn-primary-bg,
+      $btn-primary-border,
+      $white,
+      $gray-darker,
+      $gray-darker
+    );
   }
 
   .btn-primary-outline {
-    @include button-variant-custom($brand-primary, transparent, $brand-primary, $white, $brand-primary, $brand-primary);
+    @include button-variant-custom(
+      $brand-primary,
+      transparent,
+      $brand-primary,
+      $white,
+      $brand-primary,
+      $brand-primary
+    );
   }
 
   .btn-transparent {
@@ -86,7 +96,6 @@
         @include button-variant-custom($text-color, transparent, transparent, $white, rgba($white, .2), transparent);
       }
     }
-
   }
 
   // Success appears as green
@@ -110,15 +119,12 @@
 // --------------------------------------------------
 
 .btn-xs {
-
 }
 
 .btn-sm {
-
 }
 
 .btn-lg {
-
 }
 
 // Button Shapes
@@ -132,7 +138,6 @@
 // --------------------------------------------------
 
 .btn {
-
   &.btn-icon {
     padding-left: 17px;
     padding-right: 17px;
@@ -157,6 +162,5 @@
         padding-left: 10px;
       }
     }
-
   }
 }

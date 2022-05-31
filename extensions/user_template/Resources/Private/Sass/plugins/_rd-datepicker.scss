@@ -24,14 +24,12 @@ $datepicker-day-selected-background: #038ac6;
 $datepicker-day-offset-color: #ccc;
 $datepicker-day-offset-background: transparent;
 
-
-
-.form-group{
+.form-group {
   position: relative;
   text-align: left;
 }
 
-.form-input{
+.form-input {
   display: inline-block;
   width: 100%;
   font-size: $datepicker-font-size;
@@ -41,7 +39,7 @@ $datepicker-day-offset-background: transparent;
   height: 40px;
 }
 
-.rd-datepicker{
+.rd-datepicker {
   display: none;
   position: absolute;
   top: 100%;
@@ -53,17 +51,17 @@ $datepicker-day-offset-background: transparent;
   transition: 0.3s all;
   z-index: 99;
 
-  &-header{
+  &-header {
     position: relative;
   }
 
-  &-body{
+  &-body {
     width: 100%;
     table-layout: fixed;
     padding: 4px;
   }
 
-  &-title{
+  &-title {
     padding: 5px 40px;
     font-size: 20px;
     line-height: 30px;
@@ -72,7 +70,7 @@ $datepicker-day-offset-background: transparent;
   }
 
   &-day,
-  &-week{
+  &-week {
     font-size: 18px;
     width: 40px;
     height: 40px;
@@ -80,35 +78,35 @@ $datepicker-day-offset-background: transparent;
     text-align: center;
   }
 
-  &-day{
+  &-day {
     color: $datepicker-day-color;
     background: $datepicker-day-background;
     cursor: pointer;
     transition: 0.3s all;
 
-    &:hover{
+    &:hover {
       color: $datepicker-day-hover-color;
       background: $datepicker-day-hover-background;
     }
 
-    &.offset{
+    &.offset {
       color: $datepicker-day-offset-color;
       background: $datepicker-day-offset-background;
     }
 
-    &.today{
+    &.today {
       color: $datepicker-today-color;
       background: $datepicker-today-background;
     }
 
-    &.selected{
+    &.selected {
       color: $datepicker-day-selected-color;
       background: $datepicker-day-selected-background;
     }
   }
 
   &-next,
-  &-prev{
+  &-prev {
     position: absolute;
     top: 50%;
     width: 30px;
@@ -120,20 +118,20 @@ $datepicker-day-offset-background: transparent;
     cursor: pointer;
     z-index: 1;
 
-    &:hover{
+    &:hover {
       color: $datepicker-day-hover-color;
     }
   }
 
-  &-next{
+  &-next {
     right: 5px;
   }
 
-  &-prev{
+  &-prev {
     left: 5px;
   }
 }
 
-.rd-datepicker-open{
+.rd-datepicker-open {
   display: block;
 }

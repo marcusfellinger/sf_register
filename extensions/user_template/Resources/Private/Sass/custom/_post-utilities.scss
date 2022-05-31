@@ -50,7 +50,10 @@
 }
 
 .page .event-post {
-  &, &:active, &:focus, &:hover {
+  &,
+  &:active,
+  &:focus,
+  &:hover {
     color: $text-color;
   }
 }

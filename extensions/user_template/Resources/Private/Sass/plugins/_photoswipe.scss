@@ -211,7 +211,6 @@
 }
 
 [data-photo-swipe] {
-
   [data-inner-html] iframe {
     pointer-events: none;
   }
@@ -285,7 +284,10 @@
   height: 44px;
 }
 
-@media (-webkit-min-device-pixel-ratio: 1.1), (-webkit-min-device-pixel-ratio: 1.09375), (min-resolution: 105dpi), (min-resolution: 1.1dppx) {
+@media (-webkit-min-device-pixel-ratio: 1.1),
+  (-webkit-min-device-pixel-ratio: 1.09375),
+  (min-resolution: 105dpi),
+  (min-resolution: 1.1dppx) {
   /* Serve SVG sprite if browser supports SVG and resolution is more than 105dpi */
   .pswp--svg .pswp__button,
   .pswp--svg .pswp__button--arrow--left:before,
