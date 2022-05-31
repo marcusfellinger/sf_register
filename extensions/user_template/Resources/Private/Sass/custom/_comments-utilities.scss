@@ -2,15 +2,11 @@
 // Comment utilities
 // --------------------------------------------------
 .comment {
-
-
   .unit-body {
-
   }
 }
 
 .post-comment {
-
 }
 
 .comment-group-reply {
@@ -19,7 +15,6 @@
 
 // Elements
 .comment-body {
-
 }
 
 .comment-footer {
@@ -31,28 +26,23 @@
 
 // Offsets
 .comment + * {
-
 }
 
 * + .post-comment {
-
 }
 
 // Adaptive
 @media (max-width: $screen-xs-max) {
   .comment {
-
   }
 }
 
 @media (min-width: $screen-sm-min) {
   .comment {
-
   }
 }
 
 @media (min-width: $screen-md-min) {
   .comment {
-
   }
 }

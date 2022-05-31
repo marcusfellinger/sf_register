@@ -16,7 +16,7 @@ $map-sm-height: 390px;
   color: #333;
   background: $gray-base;
 
-  &__model{
+  &__model {
     height: $map-xs-height;
 
     img {
@@ -32,8 +32,7 @@ $map-sm-height: 390px;
     }
   }
 
-  &__locations{
+  &__locations {
     display: none;
   }
 }
-

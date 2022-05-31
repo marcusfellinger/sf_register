@@ -39,7 +39,10 @@
 
 a {
   &.icon {
-    &, &:active, &:focus, &:hover {
+    &,
+    &:active,
+    &:focus,
+    &:hover {
       text-decoration: none;
     }
   }
@@ -52,7 +55,6 @@ a {
     @include icon-link($brand-primary, $white);
   }
 }
-
 
 // Button Sizes
 // --------------------------------------------------
@@ -68,4 +70,3 @@ a {
 .icon-lg {
   @include icon-sizing(80px);
 }
-

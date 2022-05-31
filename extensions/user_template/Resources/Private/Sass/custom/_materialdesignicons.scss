@@ -5,11 +5,16 @@
 @font-face {
   font-family: "Material Design Icons";
   src: url("#{$icon-font-path}#{$icon-material-design}.eot?v=1.4.57");
-  src: url("#{$icon-font-path}#{$icon-material-design}.eot?#iefix&v=1.4.57") format("embedded-opentype"),
-       url("#{$icon-font-path}#{$icon-material-design}.woff2?v=1.4.57") format("woff2"),
-       url("#{$icon-font-path}#{$icon-material-design}.woff?v=1.4.57") format("woff"),
-       url("#{$icon-font-path}#{$icon-material-design}.ttf?v=1.4.57") format("truetype"),
-       url("#{$icon-font-path}#{$icon-material-design}.svg?v=1.4.57##{$icon-material-design-id}") format("svg");
+  src: url("#{$icon-font-path}#{$icon-material-design}.eot?#iefix&v=1.4.57")
+      format("embedded-opentype"),
+    url("#{$icon-font-path}#{$icon-material-design}.woff2?v=1.4.57")
+      format("woff2"),
+    url("#{$icon-font-path}#{$icon-material-design}.woff?v=1.4.57")
+      format("woff"),
+    url("#{$icon-font-path}#{$icon-material-design}.ttf?v=1.4.57")
+      format("truetype"),
+    url("#{$icon-font-path}#{$icon-material-design}.svg?v=1.4.57##{$icon-material-design-id}")
+      format("svg");
   font-weight: normal;
   font-style: normal;
 }

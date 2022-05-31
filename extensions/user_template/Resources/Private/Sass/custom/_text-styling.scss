@@ -2,7 +2,6 @@
 // Text styling
 // --------------------------------------------------
 
-
 // Text style
 //
 
@@ -36,19 +35,20 @@
   font-weight: 300;
 }
 
-.text-regular{
+.text-regular {
   font-weight: 400;
 }
 
-.text-medium{
+.text-medium {
   font-weight: 500;
 }
 
-.text-sbold{
+.text-sbold {
   font-weight: 600;
 }
 
-.text-bold, strong {
+.text-bold,
+strong {
   font-weight: 700;
 }
 
@@ -59,7 +59,7 @@
 // Text spacing
 //
 
-.text-spacing-0{
+.text-spacing-0 {
   letter-spacing: 0;
 }
 
@@ -67,6 +67,6 @@
   letter-spacing: 0.04em;
 }
 
-.text-spacing-120{
+.text-spacing-120 {
   letter-spacing: 0.12em;
 }

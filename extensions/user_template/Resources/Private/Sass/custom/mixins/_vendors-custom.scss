@@ -1,7 +1,6 @@
 // Custom CSS Vendors
 
 @mixin transform($trfm) {
-  -webkit-transform: $trfm;
   transform: $trfm;
 }
 

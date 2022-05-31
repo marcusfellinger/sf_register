@@ -11,10 +11,10 @@
   border-style: solid;
 
   @if $dir == top {
-    border-width: 0 ceil(math.div($w,2)) $h ceil(math.div($w,2));
+    border-width: 0 ceil(math.div($w, 2)) $h ceil(math.div($w, 2));
     border-color: transparent transparent $clr transparent;
   } @else if $dir == bottom {
-    border-width: $h ceil(math.div($w,2)) 0 ceil(math.div($w,2));
+    border-width: $h ceil(math.div($w, 2)) 0 ceil(math.div($w, 2));
     border-color: $clr transparent transparent transparent;
   } @else if $dir == left {
     border-width: ceil(math.div($h, 2)) $w ceil(math.div($h, 2)) 0;

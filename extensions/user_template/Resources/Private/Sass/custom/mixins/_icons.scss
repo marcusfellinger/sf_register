@@ -10,7 +10,9 @@
 }
 
 @mixin icon-link($default-clr, $hover-color) {
-  &, &:active, &:focus {
+  &,
+  &:active,
+  &:focus {
     color: $default-clr;
   }
 

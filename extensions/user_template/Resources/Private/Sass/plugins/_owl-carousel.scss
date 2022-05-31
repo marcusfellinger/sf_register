@@ -1,4 +1,4 @@
-/* 
+/*
  *  Owl Carousel - Animate Plugin
  */
 .owl-carousel .animated {
@@ -41,7 +41,7 @@
   }
 }
 
-/* 
+/*
  * 	Owl Carousel - Auto Height Plugin
  */
 .owl-height {
@@ -52,7 +52,7 @@
   transition: height 500ms ease-in-out;
 }
 
-/* 
+/*
  *  Core Owl Carousel CSS File
  */
 .owl-carousel {
@@ -82,16 +82,14 @@
   position: relative;
   overflow: hidden;
   /* fix for flashing background */
-  -webkit-transform: translate3d(0px, 0px, 0px);
+  transform: translate3d(0px, 0px, 0px);
 }
 
 .owl-carousel .owl-controls .owl-nav .owl-prev,
 .owl-carousel .owl-controls .owl-nav .owl-next,
 .owl-carousel .owl-controls .owl-dot {
-  cursor: pointer;
   cursor: hand;
   -webkit-user-select: none;
-  -khtml-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
@@ -135,8 +133,6 @@
 }
 
 .owl-carousel .owl-grab {
-  cursor: move;
-  cursor: -webkit-grab;
   cursor: grab;
 }
 
@@ -153,7 +149,7 @@
   display: block;
 }
 
-/* 
+/*
  * 	Owl Carousel - Lazy Load Plugin
  */
 .owl-carousel .owl-item .owl-lazy {
@@ -165,7 +161,7 @@
   transition: opacity 400ms ease;
 }
 
-/* 
+/*
  * 	Owl Carousel - Video Plugin
  */
 .owl-carousel .owl-video-wrapper {
@@ -182,7 +178,7 @@
   top: 50%;
   margin-left: -40px;
   margin-top: -40px;
-  font: 400 40px/80px 'FontAwesome';
+  font: 400 40px/80px "FontAwesome";
   cursor: pointer;
   z-index: 1;
   -webkit-backface-visibility: hidden;
@@ -192,12 +188,11 @@
   -o-transition: scale 100ms ease;
   transition: scale 100ms ease;
   &:before {
-    content: '\f144';
+    content: "\f144";
   }
 }
 
 .owl-carousel .owl-video-play-icon:hover {
-  -webkit-transform: scale(1.3);
   transform: scale(1.3);
 }
 
@@ -234,12 +229,13 @@
 .owl-nav {
 }
 
-.owl-prev, .owl-next {
+.owl-prev,
+.owl-next {
   position: absolute;
   top: 50%;
   @include transform(translateY(-50%));
-  font: 400 46px/50px 'FontAwesome';
-  opacity: .5;
+  font: 400 46px/50px "FontAwesome";
+  opacity: 0.5;
 
   &:hover {
     opacity: 1;
@@ -249,14 +245,14 @@
 .owl-prev {
   left: 0;
   &:before {
-    content: '\f104';
+    content: "\f104";
   }
 }
 
 .owl-next {
   right: 0;
   &:before {
-    content: '\f105';
+    content: "\f105";
   }
 }
 
@@ -295,7 +291,7 @@
 
     &:hover,
     &.active {
-      background: rgba($white, .3);
+      background: rgba($white, 0.3);
     }
   }
 
