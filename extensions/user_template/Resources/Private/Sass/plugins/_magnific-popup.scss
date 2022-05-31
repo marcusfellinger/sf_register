@@ -40,8 +40,8 @@ $mfp-image-padding-bottom:            40px !default;                       // Im
 $mfp-include-mobile-layout-for-image: true !default;                       // Removes paddings from top and bottom
 
 // Image caption options
-$mfp-caption-title-color:             #F3F3F3 !default;                    // Caption title color
-$mfp-caption-subtitle-color:          #BDBDBD !default;                    // Caption subtitle color
+$mfp-caption-title-color: #f3f3f3 !default; // Caption title color
+$mfp-caption-subtitle-color: #bdbdbd !default; // Caption subtitle color
 
 // A11y
 $mfp-use-visuallyhidden:              false !default;                      // Hide content from browsers, but make it available for screen readers
