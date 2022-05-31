@@ -59,7 +59,7 @@
   justify-content: $align;
 }
 
-@mixin align-content($align){
+@mixin align-content($align) {
   -webkit-align-content: $align;
   @if ($align == "flex-start") {
     -ms-flex-pack: start;
@@ -108,4 +108,3 @@
   -ms-flex-order: $order;
   order: $order;
 }
-

@@ -9,7 +9,8 @@
   position: relative;
   border: $input-border-obj;
 
-  label, input {
+  label,
+  input {
     font-size: $input-font-size;
   }
 
@@ -61,10 +62,10 @@
 .rd-search-submit {
   @include reset-button();
   @include make-toggle(
-          $rd-navbar-search-toggle-preset,
-          $rd-navbar-min-line-height,
-          22px,
-          $gray-darker
+    $rd-navbar-search-toggle-preset,
+    $rd-navbar-min-line-height,
+    22px,
+    $gray-darker
   );
   position: absolute;
   right: 0;
@@ -274,7 +275,9 @@
   }
 }
 
-.result-item + .result-item { margin-top: 30px; }
+.result-item + .result-item {
+  margin-top: 30px;
+}
 
 .match {
   font-size: 13px;
@@ -285,7 +288,8 @@
 .rd-navbar-search-results {
   .result-item {
     padding: 35px 5px;
-    &, * {
+    &,
+    * {
       text-align: left;
     }
     & + .result-item {
