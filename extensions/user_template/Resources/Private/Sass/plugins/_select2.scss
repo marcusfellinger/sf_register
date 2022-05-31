@@ -57,8 +57,8 @@
 // Base Styles
 // -------------------------
 
-.select2{
-  width: 100%!important;
+.select2 {
+  width: 100% !important;
 }
 
 .select2-container {
@@ -130,7 +130,6 @@
       }
     }
   }
-
 }
 
 .select2-dropdown {
@@ -308,23 +307,23 @@
 
       .select2-results__option {
         margin-left: -$padding-base-horizontal;
-        padding-left: $padding-base-horizontal*2;
+        padding-left: $padding-base-horizontal * 2;
 
         .select2-results__option {
-          margin-left: -$padding-base-horizontal*2;
-          padding-left: $padding-base-horizontal*3;
+          margin-left: -$padding-base-horizontal * 2;
+          padding-left: $padding-base-horizontal * 3;
 
           .select2-results__option {
-            margin-left: -$padding-base-horizontal*3;
-            padding-left: $padding-base-horizontal*4;
+            margin-left: -$padding-base-horizontal * 3;
+            padding-left: $padding-base-horizontal * 4;
 
             .select2-results__option {
-              margin-left: -$padding-base-horizontal*4;
-              padding-left: $padding-base-horizontal*5;
+              margin-left: -$padding-base-horizontal * 4;
+              padding-left: $padding-base-horizontal * 5;
 
               .select2-results__option {
-                margin-left: -$padding-base-horizontal*5;
-                padding-left: $padding-base-horizontal*6;
+                margin-left: -$padding-base-horizontal * 5;
+                padding-left: $padding-base-horizontal * 6;
               }
             }
           }
@@ -352,7 +351,6 @@
   }
 
   &.select2-container--open {
-
     // Make the dropdown arrow point up while the dropdown is visible.
     .select2-selection .select2-selection__arrow b {
       border-color: transparent transparent $brand-primary transparent;
@@ -390,7 +388,6 @@
 
   // Address disabled Select2 styles.
   &.select2-container--disabled {
-
     .select2-selection {
       border-color: $input-border;
       box-shadow: none;
@@ -428,7 +425,7 @@
   .select2-selection--single {
     text-align: left;
     height: $input-height-base;
-    line-height:  $input-height-base;
+    line-height: $input-height-base;
     padding: 0 15px;
 
     // Adjust the single Select2's dropdown arrow button appearance.
@@ -439,7 +436,7 @@
       top: 0;
 
       b {
-        &:before{
+        &:before {
           position: absolute;
           top: 50%;
           font-weight: 400;
@@ -547,7 +544,8 @@
       font-size: $font-size-small;
       height: $input-height-small;
       line-height: $line-height-small;
-      padding: $padding-small-vertical $padding-small-horizontal + $caret-width-base*3 $padding-small-vertical $padding-small-horizontal;
+      padding: $padding-small-vertical $padding-small-horizontal +
+        $caret-width-base * 3 $padding-small-vertical $padding-small-horizontal;
 
       .select2-selection__arrow b {
         margin-left: -$padding-small-vertical;
@@ -560,7 +558,8 @@
       .select2-selection__choice {
         font-size: $font-size-small;
         line-height: $line-height-small;
-        margin: ($padding-small-vertical - 1) 0 0 math.div($padding-small-horizontal, 2);
+        margin: ($padding-small-vertical - 1) 0 0
+          math.div($padding-small-horizontal, 2);
         padding: 0 $padding-small-vertical;
       }
 
@@ -585,13 +584,15 @@
       font-size: $font-size-large;
       height: $input-height-large;
       line-height: $line-height-large;
-      padding: $padding-large-vertical $padding-large-horizontal + $caret-width-large*3 $padding-large-vertical $padding-large-horizontal;
+      padding: $padding-large-vertical $padding-large-horizontal +
+        $caret-width-large * 3 $padding-large-vertical $padding-large-horizontal;
 
       .select2-selection__arrow {
         width: $caret-width-large;
 
         b {
-          border-width: $caret-width-large $caret-width-large 0 $caret-width-large;
+          border-width: $caret-width-large $caret-width-large 0
+            $caret-width-large;
           margin-left: -$padding-large-vertical;
           margin-top: math.div(-$caret-width-large, 2);
         }
@@ -605,7 +606,8 @@
         font-size: $font-size-large;
         line-height: $line-height-large;
         border-radius: 4px;
-        margin: ($padding-large-vertical - 1) 0 0 math.div($padding-large-horizontal, 2);
+        margin: ($padding-large-vertical - 1) 0 0
+          math.div($padding-large-horizontal, 2);
         padding: 0 $padding-large-vertical;
       }
 
@@ -634,10 +636,9 @@
 
   // RTL SUPPORT
   &[dir="rtl"] {
-
     // Single Select2
     .select2-selection--single {
-      padding-left: $padding-base-horizontal + $caret-width-base*3;
+      padding-left: $padding-base-horizontal + $caret-width-base * 3;
       padding-right: $padding-base-horizontal;
       .select2-selection__rendered {
         padding-right: 0;
