@@ -106,6 +106,6 @@
 @mixin order($order) {
   -webkit-order: $order;
   -ms-flex-order: $order;
-  order: $order
+  order: $order;
 }
 

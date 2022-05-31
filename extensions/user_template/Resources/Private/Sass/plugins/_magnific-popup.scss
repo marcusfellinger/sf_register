@@ -266,7 +266,7 @@ button {
   }
   &::-moz-focus-inner {
     padding: 0;
-    border: 0
+    border: 0;
   }
 }
 
@@ -408,7 +408,7 @@ button {
     &:after,
     .mfp-a {
       border-left: 17px solid $mfp-controls-color;
-      margin-left: 39px
+      margin-left: 39px;
     }
     &:before,
     .mfp-b {
