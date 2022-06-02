@@ -83,33 +83,9 @@ module.exports = function (grunt) {
                     })
                 ]
             },
-            adminpanel: {
-                src: '<%= paths.adminpanel %>Public/Css/*.css'
-            },
-            backend: {
-                src: '<%= paths.backend %>Public/Css/*.css'
-            },
-            core: {
-                src: '<%= paths.core %>Public/Css/*.css'
-            },
-            dashboard: {
-                src: '<%= paths.dashboard %>Public/Css/*.css'
-            },
             dashboard_modal: {
                 src: '<%= paths.dashboard %>Public/Css/Modal/*.css'
             },
-            form: {
-                src: '<%= paths.form %>Public/Css/*.css'
-            },
-            linkvalidator: {
-                src: '<%= paths.linkvalidator %>Public/Css/*.css'
-            },
-            t3editor: {
-                src: '<%= paths.t3editor %>Public/Css/**/*.css'
-            },
-            workspaces: {
-                src: '<%= paths.workspaces %>Public/Css/*.css'
-            }
         },
         exec: {
             ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
