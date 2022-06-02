@@ -42,7 +42,8 @@
     font: inherit;
     letter-spacing: inherit;
     transition: 0.33s all ease;
-    &, &:active,
+    &,
+    &:active,
     &:focus {
       color: $brand-primary;
     }
@@ -437,11 +438,11 @@ address {
 //
 
 .page {
-  @include text-emphasis-variant(".text-primary", $brand-primary);
-  @include text-emphasis-variant(".text-dark", $gray-dark);
-  @include text-emphasis-variant(".text-gray", $gray);
-  @include text-emphasis-variant(".text-gray-darker", $gray-darker);
-  @include text-emphasis-variant(".text-white", $white);
+  //@include text-emphasis-variant(".text-primary", $brand-primary);
+  //@include text-emphasis-variant(".text-dark", $gray-dark);
+  //@include text-emphasis-variant(".text-gray", $gray);
+  //@include text-emphasis-variant(".text-gray-darker", $gray-darker);
+  //@include text-emphasis-variant(".text-white", $white);
 }
 
 .frame-type-text {
