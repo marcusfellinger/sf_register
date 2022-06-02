@@ -93,14 +93,14 @@
 
     &:before {
       content: "\f002";
-      transition: .3s all ease;
+      transition: 0.3s all ease;
       @include transform(scale(1) rotate(0deg));
     }
 
     .rd-navbar:not(.rd-navbar-fixed) & {
       &:after {
         content: "\f00d";
-        transition: .3s all ease;
+        transition: 0.3s all ease;
         @include transform(scale(0) rotate(-90deg));
       }
 
