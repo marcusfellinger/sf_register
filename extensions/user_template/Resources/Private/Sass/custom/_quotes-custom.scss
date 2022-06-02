@@ -25,13 +25,13 @@
     &:before {
       top: 10px;
       left: 2px;
-      content: url('../images/quote-left.png');
+      content: url("../images/quote-left.png");
     }
 
     &:after {
       right: -8px;
       bottom: 11px;
-      content: url('../images/quote-right.png');
+      content: url("../images/quote-right.png");
     }
   }
 
