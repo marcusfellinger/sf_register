@@ -42,7 +42,8 @@
     opacity: 0;
     visibility: hidden;
     transition: 0.3s all ease;
-    background: url(../images/preloader.gif) no-repeat rgba(#fff, 0.8) center center;
+    background: url(../images/preloader.gif) no-repeat rgba(#fff, 0.8) center
+      center;
     z-index: 6;
   }
 

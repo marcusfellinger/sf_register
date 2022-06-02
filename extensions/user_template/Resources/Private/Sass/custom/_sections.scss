@@ -22,7 +22,13 @@ $insets: (
   245px
 );
 
-@include indent-responsive(section, "", (margin-top, margin-bottom), $medias, $insets);
+@include indent-responsive(
+  section,
+  "",
+  (margin-top, margin-bottom),
+  $medias,
+  $insets
+);
 @include indent-responsive(section, top, margin-top, $medias, $insets);
 @include indent-responsive(section, bottom, margin-bottom, $medias, $insets);
 

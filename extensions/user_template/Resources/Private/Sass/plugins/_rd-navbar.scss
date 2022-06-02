@@ -299,7 +299,8 @@
       font-size: 18px;
       font-weight: 400;
       letter-spacing: 0.1em;
-      &, &:focus,
+      &,
+      &:focus,
       &:active {
         color: $rd-navbar-dropdown-item-color;
       }
