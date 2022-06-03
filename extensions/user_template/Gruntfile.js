@@ -22,8 +22,10 @@ module.exports = function (grunt) {
         paths: {
             root: './',
             resources: '<%= paths.root %>Resources/',
+            public: '<%= paths.resources %>Public/',
             private: '<%= paths.resources %>Private/',
             sass: '<%= paths.private %>Sass/',
+            css: '<%= paths.public %>Css/',
             typescript: '<%= paths.private %>TypeScript/',
         },
         stylelint: {
