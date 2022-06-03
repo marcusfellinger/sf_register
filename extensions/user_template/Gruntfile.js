@@ -71,6 +71,9 @@ module.exports = function (grunt) {
                     }),
                 ]
             },
+            dist: {
+                src: '<%= paths.css %>*.css'
+            }
         },
         exec: {
             ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
