@@ -6,6 +6,7 @@
     "node": ">=14.15.0 <17.0.0"
   },
   "devDependencies": {
+    "@lodder/grunt-postcss": "^3.1.1",
     "@rollup/plugin-replace": "^2.4.2",
     "@types/bootstrap": "^5.1.6",
     "@types/chosen-js": "^1.8.1",
