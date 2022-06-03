@@ -52,7 +52,7 @@ module.exports = function (grunt) {
             },
             styles: {
                 files: {
-                    "<%= paths.backend %>Public/Css/style.css": "<%= paths.sass %>style.scss"
+                    "<%= paths.css %>style.css": "<%= paths.sass %>style.scss"
                 }
             },
         },
