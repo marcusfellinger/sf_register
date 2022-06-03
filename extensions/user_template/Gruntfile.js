@@ -284,6 +284,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-eslint');
     grunt.loadNpmTasks('grunt-exec');
     grunt.loadNpmTasks('grunt-newer');
+    grunt.loadNpmTasks('@lodder/grunt-postcss');
     grunt.loadNpmTasks('grunt-prettier');
     grunt.loadNpmTasks('grunt-sass');
 
