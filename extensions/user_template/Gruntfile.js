@@ -333,7 +333,7 @@ module.exports = function (grunt) {
      * - sass
      * - postcss
      */
-    grunt.registerTask('css', ['prettier', 'newer:sass', 'newer:postcss']);
+    grunt.registerTask('css', ['prettier', 'sass', 'postcss']);
 
     /**
      * grunt update task
@@ -367,7 +367,7 @@ module.exports = function (grunt) {
      * - 2) Copy all generated JavaScript files to public folders
      * - 3) Minify build
      */
-    grunt.registerTask('scripts', ['compile-typescript', 'newer:terser:typescript', 'newer:copy:ts_files']);
+    grunt.registerTask('scripts', ['compile-typescript', 'terser:typescript', 'copy:ts_files']);
 
     /**
      * grunt clear-build task
