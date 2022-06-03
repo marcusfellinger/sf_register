@@ -174,7 +174,7 @@ module.exports = function (grunt) {
         },
         npmcopy: {
             options: {
-                clean: false,
+                    clean: false,
                 report: false,
                 srcPrefix: "node_modules/"
             },
