@@ -67,20 +67,6 @@ module.exports = function (grunt) {
                             }
                         }
                     }),
-                    require('postcss-banner')({
-                        banner: 'This file is part of the TYPO3 CMS project.\n' +
-                            '\n' +
-                            'It is free software; you can redistribute it and/or modify it under\n' +
-                            'the terms of the GNU General Public License, either version 2\n' +
-                            'of the License, or any later version.\n' +
-                            '\n' +
-                            'For the full copyright and license information, please read the\n' +
-                            'LICENSE.txt file that was distributed with this source code.\n' +
-                            '\n' +
-                            'The TYPO3 project - inspiring people to share!',
-                        important: true,
-                        inline: false
-                    })
                 ]
             },
             dashboard_modal: {
