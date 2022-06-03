@@ -69,9 +69,6 @@ module.exports = function (grunt) {
                     }),
                 ]
             },
-            dashboard_modal: {
-                src: '<%= paths.dashboard %>Public/Css/Modal/*.css'
-            },
         },
         exec: {
             ts: ((process.platform === 'win32') ? 'node_modules\\.bin\\tsc.cmd' : './node_modules/.bin/tsc') + ' --project tsconfig.json',
