@@ -221,7 +221,7 @@
   &:before {
     content: "\f002";
     font-weight: 400;
-    font-family: "FontAwesome";
+    font-family: "FontAwesome", fantasy;
   }
 
   &.active {
