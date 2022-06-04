@@ -99,12 +99,10 @@
       transition-delay: 0s, 0.3s;
     }
     &:before {
-      -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
     &:after {
-      -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
@@ -136,12 +134,10 @@
       transition-delay: 0s, 0.3s;
     }
     &:before {
-      -webkit-transform: rotate(45deg);
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
     &:after {
-      -webkit-transform: rotate(-45deg);
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
     }
@@ -193,11 +189,9 @@
     }
 
     &:before {
-      -webkit-transform: rotate3d(0, 0, 1, -40deg);
       transform: rotate3d(0, 0, 1, -40deg);
     }
     &:after {
-      -webkit-transform: rotate3d(0, 0, 1, 40deg);
       transform: rotate3d(0, 0, 1, 40deg);
     }
   }
