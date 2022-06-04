@@ -106,6 +106,8 @@ tt_content {
 config {
     doctype = <!DOCTYPE html>
     htmlTag_setParams = lang="de" class="wide wow-animation"
+    contentObjectExceptionHandler = 1
+    contentObjectExceptionHandler = TYPO3\CMS\Core\Error\DebugExceptionHandler
 }
 
 page = PAGE
@@ -121,8 +123,8 @@ page {
     includeCSS {
         1 = EXT:user_template/Resources/Public/Css/style.css
         2 = //fonts.googleapis.com/css?family=Roboto:400%7CRoboto+Condensed:300,400,700
-        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
-        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
+#        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
+#        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
     }
 
     includeJS {
@@ -132,7 +134,7 @@ page {
     includeJSFooter {
         core = EXT:user_template/Resources/Public/JavaScript/core.min.js
         script = EXT:user_template/Resources/Public/JavaScript/script.js
-        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
+#        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
         slick.disableCompression = 1
         fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
     }
