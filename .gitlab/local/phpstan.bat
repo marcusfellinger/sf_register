@@ -1,0 +1,1 @@
+docker run -v %cd%:/app phpstan/phpstan:0.12.33 analyze src tests

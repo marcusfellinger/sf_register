@@ -1,0 +1,10 @@
+parameters:
+    level: 8
+    excludePaths:
+        analyse:
+            - */vendor/*
+    ignoreErrors:
+        - '#Constant TYPO3_MODE not found#'
+        - '#Variable \$_EXTKEY might not be defined\.#'
+    scanDirectories:
+        - ../Packages/Libraries

@@ -1,0 +1,5 @@
+FROM php:7.4-alpine
+RUN apk add composer icu-dev libpng-dev libsodium-dev
+RUN docker-php-ext-install pdo_mysql && docker-php-ext-install intl && docker-php-ext-install gd
+RUN docker-php-ext-install zip && docker-php-ext install sodium
+WORKDIR "/app"
