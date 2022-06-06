@@ -8,7 +8,7 @@ stages:
 
 variables:
   DEV_COMPOSER_BASE: /usr/local/composer
-  COMPOSER_VERSION: 2.0.8
+  COMPOSER_VERSION: 2.1
   GIT_SUBMODULE_STRATEGY: normal
   INTEGRATION_COMPOSER_BASE: /usr/local/composer
   LIVE_COMPOSER_BASE: ~/composer
