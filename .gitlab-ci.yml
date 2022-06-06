@@ -17,7 +17,7 @@ variables:
   DEV_DIRECTORY: ${DEV_PATH}
   INTEGRATION_DIRECTORY: ${INTEGRATION_PATH}
   PROJECT_TYPE: typo3
-
+  PHP_VERSION: "7.4"
 
 .check:
   artifacts:
@@ -131,6 +131,7 @@ phpmd:
 
 phpstan:
   extends: .check_after
+  image: ghcr.io/phpstan/phpstan:1.5.4
   script:
     - /bin/bash .gitlab/server/phpstan-${PROJECT_TYPE}.sh
 
