@@ -132,6 +132,8 @@ phpmd:
 phpstan:
   extends: .check_after
   image: 1drop/php-utils:$PHP_VERSION
+  rules:
+    - if: '$USE_PHPSTAN != "0"'
   script:
     - /bin/bash .gitlab/server/phpstan-${PROJECT_TYPE}.sh
 
