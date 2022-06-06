@@ -34,6 +34,7 @@ class CellPreviewRenderer implements PageLayoutViewDrawItemHookInterface
      * @param array $row Record row of tt_content
      *
      * @return void
+     * @inheritdoc
      */
     public function preProcess(
         PageLayoutView &$parentObject,
