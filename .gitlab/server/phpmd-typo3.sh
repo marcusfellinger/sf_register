@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-pwd
-ls /
-find / -type d
-
 mkdir -p "$(pwd)/.reports"
 
 [ -f ./.config/phpmd.xml ] && PHPMD_CONFIG=$(pwd)/.config/phpmd.xml || PHPMD_CONFIG=$(pwd)/.gitlab/phpmd.xml

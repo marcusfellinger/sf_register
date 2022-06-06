@@ -1,8 +1,4 @@
 #!/usr/bin/env bash
-pwd
-ls /
-find / -type d
-
 mkdir -p "$(pwd)/.reports"
 
 [ -f ./.config/phpstan-server-${PROJECT_TYPE}.neon ] && RULESET_PATH=./.config/phpstan-server-${PROJECT_TYPE}.neon || RULESET_PATH=./.gitlab/phpstan-server-${PROJECT_TYPE}.neon
