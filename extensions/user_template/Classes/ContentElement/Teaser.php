@@ -52,7 +52,7 @@ class Teaser extends AbstractElement
 
         // Define what fields to display
         $GLOBALS['TCA']['tt_content']['types'][$prefix . $typeName] = [
-            'showitem' => '
+            'showitem'         => '
                 --div--;' . $frontendLanguageFilePrefix . 'tabs.text,
                 --palette--;' . $frontendLanguageFilePrefix . 'palette.general;general,
                 --palette--;' . $frontendLanguageFilePrefix . 'palette.header;header,

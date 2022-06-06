@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3_MODE') or die();
 
 call_user_func(function () {
@@ -29,7 +30,7 @@ call_user_func(function () {
 
 // Configure the default backend fields for the content element
 $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
-    'showitem' => '
+    'showitem'         => '
       --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
          --palette--;;general,
          --palette--;;headers,
@@ -51,7 +52,7 @@ $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
     'columnsOverrides' => [
         'bodytext' => [
             'config' => [
-                'enableRichtext' => true,
+                'enableRichtext'        => true,
                 'richtextConfiguration' => 'default'
             ]
         ]

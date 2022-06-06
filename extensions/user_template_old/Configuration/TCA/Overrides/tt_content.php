@@ -1,4 +1,5 @@
 <?php
+
 defined('TYPO3_MODE') or die();
 call_user_func(function () {
     $languageFilePrefix = 'LLL:EXT:user_template/Resources/Private/Language/Database.xlf:';
@@ -22,7 +23,7 @@ call_user_func(function () {
 
     // Define what fields to display
     $GLOBALS['TCA']['tt_content']['types']['fs_slider'] = [
-        'showitem' => '
+        'showitem'         => '
                 --palette--;' . $frontendLanguageFilePrefix . 'palette.general;general,
                 --palette--;' . $languageFilePrefix . 'tt_content.palette.mediaAdjustments;mediaAdjustments,
                 pi_flexform,
@@ -31,17 +32,19 @@ call_user_func(function () {
         ',
         'columnsOverrides' => [
             'media' => [
-                'label' => $languageFilePrefix . 'tt_content.media_references',
+                'label'  => $languageFilePrefix . 'tt_content.media_references',
                 'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                     'media', [
-                    'appearance' => [
+                    'appearance'    => [
                         'createNewRelationLinkTitle' => $languageFilePrefix .
                             'tt_content.media_references.addFileReference'
                     ],
                     // custom configuration for displaying fields in the overlay/reference table
                     // behaves the same as the image field.
                     'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
-                ], $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext'])
+                ],
+                    $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+                )
             ]
         ]
     ];

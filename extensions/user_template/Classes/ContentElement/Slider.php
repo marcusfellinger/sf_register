@@ -52,7 +52,7 @@ class Slider extends AbstractElement
 
         // Define what fields to display
         $GLOBALS['TCA']['tt_content']['types'][$prefix . $typeName] = [
-            'showitem' => '
+            'showitem'         => '
                 --palette--;' . $frontendLanguagePrefix . 'palette.general;general,
                 --palette--;' . $languageFilePrefix . 'tt_content.palette.mediaAdjustments;mediaAdjustments,
                 pi_flexform,
@@ -61,17 +61,19 @@ class Slider extends AbstractElement
             ',
             'columnsOverrides' => [
                 'media' => [
-                    'label' => $languageFilePrefix . 'tt_content.media_references',
+                    'label'  => $languageFilePrefix . 'tt_content.media_references',
                     'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
                         'media', [
-                        'appearance' => [
+                        'appearance'    => [
                             'createNewRelationLinkTitle' => $languageFilePrefix .
                                 'tt_content.media_references.addFileReference'
                         ],
                         // custom configuration for displaying fields in the overlay/reference table
                         // behaves the same as the image field.
                         'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
-                    ], $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext'])
+                    ],
+                        $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
+                    )
                 ]
             ]
         ];
