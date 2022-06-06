@@ -32,7 +32,6 @@ class Teaser extends AbstractElement
         $typeName = 'teaser';
         $prefix = 'cg_';
         $extKey = 'EXT:user_template';
-        $languageFilePrefix = 'LLL:' . $extKey . '/Resources/Private/Language/Database.xlf:';
         $customLanguageFilePrefix = 'LLL:' . $extKey . '/Resources/Private/Language/locallang_' . $typeName . '_be.xlf:';
         $frontendLanguageFilePrefix = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:';
 
