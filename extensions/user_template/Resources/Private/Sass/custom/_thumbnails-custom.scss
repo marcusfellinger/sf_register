@@ -57,6 +57,10 @@
     }
   }
 
+  .img-fluid {
+    height: 100%;
+  }
+
   &:hover {
     .caption {
       opacity: 1;
