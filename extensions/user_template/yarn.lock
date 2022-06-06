@@ -735,7 +735,7 @@
     "@typescript-eslint/types" "5.27.0"
     eslint-visitor-keys "^3.3.0"
 
-"@typo3/icons@^2.2.3":
+"@typo3/icons@^2.6.0":
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/@typo3/icons/-/icons-2.6.0.tgz#a15f8f06e78590e89837fad7803ac276f9bed703"
   integrity sha512-IxNlcjuNOwaHUT+ewkRaFoOUmhM8I0rna3HgeGo4/vK3z/o1tdhKq8G0hJf/RVf6nbG9DKX1D6jftEoAV13R6A==
@@ -4467,7 +4467,7 @@ postcss-banner@^3.0.2:
   dependencies:
     postcss "^7.0.14"
 
-postcss-clean@^1.2.0:
+postcss-clean@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/postcss-clean/-/postcss-clean-1.2.2.tgz#7b44303dcecbc2b29a70ed18d22af427203fa256"
   integrity sha512-DpuMWW19Dd2K9KY4wknMz3khq9q2yZYa2U37bnhzdtBdBv0ggIfUj5T2XD3ir6gKVlDkb5OtOqw1iQJWq6qvpw==
