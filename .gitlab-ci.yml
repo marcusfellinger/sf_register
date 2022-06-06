@@ -125,6 +125,7 @@ php-codesniffer:
 
 phpmd:
   extends: .phpmd-base
+  image: 1drop/php-utils:$PHP_VERSION
   script:
     - /bin/bash .gitlab/server/phpmd-${PROJECT_TYPE}.sh
 
