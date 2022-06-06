@@ -1,0 +1,4 @@
+include:
+  - project: 'signundsinn/ci-tools'
+    ref: '2.0'
+    file: '.gitlab-ci.template-typo3.yml'

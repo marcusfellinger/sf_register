@@ -1,3 +1,10 @@
+config {
+    doctype = <!DOCTYPE html>
+    htmlTag_setParams = lang="de" class="wide wow-animation"
+    contentObjectExceptionHandler = 1
+    contentObjectExceptionHandler = TYPO3\CMS\Core\Error\DebugExceptionHandler
+}
+
 // use default/general ContainerProcessor
 lib {
     fluidContent {
@@ -57,6 +64,67 @@ lib {
     }
 }
 
+page = PAGE
+page {
+    meta.format-detection = telephone=no
+    meta.viewport = width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0
+    meta.X-UA-Compatible = IE=edge
+    meta.X-UA-Compatible.httpEquivalent = 1
+    meta.charset = utf-8
+    config.pageTitleFirst = 1
+    config.pageTitleSeparator = -
+    1 < lib.stdContent
+    includeCSS {
+        1 = EXT:user_template/Resources/Public/Css/style.css
+        2 = //fonts.googleapis.com/css?family=Roboto:400%7CRoboto+Condensed:300,400,700
+        #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
+        #        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
+    }
+
+    includeJS {
+        1 = EXT:user_template/Resources/Public/JavaScript/html5shiv.min.js
+    }
+
+    includeJSFooter {
+        core = EXT:user_template/Resources/Public/JavaScript/core.min.js
+        script = EXT:user_template/Resources/Public/JavaScript/script.js
+        #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
+        slick.disableCompression = 1
+        fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
+    }
+}
+
+plugin.tx_seo {
+    config {
+        xmlSitemap {
+            sitemaps {
+                news {
+                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                    config {
+                        table = news_table
+                        sortField = sorting
+                        lastModifiedField = tstamp
+                        additionalWhere = AND (no_index = 0 OR no_follow = 0)
+                        pid = 28
+                        recursive = 0
+                        url {
+                            pageId = 30
+                            fieldToParameterMap {
+                                uid = tx_extension_pi1[news]
+                            }
+                            additionalGetParameters {
+                                tx_extension_pi1.controller = News
+                                tx_extension_pi1.action = detail
+                            }
+                            useCacheHash = 1
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
 settings {
     overrideFlexformSettingsIfEmpty {
         list.paginate.itemsPerPage = 10
@@ -102,74 +170,6 @@ tt_content {
         jquery.disableCompression = 1
     }
 [global]
-
-config {
-    doctype = <!DOCTYPE html>
-    htmlTag_setParams = lang="de" class="wide wow-animation"
-    contentObjectExceptionHandler = 1
-    contentObjectExceptionHandler = TYPO3\CMS\Core\Error\DebugExceptionHandler
-}
-
-page = PAGE
-page {
-    meta.format-detection = telephone=no
-    meta.viewport = width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0
-    meta.X-UA-Compatible = IE=edge
-    meta.X-UA-Compatible.httpEquivalent = 1
-    meta.charset = utf-8
-    config.pageTitleFirst = 1
-    config.pageTitleSeparator = -
-    1 < lib.stdContent
-    includeCSS {
-        1 = EXT:user_template/Resources/Public/Css/style.css
-        2 = //fonts.googleapis.com/css?family=Roboto:400%7CRoboto+Condensed:300,400,700
-#        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
-#        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
-    }
-
-    includeJS {
-        1 = EXT:user_template/Resources/Public/JavaScript/html5shiv.min.js
-    }
-
-    includeJSFooter {
-        core = EXT:user_template/Resources/Public/JavaScript/core.min.js
-        script = EXT:user_template/Resources/Public/JavaScript/script.js
-#        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
-        slick.disableCompression = 1
-        fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
-    }
-}
-
-plugin.tx_seo {
-    config {
-        xmlSitemap {
-            sitemaps {
-                news {
-                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
-                    config {
-                        table = news_table
-                        sortField = sorting
-                        lastModifiedField = tstamp
-                        additionalWhere = AND (no_index = 0 OR no_follow = 0)
-                        pid = 28
-                        recursive = 0
-                        url {
-                            pageId = 30
-                            fieldToParameterMap {
-                                uid = tx_extension_pi1[news]
-                            }
-                            additionalGetParameters {
-                                tx_extension_pi1.controller = News
-                                tx_extension_pi1.action = detail
-                            }
-                            useCacheHash = 1
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
 
 # Restricted area starts at pid 123.
 # Check if user is logged in:
