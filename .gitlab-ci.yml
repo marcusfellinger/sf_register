@@ -46,8 +46,6 @@ composer:
     - composer
   extends: .check
   stage: check
-  tags:
-    - shell
 
 .deploy:
   before_script:
