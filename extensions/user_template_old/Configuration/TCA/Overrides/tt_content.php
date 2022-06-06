@@ -34,15 +34,16 @@ call_user_func(function () {
             'media' => [
                 'label'  => $languageFilePrefix . 'tt_content.media_references',
                 'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
-                    'media', [
-                    'appearance'    => [
-                        'createNewRelationLinkTitle' => $languageFilePrefix .
-                            'tt_content.media_references.addFileReference'
+                    'media',
+                    [
+                        'appearance'    => [
+                            'createNewRelationLinkTitle' => $languageFilePrefix .
+                                'tt_content.media_references.addFileReference'
+                        ],
+                        // custom configuration for displaying fields in the overlay/reference table
+                        // behaves the same as the image field.
+                        'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
                     ],
-                    // custom configuration for displaying fields in the overlay/reference table
-                    // behaves the same as the image field.
-                    'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
-                ],
                     $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
                 )
             ]
