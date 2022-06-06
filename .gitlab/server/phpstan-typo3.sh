@@ -10,4 +10,4 @@ mkdir -p "$(pwd)/.reports"
 
 ~/.composer/vendor/bin/phpstan analyze \
   -c ${RULESET_PATH} \
-  /app/extensions
+  $(pwd)/extensions
