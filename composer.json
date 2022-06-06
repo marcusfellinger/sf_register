@@ -48,6 +48,7 @@
     "typo3/cms-adminpanel": "*",
     "typo3/cms-belog": "*",
     "typo3/cms-felogin": "*",
+    "typo3/cms-filelist": "*",
     "typo3/cms-fluid-styled-content": "*",
     "typo3/cms-rte-ckeditor": "*",
     "typo3/cms-tstemplate": "*"
