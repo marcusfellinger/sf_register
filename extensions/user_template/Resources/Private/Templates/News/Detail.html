@@ -60,10 +60,10 @@
                 <f:then>
                     <f:render section="headline" arguments="{_all}" />
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-6">
                             <f:render section="inner-content" arguments="{_all}" />
                         </div>
-                        <div class="col-md-4">
+                        <div class="col-md-6">
                             <f:for each="{newsItem.mediaNonPreviews}" as="mediaElement">
                                 <div class="thumbnail ratio ratio-16x9">
                                     <f:media file="{mediaElement}" class="img-fluid" />
