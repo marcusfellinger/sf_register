@@ -1,4 +1,157 @@
-include:
-  - project: 'signundsinn/ci-tools'
-    ref: '2.0'
-    file: '.gitlab-ci.template-typo3.yml'
+stages:
+  - lint
+  - prepare
+  - check
+  - test
+  - deploy
+  - package
+
+variables:
+  DEV_COMPOSER_BASE: /usr/local/composer
+  COMPOSER_VERSION: 1.7.3
+  GIT_SUBMODULE_STRATEGY: normal
+  INTEGRATION_COMPOSER_BASE: /usr/local/composer
+  LIVE_COMPOSER_BASE: ~/composer
+  RELAUNCH_COMPOSER_BASE: /usr/local/composer
+  FF_ENABLE_JOB_CLEANUP: 1
+  DEV_DIRECTORY: ${DEV_PATH}
+  INTEGRATION_DIRECTORY: ${INTEGRATION_PATH}
+  PROJECT_TYPE: typo3
+
+
+.check:
+  artifacts:
+    when: always
+    paths:
+      - ./.reports/
+
+composer:
+  artifacts:
+    paths:
+      - composer.lock
+      - vendor/
+      - Packages/Libraries/
+      - web/typo3conf/ext
+  image: composer:${COMPOSER_VERSION}
+  script:
+    - composer config gitlab-token.gitlab.com '${GITLAB_COMPOSER_CONFIG_TOKEN}'
+    - /bin/sh .gitlab/server/composer.sh
+  stage: prepare
+  tags:
+    - docker
+  when: always
+
+.check_after:
+  dependencies:
+    - composer
+  extends: .check
+  stage: check
+  tags:
+    - shell
+
+.deploy:
+  before_script:
+    - apk add bash
+    - mkdir -p ~/.ssh
+    - eval $(ssh-agent -s)
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+    - echo "$PRIVATE_KEY" > key.txt
+    - chmod 0600 key.txt
+    - ssh-add key.txt
+  image: instrumentisto/rsync-ssh:latest
+  stage: deploy
+  tags:
+    - docker
+
+.php-codesniffer-base:
+  extends: .check
+  image: "phpdocker/phpdocker:7.2"
+  stage: lint
+  tags:
+    - docker
+  artifacts:
+    reports:
+      junit: ./.reports/phpcs-junit.xml
+
+.phpmd-base:
+  extends: .check_after
+  rules:
+    - if: '$USE_PHPMD != "0"'
+
+.deploy_development_base:
+  environment:
+    name: Development
+    url: $DEV_DOMAIN
+  extends: .deploy
+  only:
+    - main
+  variables:
+    PRIVATE_KEY: $DEV_PRIVATE_KEY
+
+.deploy_integration_base:
+  environment:
+    name: Integration
+    url: $INTEGRATION_DOMAIN
+  extends: .deploy
+  only:
+    - integration
+  variables:
+    PRIVATE_KEY: $INTEGRATION_PRIVATE_KEY
+
+.deploy_live_base:
+  environment:
+    name: Live
+    url: $LIVE_DOMAIN
+  extends: .deploy
+  only:
+    - live
+  variables:
+    PRIVATE_KEY: $LIVE_PRIVATE_KEY
+  when: manual
+
+.deploy_relaunch_base:
+  environment:
+    name: Relaunch
+    url: $RELAUNCH_DOMAIN
+  extends: .deploy
+  only:
+    - relaunch
+  variables:
+    PRIVATE_KEY: $RELAUNCH_PRIVATE_KEY
+  when: manual
+
+php-codesniffer:
+  extends: .php-codesniffer-base
+  script:
+    - /bin/sh .gitlab/server/phpcs-${PROJECT_TYPE}.sh
+
+phpmd:
+  extends: .phpmd-base
+  script:
+    - /bin/bash .gitlab/server/phpmd-${PROJECT_TYPE}.sh
+
+phpstan:
+  extends: .check_after
+  script:
+    - /bin/bash .gitlab/server/phpstan-${PROJECT_TYPE}.sh
+
+deploy_development:
+  extends: .deploy_development_base
+  script:
+    - /bin/bash .gitlab/server/deploy-${PROJECT_TYPE}.sh
+
+deploy_integration:
+  extends: .deploy_integration_base
+  script:
+    - /bin/bash .gitlab/server/deploy-${PROJECT_TYPE}.sh
+
+deploy_live:
+  extends: .deploy_live_base
+  script:
+    - /bin/bash .gitlab/server/deploy-${PROJECT_TYPE}.sh
+
+deploy_relaunch:
+  extends: .deploy_relaunch_base
+  script:
+    - /bin/bash .gitlab/server/deploy-${PROJECT_TYPE}.sh
+
