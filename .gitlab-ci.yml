@@ -131,7 +131,7 @@ phpmd:
 
 phpstan:
   extends: .check_after
-  image: ghcr.io/phpstan/phpstan:1.5.4
+  image: 1drop/php-utils:$PHP_VERSION
   script:
     - /bin/bash .gitlab/server/phpstan-${PROJECT_TYPE}.sh
 
