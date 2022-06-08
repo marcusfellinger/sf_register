@@ -125,6 +125,9 @@ class InstallerScripts implements InstallerScriptsRegistration, InstallerScript
         if (file_exists($link)) {
             unlink($link);
         }
+        if (is_link($link)) {
+            unlink($link);
+        }
         symlink($target, $link);
     }
 }
