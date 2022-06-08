@@ -112,7 +112,6 @@ fi
   echo "if [[ ! -x $TYPO3_BIN_DIR/typo3cms ]]; then echo \"$TYPO3_BIN_DIR/typo3cms is not executable\" ; exit 34; fi"
   echo "$PHP_DIR/$PHP_CMD $COMPOSER_CMD install --no-dev --prefer-dist || exit 35"
   echo "$PHP_DIR/$PHP_CMD $TYPO3_BIN_DIR/typo3cms install:fixfolderstructure || exit 36"
-  echo "$PHP_DIR/$PHP_CMD $TYPO3_BIN_DIR/typo3cms install:generatepackagestates || exit 37"
 } > gitlab-deploy.sh
 
 cat gitlab-deploy.sh
