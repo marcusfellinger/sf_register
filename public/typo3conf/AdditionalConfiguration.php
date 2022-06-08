@@ -2,7 +2,7 @@
 
 $applicationContext = (string)\TYPO3\CMS\Core\Core\Environment::getContext();
 if ($applicationContext === 'Development') {
-    $GLOBALS['TYPO3_CONF_VARS'] = array_merge_recursive(
+    $GLOBALS['TYPO3_CONF_VARS'] = array_replace_recursive(
         $GLOBALS['TYPO3_CONF_VARS'],
         [
             'DB' => [

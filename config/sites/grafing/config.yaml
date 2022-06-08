@@ -3,12 +3,14 @@ baseVariants:
   -
     base: 'https://cg-grafing.ddev.site'
     condition: 'getenv("IS_DDEV_PROJECT") == "true"'
-errorHandling: {  }
+  -
+    base: 'https://cg-grafing.felliweb.de'
+    condition: 'applicationContext == "Development"'
 languages:
   -
     title: Deutsch
     enabled: true
-    languageId: '0'
+    languageId: 0
     base: /
     typo3Language: de
     locale: de_DE.UTF-8
@@ -37,4 +39,4 @@ routeEnhancers:
         type: PersistedAliasMapper
         tableName: tx_news_domain_model_news
         routeFieldName: path_segment
-routes: {  }
+websiteTitle: ''
