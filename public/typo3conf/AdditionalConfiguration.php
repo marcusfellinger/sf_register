@@ -14,6 +14,11 @@ if ($applicationContext === 'Development') {
                         'user' => 'cg_grafing'
                     ]
                 ]
+            ],
+            'SYS'  => [
+                'trustedHostsPattern' => '.*.*',
+                'devIPmask'           => '*',
+                'displayErrors'       => 1,
             ]
         ]
     );
