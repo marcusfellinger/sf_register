@@ -17,6 +17,10 @@ class InstallerScripts implements InstallerScriptsRegistration, InstallerScript
 {
     private function buildStylesheets(string $packagePath): void
     {
+        $currentDir = getcwd();
+        chdir($packagePath);
+
+        chdir($currentDir);
     }
 
     /**
