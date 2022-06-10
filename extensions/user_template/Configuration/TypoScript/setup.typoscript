@@ -3,6 +3,8 @@ config {
     htmlTag_setParams = lang="de" class="wide wow-animation"
     contentObjectExceptionHandler = 1
     contentObjectExceptionHandler = CGGrafing\Template\ContentObject\Exception\DebugExceptionHandler
+    typolinkLinkAccessRestrictedPages = NONE
+    typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###
 }
 
 // use default/general ContainerProcessor
@@ -186,9 +188,9 @@ tt_content {
 
 # Restricted area starts at pid 123.
 # Check if user is logged in:
-[(24 in tree.rootLineIds) && (!frontend.user.isLoggedIn)]
-    page.config >
-    page.config.additionalHeaders = Location: /anmelden
-[end]
+#[(24 in tree.rootLineIds) && (!frontend.user.isLoggedIn)]
+#    page.config >
+#    page.config.additionalHeaders = Location: /anmelden
+#[end]
 
 @import 'EXT:user_template/Configuration/TypoScript/2cols.typoscript'

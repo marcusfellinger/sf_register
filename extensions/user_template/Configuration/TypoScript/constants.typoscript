@@ -16,6 +16,13 @@ plugin {
         }
     }
 
+    tx_felogin_login {
+        settings {
+            pages = 20
+            redirectMode = getpost,referer,login
+        }
+    }
+
     tx_sfregister {
         settings {
             captchaId = srfreecap
