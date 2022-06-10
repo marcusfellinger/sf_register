@@ -19,7 +19,7 @@ class ErrorHandling implements PageErrorHandlerInterface
     ): ResponseInterface {
         //check whether user is logged in
         $context = GeneralUtility::makeInstance(Context::class);
-        if($context->getPropertyFromAspect('frontend.user', 'isLoggedIn')){
+        if ($context->getPropertyFromAspect('frontend.user', 'isLoggedIn')) {
             //show page with info that the access restricted page can't be visited because of missing access rights
             return new RedirectResponse('/anmelden?return_url=' . $request->getUri()->getPath(), 403);
         }
