@@ -11,7 +11,14 @@ use TYPO3\CMS\Core\Utility\GeneralUtility;
 
 class ErrorHandling implements PageErrorHandlerInterface
 {
-
+    /**
+     * @param ServerRequestInterface $request
+     * @param string $message
+     * @param array $reasons
+     * @return ResponseInterface
+     * @throws \TYPO3\CMS\Core\Context\Exception\AspectNotFoundException
+     * @inheritdoc
+     */
     public function handlePageError(
         ServerRequestInterface $request,
         string $message,
