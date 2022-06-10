@@ -7,6 +7,23 @@ config {
     typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###
 }
 
+lib {
+    footerMenu = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+    footerMenu {
+        special = directory
+        special.value = {$plugin.user_template.view.footerID}
+        levels = 2
+        includeSpacer = 1
+        as = footerMenu
+        expandAll = 1
+    }
+}
+
+[frontend.user.isLoggedIn]
+    lib.footerMenu.excludeUidList = 12
+[end]
+
+
 // use default/general ContainerProcessor
 lib {
     fluidContent {
@@ -41,16 +58,7 @@ lib {
                 expandAll = 1
             }
 
-            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
-            20 {
-                special = directory
-                special.value = {$plugin.user_template.view.footerID}
-                levels = 2
-                includeSpacer = 1
-                as = footerMenu
-                expandAll = 1
-            }
-
+            20 < lib.footerMenu
         }
 
         variables {
@@ -174,10 +182,6 @@ tt_content {
         templateName = Teaser
     }
 }
-
-[frontend.user.isLoggedIn]
-    lib.stdContent.dataProcessing.20.excludeUidList = 12
-[end]
 
 ["{$plugin.tx_usertemplate.settings.includejQuery}" == "1"]
     page.includeJSFooterlibs {
