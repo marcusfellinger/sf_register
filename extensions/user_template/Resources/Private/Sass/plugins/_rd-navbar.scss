@@ -713,3 +713,7 @@ ol ul,
 ol ol {
   padding-left: 0;
 }
+
+.rd-navbar-inner {
+  min-height: $rd-navbar-min-height;
+}
