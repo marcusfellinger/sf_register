@@ -8,8 +8,8 @@ baseVariants:
     condition: 'applicationContext == "Development"'
 errorHandling:
   - errorCode: '403'
-    errorHandler: Page
-    errorContentSource: 't3://page?uid=12'
+    errorHandler: PHP
+    errorPhpClassFQCN: CGGrafing\Template\Error\ErrorHandling
 languages:
   -
     title: Deutsch

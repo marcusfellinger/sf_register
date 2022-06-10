@@ -3,7 +3,7 @@ config {
     htmlTag_setParams = lang="de" class="wide wow-animation"
     contentObjectExceptionHandler = 1
     contentObjectExceptionHandler = CGGrafing\Template\ContentObject\Exception\DebugExceptionHandler
-    typolinkLinkAccessRestrictedPages = NONE
+    typolinkLinkAccessRestrictedPages = 12
     typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###
 }
 
@@ -105,6 +105,15 @@ page {
 }
 
 plugin {
+    tx_felogin_login {
+        settings {
+            pages = 20
+            redirectMode = getpost,referer,login
+            redirectFirstMethod = 1
+            showLogoutFormAfterLogin = 0
+        }
+    }
+
     tx_seo {
         config {
             xmlSitemap {
@@ -146,7 +155,6 @@ plugin {
         }
     }
 }
-
 
 settings {
     overrideFlexformSettingsIfEmpty {
