@@ -14,7 +14,6 @@
 module.exports = function (grunt) {
 
     const sass = require('sass');
-    const esModuleLexer = require('es-module-lexer');
 
     // Project configuration.
     grunt.initConfig({
@@ -58,7 +57,10 @@ module.exports = function (grunt) {
         },
         postcss: {
             options: {
-                map: false,
+                map: {
+                    inline: false,
+                    annotation: '<%= paths.css %>maps'
+                },
                 processors: [
                     require('autoprefixer')(),
                     require('postcss-clean')({
@@ -68,8 +70,9 @@ module.exports = function (grunt) {
                                 specialComments: 0
                             }
                         }
-                    }),
-                ]
+                    })
+                ],
+                failOnError: true
             },
             dist: {
                 src: '<%= paths.css %>*.css'
@@ -109,68 +112,6 @@ module.exports = function (grunt) {
             options: {
                 punctuation: ''
             },
-            ts_files: {
-                options: {
-                    process: (source, srcpath) => {
-                        const [imports, exports] = esModuleLexer.parse(source, srcpath);
-
-                        source = require('./util/map-import.js').mapImports(source, srcpath, imports);
-
-                        // Workaround for https://github.com/microsoft/TypeScript/issues/35802 to avoid
-                        // rollup from complaining in karma/jsunit test setup:
-                        //   The 'this' keyword is equivalent to 'undefined' at the top level of an ES module, and has been rewritten
-                        source = source.replace('__decorate=this&&this.__decorate||function', '__decorate=function');
-
-                        return source;
-                    }
-                },
-                files: [{
-                    expand: true,
-                    cwd: '<%= paths.root %>Build/JavaScript/',
-                    src: ['**/*.js', '**/*.js.map'],
-                    dest: '<%= paths.sysext %>',
-                    rename: (dest, src) => dest + src
-                        .replace('/', '/Resources/Public/JavaScript/')
-                        .replace('/Resources/Public/JavaScript/tests/', '/Tests/JavaScript/')
-                }]
-            },
-        },
-        rollup: {
-            options: {
-                format: 'esm',
-                entryFileNames: '[name].js'
-            },
-            'bootstrap': {
-                options: {
-                    preserveModules: false,
-                    plugins: () => [
-                        {
-                            name: 'terser',
-                            renderChunk: code => require('terser').minify(code, grunt.config.get('terser.options'))
-                        },
-                        {
-                            name: 'externals',
-                            resolveId: (source) => {
-                                if (source === 'jquery') {
-                                    return {id: 'jquery', external: true}
-                                }
-                                if (source === 'bootstrap') {
-                                    return {id: 'node_modules/bootstrap/dist/js/bootstrap.esm.js'}
-                                }
-                                if (source === '@popperjs/core') {
-                                    return {id: 'node_modules/@popperjs/core/dist/esm/index.js'}
-                                }
-                                return null
-                            }
-                        }
-                    ]
-                },
-                files: {
-                    '<%= paths.core %>Public/JavaScript/Contrib/bootstrap.js': [
-                        'Sources/JavaScript/core/Resources/Public/JavaScript/Contrib/bootstrap.js'
-                    ]
-                }
-            }
         },
         npmcopy: {
             options: {
@@ -178,52 +119,6 @@ module.exports = function (grunt) {
                 report: false,
                 srcPrefix: "node_modules/"
             },
-        },
-        umdToEs6: {
-            options: {
-                destPrefix: "<%= paths.core %>Public/JavaScript/Contrib",
-                copyOptions: {
-                    process: (source, srcpath) => {
-                        let imports = [], prefix = '';
-
-                        if (srcpath === 'node_modules/devbridge-autocomplete/dist/jquery.autocomplete.min.js') {
-                            imports.push('jquery');
-                        }
-
-                        if (srcpath === 'node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js') {
-                            imports.push('jquery');
-                        }
-
-                        if (srcpath === 'node_modules/imagesloaded/imagesloaded.js') {
-                            imports.push('ev-emitter');
-                        }
-
-                        if (srcpath === 'node_modules/tablesort/dist/sorts/tablesort.dotsep.min.js') {
-                            prefix = 'import Tablesort from "tablesort";';
-                        }
-
-                        return require('./util/cjs-to-esm.js').cjsToEsm(source, imports, prefix);
-                    }
-                }
-            },
-            files: {
-                'autosize.js': 'autosize/dist/autosize.min.js',
-                'broadcastchannel.js': 'broadcastchannel-polyfill/index.js',
-                'ev-emitter.js': 'ev-emitter/ev-emitter.js',
-                'flatpickr/flatpickr.min.js': 'flatpickr/dist/flatpickr.js',
-                'flatpickr/locales.js': 'flatpickr/dist/l10n/index.js',
-                'imagesloaded.js': 'imagesloaded/imagesloaded.js',
-                'jquery.js': 'jquery/dist/jquery.js',
-                'jquery.autocomplete.js': 'devbridge-autocomplete/dist/jquery.autocomplete.min.js',
-                'jquery/minicolors.js': '../node_modules/@claviska/jquery-minicolors/jquery.minicolors.min.js',
-                'moment.js': 'moment/min/moment-with-locales.min.js',
-                'moment-timezone.js': 'moment-timezone/builds/moment-timezone-with-data.min.js',
-                'nprogress.js': 'nprogress/nprogress.js',
-                'sortablejs.js': 'sortablejs/dist/sortable.umd.js',
-                'tablesort.js': 'tablesort/dist/tablesort.min.js',
-                'tablesort.dotsep.js': 'tablesort/dist/sorts/tablesort.dotsep.min.js',
-                'taboverride.js': 'taboverride/build/output/taboverride.js',
-            }
         },
         terser: {
             options: {
@@ -265,7 +160,7 @@ module.exports = function (grunt) {
         lintspaces: {
             html: {
                 src: [
-                    '<%= paths.sysext %>*/Private/**/*.html'
+                    '<%= paths.private %>*/**/*.html'
                 ],
                 options: {
                     editorconfig: '../.editorconfig'

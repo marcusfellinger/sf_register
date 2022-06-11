@@ -91,16 +91,15 @@ page {
         #        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
     }
 
-    includeJS {
-        1 = EXT:user_template/Resources/Public/JavaScript/html5shiv.min.js
+    includeJSLibs {
+        bootstrap = EXT:user_template/Resources/Public/Vendor/js/bootstrap.bundle.js
     }
 
     includeJSFooter {
-        core = EXT:user_template/Resources/Public/JavaScript/core.min.js
-        script = EXT:user_template/Resources/Public/JavaScript/script.js
+        # script = EXT:user_template/Resources/Public/JavaScript/script.js
         #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
         slick.disableCompression = 1
-        fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
+        # fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
     }
 }
 
