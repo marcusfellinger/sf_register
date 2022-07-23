@@ -1,3 +1,7 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:user_template/Configuration/TypoScript/fluidtemplates.typoscript'
+@import 'EXT:user_template/Configuration/TypoScript/2cols.typoscript'
+
 config {
     doctype = <!DOCTYPE html>
     htmlTag_setParams = lang="de" class="wide wow-animation"
@@ -204,4 +208,3 @@ tt_content {
 #    page.config.additionalHeaders = Location: /anmelden
 #[end]
 
-@import 'EXT:user_template/Configuration/TypoScript/2cols.typoscript'

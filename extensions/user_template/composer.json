@@ -20,6 +20,7 @@
   "license": "GPL-2.0-or-later",
   "name": "cggrafing/user-template",
   "require": {
+    "typo3/cms-fluid-styled-content": "*",
     "b13/container": "*",
     "twbs/bootstrap": "*"
   },
