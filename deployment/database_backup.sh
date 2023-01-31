@@ -9,7 +9,7 @@ echo $today
 struct=${today}_${database}_struct.sql
 data=${today}_${database}_data.sql
 trigger=${today}_${database}_trigger.sql
-common="--comments --complete-insert --create-options --order-by-primary --quote-names --single-transaction --dump-date --skip-extended-insert"
+common="--comments --complete-insert --create-options --order-by-primary --quote-names --single-transaction --dump-date --skip-extended-insert --skip-tablespaces"
 mysqldump ${common} --no-data --skip-triggers --skip-routines -h ${host} -r data/${struct} -u ${username} -P ${port} -p${password} ${database}
 mysqldump ${common} --no-create-info --no-create-db --no-data --routines -h ${host} -r data/${trigger} -u ${username} -P ${port} -p${password} ${database}
 if [[ "$1" == "--no-user" ]]; then
