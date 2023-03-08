@@ -9,11 +9,11 @@
   "description": "TYPO3 CMS Base Distribution",
   "extra": {
     "helhum/typo3-console": {
-      "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
-      "install-extension-dummy": false,
       "active-packages": [
         "container"
-      ]
+      ],
+      "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
+      "install-extension-dummy": false
     },
     "typo3/cms": {
       "web-dir": "public"
