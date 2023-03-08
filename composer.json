@@ -32,19 +32,18 @@
     }
   ],
   "require": {
-    "beechit/fal-securedownload": "^2",
-    "causal/file_list": " ^2",
+    "beechit/fal-securedownload": ">=2",
+    "causal/file_list": ">=2",
     "cggrafing/user-template": "@dev",
-    "evoweb/recaptcha": "^9",
-    "evoweb/sf-register": "^9",
-    "friendsoftypo3/typo3db-legacy": "^1.1",
-    "georgringer/news": "^7",
-    "gridelementsteam/gridelements": "^9",
-    "helhum/typo3-console": "^5",
-    "jambagecom/static-info-tables-de": "^6",
-    "laxap/bootstrap-grids": "^2",
-    "sjbr/static-info-tables": "^6",
-    "typo3/cms-about": "^9.5",
+    "evoweb/recaptcha": ">=9",
+    "evoweb/sf-register": ">=9",
+    "friendsoftypo3/typo3db-legacy": ">=1.1",
+    "georgringer/news": ">=7",
+    "helhum/typo3-console": ">=5",
+    "jambagecom/static-info-tables-de": ">=6",
+    "jambagecom/addons-em": "*",
+    "sjbr/static-info-tables": ">=6",
+    "typo3/cms-about": ">=9.5",
     "typo3/cms-adminpanel": ">=9.5",
     "typo3/cms-backend": ">=9.5",
     "typo3/cms-belog": ">=9.5",
@@ -74,10 +73,10 @@
     "typo3/cms-viewpage": ">=9.5"
   },
   "require-dev": {
-    "doctrine/common": "^3.3",
+    "doctrine/common": ">=3.3",
     "roave/security-advisories": "dev-latest",
-    "symfony/var-dumper": "^5.4",
-    "typo3/fluid-schema-generator": "^2.1"
+    "symfony/var-dumper": ">=5.4",
+    "typo3/fluid-schema-generator": ">=2.1"
   },
   "scripts": {
     "post-autoload-dump": [
