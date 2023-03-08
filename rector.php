@@ -9,14 +9,14 @@ use Rector\Set\ValueObject\LevelSetList;
 return static function (RectorConfig $rectorConfig): void {
     $rectorConfig->paths([
         __DIR__ . '/extensions',
-        __DIR__ . '/public',
+        __DIR__ . '/public/typo3conf',
     ]);
 
     // register a single rule
-    $rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
+    //$rectorConfig->rule(InlineConstructorDefaultToPropertyRector::class);
 
     // define sets of rules
-    //    $rectorConfig->sets([
-    //        LevelSetList::UP_TO_PHP_80
-    //    ]);
+    $rectorConfig->sets([
+        LevelSetList::UP_TO_PHP_80
+    ]);
 };

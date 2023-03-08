@@ -4,7 +4,6 @@ return [
         'debug' => true,
         'explicitADmode' => 'explicitAllow',
         'installToolPassword' => '$2y$12$TbceDeBLIekUKUnJu2tzgOR4ORQ4CM/kRjuG4n7vLVOzpzxz/mjjy',
-        'loginSecurityLevel' => 'normal',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Pbkdf2PasswordHash',
             'options' => [],
@@ -27,21 +26,7 @@ return [
             ],
         ],
     ],
-    'EXT' => [
-        'extConf' => [
-            'backend' => 'a:6:{s:9:"loginLogo";s:0:"";s:19:"loginHighlightColor";s:0:"";s:20:"loginBackgroundImage";s:0:"";s:13:"loginFootnote";s:0:"";s:11:"backendLogo";s:0:"";s:14:"backendFavicon";s:0:"";}',
-            'bootstrap_grids' => 'a:1:{s:19:"enableGridSimpleRow";s:1:"0";}',
-            'cal' => 'a:18:{s:13:"noTabDividers";s:1:"0";s:21:"hideLocationTextfield";s:1:"0";s:22:"hideOrganizerTextfield";s:1:"0";s:20:"useLocationStructure";s:15:"tx_cal_location";s:21:"useOrganizerStructure";s:16:"tx_cal_organizer";s:11:"todoSubtype";s:5:"event";s:16:"categoryTVHeight";s:3:"280";s:11:"treeOrderBy";s:3:"uid";s:9:"showTimes";s:1:"1";s:9:"useTeaser";s:1:"0";s:20:"hideDeviationRecords";s:1:"1";s:15:"recurrenceStart";s:8:"20140101";s:13:"recurrenceEnd";s:8:"20201231";s:18:"useInternalCaching";s:1:"1";s:11:"cachingMode";s:6:"normal";s:13:"cacheLifetime";s:1:"0";s:13:"cachingEngine";s:8:"internal";s:30:"enableRealURLAutoConfiguration";s:1:"1";}',
-            'extensionmanager' => 'a:2:{s:21:"automaticInstallation";s:1:"1";s:11:"offlineMode";s:1:"0";}',
-            'fal_securedownload' => 'a:6:{s:18:"login_redirect_url";s:0:"";s:22:"no_access_redirect_url";s:0:"";s:14:"force_download";s:0:"";s:22:"force_download_for_ext";s:0:"";s:18:"resumable_download";s:1:"1";s:15:"track_downloads";s:1:"0";}',
-            'gridelements' => 'a:6:{s:20:"additionalStylesheet";s:0:"";s:19:"nestingInListModule";s:1:"0";s:26:"overlayShortcutTranslation";s:1:"0";s:19:"disableDragInWizard";s:1:"0";s:25:"disableCopyFromPageButton";s:1:"0";s:38:"disableAutomaticUnusedColumnCorrection";s:1:"0";}',
-            'news' => 'a:17:{s:13:"prependAtCopy";s:1:"1";s:6:"tagPid";s:1:"1";s:12:"rteForTeaser";s:1:"0";s:22:"contentElementRelation";s:1:"1";s:21:"contentElementPreview";s:1:"1";s:13:"manualSorting";s:1:"0";s:19:"categoryRestriction";s:0:"";s:34:"categoryBeGroupTceFormsRestriction";s:1:"0";s:19:"dateTimeNotRequired";s:1:"0";s:11:"archiveDate";s:4:"date";s:12:"mediaPreview";s:5:"false";s:20:"advancedMediaPreview";s:4:"true";s:24:"showAdministrationModule";s:1:"1";s:35:"hidePageTreeForAdministrationModule";s:1:"0";s:12:"showImporter";s:1:"0";s:18:"storageUidImporter";s:1:"1";s:22:"resourceFolderImporter";s:12:"/news_import";}',
-            'recaptcha' => 'a:6:{s:10:"api_server";s:39:"https://www.google.com/recaptcha/api.js";s:13:"verify_server";s:47:"https://www.google.com/recaptcha/api/siteverify";s:10:"public_key";s:40:"6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI";s:11:"private_key";s:40:"6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe";s:4:"lang";s:0:"";s:14:"enforceCaptcha";s:1:"0";}',
-            'scheduler' => 'a:2:{s:11:"maxLifetime";s:4:"1440";s:15:"showSampleTasks";s:1:"1";}',
-            'sf_register' => 'a:1:{s:20:"typoscriptComplexity";s:7:"minimal";}',
-            'static_info_tables' => 'a:1:{s:13:"enableManager";s:1:"0";}',
-        ],
-    ],
+    'EXT' => [],
     'EXTCONF' => [
         'lang' => [
             'availableLanguages' => [
@@ -57,29 +42,7 @@ return [
             'loginFootnote' => '',
             'loginHighlightColor' => '',
             'loginLogo' => '',
-        ],
-        'bootstrap_grids' => [
-            'enableGridSimpleRow' => '0',
-        ],
-        'cal' => [
-            'cacheLifetime' => '0',
-            'cachingEngine' => 'internal',
-            'cachingMode' => 'normal',
-            'categoryTVHeight' => '280',
-            'enableRealURLAutoConfiguration' => '1',
-            'hideDeviationRecords' => '1',
-            'hideLocationTextfield' => '0',
-            'hideOrganizerTextfield' => '0',
-            'noTabDividers' => '0',
-            'recurrenceEnd' => '20201231',
-            'recurrenceStart' => '20140101',
-            'showTimes' => '1',
-            'todoSubtype' => 'event',
-            'treeOrderBy' => 'uid',
-            'useInternalCaching' => '1',
-            'useLocationStructure' => 'tx_cal_location',
-            'useOrganizerStructure' => 'tx_cal_organizer',
-            'useTeaser' => '0',
+            'loginLogoAlt' => '',
         ],
         'extensionmanager' => [
             'automaticInstallation' => '1',
@@ -93,16 +56,8 @@ return [
             'resumable_download' => '1',
             'track_downloads' => '0',
         ],
-        'gridelements' => [
-            'additionalStylesheet' => '',
-            'disableAutomaticUnusedColumnCorrection' => '0',
-            'disableCopyFromPageButton' => '0',
-            'disableDragInWizard' => '0',
-            'nestingInListModule' => '0',
-            'overlayShortcutTranslation' => '0',
-        ],
         'news' => [
-            'advancedMediaPreview' => 'true',
+            'advancedMediaPreview' => '1',
             'archiveDate' => 'date',
             'categoryBeGroupTceFormsRestriction' => '0',
             'categoryRestriction' => '',
@@ -117,6 +72,7 @@ return [
             'rteForTeaser' => '0',
             'showAdministrationModule' => '1',
             'showImporter' => '0',
+            'slugBehaviour' => 'unique',
             'storageUidImporter' => '1',
             'tagPid' => '1',
         ],
@@ -126,14 +82,8 @@ return [
             'lang' => '',
             'private_key' => '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe',
             'public_key' => '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+            'robotMode' => '0',
             'verify_server' => 'https://www.google.com/recaptcha/api/siteverify',
-        ],
-        'scheduler' => [
-            'maxLifetime' => '1440',
-            'showSampleTasks' => '1',
-        ],
-        'sf_register' => [
-            'typoscriptComplexity' => 'minimal',
         ],
         'static_info_tables' => [
             'enableManager' => '0',
@@ -141,8 +91,6 @@ return [
     ],
     'FE' => [
         'debug' => true,
-        'loginSecurityLevel' => 'normal',
-        'pageNotFound_handling' => 'REDIRECT:/anmelden',
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Pbkdf2PasswordHash',
             'options' => [],
@@ -174,7 +122,6 @@ return [
             'unifiedPageTranslationHandling' => true,
         ],
         'sitename' => 'Christliche Gemeinde Grafing',
-        'systemLogLevel' => 0,
         'systemMaintainers' => [
             1,
             3,

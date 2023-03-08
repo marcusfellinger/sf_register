@@ -1,6 +1,15 @@
-rootPageId: 1
 base: 'https://www.cg-grafing.de/'
-baseVariants: {  }
+baseVariants:
+  -
+    base: 'https://cg-grafing.ddev.site'
+    condition: 'getenv("IS_DDEV_PROJECT") == "true"'
+  -
+    base: 'https://cg-grafing.felliweb.de'
+    condition: 'applicationContext == "Development"'
+errorHandling:
+  - errorCode: '403'
+    errorHandler: PHP
+    errorPhpClassFQCN: CGGrafing\Template\Error\ErrorHandling
 languages:
   -
     title: Deutsch
@@ -14,7 +23,7 @@ languages:
     hreflang: ''
     direction: ''
     flag: de
-errorHandling: {  }
+rootPageId: 1
 routes: {  }
 routeEnhancers:
   News:
@@ -25,12 +34,47 @@ routeEnhancers:
       - 5
       - 17
     routes:
+      - routePath: '/'
+        _controller: 'News::list'
+      - routePath: '/page-{page}'
+        _controller: 'News::list'
+        _arguments:
+          page: 'currentPage'
       - routePath: '/{news-title}'
         _controller: 'News::detail'
         _arguments:
           news-title: news
+      - routePath: '/{category-name}'
+        _controller: 'News::list'
+        _arguments:
+          category-name: overwriteDemand/categories
+      - routePath: '/{tag-name}'
+        _controller: 'News::list'
+        _arguments:
+          tag-name: overwriteDemand/tags
+    defaultController: 'News::list'
+    defaults:
+      page: '0'
     aspects:
       news-title:
         type: PersistedAliasMapper
         tableName: tx_news_domain_model_news
         routeFieldName: path_segment
+      page:
+        type: StaticRangeMapper
+        start: '1'
+        end: '100'
+      category-name:
+        type: PersistedAliasMapper
+        tableName: sys_category
+        routeFieldName: slug
+      tag-name:
+        type: PersistedAliasMapper
+        tableName: tx_news_domain_model_tag
+        routeFieldName: slug
+  PageTypeSuffix:
+    type: PageType
+    map:
+      'feed.xml': 9818
+      'calendar.ical': 9819
+websiteTitle: 'Christliche Gemeinde Grafing'
