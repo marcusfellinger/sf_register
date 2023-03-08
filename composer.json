@@ -1,25 +1,12 @@
 {
-  "repositories": [
-    {
-      "type": "path",
-      "url": "./extensions/*"
-    },
-    {
-      "type": "composer",
-      "url": "https://composer.typo3.org/"
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "helhum/typo3-console-plugin": true
     }
-  ],
-  "name": "typo3/cms-base-distribution",
-  "description": "TYPO3 CMS Base Distribution",
-  "license": "GPL-2.0-or-later",
-  "scripts": {
-    "typo3-cms-scripts": [
-      "@php vendor/bin/typo3cms install:fixfolderstructure"
-    ],
-    "post-autoload-dump": [
-      "@typo3-cms-scripts"
-    ]
   },
+  "description": "TYPO3 CMS Base Distribution",
   "extra": {
     "typo3/cms": {
       "web-dir": "public"
@@ -32,31 +19,33 @@
       ]
     }
   },
-  "config": {
-    "allow-plugins": {
-      "typo3/cms-composer-installers": true,
-      "typo3/class-alias-loader": true,
-      "helhum/typo3-console-plugin": true
+  "license": "GPL-2.0-or-later",
+  "name": "typo3/cms-base-distribution",
+  "repositories": [
+    {
+      "type": "path",
+      "url": "./extensions/*"
+    },
+    {
+      "type": "composer",
+      "url": "https://composer.typo3.org/"
     }
-  },
+  ],
   "require": {
     "cggrafing/user-template": "@dev",
     "georgringer/news": "^7",
-    "evoweb/sf-register":  "^9",
-
+    "evoweb/sf-register": "^9",
     "helhum/typo3-console": "^5",
     "typo3/cms-backend": "^9.5",
     "typo3/cms-belog": "^9.5",
     "typo3/cms-beuser": "^9.5",
     "typo3/cms-core": "^9.5",
-
     "typo3/cms-extbase": "^9.5",
     "typo3/cms-extensionmanager": "^9.5",
     "typo3/cms-felogin": "^9.5",
     "typo3/cms-filelist": "^9.5",
     "typo3/cms-fluid": "^9.5",
     "typo3/cms-fluid-styled-content": "^9.5",
-
     "typo3/cms-frontend": "^9.5",
     "typo3/cms-impexp": "^9.5",
     "typo3/cms-info": "^9.5",
@@ -65,7 +54,6 @@
     "typo3/cms-rte-ckeditor": "^9.5",
     "typo3/cms-seo": "^9.5",
     "typo3/cms-setup": "^9.5",
-
     "typo3/cms-t3editor": "^9.5",
     "typo3/cms-tstemplate": "^9.5",
     "typo3/cms-viewpage": "^9.5",
@@ -81,7 +69,7 @@
     "janhelke/cal": "^2.0",
     "friendsoftypo3/typo3db-legacy": "^1.1",
     "evoweb/recaptcha": "^9",
-    "causal/file_list":  " ^2",
+    "causal/file_list": " ^2",
     "beechit/fal-securedownload": "^2",
     "jambagecom/static-info-tables-de": "^6",
     "sjbr/static-info-tables": "^6"
@@ -91,5 +79,13 @@
     "typo3/fluid-schema-generator": "^2.1",
     "symfony/var-dumper": "^5.4",
     "doctrine/common": "^3.3"
+  },
+  "scripts": {
+    "typo3-cms-scripts": [
+      "@php vendor/bin/typo3cms install:fixfolderstructure"
+    ],
+    "post-autoload-dump": [
+      "@typo3-cms-scripts"
+    ]
   }
 }
