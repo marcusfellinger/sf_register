@@ -14,7 +14,6 @@
   "license": "GPL-2.0-or-later",
   "scripts": {
     "typo3-cms-scripts": [
-      "@php vendor/bin/typo3cms install:generatepackagestates",
       "@php vendor/bin/typo3cms install:fixfolderstructure"
     ],
     "post-autoload-dump": [
@@ -27,10 +26,19 @@
     },
     "helhum/typo3-console": {
       "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
-      "install-extension-dummy": false
+      "install-extension-dummy": false,
+      "active-packages": [
+        "container"
+      ]
     }
   },
-  "minimum-stability": "stable",
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "helhum/typo3-console-plugin": true
+    }
+  },
   "require": {
     "cggrafing/user-template": "@dev",
     "georgringer/news": "^7",
@@ -77,5 +85,11 @@
     "beechit/fal-securedownload": "^2",
     "jambagecom/static-info-tables-de": "^6",
     "sjbr/static-info-tables": "^6"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest",
+    "typo3/fluid-schema-generator": "^2.1",
+    "symfony/var-dumper": "^5.4",
+    "doctrine/common": "^3.3"
   }
 }
