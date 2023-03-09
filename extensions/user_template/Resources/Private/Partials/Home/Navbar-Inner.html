@@ -3,7 +3,7 @@
     <div class="rd-navbar-inner">
         <div class="rd-navbar-panel">
             <f:render arguments="{_all}" partial="Navbar-Toggle"/>
-            <a href="/" class="rd-navbar-brand brand-xl">
+            <a class="rd-navbar-brand brand-xl" href="/">
                 <div class="brand-body">
                     <div class="brand-name">
                         <f:image
@@ -18,7 +18,7 @@
                 </div>
             </a>
         </div>
-        <f:render partial="Navbar-Nav" section="main" arguments="{_all}"/>
+        <f:render arguments="{_all}" partial="Navbar-Nav" section="main"/>
     </div>
 </f:section>
 </html>
