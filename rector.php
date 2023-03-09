@@ -19,8 +19,6 @@ return static function (RectorConfig $rectorConfig): void {
 
     // define sets of rules
     $rectorConfig->sets([
-        LevelSetList::UP_TO_PHP_80,
-        Typo3SetList::TYPO3_11,
-        Typo3SetList::TCA_110
+        Typo3SetList::TCA_87
     ]);
 };

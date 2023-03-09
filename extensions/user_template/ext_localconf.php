@@ -1,5 +1,7 @@
 <?php
 
+use CGGrafing\Template\Hooks\FsSliderPreviewRenderer;
+use CGGrafing\Template\Hooks\CgTeaserPreviewRenderer;
 use CGGrafing\Template\Hooks\PageLayoutView\CellPreviewRenderer;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
@@ -16,11 +18,11 @@ if (TYPO3_MODE === 'BE') {
 
     // Register hook to show preview of tt_content element of CType="fluid_styled_slider" in page module
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']
-    ['fs_slider'] = CGGrafing\Template\Hooks\FsSliderPreviewRenderer::class;
+    ['fs_slider'] = FsSliderPreviewRenderer::class;
 
     // Register hook to show preview of tt_content element of CType="fluid_styled_slider" in page module
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']
-    ['cg_teaser'] = CGGrafing\Template\Hooks\CgTeaserPreviewRenderer::class;
+    ['cg_teaser'] = CgTeaserPreviewRenderer::class;
 
     // Register for hook to show preview of tt_content element of CType="yourextensionkey_newcontentelement" in page module
     $GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['cms/layout/class.tx_cms_layout.php']['tt_content_drawItem']
