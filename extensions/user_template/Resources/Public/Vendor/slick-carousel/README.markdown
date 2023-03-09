@@ -115,18 +115,18 @@ slick as shown below:
 
 ```javascript
 // On swipe event
-$('.your-element').on('swipe', function(event, slick, direction){
+$('.your-element').on('swipe', function (event, slick, direction) {
   console.log(direction);
   // left
 });
 
 // On edge hit
-$('.your-element').on('edge', function(event, slick, direction){
+$('.your-element').on('edge', function (event, slick, direction) {
   console.log('edge was hit')
 });
 
 // On before slide change
-$('.your-element').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+$('.your-element').on('beforeChange', function (event, slick, currentSlide, nextSlide) {
   console.log(nextSlide);
 });
 ```
@@ -149,7 +149,7 @@ Methods are called on slick instances through the slick method itself in version
 
 ```javascript
 // Add a slide
-$('.your-element').slick('slickAdd',"<div></div>");
+$('.your-element').slick('slickAdd', "<div></div>");
 
 // Get the current slide
 var currentSlide = $('.your-element').slick('slickCurrentSlide');
