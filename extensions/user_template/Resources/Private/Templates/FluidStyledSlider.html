@@ -2,7 +2,8 @@
 <div class="fluid-styled-slider clearfix" data-options="{slider.options}" style="width: {slider.width}px; margin: auto">
     <f:for as="file" each="{files}">
         <figure class="fluid-styled-slider-item">
-            <f:image alt="{file.properties.alt}" height="{data.imageheight}" image="{file}" title="{file.properties.title}"
+            <f:image alt="{file.properties.alt}" height="{data.imageheight}" image="{file}"
+                     title="{file.properties.title}"
                      width="{data.imagewidth}"/>
             <f:if condition="{file.properties.description}">
                 <figcaption>{file.properties.description}</figcaption>

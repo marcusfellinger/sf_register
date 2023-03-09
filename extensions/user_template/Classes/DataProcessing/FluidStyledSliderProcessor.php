@@ -19,6 +19,7 @@ namespace CGGrafing\Template\DataProcessing;
 
 use TYPO3\CMS\Core\Imaging\ImageManipulation\CropVariantCollection;
 use TYPO3\CMS\Core\Resource\FileInterface;
+use TYPO3\CMS\Core\Resource\FileReference;
 use TYPO3\CMS\Core\Service\FlexFormService;
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
@@ -51,7 +52,7 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
             $sliderWidth = (int)$processedData['data']['imagewidth'];
         } else {
             $files = $processedData['files'];
-            /** @var \TYPO3\CMS\Core\Resource\FileReference $file */
+            /** @var FileReference $file */
             foreach ($files as $file) {
                 $fileWidth = $this->getCroppedWidth($file);
                 $sliderWidth = $fileWidth > $sliderWidth ? $fileWidth : $sliderWidth;

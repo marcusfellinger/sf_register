@@ -16,12 +16,12 @@ mod.wizards.newContentElement.wizardItems.common
             iconIdentifier = content - image
             title = LLL
         :
-            EXT:user_template / Resources / Private / Language / locallang_teaser_be.xlf
+            user_template / Resources / Private / Language / locallang_teaser_be.xlf
         :
             wizard.title
             description = LLL
         :
-            EXT:user_template / Resources / Private / Language / locallang_teaser_be.xlf
+            user_template / Resources / Private / Language / locallang_teaser_be.xlf
         :
             wizard.description
             tt_content_defValues
@@ -31,5 +31,5 @@ mod.wizards.newContentElement.wizardItems.common
         }
     }
 
-    show := addToList(cg_teaser)
+    = addToList(cg_teaser)
 }

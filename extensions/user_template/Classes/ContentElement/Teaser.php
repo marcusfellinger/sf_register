@@ -17,6 +17,8 @@ declare(strict_types=1);
 
 namespace CGGrafing\Template\ContentElement;
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 /**
  * Class Teaser
  * @package CGGrafing\Template\ContentElement
@@ -36,7 +38,7 @@ class Teaser extends AbstractElement
         $frontendLanguageFilePrefix = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:';
 
         // Add the CType 'fs_slider'
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+        ExtensionManagementUtility::addTcaSelectItem(
             'tt_content',
             'CType',
             [
@@ -71,7 +73,7 @@ class Teaser extends AbstractElement
         ];
 
         // Add a flexform to the fs_slider CType
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+        ExtensionManagementUtility::addPiFlexFormValue(
             '',
             'FILE:' . $extKey . '/Configuration/FlexForms/' . $prefix . $typeName . '_flexform.xml',
             $prefix . $typeName

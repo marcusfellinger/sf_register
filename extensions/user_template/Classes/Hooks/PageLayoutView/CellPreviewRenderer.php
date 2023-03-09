@@ -27,7 +27,7 @@ class CellPreviewRenderer implements PageLayoutViewDrawItemHookInterface
     /**
      * Preprocesses the preview rendering of a content element of type "My new content element"
      *
-     * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
+     * @param PageLayoutView $parentObject Calling parent object
      * @param bool $drawItem Whether to draw the item using the default functionality
      * @param string $headerContent Header content
      * @param string $itemContent Item content

@@ -1,19 +1,23 @@
 <?php
 
+use CGGrafing\Template\ContentElement\Slider;
+use CGGrafing\Template\ContentElement\Teaser;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 defined('TYPO3_MODE') or die();
 
 call_user_func(function () {
-    $contentElement = new \CGGrafing\Template\ContentElement\Slider();
+    $contentElement = new Slider();
     $contentElement->getConfiguration();
 });
 
 call_user_func(function () {
-    $contentElement = new \CGGrafing\Template\ContentElement\Teaser();
+    $contentElement = new Teaser();
     $contentElement->getConfiguration();
 });
 
 // Adds the content element to the "Type" dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
+ExtensionManagementUtility::addPlugin(
     array(
         'LLL:EXT:user_template/Resources/Private/Language/Tca.xlf:usertemplate_cell',
         'usertemplate_cell',
@@ -24,7 +28,7 @@ call_user_func(function () {
 );
 
 call_user_func(function () {
-    $contentElement = new \CGGrafing\Template\ContentElement\Slider();
+    $contentElement = new Slider();
     $contentElement->getConfiguration();
 });
 
