@@ -1,4 +1,5 @@
 @import "../../variables";
+
 /*
 * Navbar components
 */
@@ -14,16 +15,18 @@
 // RD Navbar Toggle
 .rd-navbar-toggle {
   @include make-toggle(
-          $rd-navbar-toggle-preset,
-          $rd-navbar-min-line-height,
-          $rd-navbar-min-font-size,
-          $rd-navbar-fixed-toggle-color
+                  $rd-navbar-toggle-preset,
+                  $rd-navbar-min-line-height,
+                  $rd-navbar-min-font-size,
+                  $rd-navbar-fixed-toggle-color
   );
   background-color: transparent;
   border: none;
-  &:focus{
+
+  &:focus {
     outline: none;
   }
+
   display: none;
 }
 
@@ -31,6 +34,7 @@
 .rd-navbar-brand {
   display: inline-block;
   transition: none;
+
   > * {
     display: block;
   }
@@ -51,11 +55,13 @@
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: .15em;
+
     &, &:focus, &:active, &:hover {
       color: $brand-primary;
     }
   }
 }
+
 // RD Navbar Nav
 .rd-navbar-nav {
 }
@@ -115,10 +121,10 @@
 
   &-form-submit {
     @include make-toggle(
-            $rd-navbar-search-toggle-preset,
-            $rd-navbar-min-line-height,
-            $rd-navbar-min-font-size,
-            $rd-navbar-panel-color
+                    $rd-navbar-search-toggle-preset,
+                    $rd-navbar-min-line-height,
+                    $rd-navbar-min-font-size,
+                    $rd-navbar-panel-color
     );
   }
 }
@@ -126,9 +132,11 @@
 .rd-navbar-search-results {
   .result-item {
     padding: 35px 5px;
+
     &, * {
       text-align: left;
     }
+
     & + .result-item {
       border-top: 1px solid $hr-border;
     }
@@ -249,7 +257,9 @@
 .rd-navbar-aside {
   pointer-events: none;
 
-  > * { pointer-events: auto; }
+  > * {
+    pointer-events: auto;
+  }
 }
 
 .rd-navbar-aside-toggle {

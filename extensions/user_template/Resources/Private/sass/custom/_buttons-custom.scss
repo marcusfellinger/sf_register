@@ -82,6 +82,7 @@
 
   .btn-transparent {
     @include button-variant-custom($text-color, rgba($white, .2), transparent, $white, rgba($white, .2), transparent);
+
     .desktop & {
       @media (min-width: $screen-md-min) {
         @include button-variant-custom($text-color, transparent, transparent, $white, rgba($white, .2), transparent);

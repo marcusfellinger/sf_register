@@ -1,4 +1,5 @@
 @import "../variables";
+
 /**
  * @subsection   jquery mousewheel plugin
  * @description  Describes style declarations for jquery mousewheel plugin
@@ -27,9 +28,15 @@ CONTENTS:
 ------------------------------------------------------------------------------------------------------------------------
 */
 
-.mCustomScrollbar { -ms-touch-action: pinch-zoom; touch-action: pinch-zoom; /* direct pointer events to js */ }
+.mCustomScrollbar {
+  -ms-touch-action: pinch-zoom;
+  touch-action: pinch-zoom; /* direct pointer events to js */
+}
 
-.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action { -ms-touch-action: auto; touch-action: auto; }
+.mCustomScrollbar.mCS_no_scrollbar, .mCustomScrollbar.mCS_touch_action {
+  -ms-touch-action: auto;
+  touch-action: auto;
+}
 
 .mCustomScrollBox { /* contains plugin's markup */
   position: relative;
@@ -53,9 +60,13 @@ y-axis
 ------------------------------------------------------------------------------------------------------------------------
 */
 
-.mCSB_inside > .mCSB_container { margin-right: 30px; }
+.mCSB_inside > .mCSB_container {
+  margin-right: 30px;
+}
 
-.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden { margin-right: 0; }
+.mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+  margin-right: 0;
+}
 
 /* non-visible scrollbar */
 
@@ -64,7 +75,9 @@ y-axis
   margin-left: 30px;
 }
 
-.mCS-dir-rtl > .mCSB_inside > .mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden { margin-left: 0; }
+.mCS-dir-rtl > .mCSB_inside > .mCSB_container.mCS_no_scrollbar_y.mCS_y_hidden {
+  margin-left: 0;
+}
 
 /* RTL direction/left-side scrollbar */
 
@@ -78,7 +91,9 @@ y-axis
   bottom: 0;
 }
 
-.mCSB_outside + .mCSB_scrollTools { right: -26px; }
+.mCSB_outside + .mCSB_scrollTools {
+  right: -26px;
+}
 
 /* scrollbar position: outside */
 
@@ -88,7 +103,9 @@ y-axis
   left: 0;
 }
 
-.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools { left: -26px; }
+.mCS-dir-rtl > .mCSB_outside + .mCSB_scrollTools {
+  left: -26px;
+}
 
 /* RTL direction/left-side scrollbar (scrollbar position: outside) */
 
@@ -101,13 +118,17 @@ y-axis
   height: auto;
 }
 
-.mCSB_scrollTools a + .mCSB_draggerContainer { margin: 30px 0; }
+.mCSB_scrollTools a + .mCSB_draggerContainer {
+  margin: 30px 0;
+}
 
 .mCSB_scrollTools .mCSB_draggerRail {
   width: 2px;
   height: 100%;
   margin: 0 auto;
-  -webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
 }
 
 .mCSB_scrollTools .mCSB_dragger { /* the draggable element */
@@ -122,15 +143,21 @@ y-axis
   width: 4px;
   height: 100%;
   margin: 0 auto;
-  -webkit-border-radius: 16px; -moz-border-radius: 16px; border-radius: 16px;
+  -webkit-border-radius: 16px;
+  -moz-border-radius: 16px;
+  border-radius: 16px;
   text-align: center;
 }
 
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded .mCSB_dragger_bar,
-.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar { width: 12px; /* auto-expanded scrollbar */ }
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_dragger .mCSB_dragger_bar {
+  width: 12px; /* auto-expanded scrollbar */
+}
 
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_dragger.mCSB_dragger_onDrag_expanded + .mCSB_draggerRail,
-.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail { width: 8px; /* auto-expanded scrollbar */ }
+.mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand .mCSB_draggerContainer:hover .mCSB_draggerRail {
+  width: 8px; /* auto-expanded scrollbar */
+}
 
 .mCSB_scrollTools .mCSB_buttonUp,
 .mCSB_scrollTools .mCSB_buttonDown {
@@ -143,7 +170,9 @@ y-axis
   cursor: pointer;
 }
 
-.mCSB_scrollTools .mCSB_buttonDown { bottom: 0; }
+.mCSB_scrollTools .mCSB_buttonDown {
+  bottom: 0;
+}
 
 /*
 ------------------------------------------------------------------------------------------------------------------------
@@ -157,9 +186,13 @@ x-axis
   margin-bottom: 30px;
 }
 
-.mCSB_horizontal.mCSB_outside > .mCSB_container { min-height: 100%; }
+.mCSB_horizontal.mCSB_outside > .mCSB_container {
+  min-height: 100%;
+}
 
-.mCSB_horizontal > .mCSB_container.mCS_no_scrollbar_x.mCS_x_hidden { margin-bottom: 0; }
+.mCSB_horizontal > .mCSB_container.mCS_no_scrollbar_x.mCS_x_hidden {
+  margin-bottom: 0;
+}
 
 /* non-visible scrollbar */
 
@@ -173,11 +206,15 @@ x-axis
 }
 
 .mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
-.mCustomScrollBox + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal { bottom: -26px; }
+.mCustomScrollBox + .mCSB_scrollTools + .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  bottom: -26px;
+}
 
 /* scrollbar position: outside */
 
-.mCSB_scrollTools.mCSB_scrollTools_horizontal a + .mCSB_draggerContainer { margin: 0 20px; }
+.mCSB_scrollTools.mCSB_scrollTools_horizontal a + .mCSB_draggerContainer {
+  margin: 0 20px;
+}
 
 .mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_draggerRail {
   width: 100%;
@@ -220,9 +257,13 @@ x-axis
   cursor: pointer;
 }
 
-.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonLeft { left: 0; }
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonLeft {
+  left: 0;
+}
 
-.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonRight { right: 0; }
+.mCSB_scrollTools.mCSB_scrollTools_horizontal .mCSB_buttonRight {
+  right: 0;
+}
 
 /*
 ------------------------------------------------------------------------------------------------------------------------
@@ -247,34 +288,52 @@ yx-axis
 .mCSB_container_wrapper > .mCSB_container {
   padding-right: 30px;
   padding-bottom: 30px;
-  -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_vertical { bottom: 20px; }
+.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_vertical {
+  bottom: 20px;
+}
 
-.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_horizontal { right: 20px; }
+.mCSB_vertical_horizontal > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  right: 20px;
+}
 
 /* non-visible horizontal scrollbar */
-.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden + .mCSB_scrollTools.mCSB_scrollTools_vertical { bottom: 0; }
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden + .mCSB_scrollTools.mCSB_scrollTools_vertical {
+  bottom: 0;
+}
 
 /* non-visible vertical scrollbar/RTL direction/left-side scrollbar */
 .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal,
-.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal { right: 0; }
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  right: 0;
+}
 
 /* RTL direction/left-side scrollbar */
-.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal { left: 20px; }
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  left: 20px;
+}
 
 /* non-visible scrollbar/RTL direction/left-side scrollbar */
-.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal { left: 0; }
+.mCS-dir-rtl > .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden + .mCSB_scrollTools ~ .mCSB_scrollTools.mCSB_scrollTools_horizontal {
+  left: 0;
+}
 
 .mCS-dir-rtl > .mCSB_inside > .mCSB_container_wrapper { /* RTL direction/left-side scrollbar */
   margin-right: 0;
   margin-left: 30px;
 }
 
-.mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden > .mCSB_container { padding-right: 0; }
+.mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden > .mCSB_container {
+  padding-right: 0;
+}
 
-.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden > .mCSB_container { padding-bottom: 0; }
+.mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden > .mCSB_container {
+  padding-bottom: 0;
+}
 
 .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden {
   margin-right: 0; /* non-visible scrollbar */
@@ -282,7 +341,9 @@ yx-axis
 }
 
 /* non-visible horizontal scrollbar */
-.mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden { margin-bottom: 0; }
+.mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside > .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden {
+  margin-bottom: 0;
+}
 
 /*
 ------------------------------------------------------------------------------------------------------------------------
@@ -387,12 +448,18 @@ yx-axis
   }
 }
 
-._mCS_1 .mCSB_dragger_bar .mCSB_dragger_bar { background-color: $gray-dark; }
+._mCS_1 .mCSB_dragger_bar .mCSB_dragger_bar {
+  background-color: $gray-dark;
+}
 
 #mCSB_1_scrollbar_vertical .mCSB_dragger {
   min-height: 335px !important;
 }
 
-#mCSB_1_scrollbar_horizontal .mCSB_dragger { width: 335px; }
+#mCSB_1_scrollbar_horizontal .mCSB_dragger {
+  width: 335px;
+}
 
-.mCSB_1_scrollbar .mCSB_dragger .mCSB_draggerRail { width: 4px; }
+.mCSB_1_scrollbar .mCSB_dragger .mCSB_draggerRail {
+  width: 4px;
+}

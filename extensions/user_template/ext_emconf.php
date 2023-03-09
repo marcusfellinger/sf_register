@@ -1,4 +1,5 @@
 <?php
+
 $EM_CONF[$_EXTKEY] = [
     'title' => 'Grafing-Template',
     'description' => 'Template for congregation Grafing',

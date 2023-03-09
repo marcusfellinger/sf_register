@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace CGGrafing\Template\DataProcessing;
@@ -40,11 +41,10 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
      */
     public function process(
         ContentObjectRenderer $cObj,
-        array                 $contentObjectConfiguration,
-        array                 $processorConfiguration,
-        array                 $processedData
-    )
-    {
+        array $contentObjectConfiguration,
+        array $processorConfiguration,
+        array $processedData
+    ) {
         // Calculating the total width of the slider
         $sliderWidth = 0;
         if ((int)$processedData['data']['imagewidth'] > 0) {

@@ -1,4 +1,5 @@
 @import "../variables";
+
 /*
 * @subsection   Easy Responsive Tabs
 *
@@ -158,6 +159,7 @@ $tab-padding: 20px;
 
   .btn-default {
     color: $white;
+
     &:hover {
       color: $gray-dark;
     }
@@ -196,6 +198,7 @@ $tab-padding: 20px;
 
     .resp-tabs-list {
       display: block;
+
       .resp-tab-active {
         pointer-events: none;
       }

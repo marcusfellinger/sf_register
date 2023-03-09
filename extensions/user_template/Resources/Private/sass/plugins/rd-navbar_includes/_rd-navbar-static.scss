@@ -1,4 +1,5 @@
 @import "../../variables";
+
 /*
 * Static Layout
 */
@@ -32,6 +33,7 @@
 
   .rd-navbar-brand {
     display: inline-block;
+
     .brand-slogan {
       display: block;
       margin-top: 9px;
@@ -56,7 +58,7 @@
   }
 
   // RD Navbar brand
-  .rd-navbar-brand{
+  .rd-navbar-brand {
 
   }
 
@@ -82,6 +84,7 @@
       padding-top: 12px;
       padding-bottom: 12px;
     }
+
     .rd-navbar-panel {
       display: none;
     }

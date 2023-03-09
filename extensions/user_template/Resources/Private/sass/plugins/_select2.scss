@@ -56,8 +56,8 @@
 // Base Styles
 // -------------------------
 
-.select2{
-  width: 100%!important;
+.select2 {
+  width: 100% !important;
 }
 
 .select2-container {
@@ -425,7 +425,7 @@
   .select2-selection--single {
     text-align: left;
     height: $input-height-base;
-    line-height:  $input-height-base;
+    line-height: $input-height-base;
     padding: 0 15px;
 
     // Adjust the single Select2's dropdown arrow button appearance.
@@ -436,7 +436,7 @@
       top: 0;
 
       b {
-        &:before{
+        &:before {
           position: absolute;
           top: 50%;
           font-weight: 400;
@@ -637,6 +637,7 @@
     .select2-selection--single {
       padding-left: $padding-base-horizontal + $caret-width-base*3;
       padding-right: $padding-base-horizontal;
+
       .select2-selection__rendered {
         padding-right: 0;
         padding-left: 0;

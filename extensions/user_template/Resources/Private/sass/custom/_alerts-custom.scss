@@ -9,7 +9,7 @@
 
 .snackbars {
   max-width: 280px;
-  padding:  9px 16px;
+  padding: 9px 16px;
   margin-left: auto;
   margin-right: auto;
   color: $white;
@@ -47,6 +47,6 @@
 
   @media (min-width: $screen-xs) {
     max-width: 380px;
-    padding:  14px 17px;
+    padding: 14px 17px;
   }
 }

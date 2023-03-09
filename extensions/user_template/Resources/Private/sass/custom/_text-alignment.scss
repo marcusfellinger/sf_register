@@ -14,11 +14,12 @@
 .text-right {
   text-align: right;
 }
-.text-middle{
+
+.text-middle {
   vertical-align: middle;
 }
 
-@mixin make-text-alignment($resolution){
+@mixin make-text-alignment($resolution) {
   .text-#{$resolution}-left {
     text-align: left;
   }

@@ -90,6 +90,7 @@
 
   @return $selector;
 }
+
 @function cells-full($resolution) {
   $selector: ();
   @for $j from 1 through 12 {

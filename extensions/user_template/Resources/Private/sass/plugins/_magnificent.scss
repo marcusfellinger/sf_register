@@ -84,6 +84,7 @@
   width: auto;
   height: auto;
 }
+
 [mag-flow="inline"] .mag-thumb {
   position: relative;
 }
@@ -120,9 +121,10 @@
   cursor: grabbing;
 }
 
-.img-thumbnail{
+.img-thumbnail {
   width: 100%;
-  >div{
+
+  > div {
     width: 100%;
   }
 }

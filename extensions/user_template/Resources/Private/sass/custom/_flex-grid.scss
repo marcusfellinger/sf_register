@@ -8,12 +8,12 @@
 
 .shell,
 .shell-wide,
-.shell-fluid{
+.shell-fluid {
   @include make-shell($cell-spacing);
 }
 
 .shell,
-.shell-wide{
+.shell-wide {
   min-width: $shell-width;
   max-width: $shell-xs-width;
 
@@ -39,13 +39,13 @@
 .range {
   @include make-range($cell-spacing);
 
-  > .range{
+  > .range {
     margin-left: 0;
     margin-right: 0;
   }
 }
 
-.range-spacer{
+.range-spacer {
   @include flex-basis(100%);
 }
 
@@ -81,7 +81,7 @@ html.lt-ie-10 .range-condensed,
     padding-right: 0;
   }
 
-  > *  + [class*='cell'] {
+  > * + [class*='cell'] {
     margin-top: 0;
   }
 }
@@ -94,7 +94,7 @@ html.lt-ie-10 .range-narrow,
     @include make-cell-spacing($cell-spacing-narrow);
   }
 
-  > *  + [class*='cell'] {
+  > * + [class*='cell'] {
     @include make-cell-spacing($cell-spacing-narrow);
   }
 }
@@ -110,12 +110,12 @@ html.lt-ie-10 .range-narrow,
     @include flex-direction(row);
     @include flex-wrap(wrap);
 
-    > .range{
+    > .range {
       @include flex-basis(100%);
     }
   }
 
-  .range-vertical{
+  .range-vertical {
     @include flex-direction(column);
   }
 

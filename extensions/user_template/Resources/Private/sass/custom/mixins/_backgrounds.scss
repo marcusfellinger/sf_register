@@ -4,11 +4,10 @@
 
 @mixin bg-variant-custom($color, $fallback: null) {
   & {
-    @if (str_index($color, linear-gradient) == null){
+    @if (str_index($color, linear-gradient) == null) {
       background: $color;
       fill: $color;
-    }
-    @else{
+    } @else {
       fill: $fallback;
       background: $fallback;
       background: -moz-#{$color};

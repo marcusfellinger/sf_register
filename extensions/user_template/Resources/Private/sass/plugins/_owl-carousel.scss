@@ -191,6 +191,7 @@
   -ms-transition: scale 100ms ease;
   -o-transition: scale 100ms ease;
   transition: scale 100ms ease;
+
   &:before {
     content: '\f144';
   }
@@ -248,6 +249,7 @@
 
 .owl-prev {
   left: 0;
+
   &:before {
     content: '\f104';
   }
@@ -255,6 +257,7 @@
 
 .owl-next {
   right: 0;
+
   &:before {
     content: '\f105';
   }

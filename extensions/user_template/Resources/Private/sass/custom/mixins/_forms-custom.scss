@@ -24,8 +24,8 @@
     }
   }
 
-  .form-control-impressed{
-    &, &:focus{
+  .form-control-impressed {
+    &, &:focus {
       box-shadow: inset 0 0 0 1px $border-color;
     }
   }
@@ -38,15 +38,15 @@
   }
 
   // Set validation states also for buttons
-  .input-group-btn{
-    > .btn{
+  .input-group-btn {
+    > .btn {
       border-color: $border-color;
       background: $background-color;
     }
   }
 
   // Set validation states also for validation message
-  .form-validation{
+  .form-validation {
     color: $text-color;
   }
 }

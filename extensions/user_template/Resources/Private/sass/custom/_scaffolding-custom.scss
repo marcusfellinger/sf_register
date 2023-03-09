@@ -248,6 +248,7 @@ hr {
   font-size: 20px;
   text-transform: uppercase;
   transition: none;
+
   &, &:active, &:focus, &:hover {
     &, * {
       color: $brand-primary;
@@ -310,6 +311,7 @@ hr {
   @media (min-width: $screen-md-min) {
     .brand-right {
       top: 16px;
+
       img {
         width: auto;
         height: auto;

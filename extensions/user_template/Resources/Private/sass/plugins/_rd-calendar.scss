@@ -18,30 +18,30 @@
 
 
 // Today
-.rdc-today_day{
+.rdc-today_day {
 
 }
 
-.rdc-today_date{
+.rdc-today_date {
 
 }
 
-.rdc-today_month{
+.rdc-today_month {
 
 }
 
-.rdc-today_fullyear{
+.rdc-today_fullyear {
 
 }
 
 
 // Panel
-.rdc-panel{
+.rdc-panel {
 
 }
 
 // Controls
-.rdc-next, .rdc-prev, .rdc-events_close{
+.rdc-next, .rdc-prev, .rdc-events_close {
   color: $gray;
   font: 400 18px/38px "FontAwesome";
   cursor: pointer;
@@ -53,26 +53,26 @@
   }
 }
 
-.rdc-next{
+.rdc-next {
   &:before {
     content: '\f061';
   }
 }
 
-.rdc-prev{
+.rdc-prev {
   &:before {
     content: '\f060';
   }
 }
 
-.rdc-events_close{
+.rdc-events_close {
   &:before {
     content: '\f00d';
   }
 }
 
 // Events
-.rdc-events{
+.rdc-events {
   opacity: 0;
   visibility: hidden;
   transition: .4s all ease-in-out;
@@ -84,8 +84,7 @@
 }
 
 
-
-.rdc-event{
+.rdc-event {
   display: none;
 
   &.active {
@@ -94,9 +93,10 @@
 }
 
 // Table
-.rdc-table{
+.rdc-table {
   position: relative;
   width: 100%;
+
   table {
     border-spacing: 4px;
     border-collapse: separate;
@@ -109,22 +109,22 @@
   }
 }
 
-.rdc-month{
+.rdc-month {
 
 }
 
-.rdc-fullyear{
+.rdc-fullyear {
 
 }
 
-.rdc-table_day{
+.rdc-table_day {
   color: $gray;
   padding: 5px 0;
   text-transform: uppercase;
   font-size: 18px;
 }
 
-.rdc-table_date{
+.rdc-table_date {
   width: 60px;
   height: 60px;
   font-weight: 300;
@@ -137,21 +137,21 @@
   box-sizing: border-box;
 }
 
-.rdc-table_today{
+.rdc-table_today {
   background-color: $gray-light;
 }
 
-.rdc-table_event{
+.rdc-table_event {
   cursor: pointer;
   transition: .3s all ease;
 
-  &:hover{
+  &:hover {
     color: #fff;
     background-color: $gray;
   }
 }
 
 .rdc-table_next,
-.rdc-table_prev{
+.rdc-table_prev {
   opacity: .5;
 }

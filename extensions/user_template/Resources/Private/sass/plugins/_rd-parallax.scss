@@ -1,4 +1,5 @@
 @import "../variables";
+
 /*
 * @subsection   RD Parallax
 *
@@ -8,9 +9,9 @@
 * @link         https://ua.linkedin.com/pub/evgeniy-gusarov/8a/a40/54a
 * @version      3.5.1
 */
-.rd-parallax{
+.rd-parallax {
 
-  &-inner{
+  &-inner {
     position: relative;
     overflow: hidden;
     -webkit-transform: translate3d(0px, 0px, 0px);
@@ -18,7 +19,7 @@
     z-index: 1;
   }
 
-  &-layer[data-type="media"]{
+  &-layer[data-type="media"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,30 +27,33 @@
     bottom: 0;
     height: 100%;
 
-    iframe{
+    iframe {
       width: 100%;
       height: 100%;
     }
   }
 
-  &-layer[data-url]{
+  &-layer[data-url] {
     -webkit-background-size: cover;
     background-size: cover;
     background-position: center center;
   }
-  &[class*="rd-parallax-overlay"]{
+
+  &[class*="rd-parallax-overlay"] {
     background-color: $gray-base;
     color: $white;
-    .rd-parallax-layer[data-type="media"]{
+
+    .rd-parallax-layer[data-type="media"] {
       opacity: 0.2;
 
-      & + *{
+      & + * {
         position: relative;
       }
     }
   }
-  &.rd-parallax-overlay-2{
-    .rd-parallax-layer[data-type="media"]{
+
+  &.rd-parallax-overlay-2 {
+    .rd-parallax-layer[data-type="media"] {
       opacity: 0.8;
     }
   }

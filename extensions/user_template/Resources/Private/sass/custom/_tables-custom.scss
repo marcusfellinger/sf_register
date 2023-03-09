@@ -43,6 +43,7 @@ th {
       }
     }
   }
+
   > thead > tr > th {
     vertical-align: middle;
     font-weight: 700;
@@ -65,6 +66,7 @@ th {
       }
     }
   }
+
   // Account for multiple tbody instances
   > tbody + tbody {
     border-top: 1px solid $table-border-color;
@@ -99,6 +101,7 @@ th {
 
 .table-bordered {
   border: 1px solid $table-border-color;
+
   > thead,
   > tbody,
   > tfoot {
@@ -109,6 +112,7 @@ th {
       }
     }
   }
+
   > thead > tr {
     > th,
     > td {
@@ -169,9 +173,11 @@ th {
     .table {
       width: 100%;
       max-width: 100%;
+
       thead {
         display: none;
       }
+
       tr td:first-child,
       tr td:nth-child(4) {
         width: 100%;
@@ -204,6 +210,7 @@ th {
 
       td:nth-child(4) {
         position: relative;
+
         &:before,
         &:after {
           content: '';
@@ -211,6 +218,7 @@ th {
           left: 50%;
           @include transform(translateX(-50%));
         }
+
         &:before {
           top: 0;
           @include triangle(bottom, 16px, 8px, $table-border-color);
@@ -301,10 +309,12 @@ th {
       background: $body-bg;
     }
   }
+
   @media (min-width: $screen-sm-min) {
     > tbody > tr {
       transition: .33s all ease;
       background: $body-bg;
+
       &:hover {
         background: $table-bg-hover;
         cursor: default;
@@ -315,11 +325,13 @@ th {
 
 .table-border-top {
   border-top: 7px solid $table-bg-accent;
+
   thead > tr > th {
     color: $gray-base;
     padding-top: 28px;
     padding-bottom: 28px;
   }
+
   tbody {
     tr:first-child td {
       border-top: 1px solid $table-border-color;
@@ -353,6 +365,7 @@ table {
 
   a {
     font-weight: 500;
+
     &, &:active, &:focus {
       //color: $curious-blue;
     }
@@ -421,6 +434,7 @@ table {
           > td:first-child {
             border-left: 0;
           }
+
           > th:last-child,
           > td:last-child {
             border-right: 0;

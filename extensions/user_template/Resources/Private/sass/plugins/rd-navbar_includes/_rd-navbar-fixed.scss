@@ -31,6 +31,7 @@
     .brand-right {
       position: relative;
       padding-left: 18px;
+
       img {
         height: 15px;
         width: auto;
@@ -125,6 +126,7 @@
           color: $rd-navbar-fixed-panel-item-hover-color;
           background: $rd-navbar-fixed-panel-item-hover-background;
         }
+
         > .rd-navbar-submenu-toggle {
           &::after {
             color: $rd-navbar-fixed-submenu-toggle-focus-color;
@@ -233,6 +235,7 @@
       left: 50px;
       right: 0;
       height: $rd-navbar-fixed-height;
+
       label {
         display: none;
       }
@@ -271,6 +274,7 @@
         z-index: 9;
         background-color: transparent;
         border: none;
+
         &:focus {
           outline: none;
         }
@@ -329,8 +333,10 @@
           opacity: 1;
           height: auto;
         }
+
         > .rd-navbar-submenu-toggle {
           color: $rd-navbar-fixed-submenu-toggle-focus-color;
+
           &::after {
             @include transform(rotate(180deg));
           }
@@ -369,6 +375,7 @@
 
     background-color: transparent;
     border: none;
+
     &:focus {
       outline: none;
     }
@@ -400,10 +407,10 @@
     right: ($rd-navbar-fixed-height - $rd-navbar-min-line-height) / 2;
     width: $rd-navbar-min-line-height;
     @include make-toggle(
-      'collapse-preset-1',
-      $rd-navbar-min-line-height,
-      $rd-navbar-min-font-size,
-      $rd-navbar-fixed-toggle-color
+                    'collapse-preset-1',
+                    $rd-navbar-min-line-height,
+                    $rd-navbar-min-font-size,
+                    $rd-navbar-fixed-toggle-color
     );
   }
 

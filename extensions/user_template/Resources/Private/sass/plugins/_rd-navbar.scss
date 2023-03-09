@@ -71,10 +71,10 @@
 .rd-navbar-collapse {
   &-toggle {
     @include make-toggle(
-            $rd-navbar-collapse-toggle-preset,
-            $rd-navbar-min-line-height,
-            $rd-navbar-min-font-size,
-            $rd-navbar-panel-color
+                    $rd-navbar-collapse-toggle-preset,
+                    $rd-navbar-min-line-height,
+                    $rd-navbar-min-font-size,
+                    $rd-navbar-panel-color
     );
     display: none;
   }
@@ -142,6 +142,7 @@
 
       &:last-child {
         padding-right: 0;
+
         &:after {
           display: none;
         }
@@ -161,9 +162,11 @@
         line-height: 1.2;
         letter-spacing: .1em;
         font-size: 18px;
+
         &:first-child {
           //padding-left: 0;
         }
+
         &:last-child {
           //padding-right: 0;
         }
@@ -295,9 +298,11 @@
       font-size: 18px;
       font-weight: 400;
       letter-spacing: .1em;
+
       &, &:focus, &:active {
         color: $rd-navbar-dropdown-item-color;
       }
+
       background: $rd-navbar-dropdown-item-background;
     }
 
@@ -362,6 +367,7 @@
 
       & + li {
         padding-left: 10px;
+
         &:before {
           content: '';
           position: absolute;
@@ -381,6 +387,7 @@
     display: none;
     cursor: pointer;
     z-index: 100;
+
     &::after {
       content: '\f078';
       position: relative;
@@ -403,7 +410,7 @@
   li.opened > .rd-navbar-submenu-toggle,
   li > a:hover + .rd-navbar-submenu-toggle {
     &::after {
-      @include transform (rotate(180deg));
+      @include transform(rotate(180deg));
     }
   }
 

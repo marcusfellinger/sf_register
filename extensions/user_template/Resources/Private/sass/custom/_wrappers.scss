@@ -169,6 +169,7 @@
   @include display-flex;
   @include flex-direction(row);
   @include flex-wrap(nowrap);
+
   > * {
     @include flex-grow(1);
     @include flex-shrink(0);

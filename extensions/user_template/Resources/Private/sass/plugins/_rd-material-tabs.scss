@@ -7,58 +7,61 @@
 * @version      1.0.3
 */
 
-.rd-material-tabs{
+.rd-material-tabs {
   -webkit-tap-highlight-color: transparent;
   width: 100%;
   position: relative;
   opacity: 0;
   visibility: hidden;
-  &.loaded{
+
+  &.loaded {
     opacity: 1;
     visibility: visible;
   }
 
-  &__list{
+  &__list {
     white-space: nowrap;
 
-    .rd-material-tab{
+    .rd-material-tab {
       display: inline-block;
     }
   }
 
-  img{
+  img {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
   }
 
-  &__stage-outer{
+  &__stage-outer {
     position: relative;
     overflow: hidden;
   }
 
-  &__stage{
+  &__stage {
     @include clearfix;
   }
 }
 
-.rd-material-tabs__container{
+.rd-material-tabs__container {
   padding: 0 5px;
   margin-top: 60px;
-  .rd-material-tab{
+
+  .rd-material-tab {
     float: left;
     width: 100%;
   }
-  .thumb{
+
+  .thumb {
     margin-top: 10px;
   }
 }
 
-.rd-material-tabs-canMove{
+.rd-material-tabs-canMove {
   cursor: w-resize;
 }
 
-.rd-material-tabs-grab, .rd-material-tabs-grab a{
+.rd-material-tabs-grab, .rd-material-tabs-grab a {
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
   cursor: grabbing;

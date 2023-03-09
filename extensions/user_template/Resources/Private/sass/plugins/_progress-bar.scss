@@ -1,9 +1,10 @@
 @import "../variables";
+
 /*
 * @subsection   Progress Bar
 */
 
-.progress-bar-wrap{
+.progress-bar-wrap {
   max-width: 100%;
   width: 210px;
 
@@ -35,35 +36,36 @@
     line-height: 26px;
     color: $gray-darker;
 
-    &:after{
+    &:after {
       content: '%';
     }
   }
 
   .progress-bar__stroke,
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke-linejoin: round;
   }
 }
 
-.progress-bar-horizontal{
+.progress-bar-horizontal {
   text-align: left;
-  > svg{
+
+  > svg {
     margin-top: 7px;
   }
 
-  .progress-bar__body{
-    width: auto!important;
+  .progress-bar__body {
+    width: auto !important;
     top: -5px;
     right: 0;
   }
 }
 
-.progress-bar-radial{
+.progress-bar-radial {
   position: relative;
   padding-bottom: 100%;
 
-  > svg{
+  > svg {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -74,72 +76,72 @@
   }
 
   .progress-bar__stroke,
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke-location: outside;
   }
 
-  .progress-bar__body{
+  .progress-bar__body {
     @include transform(translate(50%, -50%));
   }
 }
 
 .progress-bar-default {
-  .progress-bar__stroke{
+  .progress-bar__stroke {
     stroke: $gray;
   }
 
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke: rgba($gray, 0.05);
   }
 }
 
 .progress-bar-primary {
-  .progress-bar__stroke{
+  .progress-bar__stroke {
     stroke: $brand-primary;
   }
 
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke: rgba($gray, 0.05);
   }
 }
 
 .progress-bar-secondary-2 {
-  .progress-bar__stroke{
+  .progress-bar__stroke {
     stroke: $gray-light;
   }
 
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke: rgba($gray, 0.05);
   }
 }
 
 
 .progress-bar-secondary-1 {
-  .progress-bar__stroke{
+  .progress-bar__stroke {
     stroke: $gray-light;
   }
 
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke: rgba($gray, 0.05);
   }
 }
 
 .progress-bar-secondary-3 {
-  .progress-bar__stroke{
+  .progress-bar__stroke {
     stroke: $brand-warning;
   }
 
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke: rgba($gray, 0.05);
   }
 }
 
 .progress-bar-secondary-4 {
-  .progress-bar__stroke{
+  .progress-bar__stroke {
     stroke: $brand-danger;
   }
 
-  .progress-bar__trail{
+  .progress-bar__trail {
     stroke: rgba($gray, 0.05);
   }
 }

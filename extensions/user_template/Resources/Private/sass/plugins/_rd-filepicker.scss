@@ -3,7 +3,7 @@
  * @Section
  */
 
-.rd-file-picker{
+.rd-file-picker {
   position: relative;
 
   display: -webkit-box;
@@ -26,7 +26,7 @@
   background-color: white;
 
 
-  &-btn{
+  &-btn {
     display: -webkit-inline-box;
     display: -webkit-inline-flex;
     display: -moz-inline-flex;
@@ -51,17 +51,17 @@
 
     transition: .2s;
 
-    &:hover{
+    &:hover {
       background: darken(rgba(20, 69, 61, 0.78), 5%);
     }
 
-    svg{
+    svg {
       fill: white;
       padding-right: 6px;
     }
   }
 
-  &-meta{
+  &-meta {
     width: 90%;
     padding-left: 20px;
     padding-right: 20px;
@@ -73,7 +73,7 @@
     white-space: nowrap;
   }
 
-  input[type="file"]{
+  input[type="file"] {
     position: absolute;
 
     width: 6px;
@@ -87,7 +87,7 @@
   }
 }
 
-.rd-file-drop{
+.rd-file-drop {
   padding-top: 100px;
   padding-bottom: 100px;
   margin-left: auto;
@@ -96,18 +96,19 @@
   text-align: center;
   font-size: 18px;
 
-  background-color: rgba(0,0,0,.1);
+  background-color: rgba(0, 0, 0, .1);
   outline: 2px dashed #92b0b3;
   outline-offset: -10px;
   transition: .2s;
 
-  &-logo{
+  &-logo {
     width: 100px;
     fill: rgba(255, 255, 255, 0);
     stroke: white;
     stroke-width: 6px;
   }
-  &-wrap{
+
+  &-wrap {
     margin-top: 20px;
     display: -webkit-box;
     display: -webkit-flex;
@@ -124,22 +125,26 @@
     -webkit-justify-content: center;
     -moz-justify-content: center;
     justify-content: center;
-    p{
+
+    p {
       margin-left: 15px;
       margin-top: 0;
     }
   }
-  &-meta{
+
+  &-meta {
     margin-top: 20px;
   }
-  &-btn{
+
+  &-btn {
     cursor: pointer;
-    svg{
+
+    svg {
       fill: white;
     }
   }
 
-  input[type="file"]{
+  input[type="file"] {
     position: absolute;
 
     width: 6px;
@@ -153,7 +158,7 @@
   }
 }
 
-.file-grabbing{
+.file-grabbing {
   background-color: rgba(255, 255, 255, 0.05);
   outline-color: rgba(0, 0, 0, 0.15);
 }

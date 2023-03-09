@@ -19,6 +19,7 @@
         margin-top: -8px;
         max-width: 100px;
       }
+
       > h4 {
         max-width: 19rem;
       }
@@ -107,6 +108,7 @@
     vertical-align: middle;
     padding: 15px;
     white-space: nowrap;
+
     &:after {
       content: '';
       display: inline-block;
