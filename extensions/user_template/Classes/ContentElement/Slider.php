@@ -26,7 +26,7 @@ class Slider extends AbstractElement
     /**
      *
      */
-    public function getConfiguration()
+    public function getConfiguration(): void
     {
         $typeName = 'slider';
         $prefix = 'fs_';

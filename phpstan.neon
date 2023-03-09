@@ -1,0 +1,16 @@
+parameters:
+    level: 8
+    excludePaths:
+        analyse:
+            - */vendor/*
+    ignoreErrors:
+        # ignored errors for level 0
+        - '#Variable \$_EXTKEY might not be defined\.#'
+
+includes:
+    - vendor/ssch/typo3-phpstan-rules/config/v11/rules.neon
+
+services:
+    - Symplify\PackageBuilder\Matcher\ArrayStringAndFnMatcher
+    - Symplify\PHPStanRules\Reflection\MethodNodeAnalyser
+    - Ssch\Typo3PhpstanRules\NodeAnalyzer\Extbase\EntityClassDetector

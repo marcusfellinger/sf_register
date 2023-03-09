@@ -26,7 +26,7 @@ class Teaser extends AbstractElement
     /**
      *
      */
-    public function getConfiguration()
+    public function getConfiguration(): void
     {
         $typeName = 'teaser';
         $prefix = 'cg_';

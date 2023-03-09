@@ -30,7 +30,7 @@ class CgTeaserPreviewRenderer implements PageLayoutViewDrawItemHookInterface
      * @param bool $drawItem Whether to draw the item using the default functionality
      * @param string $headerContent Header content
      * @param string $itemContent Item content
-     * @param array $row Record row of tt_content
+     * @param array<mixed> $row Record row of tt_content
      * @return void
      */
     public function preProcess(

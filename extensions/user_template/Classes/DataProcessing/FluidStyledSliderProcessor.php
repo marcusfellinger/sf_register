@@ -33,17 +33,18 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
      * Process data for the CType "fs_slider"
      *
      * @param ContentObjectRenderer $cObj The content object renderer, which contains data of the content element
-     * @param array $contentObjectConfiguration The configuration of Content Object
-     * @param array $processorConfiguration The configuration of this processor
-     * @param array $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
-     * @return array the processed data as key/value store
+     * @param array<mixed> $contentObjectConfiguration The configuration of Content Object
+     * @param array<mixed> $processorConfiguration The configuration of this processor
+     * @param array<mixed> $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
+     * @return array<mixed> the processed data as key/value store
      */
     public function process(
         ContentObjectRenderer $cObj,
-        array $contentObjectConfiguration,
-        array $processorConfiguration,
-        array $processedData
-    ) {
+        array                 $contentObjectConfiguration,
+        array                 $processorConfiguration,
+        array                 $processedData
+    )
+    {
         // Calculating the total width of the slider
         $sliderWidth = 0;
         if ((int)$processedData['data']['imagewidth'] > 0) {
@@ -73,7 +74,7 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
     protected function getCroppedWidth(FileInterface $fileObject)
     {
         if (!$fileObject->hasProperty('crop') || empty($fileObject->getProperty('crop'))) {
-            return $fileObject->getProperty('width');
+            return (int)$fileObject->getProperty('width');
         }
         $cropString = $fileObject->getProperty('crop');
         // TYPO3 7LTS
@@ -85,7 +86,7 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
         $cropVariantCollection = CropVariantCollection::create((string)$cropString);
         $width = 0;
         foreach (array_keys($croppingConfiguration) as $cropVariant) {
-            $cropArea = $cropVariantCollection->getCropArea($cropVariant);
+            $cropArea = $cropVariantCollection->getCropArea((string)$cropVariant);
             if ($cropArea->isEmpty()) {
                 continue;
             }
@@ -98,12 +99,13 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
     }
 
     /**
-     * @param array $row
-     * @return array
+     * @param array<mixed> $row
+     * @return array<mixed>
      */
     protected function getOptionsFromFlexFormData(array $row)
     {
         $options = [];
+        /** @var FlexFormService $flexFormService */
         $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
         $flexFormAsArray = $flexFormService->convertFlexFormContentToArray($row['pi_flexform']);
         foreach ($flexFormAsArray['options'] as $optionKey => $optionValue) {
