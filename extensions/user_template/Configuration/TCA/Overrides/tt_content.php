@@ -4,7 +4,7 @@ use CGGrafing\Template\ContentElement\Slider;
 use CGGrafing\Template\ContentElement\Teaser;
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 
-defined('TYPO3_MODE') or die();
+defined('TYPO3') or die();
 
 call_user_func(function () {
     $contentElement = new Slider();
