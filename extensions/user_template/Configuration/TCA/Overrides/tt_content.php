@@ -18,11 +18,11 @@ call_user_func(function () {
 
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addPlugin(
-    array(
+    [
         'LLL:EXT:user_template/Resources/Private/Language/Tca.xlf:usertemplate_cell',
         'usertemplate_cell',
         'EXT:user_template/Resources/Public/Icons/ContentElements/usertemplate_cell.gif'
-    ),
+    ],
     'CType',
     'user_template'
 );

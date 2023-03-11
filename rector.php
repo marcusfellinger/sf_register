@@ -9,6 +9,7 @@ use Rector\PostRector\Rector\NameImportingPostRector;
 use Ssch\TYPO3Rector\Configuration\Typo3Option;
 use Ssch\TYPO3Rector\Rector\General\ConvertImplicitVariablesToExplicitGlobalsRector;
 use Ssch\TYPO3Rector\Rector\General\ExtEmConfRector;
+use Ssch\TYPO3Rector\Rector\v8\v7\MoveForeignTypesToOverrideChildTcaRector;
 use Ssch\TYPO3Rector\Set\Typo3LevelSetList;
 
 return static function (RectorConfig $rectorConfig): void {
@@ -18,11 +19,35 @@ return static function (RectorConfig $rectorConfig): void {
     // $parameters->set(Typo3Option::TYPOSCRIPT_INDENT_SIZE, 2);
 
     $rectorConfig->sets([
-        \Ssch\TYPO3Rector\Set\Typo3SetList::TCA_76
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TCA_76,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TCA_87,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TCA_95,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TCA_104,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TCA_110,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TYPO3_76,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TYPO3_87,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TYPO3_95,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TYPO3_104,
+        \Ssch\TYPO3Rector\Set\Typo3SetList::TYPO3_11,
+        \Ssch\TYPO3Rector\Set\Typo3LevelSetList::UP_TO_TYPO3_7,
+        \Ssch\TYPO3Rector\Set\Typo3LevelSetList::UP_TO_TYPO3_8,
+        \Ssch\TYPO3Rector\Set\Typo3LevelSetList::UP_TO_TYPO3_9,
+        \Ssch\TYPO3Rector\Set\Typo3LevelSetList::UP_TO_TYPO3_10,
+        \Ssch\TYPO3Rector\Set\Typo3LevelSetList::UP_TO_TYPO3_11,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_53,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_54,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_55,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_56,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_70,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_71,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_72,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_73,
+        \Rector\Set\ValueObject\LevelSetList::UP_TO_PHP_80
     ]);
 
     // Define your target version which you want to support
     $rectorConfig->phpVersion(PhpVersion::PHP_74);
+    $rectorConfig->phpVersion(PhpVersion::PHP_80);
 
     // If you only want to process one/some TYPO3 extension(s), you can specify its path(s) here.
     // If you use the option --config change __DIR__ to getcwd()
@@ -85,10 +110,20 @@ return static function (RectorConfig $rectorConfig): void {
     ]); */
     // Add some general TYPO3 rules
     $rectorConfig->rule(ConvertImplicitVariablesToExplicitGlobalsRector::class);
+    $rectorConfig->rule(MoveForeignTypesToOverrideChildTcaRector::class);
     $rectorConfig->ruleWithConfiguration(ExtEmConfRector::class, [
         ExtEmConfRector::ADDITIONAL_VALUES_TO_BE_REMOVED => []
     ]);
 
     // Modernize your TypoScript include statements for files and move from <INCLUDE /> to @import use the FileIncludeToImportStatementVisitor (introduced with TYPO3 9.0)
     // $rectorConfig->rule(\Ssch\TYPO3Rector\FileProcessor\TypoScript\Rector\v9\v0\FileIncludeToImportStatementTypoScriptRector::class);
+
+    $rectorConfig->paths([
+        __DIR__ . 'extensions/user_template',
+        __DIR__ . 'extensions/user_template/Configuration/TCA/Overrides',
+        __DIR__ . 'extensions/user_template/Classes/ContentElement',
+        __DIR__ . 'extensions/user_template/Classes/DataProcessing',
+        __DIR__ . 'extensions/user_template/Classes/Hooks',
+        __DIR__ . 'extensions/user_template/Classes/Hooks/PageLayoutView'
+    ]);
 };

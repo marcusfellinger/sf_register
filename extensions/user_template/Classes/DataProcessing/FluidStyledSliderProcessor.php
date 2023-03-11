@@ -59,7 +59,10 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
             }
         }
         // This will be available in fluid with {slider.options}
-        $processedData['slider']['options'] = json_encode($this->getOptionsFromFlexFormData($processedData['data']));
+        $processedData['slider']['options'] = json_encode(
+            $this->getOptionsFromFlexFormData($processedData['data']),
+            JSON_THROW_ON_ERROR
+        );
         // This will be available in fluid with {slider.width}
         $processedData['slider']['width'] = $sliderWidth + 80;
         return $processedData;
@@ -69,7 +72,6 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
      * When retrieving the width for a media file
      * a possible cropping needs to be taken into account.
      *
-     * @param FileInterface $fileObject
      * @return int
      */
     protected function getCroppedWidth(FileInterface $fileObject)
@@ -79,7 +81,7 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
         }
         $cropString = $fileObject->getProperty('crop');
         // TYPO3 7LTS
-        $croppingConfiguration = json_decode($cropString, true);
+        $croppingConfiguration = json_decode($cropString, true, 512, JSON_THROW_ON_ERROR);
         if (!empty($croppingConfiguration['width'])) {
             return (int)$croppingConfiguration['width'];
         }
@@ -91,7 +93,12 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
             if ($cropArea->isEmpty()) {
                 continue;
             }
-            $cropResult = json_decode((string)$cropArea->makeAbsoluteBasedOnFile($fileObject), true);
+            $cropResult = json_decode(
+                (string)$cropArea->makeAbsoluteBasedOnFile($fileObject),
+                true,
+                512,
+                JSON_THROW_ON_ERROR
+            );
             if (!empty($cropResult['width']) && (int)$cropResult['width'] > $width) {
                 $width = (int)$cropResult['width'];
             }
@@ -110,16 +117,11 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
         $flexFormService = GeneralUtility::makeInstance(FlexFormService::class);
         $flexFormAsArray = $flexFormService->convertFlexFormContentToArray($row['pi_flexform']);
         foreach ($flexFormAsArray['options'] as $optionKey => $optionValue) {
-            switch ($optionValue) {
-                case '1':
-                    $options[$optionKey] = true;
-                    break;
-                case '0':
-                    $options[$optionKey] = false;
-                    break;
-                default:
-                    $options[$optionKey] = $optionValue;
-            }
+            $options[$optionKey] = match ($optionValue) {
+                '1' => true,
+                '0' => false,
+                default => $optionValue,
+            };
         }
         return $options;
     }
