@@ -1,7 +1,10 @@
 lib {
     contentElement {
+        partialRootPaths {
+            20 = EXT:user_template/Resources/Private/Partials
+        }
         templateRootPaths {
-            100 = EXT:user_template/Resources/Private/Templates
+            20 = EXT:user_template/Resources/Private/Templates
         }
     }
     stdContent = FLUIDTEMPLATE
@@ -41,11 +44,6 @@ lib {
             mainContent < styles.content.get
         }
     }
-    contentElement {
-        templateRootPaths {
-            200 = EXT:user_template/Resources/Private/Templates/
-        }
-    }
 }
 
 settings {
@@ -55,9 +53,11 @@ settings {
 }
 
 tt_content {
-    fs_slider < lib.contentElement
+    fs_slider =< lib.contentElement
     fs_slider {
+        title = XXX
         templateName = FluidStyledSlider
+        #title = LLL:EXT:user_template/Resources/Private/Language/locallang_slider_be.xlf:wizard.title
         dataProcessing {
             10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
             10 {
@@ -66,7 +66,7 @@ tt_content {
             20 = CGGrafing\Template\FluidStyledSlider\DataProcessing\FluidStyledSliderProcessor
         }
     }
-    cg_teaser < lib.contentElement
+    cg_teaser =< lib.contentElement
     cg_teaser {
         templateName = Teaser
     }
@@ -146,7 +146,7 @@ plugin.tx_seo {
 
 # Restricted area starts at pid 123.
 # Check if user is logged in:
-[24 in tree.rootLineIds] && [!frontend.user.isLoggedIn]
+[24 in tree.rootLineIds and !frontend.user.isLoggedIn]
 page.config >
 additionalHeaders.10.header = Location: https://www.cg-grafing.de/anmelden
 [global]

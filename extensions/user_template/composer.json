@@ -14,7 +14,7 @@
   "description": "Template für christliche Gemeinde Grafing",
   "extra": {
     "typo3/cms": {
-      "extension-key": "cggrafing_template"
+      "extension-key": "user_template"
     }
   },
   "license": "GPL-2.0-or-later",

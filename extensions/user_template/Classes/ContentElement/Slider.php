@@ -73,7 +73,7 @@ class Slider extends AbstractElement
                             ],
                             // custom configuration for displaying fields in the overlay/reference table
                             // behaves the same as the image field.
-                            'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
+                            'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['overrideChildTca']['types']
                         ],
                         $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
                     )
