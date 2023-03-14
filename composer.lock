@@ -4,8 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "be7ef3d03ee9016f5918a1196991a906",
+    "content-hash": "000faac1766d0d20df59369af735e02c",
     "packages": [
+        {
+            "name": "b13/container",
+            "version": "2.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/b13/container.git",
+                "reference": "6b72645902966c38ae2d7163d0d34c9282e1dcd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/b13/container/zipball/6b72645902966c38ae2d7163d0d34c9282e1dcd4",
+                "reference": "6b72645902966c38ae2d7163d0d34c9282e1dcd4",
+                "shasum": ""
+            },
+            "require": {
+                "doctrine/dbal": "~2.13.1 || ~3.4",
+                "typo3/cms-backend": "^11.5 || 12.*.*@dev || ^10.4"
+            },
+            "replace": {
+                "typo3-ter/container": "self.version"
+            },
+            "require-dev": {
+                "b13/container-example": "dev-master",
+                "codeception/codeception": "^5.0 || ^4.1",
+                "codeception/module-asserts": "^3.0 || ^1.0",
+                "codeception/module-db": "^3.0 || ^1.0",
+                "codeception/module-webdriver": "^3.1 || ^1.0",
+                "friendsofphp/php-cs-fixer": "~3.9.0",
+                "ichhabrecht/content-defender": "^3.2",
+                "phpstan/phpstan": "^1.4.8",
+                "typo3/cms-fluid-styled-content": "^11.5 || 12.*.*@dev",
+                "typo3/cms-info": "^11.5 || 12.*.*@dev",
+                "typo3/cms-install": "^11.5 || 12.*.*@dev",
+                "typo3/cms-workspaces": "^11.5 || 12.*.*@dev",
+                "typo3/coding-standards": "^0.5.0",
+                "typo3/testing-framework": "~7.0@dev"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "cms-package-dir": "{$vendor-dir}/typo3/cms",
+                    "web-dir": ".Build/Web",
+                    "app-dir": ".Build",
+                    "extension-key": "container"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "B13\\Container\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "description": "Create Custom Container Content Elements for TYPO3",
+            "homepage": "https://b13.com",
+            "support": {
+                "issues": "https://github.com/b13/container/issues",
+                "source": "https://github.com/b13/container/tree/2.2.0"
+            },
+            "time": "2023-02-27T09:25:26+00:00"
+        },
         {
             "name": "bacon/bacon-qr-code",
             "version": "2.0.8",
@@ -122,6 +185,171 @@
             "time": "2022-11-24T16:11:03+00:00"
         },
         {
+            "name": "buepro/typo3-container-elements",
+            "version": "v4.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buepro/typo3-container_elements.git",
+                "reference": "0b4b824cd98a94002660e07cb3986f7b93b7d24a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buepro/typo3-container_elements/zipball/0b4b824cd98a94002660e07cb3986f7b93b7d24a",
+                "reference": "0b4b824cd98a94002660e07cb3986f7b93b7d24a",
+                "shasum": ""
+            },
+            "require": {
+                "b13/container": "^1.3.1 || ^2.0.0",
+                "buepro/typo3-pvh": "^1.0.0",
+                "php": ">=7.3.0",
+                "typo3/cms-core": "^10.4.11 || ^11.5.1"
+            },
+            "replace": {
+                "typo3-ter/container-elements": "self.version"
+            },
+            "require-dev": {
+                "buepro/typo3-pizpalue": "^13",
+                "ergebnis/composer-normalize": "^2.15.0",
+                "friendsofphp/php-cs-fixer": "^3.0.0",
+                "friendsoftypo3/phpstan-typo3": "^0.9.0",
+                "helhum/typo3-console": "^6.6 || ^7.0.2",
+                "overtrue/phplint": "^2.3.5",
+                "phpspec/prophecy-phpunit": "^1.1 || ^2.0",
+                "phpstan/phpstan": "^1.7",
+                "phpstan/phpstan-deprecation-rules": "^1.0",
+                "phpstan/phpstan-phpunit": "^1.1",
+                "phpstan/phpstan-strict-rules": "^1.2",
+                "roave/security-advisories": "dev-latest",
+                "typo3/cms-base-distribution": "^10.4 || ^11.5.1",
+                "typo3/cms-lowlevel": "^10.4 || ^11.5.1",
+                "typo3/cms-recycler": "^10.4 || ^11.5.1",
+                "typo3/testing-framework": "^5.0 || ^6.4"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "4.0.x-dev"
+                },
+                "typo3/cms": {
+                    "app-dir": ".build",
+                    "extension-key": "container_elements",
+                    "web-dir": ".build/public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Buepro\\ContainerElements\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Büchler",
+                    "email": "rb@buechler.pro",
+                    "homepage": "https://www.buechler.pro/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "TYPO3 extension providing content elements powered by container and bootstrap. Available elements: container, columns, tabs, accordion, tile unit, card and randomizer.",
+            "homepage": "https://extensions.typo3.org/extension/container_elements",
+            "keywords": [
+                "TYPO3 CMS",
+                "container",
+                "element",
+                "grid",
+                "pizpalue",
+                "structure"
+            ],
+            "support": {
+                "docs": "https://docs.typo3.org/p/buepro/typo3-container-elements/main/en-us/",
+                "issues": "https://github.com/buepro/typo3-container_elements/issues",
+                "source": "https://github.com/buepro/typo3-container_elements"
+            },
+            "time": "2023-01-03T17:00:46+00:00"
+        },
+        {
+            "name": "buepro/typo3-pvh",
+            "version": "v1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/buepro/typo3-pvh.git",
+                "reference": "6f4dff1117878a987cd503815d88f816563850d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/buepro/typo3-pvh/zipball/6f4dff1117878a987cd503815d88f816563850d1",
+                "reference": "6f4dff1117878a987cd503815d88f816563850d1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3.0",
+                "typo3/cms-core": "^10.4 || ^11.5"
+            },
+            "require-dev": {
+                "bk2k/extension-helper": "^2.0",
+                "buepro/typo3-pizpalue": "^12.0",
+                "ergebnis/composer-normalize": "^2.15.0",
+                "friendsofphp/php-cs-fixer": "^3.0.0",
+                "friendsoftypo3/phpstan-typo3": "^0.8.1",
+                "helhum/typo3-console": "^6.6 || ^7.0.2",
+                "overtrue/phplint": "^2.3.5",
+                "phpspec/prophecy-phpunit": "^1.1 || ^2.0",
+                "phpstan/phpstan": "^0.12.87",
+                "phpstan/phpstan-deprecation-rules": "^0.12.6",
+                "phpstan/phpstan-phpunit": "^0.12.19",
+                "phpstan/phpstan-strict-rules": "^0.12.9",
+                "roave/security-advisories": "dev-latest",
+                "typo3/cms-base-distribution": "^10.4 || ^11.5",
+                "typo3/cms-impexp": "^10.4 || ^11.5",
+                "typo3/cms-lowlevel": "^10.4 || ^11.5",
+                "typo3/cms-recycler": "^10.4 || ^11.5",
+                "typo3/testing-framework": "^5.0 || ^6.4"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "1.1.x-dev"
+                },
+                "typo3/cms": {
+                    "app-dir": ".build",
+                    "extension-key": "pvh",
+                    "web-dir": ".build/public"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Buepro\\Pvh\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Roman Büchler",
+                    "email": "rb@buechler.pro",
+                    "homepage": "https://www.buechler.pro/",
+                    "role": "Developer"
+                }
+            ],
+            "description": "A collection of view helpers used by pizpalue. Contains copies from vhs view helpers by Claus Due.",
+            "homepage": "https://github.com/buepro/typo3-pvh",
+            "keywords": [
+                "TYPO3 CMS",
+                "pizpalue",
+                "view helper"
+            ],
+            "support": {
+                "issues": "https://github.com/buepro/typo3-pvh/issues",
+                "source": "https://github.com/buepro/typo3-pvh/tree/v1.1.1"
+            },
+            "time": "2022-05-21T07:13:27+00:00"
+        },
+        {
             "name": "causal/file_list",
             "version": "2.6.0",
             "source": {
@@ -202,12 +430,12 @@
             "dist": {
                 "type": "path",
                 "url": "./extensions/user_template",
-                "reference": "62121b2b2fa03dd3dc0526cb5811820fd882a4af"
+                "reference": "d23a259abd5aa52fb2f15ef6af04afbf5b0fdb1d"
             },
             "type": "typo3-cms-extension",
             "extra": {
                 "typo3/cms": {
-                    "extension-key": "cggrafing_template"
+                    "extension-key": "user_template"
                 }
             },
             "autoload": {
@@ -1189,20 +1417,21 @@
         },
         {
             "name": "georgringer/news",
-            "version": "10.0.3",
+            "version": "11.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/georgringer/news.git",
-                "reference": "5325ea6a7bf490a9deabdf1f86372ad128a5e205"
+                "reference": "a08c0e5355b8cc6801cc2916f71745f2ace9ae1d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/georgringer/news/zipball/5325ea6a7bf490a9deabdf1f86372ad128a5e205",
-                "reference": "5325ea6a7bf490a9deabdf1f86372ad128a5e205",
+                "url": "https://api.github.com/repos/georgringer/news/zipball/a08c0e5355b8cc6801cc2916f71745f2ace9ae1d",
+                "reference": "a08c0e5355b8cc6801cc2916f71745f2ace9ae1d",
                 "shasum": ""
             },
             "require": {
-                "typo3/cms-core": "^10.4 || ^11"
+                "php": ">= 7.4 < 8.3",
+                "typo3/cms-core": "^11.5.24 || ^12"
             },
             "conflict": {
                 "symfony/finder": "2.7.44 || 2.8.37 || 3.4.7 || 4.0.7"
@@ -1211,8 +1440,13 @@
                 "typo3-ter/news": "self.version"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.1",
-                "typo3/cms-install": "^10.4 || ^11"
+                "friendsofphp/php-cs-fixer": "^3.13.0",
+                "phpunit/phpunit": "^9",
+                "sbuerk/typo3-cmscomposerinstallers-testingframework-bridge": "^0.0.1",
+                "typo3/cms-composer-installers": "^3.1.3 || 4.0.0-RC1 || ^5.0",
+                "typo3/coding-standards": "^0.5.3",
+                "typo3/testing-framework": "~7.0@dev",
+                "webmozart/assert": "^1.11.0"
             },
             "suggest": {
                 "georgringer/news-tagsuggest": "On the fly creation of tag records within a news record",
@@ -1274,7 +1508,7 @@
                     "type": "patreon"
                 }
             ],
-            "time": "2022-11-21T12:32:44+00:00"
+            "time": "2023-03-09T11:28:57+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1490,16 +1724,16 @@
         },
         {
             "name": "guzzlehttp/psr7",
-            "version": "2.4.3",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/psr7.git",
-                "reference": "67c26b443f348a51926030c83481b85718457d3d"
+                "reference": "3cf1b6d4f0c820a2cf8bcaec39fc698f3443b5cf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/67c26b443f348a51926030c83481b85718457d3d",
-                "reference": "67c26b443f348a51926030c83481b85718457d3d",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/3cf1b6d4f0c820a2cf8bcaec39fc698f3443b5cf",
+                "reference": "3cf1b6d4f0c820a2cf8bcaec39fc698f3443b5cf",
                 "shasum": ""
             },
             "require": {
@@ -1589,7 +1823,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/psr7/issues",
-                "source": "https://github.com/guzzle/psr7/tree/2.4.3"
+                "source": "https://github.com/guzzle/psr7/tree/2.4.4"
             },
             "funding": [
                 {
@@ -1605,7 +1839,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2022-10-26T14:07:24+00:00"
+            "time": "2023-03-09T13:19:02+00:00"
         },
         {
             "name": "helhum/config-loader",
@@ -2800,6 +3034,55 @@
                 "source": "https://github.com/ralouphie/getallheaders/tree/develop"
             },
             "time": "2019-03-08T08:55:37+00:00"
+        },
+        {
+            "name": "sbublies/gridtocontainer",
+            "version": "11.4.6",
+            "source": {
+                "type": "git",
+                "url": "git@gitlab.com:bartista87/gridtocontainer.git",
+                "reference": "23d73c09d753215bd28d50c83d107a28744d5ee1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://gitlab.com/api/v4/projects/bartista87%2Fgridtocontainer/repository/archive.zip?sha=23d73c09d753215bd28d50c83d107a28744d5ee1",
+                "reference": "23d73c09d753215bd28d50c83d107a28744d5ee1",
+                "shasum": ""
+            },
+            "require": {
+                "typo3/cms-core": "^11.5"
+            },
+            "replace": {
+                "typo3-ter/gridtocontainer": "self.version"
+            },
+            "type": "typo3-cms-extension",
+            "extra": {
+                "typo3/cms": {
+                    "extension-key": "gridtocontainer"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SBublies\\Gridtocontainer\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Stefan Bublies",
+                    "role": "Developer"
+                }
+            ],
+            "description": "EXT:gridtocontainer is a small migration extension with backend module for those who want to switch from EXT:gridelements to EXT:container.",
+            "support": {
+                "docs": "https://docs.typo3.org/p/sbublies/gridtocontainer/main/en-us/",
+                "issues": "https://gitlab.com/bartista87/gridtocontainer/-/issues",
+                "source": "https://gitlab.com/bartista87/gridtocontainer"
+            },
+            "time": "2023-02-28T15:42:07+00:00"
         },
         {
             "name": "sjbr/static-info-tables",
@@ -8047,16 +8330,16 @@
         },
         {
             "name": "phpstan/phpstan",
-            "version": "1.10.5",
+            "version": "1.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpstan/phpstan.git",
-                "reference": "1fb6f494d82455151ecf15c5c191923f5d84324e"
+                "reference": "50d089a3e0904b0fe7e2cf2d4fd37d427d64235a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/1fb6f494d82455151ecf15c5c191923f5d84324e",
-                "reference": "1fb6f494d82455151ecf15c5c191923f5d84324e",
+                "url": "https://api.github.com/repos/phpstan/phpstan/zipball/50d089a3e0904b0fe7e2cf2d4fd37d427d64235a",
+                "reference": "50d089a3e0904b0fe7e2cf2d4fd37d427d64235a",
                 "shasum": ""
             },
             "require": {
@@ -8086,7 +8369,7 @@
             ],
             "support": {
                 "issues": "https://github.com/phpstan/phpstan/issues",
-                "source": "https://github.com/phpstan/phpstan/tree/1.10.5"
+                "source": "https://github.com/phpstan/phpstan/tree/1.10.6"
             },
             "funding": [
                 {
@@ -8102,7 +8385,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-07T16:48:45+00:00"
+            "time": "2023-03-09T16:55:12+00:00"
         },
         {
             "name": "rector/rector",
@@ -8171,12 +8454,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Roave/SecurityAdvisories.git",
-                "reference": "82616ed8c78820cc0a366857c0aaedaa223ad99e"
+                "reference": "89a8cbe64303bf8701b7c7ae59f62aa4335d1a9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/82616ed8c78820cc0a366857c0aaedaa223ad99e",
-                "reference": "82616ed8c78820cc0a366857c0aaedaa223ad99e",
+                "url": "https://api.github.com/repos/Roave/SecurityAdvisories/zipball/89a8cbe64303bf8701b7c7ae59f62aa4335d1a9e",
+                "reference": "89a8cbe64303bf8701b7c7ae59f62aa4335d1a9e",
                 "shasum": ""
             },
             "conflict": {
@@ -8234,7 +8517,7 @@
                 "catfan/medoo": "<1.7.5",
                 "centreon/centreon": "<22.10-beta.1",
                 "cesnet/simplesamlphp-module-proxystatistics": "<3.1",
-                "cockpit-hq/cockpit": "<=2.3.9",
+                "cockpit-hq/cockpit": "<2.4.1",
                 "codeception/codeception": "<3.1.3|>=4,<4.1.22",
                 "codeigniter/framework": "<=3.0.6",
                 "codeigniter4/framework": "<4.2.11",
@@ -8328,8 +8611,9 @@
                 "friendsofsymfony/user-bundle": ">=1.2,<1.3.5",
                 "friendsoftypo3/mediace": ">=7.6.2,<7.6.5",
                 "froala/wysiwyg-editor": "<3.2.7",
-                "froxlor/froxlor": "<2.0.11",
+                "froxlor/froxlor": "<2.0.13",
                 "fuel/core": "<1.8.1",
+                "funadmin/funadmin": "<=3.2",
                 "gaoming13/wechat-php-sdk": "<=1.10.2",
                 "genix/cms": "<=1.1.11",
                 "getgrav/grav": "<1.7.34",
@@ -8340,7 +8624,7 @@
                 "globalpayments/php-sdk": "<2",
                 "google/protobuf": "<3.15",
                 "gos/web-socket-bundle": "<1.10.4|>=2,<2.6.1|>=3,<3.3",
-                "gree/jose": "<=2.2",
+                "gree/jose": "<2.2.1",
                 "gregwar/rst": "<1.0.3",
                 "grumpydictator/firefly-iii": "<5.8",
                 "guzzlehttp/guzzle": "<6.5.8|>=7,<7.4.5",
@@ -8752,7 +9036,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-08T18:04:54+00:00"
+            "time": "2023-03-11T06:05:00+00:00"
         },
         {
             "name": "ssch/typo3-rector",

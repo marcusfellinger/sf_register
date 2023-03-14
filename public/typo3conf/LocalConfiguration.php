@@ -3,7 +3,8 @@ return [
     'BE' => [
         'debug' => true,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$2y$12$TbceDeBLIekUKUnJu2tzgOR4ORQ4CM/kRjuG4n7vLVOzpzxz/mjjy',
+        'installToolPassword' => '$pbkdf2-sha256$25000$uVF4Ny0tYUE6.llXxEzdAQ$8Aaieeh2TYb3vxO4.hdOJfmsmACoLYOHs3pLF.pF0iM',
+        'lockSSL' => true,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Pbkdf2PasswordHash',
             'options' => [],
@@ -43,6 +44,10 @@ return [
             'loginHighlightColor' => '',
             'loginLogo' => '',
             'loginLogoAlt' => '',
+        ],
+        'container_elements' => [
+            'autoLoadStaticTS' => '1',
+            'showDeprecatedItems' => '1',
         ],
         'extensionmanager' => [
             'automaticInstallation' => '1',

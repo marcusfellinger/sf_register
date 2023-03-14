@@ -20,6 +20,7 @@
     }
   },
   "license": "GPL-2.0-or-later",
+  "minimum-stability": "stable",
   "name": "typo3/cms-base-distribution",
   "repositories": [
     {
@@ -70,7 +71,10 @@
     "typo3/cms-setup": ">=9.5",
     "typo3/cms-t3editor": ">=9.5",
     "typo3/cms-tstemplate": ">=9.5",
-    "typo3/cms-viewpage": ">=9.5"
+    "typo3/cms-viewpage": ">=9.5",
+    "sbublies/gridtocontainer": "^11.4",
+    "b13/container": "^2.2",
+    "buepro/typo3-container-elements": "^4.0"
   },
   "require-dev": {
     "doctrine/common": ">=3.3",
