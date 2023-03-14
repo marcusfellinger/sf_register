@@ -8,11 +8,11 @@ use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
 defined('TYPO3') or die();
 // Include new content elements to modWizards
 ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:user_template/Configuration/PageTSconfig/FluidStyledSlider.tsconfig">'
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:user_template/Configuration/TsConfig/Page/Mod/Wizards/FluidStyledSlider.tsconfig">'
 );
 // Include new content elements to modWizards
 ExtensionManagementUtility::addPageTSConfig(
-    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:user_template/Configuration/PageTSconfig/Teaser.tsconfig">'
+    '<INCLUDE_TYPOSCRIPT: source="FILE:EXT:user_template/Configuration/TsConfig/Page/Mod/Wizards/Teaser.tsconfig">'
 );
 
 // Register hook to show preview of tt_content element of CType="fluid_styled_slider" in page module

@@ -19,18 +19,13 @@ call_user_func(function () {
 // Adds the content element to the "Type" dropdown
 ExtensionManagementUtility::addPlugin(
     [
-        'LLL:EXT:user_template/Resources/Private/Language/Tca.xlf:usertemplate_cell',
+        'LLL:EXT:user_template/Resources/Private/Language/locallang_cell_be.xlf:usertemplate_cell',
         'usertemplate_cell',
         'EXT:user_template/Resources/Public/Icons/ContentElements/usertemplate_cell.gif'
     ],
     'CType',
     'user_template'
 );
-
-call_user_func(function () {
-    $contentElement = new Slider();
-    $contentElement->getConfiguration();
-});
 
 // Configure the default backend fields for the content element
 $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
