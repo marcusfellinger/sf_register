@@ -57,3 +57,6 @@ $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
         ]
     ]
 ];
+
+$GLOBALS['TCA']['tx_news_domain_model_news']['columns']['fal_media']['config']['overrideChildTca']['columns']['uid_local']['config']['appearance']['elementBrowserAllowed'] = 'jpg,jpeg,png,mp3,mp4,youtube';
+$GLOBALS['TCA']['tx_news_domain_model_news']['columns']['fal_media']['config']['filter']['0']['parameters']['allowedFileExtensions'] .= ',mp3,mp4,youtube';
