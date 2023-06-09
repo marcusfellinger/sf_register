@@ -30,6 +30,10 @@
     {
       "type": "composer",
       "url": "https://composer.typo3.org/"
+    },
+    {
+      "type": "vcs",
+      "url":  "git@github.com:marcusfellinger/sf_register.git"
     }
   ],
   "require": {
@@ -74,7 +78,8 @@
     "typo3/cms-viewpage": ">=9.5",
     "sbublies/gridtocontainer": "^11.4",
     "b13/container": "^2.2",
-    "buepro/typo3-container-elements": "^4.0"
+    "buepro/typo3-container-elements": "^4.0",
+    "lochmueller/calendarize": "^12.4"
   },
   "require-dev": {
     "doctrine/common": ">=3.3",

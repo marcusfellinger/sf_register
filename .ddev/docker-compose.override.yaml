@@ -1,0 +1,19 @@
+version: '3.6'
+#ddev-generated
+volumes:
+  images:
+    driver: vieux/sshfs:latest
+    driver_opts:
+      sshcmd: "59100142.swh.strato-hosting.eu@ssh.strato.de:/typo3_grau_04/public/fileadmin/"
+      password: "MKt5N9TYeVFXNmt"
+      allow_other: ""
+      reconnect: ""
+
+services:
+  web:
+    cap_add:
+      - SYS_ADMIN
+      - DAC_READ_SEARCH
+    volumes:
+      - images:/var/www/html/public/fileadmin/
+
