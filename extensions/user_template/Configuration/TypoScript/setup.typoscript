@@ -112,33 +112,47 @@ page {
         slick.disableCompression = 1
         fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
     }
+    config {
+        typolinkLinkAccessRestrictedPages = 2
+        typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###
+    }
 }
 
-plugin.tx_seo {
-    config {
-        xmlSitemap {
-            sitemaps {
-                news {
-                    provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
-                    config {
-                        table = news_table
-                        sortField = sorting
-                        lastModifiedField = tstamp
-                        additionalWhere = AND (no_index = 0 OR no_follow = 0)
-                        pid = 28
-                        recursive = 0
-                        url {
-                            pageId = 30
-                            fieldToParameterMap {
-                                uid = tx_extension_pi1[news]
-                            }
-                            additionalGetParameters {
-                                tx_extension_pi1.controller = News
-                                tx_extension_pi1.action = detail
+plugin {
+    tx_felogin_login.settings.redirectMode = getpost
+    tx_seo {
+        config {
+            xmlSitemap {
+                sitemaps {
+                    news {
+                        provider = TYPO3\CMS\Seo\XmlSitemap\RecordsXmlSitemapDataProvider
+                        config {
+                            table = news_table
+                            sortField = sorting
+                            lastModifiedField = tstamp
+                            additionalWhere = AND (no_index = 0 OR no_follow = 0)
+                            pid = 28
+                            recursive = 0
+                            url {
+                                pageId = 30
+                                fieldToParameterMap {
+                                    uid = tx_extension_pi1[news]
+                                }
+                                additionalGetParameters {
+                                    tx_extension_pi1.controller = News
+                                    tx_extension_pi1.action = detail
+                                }
                             }
                         }
                     }
                 }
+            }
+        }
+    }
+    tx_news {
+        view {
+            templateRootPaths {
+                3 = EXT:user_template/Resources/Private/Templates/
             }
         }
     }
@@ -147,6 +161,5 @@ plugin.tx_seo {
 # Restricted area starts at pid 123.
 # Check if user is logged in:
 [24 in tree.rootLineIds and !frontend.user.isLoggedIn]
-page.config >
-additionalHeaders.10.header = Location: https://www.cg-grafing.de/anmelden
+    page.config.additionalHeaders.20.header = Location: /anmelden
 [global]
