@@ -33,6 +33,8 @@ routeEnhancers:
     limitToPages:
       - 5
       - 17
+      - 28
+      - 30
     routes:
       -
         routePath: /
