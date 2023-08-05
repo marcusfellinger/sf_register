@@ -1,22 +1,22 @@
-<html data-namespace-typo3-fluid="true" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
-    <f:section name="main">
-        <div class="rd-navbar-nav-wrap">
-            <ul class="rd-navbar-nav">
-                <f:for as="headerMenuItem" each="{headerMenu}">
-                    <li class="{f:if(condition: headerMenuItem.active, then: 'active')}">
-                        <a href="{headerMenuItem.link}">{headerMenuItem.title}</a>
-                        <f:if condition="{headerMenuItem.children}">
-                            <ul class="rd-navbar-dropdown">
-                                <f:for as="subMenuItem" each="{headerMenuItem.children}">
-                                    <li>
-                                        <a href="{subMenuItem.link}">{subMenuItem.title}</a>
-                                    </li>
-                                </f:for>
-                            </ul>
-                        </f:if>
-                    </li>
-                </f:for>
-            </ul>
-        </div>
-    </f:section>
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<f:section name="main">
+    <div class="rd-navbar-nav-wrap">
+        <ul class="rd-navbar-nav">
+            <f:for as="headerMenuItem" each="{headerMenu}">
+                <li class="{f:if(condition: headerMenuItem.active, then: 'active')}">
+                    <a href="{headerMenuItem.link}">{headerMenuItem.title}</a>
+                    <f:if condition="{headerMenuItem.children}">
+                        <ul class="rd-navbar-dropdown">
+                            <f:for as="subMenuItem" each="{headerMenuItem.children}">
+                                <li>
+                                    <a href="{subMenuItem.link}">{subMenuItem.title}</a>
+                                </li>
+                            </f:for>
+                        </ul>
+                    </f:if>
+                </li>
+            </f:for>
+        </ul>
+    </div>
+</f:section>
 </html>

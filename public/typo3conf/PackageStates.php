@@ -35,60 +35,6 @@ return [
         'frontend' => [
             'packagePath' => 'typo3/sysext/frontend/',
         ],
-        'impexp' => [
-            'packagePath' => 'typo3/sysext/impexp/',
-        ],
-        'info' => [
-            'packagePath' => 'typo3/sysext/info/',
-        ],
-        'lowlevel' => [
-            'packagePath' => 'typo3/sysext/lowlevel/',
-        ],
-        'seo' => [
-            'packagePath' => 'typo3/sysext/seo/',
-        ],
-        't3editor' => [
-            'packagePath' => 'typo3/sysext/t3editor/',
-        ],
-        'tstemplate' => [
-            'packagePath' => 'typo3/sysext/tstemplate/',
-        ],
-        'viewpage' => [
-            'packagePath' => 'typo3/sysext/viewpage/',
-        ],
-        'static_info_tables' => [
-            'packagePath' => 'typo3conf/ext/static_info_tables/',
-        ],
-        'cal' => [
-            'packagePath' => 'typo3conf/ext/cal/',
-        ],
-        'recaptcha' => [
-            'packagePath' => 'typo3conf/ext/recaptcha/',
-        ],
-        'sf_register' => [
-            'packagePath' => 'typo3conf/ext/sf_register/',
-        ],
-        'static_info_tables_de' => [
-            'packagePath' => 'typo3conf/ext/static_info_tables_de/',
-        ],
-        'container' => [
-            'packagePath' => 'typo3conf/ext/container/',
-        ],
-        'user_template' => [
-            'packagePath' => 'typo3conf/ext/user_template/',
-        ],
-        'fal_securedownload' => [
-            'packagePath' => 'typo3conf/ext/fal_securedownload/',
-        ],
-        'file_list' => [
-            'packagePath' => 'typo3conf/ext/file_list/',
-        ],
-        'news' => [
-            'packagePath' => 'typo3conf/ext/news/',
-        ],
-        'typo3db_legacy' => [
-            'packagePath' => 'typo3conf/ext/typo3db_legacy/',
-        ],
     ],
     'version' => 5,
 ];

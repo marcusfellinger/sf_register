@@ -1,0 +1,164 @@
+@import "../variables";
+@import "../bootstrap/mixins/vendor-prefixes";
+@import "mixins/buttons";
+//
+// Custom Buttons Styles
+// --------------------------------------------------
+
+// Base styles
+// --------------------------------------------------
+
+.btn {
+  font-family: $font-family-sec;
+  font-size: 18px;
+  font-weight: $btn-font-weight;
+  letter-spacing: .1em;
+  text-transform: lowercase;
+  transition: .3s ease-out;
+
+  @media (min-width: $screen-sm-min) {
+    font-size: 22px;
+  }
+
+  @media (min-width: $screen-md-min) {
+    font-size: 24px;
+  }
+
+  &:focus,
+  &:active,
+  &:active:focus {
+    outline: none;
+  }
+
+  &,
+  &:active,
+  &.active {
+    &:focus,
+    &.focus {
+
+    }
+  }
+
+  &:hover,
+  &:focus,
+  &.focus {
+
+  }
+
+  &:active,
+  &.active {
+    @include box-shadow(none);
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+
+  }
+}
+
+// Alternate buttons
+// --------------------------------------------------
+.page {
+  .btn-default {
+    @include button-variant-custom(
+                    $btn-default-color,
+                    $btn-default-bg,
+                    $btn-default-border,
+                    $white,
+                    $gray-darker,
+                    $gray-darker
+    );
+  }
+
+  .btn-primary {
+    @include button-variant-custom($btn-primary-color, $btn-primary-bg, $btn-primary-border, $white, $gray-darker,
+            $gray-darker);
+  }
+
+  .btn-primary-outline {
+    @include button-variant-custom($brand-primary, transparent, $brand-primary, $white, $brand-primary, $brand-primary);
+  }
+
+  .btn-transparent {
+    @include button-variant-custom($text-color, rgba($white, .2), transparent, $white, rgba($white, .2), transparent);
+
+    .desktop & {
+      @media (min-width: $screen-md-min) {
+        @include button-variant-custom($text-color, transparent, transparent, $white, rgba($white, .2), transparent);
+      }
+    }
+
+  }
+
+  // Success appears as green
+  .btn-success {
+  }
+
+  // Info appears as blue-green
+  .btn-info {
+  }
+
+  // Warning appears as orange
+  .btn-warning {
+  }
+
+  // Danger and error appear as red
+  .btn-danger {
+  }
+}
+
+// Button Sizes
+// --------------------------------------------------
+
+.btn-xs {
+
+}
+
+.btn-sm {
+
+}
+
+.btn-lg {
+
+}
+
+// Button Shapes
+// --------------------------------------------------
+
+.btn-rect {
+  border-radius: 0;
+}
+
+// Button Icon styles
+// --------------------------------------------------
+
+.btn {
+
+  &.btn-icon {
+    padding-left: 17px;
+    padding-right: 17px;
+
+    .icon {
+      font-size: 28px;
+      line-height: 28px;
+      vertical-align: middle;
+      transition: 0s;
+    }
+
+    &-left {
+      .icon {
+        float: left;
+        padding-right: 10px;
+      }
+    }
+
+    &-right {
+      .icon {
+        float: right;
+        padding-left: 10px;
+      }
+    }
+
+  }
+}

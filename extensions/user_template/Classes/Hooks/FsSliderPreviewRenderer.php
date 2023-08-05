@@ -46,7 +46,6 @@ class FsSliderPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= $parentObject->thumbCode($row, 'tt_content', 'assets') . '<br />';
             }
             $drawItem = false;
-            $headerContent = "";
         }
     }
 }

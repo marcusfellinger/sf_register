@@ -34,7 +34,6 @@ class CellPreviewRenderer implements PageLayoutViewDrawItemHookInterface
      * @param array<mixed> $row Record row of tt_content
      *
      * @return void
-     * @inheritdoc
      */
     public function preProcess(
         PageLayoutView &$parentObject,
@@ -47,7 +46,6 @@ class CellPreviewRenderer implements PageLayoutViewDrawItemHookInterface
             $itemContent .= '<p>We can change our preview here!</p>';
 
             $drawItem = false;
-            $headerContent = "";
         }
     }
 }

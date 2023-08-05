@@ -1,5 +1,4 @@
 <?php
-
 /***************************************************************
  *  Copyright notice
  *
@@ -55,7 +54,7 @@ class Slider extends AbstractElement
 
         // Define what fields to display
         $GLOBALS['TCA']['tt_content']['types'][$prefix . $typeName] = [
-            'showitem'         => '
+            'showitem' => '
                 --palette--;' . $frontendLanguagePrefix . 'palette.general;general,
                 --palette--;' . $languageFilePrefix . 'tt_content.palette.mediaAdjustments;mediaAdjustments,
                 pi_flexform,

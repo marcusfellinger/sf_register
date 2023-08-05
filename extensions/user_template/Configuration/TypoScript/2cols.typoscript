@@ -1,7 +1,0 @@
-tt_content.grafing-2cols < lib.contentElement
-tt_content.grafing-2cols {
-  templateName = 2Cols
-  dataProcessing {
-    200 = B13\Container\DataProcessing\ContainerProcessor
-  }
-}

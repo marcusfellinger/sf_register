@@ -1,0 +1,20 @@
+//
+// Icons mixins
+// --------------------------------------------------
+
+@mixin icon-sizing($size) {
+  width: $size;
+  height: $size;
+  font-size: $size;
+  line-height: $size;
+}
+
+@mixin icon-link($default-clr, $hover-color) {
+  &, &:active, &:focus {
+    color: $default-clr;
+  }
+
+  &:hover {
+    color: $hover-color;
+  }
+}

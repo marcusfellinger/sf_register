@@ -14,21 +14,24 @@ return [
         'Connections' => [
             'Default' => [
                 'charset' => 'utf8mb4',
-                'dbname' => 'DB3519304',
+                'dbname' => 'dbs11195631',
                 'driver' => 'mysqli',
                 'host' => 'rdbms.strato.de',
-                'password' => '1QAY2wsx3EDC4rfv',
+                'password' => 'WhcaHUENWDPVCq6k0tau',
                 'port' => 3306,
                 'tableoptions' => [
                     'charset' => 'utf8mb4',
                     'collate' => 'utf8mb4_unicode_ci',
                 ],
-                'user' => 'U3519304',
+                'user' => 'dbu225894',
             ],
         ],
     ],
     'EXT' => [],
     'EXTCONF' => [
+        'helhum-typo3-console' => [
+            'initialUpgradeDone' => '11.5',
+        ],
         'lang' => [
             'availableLanguages' => [
                 'de',
@@ -36,7 +39,7 @@ return [
         ],
     ],
     'EXTENSIONS' => [
-         'autoloader' => [
+        'autoloader' => [
             'enableAutoloaderClearCacheInProduction' => '0',
             'enableLanguageFileOnTableBase' => '0',
             'smartObjectClassLoadingIgnorePattern' => '',
@@ -103,10 +106,6 @@ return [
             'public_key' => '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
             'robotMode' => '0',
             'verify_server' => 'https://www.google.com/recaptcha/api/siteverify',
-        ],
-        'sr_freecap' => [
-            'encryptionAlgorithm' => 'aes-256-cbc',
-            'salt' => 'cH!swe!retReGu7W6bEDRup7usuDUh9THeD2CHeGE*ewr4n39=E@rAsp7c-Ph@pH',
         ],
         'static_info_tables' => [
             'constraints' => [
@@ -262,7 +261,6 @@ return [
         'features' => [
             'unifiedPageTranslationHandling' => true,
         ],
-        'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
         'sitename' => 'Christliche Gemeinde Grafing',
         'systemMaintainers' => [
             1,

@@ -46,7 +46,6 @@ class CgTeaserPreviewRenderer implements PageLayoutViewDrawItemHookInterface
                 $itemContent .= $parentObject->thumbCode($row, 'tt_content', 'image') . '<br />';
             }
             $drawItem = false;
-            $headerContent = "";
         }
     }
 }

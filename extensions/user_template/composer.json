@@ -19,21 +19,5 @@
   },
   "license": "GPL-2.0-or-later",
   "name": "cggrafing/user-template",
-  "require": {
-    "typo3/cms-fluid-styled-content": "*",
-    "b13/container": "*",
-    "twbs/bootstrap": "*"
-  },
-  "require-dev": {
-    "roave/security-advisories": "dev-latest",
-    "phpunit/phpunit": "*"
-  },
-  "type": "typo3-cms-extension",
-  "version": "v1.0.0",
-  "config": {
-    "allow-plugins": {
-      "typo3/cms-composer-installers": true,
-      "typo3/class-alias-loader": true
-    }
-  }
+  "type": "typo3-cms-extension"
 }
