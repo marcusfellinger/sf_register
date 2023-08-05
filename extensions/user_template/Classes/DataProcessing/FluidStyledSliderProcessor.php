@@ -39,6 +39,7 @@ class FluidStyledSliderProcessor implements DataProcessorInterface
      * @param array<mixed> $processorConfiguration The configuration of this processor
      * @param array<mixed> $processedData Key/value store of processed data (e.g. to be passed to a Fluid View)
      * @return array<mixed> the processed data as key/value store
+     * @inheritDoc
      */
     public function process(
         ContentObjectRenderer $cObj,
