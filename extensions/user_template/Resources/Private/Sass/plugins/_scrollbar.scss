@@ -1,4 +1,5 @@
 @import "../variables";
+
 /**
  * @subsection   jquery mousewheel plugin
  * @description  Describes style declarations for jquery mousewheel plugin
@@ -158,21 +159,21 @@ y-axis
 }
 
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand
-  .mCSB_dragger.mCSB_dragger_onDrag_expanded
-  .mCSB_dragger_bar,
+.mCSB_dragger.mCSB_dragger_onDrag_expanded
+.mCSB_dragger_bar,
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand
-  .mCSB_draggerContainer:hover
-  .mCSB_dragger
-  .mCSB_dragger_bar {
+.mCSB_draggerContainer:hover
+.mCSB_dragger
+.mCSB_dragger_bar {
   width: 12px; /* auto-expanded scrollbar */
 }
 
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand
-  .mCSB_dragger.mCSB_dragger_onDrag_expanded
-  + .mCSB_draggerRail,
+.mCSB_dragger.mCSB_dragger_onDrag_expanded
++ .mCSB_draggerRail,
 .mCSB_scrollTools_vertical.mCSB_scrollTools_onDrag_expand
-  .mCSB_draggerContainer:hover
-  .mCSB_draggerRail {
+.mCSB_draggerContainer:hover
+.mCSB_draggerRail {
   width: 8px; /* auto-expanded scrollbar */
 }
 
@@ -224,8 +225,8 @@ x-axis
 
 .mCustomScrollBox + .mCSB_scrollTools.mCSB_scrollTools_horizontal,
 .mCustomScrollBox
-  + .mCSB_scrollTools
-  + .mCSB_scrollTools.mCSB_scrollTools_horizontal {
++ .mCSB_scrollTools
++ .mCSB_scrollTools.mCSB_scrollTools_horizontal {
   bottom: -26px;
 }
 
@@ -254,22 +255,22 @@ x-axis
 }
 
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand
-  .mCSB_dragger.mCSB_dragger_onDrag_expanded
-  .mCSB_dragger_bar,
+.mCSB_dragger.mCSB_dragger_onDrag_expanded
+.mCSB_dragger_bar,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand
-  .mCSB_draggerContainer:hover
-  .mCSB_dragger
-  .mCSB_dragger_bar {
+.mCSB_draggerContainer:hover
+.mCSB_dragger
+.mCSB_dragger_bar {
   height: 12px; /* auto-expanded scrollbar */
   margin: 2px auto;
 }
 
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand
-  .mCSB_dragger.mCSB_dragger_onDrag_expanded
-  + .mCSB_draggerRail,
+.mCSB_dragger.mCSB_dragger_onDrag_expanded
++ .mCSB_draggerRail,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand
-  .mCSB_draggerContainer:hover
-  .mCSB_draggerRail {
+.mCSB_draggerContainer:hover
+.mCSB_draggerRail {
   height: 8px; /* auto-expanded scrollbar */
   margin: 4px 0;
 }
@@ -331,7 +332,7 @@ yx-axis
 
 /* non-visible horizontal scrollbar */
 .mCSB_container_wrapper.mCS_no_scrollbar_x.mCS_x_hidden
-  + .mCSB_scrollTools.mCSB_scrollTools_vertical {
++ .mCSB_scrollTools.mCSB_scrollTools_vertical {
   bottom: 0;
 }
 
@@ -376,7 +377,7 @@ yx-axis
 }
 
 .mCustomScrollBox.mCSB_vertical_horizontal.mCSB_inside
-  > .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden {
+> .mCSB_container_wrapper.mCS_no_scrollbar_y.mCS_y_hidden {
   margin-right: 0; /* non-visible scrollbar */
   margin-left: 0;
 }
@@ -400,7 +401,7 @@ yx-axis
 .mCSB_scrollTools .mCSB_buttonLeft,
 .mCSB_scrollTools .mCSB_buttonRight {
   -webkit-transition: opacity 0.2s ease-in-out,
-    background-color 0.2s ease-in-out;
+  background-color 0.2s ease-in-out;
   -moz-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
   -o-transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
   transition: opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
@@ -411,21 +412,21 @@ yx-axis
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_dragger_bar,
 .mCSB_scrollTools_horizontal.mCSB_scrollTools_onDrag_expand .mCSB_draggerRail {
   -webkit-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s,
-    margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
-    margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
-    opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
+  margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
+  opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
   -moz-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s,
-    margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
-    margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
-    opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
+  margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
+  opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
   -o-transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s,
-    margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
-    margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
-    opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
+  margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
+  opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
   transition: width 0.2s ease-out 0.2s, height 0.2s ease-out 0.2s,
-    margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
-    margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
-    opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  margin-left 0.2s ease-out 0.2s, margin-right 0.2s ease-out 0.2s,
+  margin-top 0.2s ease-out 0.2s, margin-bottom 0.2s ease-out 0.2s,
+  opacity 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 // Scroll tools

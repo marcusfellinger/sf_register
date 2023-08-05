@@ -11,20 +11,11 @@ return [
         'core' => [
             'packagePath' => 'typo3/sysext/core/',
         ],
-        'scheduler' => [
-            'packagePath' => 'typo3/sysext/scheduler/',
-        ],
         'extbase' => [
             'packagePath' => 'typo3/sysext/extbase/',
         ],
         'fluid' => [
             'packagePath' => 'typo3/sysext/fluid/',
-        ],
-        'frontend' => [
-            'packagePath' => 'typo3/sysext/frontend/',
-        ],
-        'fluid_styled_content' => [
-            'packagePath' => 'typo3/sysext/fluid_styled_content/',
         ],
         'install' => [
             'packagePath' => 'typo3/sysext/install/',
@@ -35,35 +26,14 @@ return [
         'backend' => [
             'packagePath' => 'typo3/sysext/backend/',
         ],
-        'reports' => [
-            'packagePath' => 'typo3/sysext/reports/',
-        ],
-        'setup' => [
-            'packagePath' => 'typo3/sysext/setup/',
-        ],
-        'rte_ckeditor' => [
-            'packagePath' => 'typo3/sysext/rte_ckeditor/',
-        ],
-        'about' => [
-            'packagePath' => 'typo3/sysext/about/',
-        ],
-        'adminpanel' => [
-            'packagePath' => 'typo3/sysext/adminpanel/',
-        ],
-        'belog' => [
-            'packagePath' => 'typo3/sysext/belog/',
-        ],
-        'beuser' => [
-            'packagePath' => 'typo3/sysext/beuser/',
-        ],
         'extensionmanager' => [
             'packagePath' => 'typo3/sysext/extensionmanager/',
         ],
-        'felogin' => [
-            'packagePath' => 'typo3/sysext/felogin/',
-        ],
         'filelist' => [
             'packagePath' => 'typo3/sysext/filelist/',
+        ],
+        'frontend' => [
+            'packagePath' => 'typo3/sysext/frontend/',
         ],
         'impexp' => [
             'packagePath' => 'typo3/sysext/impexp/',

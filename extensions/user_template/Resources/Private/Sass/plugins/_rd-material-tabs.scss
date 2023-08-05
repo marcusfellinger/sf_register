@@ -13,6 +13,7 @@
   position: relative;
   opacity: 0;
   visibility: hidden;
+
   &.loaded {
     opacity: 1;
     visibility: visible;
@@ -45,10 +46,12 @@
 .rd-material-tabs__container {
   padding: 0 5px;
   margin-top: 60px;
+
   .rd-material-tab {
     float: left;
     width: 100%;
   }
+
   .thumb {
     margin-top: 10px;
   }
@@ -60,5 +63,7 @@
 
 .rd-material-tabs-grab,
 .rd-material-tabs-grab a {
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
   cursor: grabbing;
 }

@@ -3,7 +3,8 @@ return [
     'BE' => [
         'debug' => true,
         'explicitADmode' => 'explicitAllow',
-        'installToolPassword' => '$2y$12$TbceDeBLIekUKUnJu2tzgOR4ORQ4CM/kRjuG4n7vLVOzpzxz/mjjy',
+        'installToolPassword' => '$pbkdf2-sha256$25000$uVF4Ny0tYUE6.llXxEzdAQ$8Aaieeh2TYb3vxO4.hdOJfmsmACoLYOHs3pLF.pF0iM',
+        'lockSSL' => true,
         'passwordHashing' => [
             'className' => 'TYPO3\\CMS\\Core\\Crypto\\PasswordHashing\\Pbkdf2PasswordHash',
             'options' => [],
@@ -35,6 +36,11 @@ return [
         ],
     ],
     'EXTENSIONS' => [
+         'autoloader' => [
+            'enableAutoloaderClearCacheInProduction' => '0',
+            'enableLanguageFileOnTableBase' => '0',
+            'smartObjectClassLoadingIgnorePattern' => '',
+        ],
         'backend' => [
             'backendFavicon' => '',
             'backendLogo' => '',
@@ -44,9 +50,30 @@ return [
             'loginLogo' => '',
             'loginLogoAlt' => '',
         ],
+        'calendarize' => [
+            'disableDateInSpeakingUrl' => '0',
+            'disableDefaultEvent' => '0',
+            'frequencyLimitPerItem' => '300',
+            'respectTimesInTimeFrameConstraints' => '0',
+            'tillDays' => '',
+            'tillDaysPast' => '',
+            'tillDaysRelative' => '',
+        ],
+        'container_elements' => [
+            'autoLoadStaticTS' => '1',
+            'showDeprecatedItems' => '1',
+        ],
         'extensionmanager' => [
             'automaticInstallation' => '1',
             'offlineMode' => '0',
+        ],
+        'fal_securedownload' => [
+            'force_download' => '',
+            'force_download_for_ext' => '',
+            'login_redirect_url' => '',
+            'no_access_redirect_url' => '',
+            'resumable_download' => '1',
+            'track_downloads' => '0',
         ],
         'news' => [
             'advancedMediaPreview' => '1',
@@ -68,9 +95,105 @@ return [
             'storageUidImporter' => '1',
             'tagPid' => '1',
         ],
+        'recaptcha' => [
+            'api_server' => 'https://www.google.com/recaptcha/api.js',
+            'enforceCaptcha' => '0',
+            'lang' => '',
+            'private_key' => '6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe',
+            'public_key' => '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI',
+            'robotMode' => '0',
+            'verify_server' => 'https://www.google.com/recaptcha/api/siteverify',
+        ],
         'sr_freecap' => [
             'encryptionAlgorithm' => 'aes-256-cbc',
             'salt' => 'cH!swe!retReGu7W6bEDRup7usuDUh9THeD2CHeGE*ewr4n39=E@rAsp7c-Ph@pH',
+        ],
+        'static_info_tables' => [
+            'constraints' => [
+                'depends' => [
+                    'extbase' => '11.5.0-11.5.99',
+                    'extensionmanager' => '11.5.0-11.5.99',
+                    'typo3' => '11.5.0-11.5.99',
+                ],
+            ],
+            'enableManager' => '0',
+            'entities' => [
+                'Country',
+                'CountryZone',
+                'Currency',
+                'Language',
+                'Territory',
+            ],
+            'tables' => [
+                'static_countries' => [
+                    'isocode_field' => [
+                        'cn_iso_##',
+                    ],
+                    'label_fields' => [
+                        'cn_short_##' => [
+                            'mapOnProperty' => 'shortName##',
+                        ],
+                        'cn_short_en' => [
+                            'mapOnProperty' => 'shortNameEn',
+                        ],
+                    ],
+                ],
+                'static_country_zones' => [
+                    'isocode_field' => [
+                        'zn_code',
+                        'zn_country_iso_##',
+                    ],
+                    'label_fields' => [
+                        'zn_name_##' => [
+                            'mapOnProperty' => 'name##',
+                        ],
+                        'zn_name_local' => [
+                            'mapOnProperty' => 'localName',
+                        ],
+                    ],
+                ],
+                'static_currencies' => [
+                    'isocode_field' => [
+                        'cu_iso_##',
+                    ],
+                    'label_fields' => [
+                        'cu_name_##' => [
+                            'mapOnProperty' => 'name##',
+                        ],
+                        'cu_name_en' => [
+                            'mapOnProperty' => 'nameEn',
+                        ],
+                    ],
+                ],
+                'static_languages' => [
+                    'isocode_field' => [
+                        'lg_iso_##',
+                        'lg_country_iso_##',
+                    ],
+                    'label_fields' => [
+                        'lg_name_##' => [
+                            'mapOnProperty' => 'name##',
+                        ],
+                        'lg_name_en' => [
+                            'mapOnProperty' => 'nameEn',
+                        ],
+                    ],
+                ],
+                'static_territories' => [
+                    'isocode_field' => [
+                        'tr_iso_##',
+                    ],
+                    'label_fields' => [
+                        'tr_name_##' => [
+                            'mapOnProperty' => 'name##',
+                        ],
+                        'tr_name_en' => [
+                            'mapOnProperty' => 'nameEn',
+                        ],
+                    ],
+                ],
+            ],
+            'version' => '11.5.3',
         ],
     ],
     'FE' => [

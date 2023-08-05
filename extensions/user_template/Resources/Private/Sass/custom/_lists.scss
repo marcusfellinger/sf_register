@@ -22,6 +22,7 @@ ol {
 
   .unit-left {
     vertical-align: middle;
+
     &:before {
       content: "";
       height: 100%;
@@ -189,6 +190,7 @@ dl {
   li {
     position: relative;
     padding-left: 23px;
+
     &:before {
       position: absolute;
       top: 5px;
@@ -220,6 +222,7 @@ dl {
   li {
     position: relative;
     padding-left: 32px;
+
     &:before {
       position: absolute;
       top: 5px;
@@ -290,6 +293,7 @@ dl {
     font-size: 12px;
     font-weight: 700;
     border-radius: 40px;
+
     &,
     &:active,
     &:focus {
@@ -329,6 +333,7 @@ dl {
 // List icon pack
 .list-icon-pack {
   margin-top: 6px;
+
   li {
     margin-top: 25px;
 
@@ -434,6 +439,7 @@ dl {
   p {
     color: $gray;
   }
+
   li + li {
     margin-top: 19px;
   }

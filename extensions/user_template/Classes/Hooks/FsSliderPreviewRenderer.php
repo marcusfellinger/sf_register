@@ -26,11 +26,11 @@ class FsSliderPreviewRenderer implements PageLayoutViewDrawItemHookInterface
     /**
      * Preprocesses the preview rendering of a content element of type "fs_slider"
      *
-     * @param \TYPO3\CMS\Backend\View\PageLayoutView $parentObject Calling parent object
+     * @param PageLayoutView $parentObject Calling parent object
      * @param bool $drawItem Whether to draw the item using the default functionality
      * @param string $headerContent Header content
      * @param string $itemContent Item content
-     * @param array $row Record row of tt_content
+     * @param array<mixed> $row Record row of tt_content
      * @return void
      */
     public function preProcess(

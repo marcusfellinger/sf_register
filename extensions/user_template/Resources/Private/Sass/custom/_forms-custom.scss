@@ -23,6 +23,7 @@
   }
 }
 
+
 // Normalize non-controls
 // --------------------------------------------------
 
@@ -218,9 +219,11 @@ textarea.form-control {
     opacity: 1;
     visibility: visible;
   }
+
   &.error {
     color: $brand-danger;
   }
+
   &.success {
     color: $brand-success;
   }
@@ -293,6 +296,7 @@ textarea.form-control {
 .checkbox,
 .checkbox-inline {
   padding-left: 20px;
+
   .checkbox-custom-dummy {
     pointer-events: none;
     border-radius: $border-radius-small;

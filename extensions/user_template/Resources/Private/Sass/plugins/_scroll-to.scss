@@ -17,19 +17,23 @@
   text-align: center;
   text-decoration: none;
   z-index: 20;
+
   &:before {
     display: block;
     transition: 0.5s;
     transition-delay: 1.4s;
   }
+
   &.toTop {
     animation: rotate 1.6s linear;
     animation-delay: 1s;
+
     &:before {
       transform: rotate(180deg);
     }
   }
 }
+
 @keyframes rotate {
   0%,
   100% {

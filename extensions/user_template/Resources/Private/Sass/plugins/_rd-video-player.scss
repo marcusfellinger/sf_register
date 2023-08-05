@@ -9,6 +9,7 @@
 .rd-video-player {
   cursor: none;
   position: relative;
+
   > * {
     z-index: 1;
   }
@@ -17,6 +18,7 @@
     video {
       opacity: 0.5;
     }
+
     .rd-video-playlist {
       opacity: 1;
       visibility: visible;
@@ -46,6 +48,7 @@
   &.hovered {
     cursor: default;
   }
+
   // video muted
   &.muted .rd-video-volume:before {
     content: "\f66e";
@@ -282,6 +285,7 @@
       visibility: visible;
       opacity: 1;
     }
+
     .desktop & {
       @include display-flex();
       @include flex(0 0 auto);
@@ -334,14 +338,17 @@
   a {
     color: $white;
   }
+
   > * {
     @include flex(0 1 auto);
     @include align-items(center);
     @include justify-content(space-between);
   }
+
   &-buttons {
     @include flex(0 0 auto);
   }
+
   > .rd-video-time {
     @include flex(0 0 auto);
     color: $white;

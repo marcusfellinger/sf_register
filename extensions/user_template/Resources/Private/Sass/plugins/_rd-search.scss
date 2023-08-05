@@ -29,6 +29,7 @@
     display: block;
     margin: 0;
     font-size: 0;
+
     .form-control {
       padding: 12px 19px;
       height: auto;
@@ -288,10 +289,12 @@
 .rd-navbar-search-results {
   .result-item {
     padding: 35px 5px;
+
     &,
     * {
       text-align: left;
     }
+
     & + .result-item {
       border-top: 1px solid $hr-border;
     }

@@ -1,4 +1,5 @@
 @import "../variables";
+
 /*
 * @subsection   Progress Bar
 */
@@ -48,6 +49,7 @@
 
 .progress-bar-horizontal {
   text-align: left;
+
   > svg {
     margin-top: 7px;
   }

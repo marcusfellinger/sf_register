@@ -18,6 +18,8 @@ declare(strict_types=1);
 
 namespace CGGrafing\Template\ContentElement;
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
 /**
  * Class Slider
  * @package CGGrafing\Template\ContentElement
@@ -27,7 +29,7 @@ class Slider extends AbstractElement
     /**
      *
      */
-    public function getConfiguration()
+    public function getConfiguration(): void
     {
         $typeName = 'slider';
         $prefix = 'fs_';
@@ -37,7 +39,7 @@ class Slider extends AbstractElement
         $frontendLanguagePrefix = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:';
 
         // Add the CType 'fs_slider'
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addTcaSelectItem(
+        ExtensionManagementUtility::addTcaSelectItem(
             'tt_content',
             'CType',
             [
@@ -62,17 +64,17 @@ class Slider extends AbstractElement
             ',
             'columnsOverrides' => [
                 'media' => [
-                    'label'  => $languageFilePrefix . 'tt_content.media_references',
-                    'config' => \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::getFileFieldTCAConfig(
+                    'label' => $languageFilePrefix . 'tt_content.media_references',
+                    'config' => ExtensionManagementUtility::getFileFieldTCAConfig(
                         'media',
                         [
-                            'appearance'    => [
+                            'appearance' => [
                                 'createNewRelationLinkTitle' => $languageFilePrefix .
                                     'tt_content.media_references.addFileReference'
                             ],
                             // custom configuration for displaying fields in the overlay/reference table
                             // behaves the same as the image field.
-                            'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['foreign_types']
+                            'foreign_types' => $GLOBALS['TCA']['tt_content']['columns']['image']['config']['overrideChildTca']['types']
                         ],
                         $GLOBALS['TYPO3_CONF_VARS']['SYS']['mediafile_ext']
                     )
@@ -81,7 +83,7 @@ class Slider extends AbstractElement
         ];
 
         // Add a flexform to the fs_slider CType
-        \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
+        ExtensionManagementUtility::addPiFlexFormValue(
             '',
             'FILE:' . $extKey . '/Configuration/FlexForms/' . $prefix . $typeName . '_flexform.xml',
             $prefix . $typeName

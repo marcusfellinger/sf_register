@@ -69,6 +69,7 @@
     &:before {
       @include transform(rotate(45deg));
     }
+
     &:after {
       @include transform(rotate(-45deg));
     }
@@ -98,10 +99,12 @@
       -webkit-transition-delay: 0s, 0.3s;
       transition-delay: 0s, 0.3s;
     }
+
     &:before {
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
+
     &:after {
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
@@ -133,10 +136,12 @@
       -webkit-transition-delay: 0s, 0.3s;
       transition-delay: 0s, 0.3s;
     }
+
     &:before {
       -ms-transform: rotate(45deg);
       transform: rotate(45deg);
     }
+
     &:after {
       -ms-transform: rotate(-45deg);
       transform: rotate(-45deg);
@@ -163,6 +168,7 @@
     &:before {
       @include transform(rotate(-40deg));
     }
+
     &:after {
       @include transform(rotate(40deg));
     }
@@ -173,6 +179,7 @@
 @mixin button-lines__arrow-2($size: 48px, $font-size: 24px, $color: #111) {
   span {
     @include transform(rotate(180deg));
+
     &:before,
     &:after {
       transform-origin: math.div($font-size, 14) center;
@@ -191,6 +198,7 @@
     &:before {
       transform: rotate3d(0, 0, 1, -40deg);
     }
+
     &:after {
       transform: rotate3d(0, 0, 1, 40deg);
     }
@@ -268,6 +276,7 @@
   &.active {
     span {
       @include transform(scale(0.7));
+
       &:before {
         @include transform(
           translateY(((math.div($size, 8))) * 2 + ((math.div($size, 16))) * 2)

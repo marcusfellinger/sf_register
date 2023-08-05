@@ -147,6 +147,7 @@
 
       &:last-child {
         padding-right: 0;
+
         &:after {
           display: none;
         }
@@ -166,9 +167,11 @@
         line-height: 1.2;
         letter-spacing: 0.1em;
         font-size: 18px;
+
         &:first-child {
           //padding-left: 0;
         }
+
         &:last-child {
           //padding-right: 0;
         }
@@ -299,11 +302,13 @@
       font-size: 18px;
       font-weight: 400;
       letter-spacing: 0.1em;
+
       &,
       &:focus,
       &:active {
         color: $rd-navbar-dropdown-item-color;
       }
+
       background: $rd-navbar-dropdown-item-background;
     }
 
@@ -368,6 +373,7 @@
 
       & + li {
         padding-left: 10px;
+
         &:before {
           content: "";
           position: absolute;
@@ -390,6 +396,7 @@
     display: none;
     cursor: pointer;
     z-index: 100;
+
     &::after {
       content: "\f078";
       position: relative;

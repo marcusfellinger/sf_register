@@ -42,6 +42,7 @@
     font: inherit;
     letter-spacing: inherit;
     transition: 0.33s all ease;
+
     &,
     &:active,
     &:focus {
@@ -199,6 +200,7 @@ mark,
 
 .letters-justify {
   letter-spacing: 0;
+
   > span {
     font-size: inherit;
   }
@@ -213,12 +215,14 @@ blockquote {
   padding: 0;
   margin: 0;
   border: 0;
+
   q {
     &:before,
     &:after {
       content: none;
     }
   }
+
   cite {
     font-style: normal;
   }

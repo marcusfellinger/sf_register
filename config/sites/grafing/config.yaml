@@ -8,8 +8,8 @@ baseVariants:
     condition: 'applicationContext == "Development"'
 errorHandling:
   - errorCode: '403'
-    errorHandler: PHP
-    errorPhpClassFQCN: CGGrafing\Template\Error\ErrorHandling
+    errorHandler: Page
+    errorContentSource: 't3://page?uid=12'
 languages:
   -
     title: Deutsch
@@ -29,6 +29,11 @@ routeEnhancers:
     type: Extbase
     extension: News
     plugin: Pi1
+    limitToPages:
+      - 5
+      - 17
+      - 28
+      - 30
     routes:
       - routePath: '/'
         _controller: 'News::list'

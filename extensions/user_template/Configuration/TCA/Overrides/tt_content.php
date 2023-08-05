@@ -1,32 +1,31 @@
 <?php
 
-defined('TYPO3_MODE') or die();
+use CGGrafing\Template\ContentElement\Slider;
+use CGGrafing\Template\ContentElement\Teaser;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+
+defined('TYPO3') or die();
 
 call_user_func(function () {
-    $contentElement = new \CGGrafing\Template\ContentElement\Slider();
+    $contentElement = new Slider();
     $contentElement->getConfiguration();
 });
 
 call_user_func(function () {
-    $contentElement = new \CGGrafing\Template\ContentElement\Teaser();
+    $contentElement = new Teaser();
     $contentElement->getConfiguration();
 });
 
 // Adds the content element to the "Type" dropdown
-\TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPlugin(
-    array(
-        'LLL:EXT:user_template/Resources/Private/Language/Tca.xlf:usertemplate_cell',
+ExtensionManagementUtility::addPlugin(
+    [
+        'LLL:EXT:user_template/Resources/Private/Language/locallang_cell_be.xlf:usertemplate_cell',
         'usertemplate_cell',
         'EXT:user_template/Resources/Public/Icons/ContentElements/usertemplate_cell.gif'
-    ),
+    ],
     'CType',
     'user_template'
 );
-
-call_user_func(function () {
-    $contentElement = new \CGGrafing\Template\ContentElement\Slider();
-    $contentElement->getConfiguration();
-});
 
 // Configure the default backend fields for the content element
 $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
@@ -58,6 +57,9 @@ $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
         ]
     ]
 ];
+
+$GLOBALS['TCA']['tx_news_domain_model_news']['columns']['fal_media']['config']['overrideChildTca']['columns']['uid_local']['config']['appearance']['elementBrowserAllowed'] = 'jpg,jpeg,png,mp3,mp4,youtube';
+$GLOBALS['TCA']['tx_news_domain_model_news']['columns']['fal_media']['config']['filter']['0']['parameters']['allowedFileExtensions'] .= ',mp3,mp4,youtube';
 \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class)->configureContainer(
     (
     new \B13\Container\Tca\ContainerConfiguration(

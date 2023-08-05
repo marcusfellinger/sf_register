@@ -639,6 +639,7 @@
     .select2-selection--single {
       padding-left: $padding-base-horizontal + $caret-width-base * 3;
       padding-right: $padding-base-horizontal;
+
       .select2-selection__rendered {
         padding-right: 0;
         padding-left: 0;

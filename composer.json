@@ -1,4 +1,27 @@
 {
+  "config": {
+    "allow-plugins": {
+      "typo3/cms-composer-installers": true,
+      "typo3/class-alias-loader": true,
+      "helhum/typo3-console-plugin": true
+    }
+  },
+  "description": "TYPO3 CMS Base Distribution",
+  "extra": {
+    "helhum/typo3-console": {
+      "active-packages": [
+        "container"
+      ],
+      "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
+      "install-extension-dummy": false
+    },
+    "typo3/cms": {
+      "web-dir": "public"
+    }
+  },
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "stable",
+  "name": "typo3/cms-base-distribution",
   "repositories": [
     {
       "type": "path",
@@ -7,48 +30,34 @@
     {
       "type": "composer",
       "url": "https://composer.typo3.org/"
+    },
+    {
+      "type": "vcs",
+      "url":  "git@github.com:marcusfellinger/sf_register.git"
     }
   ],
-  "name": "typo3/cms-base-distribution",
-  "description": "TYPO3 CMS Base Distribution",
-  "license": "GPL-2.0-or-later",
-  "scripts": {
-    "typo3-cms-scripts": [
-      "@php vendor/bin/typo3cms install:fixfolderstructure"
-    ],
-    "post-autoload-dump": [
-      "@typo3-cms-scripts"
-    ]
-  },
-  "extra": {
-    "typo3/cms": {
-      "web-dir": "public"
-    },
-    "helhum/typo3-console": {
-      "comment": "This option is not needed ay more for helhum/typo3-console 5.x",
-      "install-extension-dummy": false,
-      "active-packages": [
-        "container"
-      ]
-    }
-  },
-  "config": {
-    "allow-plugins": {
-      "typo3/cms-composer-installers": true,
-      "typo3/class-alias-loader": true,
-      "helhum/typo3-console-plugin": true
-    }
-  },
   "require": {
+    "beechit/fal-securedownload": ">=2",
+    "causal/file_list": ">=2",
     "cggrafing/user-template": "*",
-    "georgringer/news": "*",
+    "evoweb/recaptcha": ">=9",
     "evoweb/sf-register": "*",
-    "sjbr/sr-freecap": "*",
+    "friendsoftypo3/typo3db-legacy": ">=1.1",
     "helhum/typo3-console": "^7.0.2",
+    "georgringer/news": "*",
+    "helhum/typo3-console": ">=5",
+    "jambagecom/static-info-tables-de": ">=6",
+    "jambagecom/addons-em": "*",
+    "sjbr/sr-freecap": "*",
+    "sjbr/static-info-tables": ">=6",
+    "typo3/cms-about": "^11.5.0",
+    "typo3/cms-adminpanel": "^11.5.0",
     "typo3/cms-backend": "^11.5.0",
     "typo3/cms-belog": "^11.5.0",
     "typo3/cms-beuser": "^11.5.0",
+    "typo3/cms-context-help": "^11.5.0",
     "typo3/cms-core": "^11.5.0",
+    "typo3/cms-cshmanual": "^11.5.0",
     "typo3/cms-dashboard": "^11.5.0",
     "typo3/cms-extbase": "^11.5.0",
     "typo3/cms-extensionmanager": "^11.5.0",
@@ -61,19 +70,36 @@
     "typo3/cms-impexp": "^11.5.0",
     "typo3/cms-info": "^11.5.0",
     "typo3/cms-install": "^11.5.0",
+    "typo3/cms-lang": "^11.5.0",
+    "typo3/cms-lowlevel": "^11.5.0",
     "typo3/cms-recordlist": "^11.5.0",
+    "typo3/cms-reports": "^11.5.0",
     "typo3/cms-rte-ckeditor": "^11.5.0",
     "typo3/cms-seo": "^11.5.0",
     "typo3/cms-setup": "^11.5.0",
     "typo3/cms-sys-note": "^11.5.0",
     "typo3/cms-t3editor": "^11.5.0",
     "typo3/cms-tstemplate": "^11.5.0",
-    "typo3/cms-viewpage": "^11.5.0"
+    "typo3/cms-viewpage": "^11.5.0",
+    "sbublies/gridtocontainer": "^11.4",
+    "b13/container": "^2.2",
+    "buepro/typo3-container-elements": "^4.0",
+    "lochmueller/calendarize": "^12.4"
   },
   "require-dev": {
+    "doctrine/common": ">=3.3",
     "roave/security-advisories": "dev-latest",
-    "typo3/fluid-schema-generator": "^2.1",
-    "symfony/var-dumper": "^5.4",
-    "doctrine/common": "^3.3"
+    "symfony/var-dumper": ">=5.4",
+    "typo3/fluid-schema-generator": ">=2.1",
+    "rector/rector": "^0.15.20",
+    "ssch/typo3-rector": "^1.1"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "@typo3-cms-scripts"
+    ],
+    "typo3-cms-scripts": [
+      "@php vendor/bin/typo3cms install:fixfolderstructure"
+    ]
   }
 }

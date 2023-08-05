@@ -12,14 +12,14 @@
                                     src="EXT:user_template/Resources/Public/Images/Logo Gemeinde1!weiss.png"
                             />
 
-                        </div>
-                        <div class="brand-slogan">{brandSlogan}</div>
                     </div>
-                    <div class="brand-right">
-                    </div>
-                </a>
-            </div>
-            <f:render partial="Navbar-Nav" section="main" arguments="{_all}"/>
+                    <div class="brand-slogan">{brandSlogan}</div>
+                </div>
+                <div class="brand-right">
+                </div>
+            </a>
         </div>
-    </f:section>
+        <f:render arguments="{_all}" partial="Navbar-Nav" section="main"/>
+    </div>
+</f:section>
 </html>

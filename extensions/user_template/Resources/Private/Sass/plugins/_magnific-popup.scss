@@ -142,6 +142,7 @@ $mfp-use-visuallyhidden: false !default; // Hide content from browsers, but make
   text-align: left;
   z-index: $mfp-z-index-base + 5;
 }
+
 .mfp-inline-holder,
 .mfp-ajax-holder {
   .mfp-content {
@@ -154,6 +155,7 @@ $mfp-use-visuallyhidden: false !default; // Hide content from browsers, but make
 .mfp-ajax-cur {
   cursor: progress;
 }
+
 .mfp-zoom-out-cur {
   &,
   .mfp-image-holder {
@@ -162,12 +164,14 @@ $mfp-use-visuallyhidden: false !default; // Hide content from browsers, but make
     cursor: zoom-out;
   }
 }
+
 .mfp-zoom {
   cursor: pointer;
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
   cursor: zoom-in;
 }
+
 .mfp-auto-cursor {
   .mfp-content {
     cursor: auto;
@@ -227,8 +231,10 @@ $mfp-use-visuallyhidden: false !default; // Hide content from browsers, but make
   left: 8px;
   right: 8px;
   z-index: $mfp-z-index-base + 4;
+
   a {
     color: $mfp-controls-text-color;
+
     &:hover {
       color: $mfp-controls-text-color-hover;
     }
@@ -265,6 +271,7 @@ button {
     -webkit-box-shadow: none;
     box-shadow: none;
   }
+
   &::-moz-focus-inner {
     padding: 0;
     border: 0;
@@ -305,11 +312,13 @@ button {
     top: 1px;
   }
 }
+
 .mfp-close-btn-in {
   .mfp-close {
     color: $mfp-inner-close-icon-color;
   }
 }
+
 .mfp-image-holder,
 .mfp-iframe-holder {
   .mfp-close {
@@ -345,9 +354,11 @@ button {
     width: 90px;
     height: 110px;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
     &:active {
       margin-top: -54px;
     }
+
     &:hover,
     &:focus {
       opacity: 1;
@@ -355,6 +366,7 @@ button {
         filter: unquote("alpha(opacity=#{1*100})");
       }
     }
+
     &:before,
     &:after,
     .mfp-b,
@@ -394,6 +406,7 @@ button {
       border-right: 17px solid $mfp-controls-color;
       margin-left: 31px;
     }
+
     &:before,
     .mfp-b {
       margin-left: 25px;
@@ -403,11 +416,13 @@ button {
 
   .mfp-arrow-right {
     right: 0;
+
     &:after,
     .mfp-a {
       border-left: 17px solid $mfp-controls-color;
       margin-left: 39px;
     }
+
     &:before,
     .mfp-b {
       border-left: 27px solid $mfp-controls-border-color;
@@ -420,11 +435,13 @@ button {
   .mfp-iframe-holder {
     padding-top: $mfp-iframe-padding-top;
     padding-bottom: $mfp-iframe-padding-top;
+
     .mfp-content {
       line-height: 0;
       width: 100%;
       max-width: $mfp-iframe-max-width;
     }
+
     .mfp-close {
       top: -40px;
     }
@@ -434,6 +451,7 @@ button {
     height: 0;
     overflow: hidden;
     padding-top: $mfp-iframe-ratio * 100%;
+
     iframe {
       position: absolute;
       display: block;
@@ -468,6 +486,7 @@ button {
   /* The shadow behind the image */
   .mfp-figure {
     line-height: 0;
+
     &:after {
       content: "";
       position: absolute;
@@ -482,12 +501,14 @@ button {
       box-shadow: $mfp-shadow;
       background: $mfp-image-background;
     }
+
     small {
       color: $mfp-caption-subtitle-color;
       display: block;
       font-size: 12px;
       line-height: 14px;
     }
+
     figure {
       margin: 0;
     }
@@ -533,22 +554,26 @@ button {
           padding-left: 0;
           padding-right: 0;
         }
+
         img {
           &.mfp-img {
             padding: 0;
           }
         }
+
         .mfp-figure {
           // The shadow behind the image
           &:after {
             top: 0;
             bottom: 0;
           }
+
           small {
             display: inline;
             margin-left: 5px;
           }
         }
+
         .mfp-bottom-bar {
           background: rgba(0, 0, 0, 0.6);
           bottom: 0;
@@ -559,14 +584,17 @@ button {
           -webkit-box-sizing: border-box;
           -moz-box-sizing: border-box;
           box-sizing: border-box;
+
           &:empty {
             padding: 0;
           }
         }
+
         .mfp-counter {
           right: 5px;
           top: 3px;
         }
+
         .mfp-close {
           top: 0;
           right: 0;
@@ -610,6 +638,7 @@ button {
     .mfp-img {
       padding: 0;
     }
+
     .mfp-bottom-bar {
       width: 600px;
       left: 50%;
@@ -617,12 +646,15 @@ button {
       margin-top: 5px;
       padding-bottom: 5px;
     }
+
     .mfp-container {
       padding: 0;
     }
+
     .mfp-content {
       padding-top: 44px;
     }
+
     .mfp-close {
       top: 0;
       right: 0;

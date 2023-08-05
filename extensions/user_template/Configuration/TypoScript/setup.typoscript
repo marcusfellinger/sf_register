@@ -12,6 +12,14 @@ config {
 }
 
 lib {
+    contentElement {
+        partialRootPaths {
+            20 = EXT:user_template/Resources/Private/Partials
+        }
+        templateRootPaths {
+            20 = EXT:user_template/Resources/Private/Templates
+        }
+    }
     footerMenu = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
     footerMenu {
         special = directory
@@ -21,11 +29,85 @@ lib {
         as = footerMenu
         expandAll = 1
     }
+    stdContent = FLUIDTEMPLATE
+    stdContent {
+        templateName = Home
+        layoutRootPaths {
+            10 = EXT:user_template/Resources/Private/Layouts
+        }
+        partialRootPaths {
+            10 = EXT:user_template/Resources/Private/Partials
+        }
+        templateRootPaths {
+            10 = EXT:user_template/Resources/Private/Templates
+        }
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            10 {
+                special = directory
+                special.value = {$plugin.user_template.view.headerID}
+                levels = 2
+                includeSpacer = 1
+                as = headerMenu
+                expandAll = 1
+            }
+            20 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+            20 {
+                special = directory
+                special.value = {$plugin.user_template.view.footerID}
+                levels = 2
+                includeSpacer = 1
+                as = footerMenu
+                expandAll = 1
+            }
+        }
+        variables {
+            brandSlogan = {$plugin.user_template.view.brandSlogan}
+            mainContent < styles.content.get
+        }
+    }
+}
+
+settings {
+    overrideFlexformSettingsIfEmpty {
+        list.paginate.itemsPerPage = 10
+    }
+}
+
+tt_content {
+    fs_slider =< lib.contentElement
+    fs_slider {
+        title = XXX
+        templateName = FluidStyledSlider
+        #title = LLL:EXT:user_template/Resources/Private/Language/locallang_slider_be.xlf:wizard.title
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = assets
+            }
+            20 = CGGrafing\Template\FluidStyledSlider\DataProcessing\FluidStyledSliderProcessor
+        }
+    }
+    cg_teaser =< lib.contentElement
+    cg_teaser {
+        templateName = Teaser
+    }
 }
 
 [frontend.user.isLoggedIn]
-    lib.footerMenu.excludeUidList = 12
-[end]
+lib.footerMenu.excludeUidList = 12
+lib.stdContent.dataProcessing.20.excludeUidList = 12
+[global]
+["{$plugin.tx_usertemplate.settings.includejQuery}" == "1"]
+page.includeJSFooterlibs {
+    jquery = EXT:user_template/Resources/Public/Vendor/jquery/dist/jquery.min.js
+    jquery.disableCompression = 1
+}
+[global]
+config {
+    doctype = <!DOCTYPE html>
+    htmlTag_setParams = lang="de" class="wide wow-animation"
+}
 
 page = PAGE
 page {
@@ -43,16 +125,21 @@ page {
         #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
         #        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
     }
-
-    includeJSLibs {
-        bootstrap = EXT:user_template/Resources/Public/Vendor/js/bootstrap.bundle.js
+    includeJS {
+        1 = EXT:user_template/Resources/Public/JavaScript/html5shiv.min.js
     }
-
     includeJSFooter {
         # script = EXT:user_template/Resources/Public/JavaScript/script.js
         #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
         slick.disableCompression = 1
         # fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
+    includeJSLibs {
+        bootstrap = EXT:user_template/Resources/Public/Vendor/js/bootstrap.bundle.js
+    }
+    }
+    config {
+        typolinkLinkAccessRestrictedPages = 2
+        typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###
     }
 }
 
@@ -152,8 +239,7 @@ tt_content {
 
 # Restricted area starts at pid 123.
 # Check if user is logged in:
-#[(24 in tree.rootLineIds) && (!frontend.user.isLoggedIn)]
-#    page.config >
-#    page.config.additionalHeaders = Location: /anmelden
-#[end]
-
+[24 in tree.rootLineIds and !frontend.user.isLoggedIn]
+    page.config >
+    page.config.additionalHeaders.20.header = Location: /anmelden
+[global]

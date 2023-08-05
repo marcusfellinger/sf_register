@@ -1,4 +1,5 @@
 @import "../../variables";
+
 /*
 * Navbar components
 */
@@ -21,9 +22,11 @@
   );
   background-color: transparent;
   border: none;
+
   &:focus {
     outline: none;
   }
+
   display: none;
 }
 
@@ -31,6 +34,7 @@
 .rd-navbar-brand {
   display: inline-block;
   transition: none;
+
   > * {
     display: block;
   }
@@ -54,6 +58,7 @@
     line-height: 1;
     text-transform: uppercase;
     letter-spacing: 0.15em;
+
     &,
     &:focus,
     &:active,
@@ -62,6 +67,7 @@
     }
   }
 }
+
 // RD Navbar Nav
 .rd-navbar-nav {
 }
@@ -136,10 +142,12 @@
 .rd-navbar-search-results {
   .result-item {
     padding: 35px 5px;
+
     &,
     * {
       text-align: left;
     }
+
     & + .result-item {
       border-top: 1px solid $hr-border;
     }

@@ -1,4 +1,5 @@
 @import "../../variables";
+
 /*
 * Sidebar Layout
 */
@@ -21,8 +22,10 @@ html.rd-navbar-sidebar-linked {
           color: $rd-navbar-nav-hover-color;
           background: $rd-navbar-nav-active-background;
         }
+
         > .rd-navbar-submenu-toggle {
           color: #fff;
+
           &:hover {
             cursor: pointer;
             color: #fff;
@@ -44,12 +47,15 @@ html.rd-navbar-sidebar-linked {
           opacity: 1;
           height: auto;
         }
+
         > a {
           background: $rd-navbar-nav-active-background;
           color: $rd-navbar-nav-hover-color;
         }
+
         > .rd-navbar-submenu-toggle {
           color: #fff;
+
           &::after {
             @include transform(rotate(180deg));
           }

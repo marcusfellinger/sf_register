@@ -78,7 +78,8 @@
     span:last-child {
       font-size: 0.416667em;
       font-weight: 700;
-      letter-spacing: 0.05em;
+      letter-spacing: .05em;
+
       &:before {
         content: "/";
       }

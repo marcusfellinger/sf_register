@@ -5,6 +5,7 @@
 
 label {
   cursor: pointer;
+
   span {
     display: inline-block;
   }
@@ -21,6 +22,7 @@ label {
   transition: background 0.3s ease;
   vertical-align: middle;
   margin-left: 10px;
+
   &:after {
     content: "";
     display: inline-block;
@@ -34,12 +36,14 @@ label {
     top: -4px;
     transition: left 0.3s ease, background 0.3s ease, box-shadow 0.1s ease;
   }
+
   &:active {
     &:after {
       box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4),
         0 0 0 15px rgba(32, 78, 70, 0.3);
     }
   }
+
   &.active {
     background-color: rgba(11, 77, 70, 0.76);
 
@@ -47,6 +51,7 @@ label {
       background-color: rgb(74, 177, 159);
       left: 11px;
     }
+
     &:active {
       &:after {
         box-shadow: 0 1px 3px 1px rgba(0, 0, 0, 0.4),
@@ -54,6 +59,7 @@ label {
       }
     }
   }
+
   input[type="checkbox"] {
     position: absolute !important;
     margin: 0 !important;
@@ -68,6 +74,7 @@ label {
     z-index: -999999 !important;
   }
 }
+
 .mfCheckbox__input-outer {
   position: relative;
   width: 20px;
@@ -78,6 +85,7 @@ label {
   border-radius: 2px;
   overflow: hidden;
   vertical-align: text-bottom;
+
   &:before {
     position: absolute;
     content: "";
@@ -92,6 +100,7 @@ label {
     -webkit-animation: checkbox-off 0.3s linear forwards;
     animation: checkbox-off 0.3s linear forwards;
   }
+
   &:after {
     display: block;
     position: absolute;
@@ -106,6 +115,7 @@ label {
     opacity: 0;
     margin: 0;
   }
+
   &.active {
     &:before {
       box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px,
@@ -114,6 +124,7 @@ label {
       animation: checkbox-on 0.3s linear forwards;
     }
   }
+
   input[type="checkbox"] {
     position: absolute !important;
     margin: 0 !important;
@@ -128,6 +139,7 @@ label {
     z-index: -999999 !important;
   }
 }
+
 .mfRadio {
   &__input-outer {
     vertical-align: middle;
@@ -139,6 +151,7 @@ label {
     border: 2px solid #333;
     border-radius: 100%;
     transition: 0.1s ease;
+
     &:after {
       content: "";
       position: absolute;
@@ -150,10 +163,12 @@ label {
       border-radius: 100%;
       transition: background 0.3s ease;
     }
+
     &:active {
       box-shadow: 0 1px 3px 1px rgba(220, 220, 220, 0.4),
         0 0 0 15px rgba(133, 148, 171, 0.52);
     }
+
     &:hover {
       &:after {
         background-color: rgba(0, 0, 0, 0.4);
@@ -164,11 +179,13 @@ label {
       &:after {
         background-color: #333;
       }
+
       &:active {
         box-shadow: none;
       }
     }
   }
+
   input[type="radio"] {
     position: absolute !important;
     margin: 0 !important;
@@ -182,6 +199,7 @@ label {
     opacity: 0 !important;
     z-index: -999999 !important;
   }
+
   span {
     vertical-align: middle;
   }
@@ -201,6 +219,7 @@ label {
       -5px 5px 0 10px, 20px -12px 0 11px;
   }
 }
+
 @keyframes checkbox-on {
   0% {
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px,
@@ -256,6 +275,7 @@ label {
       0 0 0 0 inset;
   }
 }
+
 @keyframes checkbox-off {
   0% {
     box-shadow: 0 0 0 10px, 10px -10px 0 10px, 32px 0px 0 20px, 0px 32px 0 20px,

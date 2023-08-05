@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+    <file source-language="en"
+          datatype="plaintext"
+          original="messages"
+          date="2023-03-14T20:55:0Z"
+          product-name="user_template">
+        <header/>
+        <body>
+            <trans-unit id="usertemplate_cell">
+                <source>Zelle</source>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
