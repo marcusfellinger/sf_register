@@ -1,0 +1,279 @@
+@import "../../variables";
+
+/*
+* Navbar components
+*/
+
+// RD Navbar
+.rd-navbar {
+  display: none;
+  background: $rd-navbar-background;
+  box-shadow: $rd-navbar-shadow;
+  font-family: $font-family-sec;
+}
+
+// RD Navbar Toggle
+.rd-navbar-toggle {
+  @include make-toggle(
+    $rd-navbar-toggle-preset,
+    $rd-navbar-min-line-height,
+    $rd-navbar-min-font-size,
+    $rd-navbar-fixed-toggle-color
+  );
+  background-color: transparent;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+
+  display: none;
+}
+
+// RD Navbar Brand
+.rd-navbar-brand {
+  display: inline-block;
+  transition: none;
+
+  > * {
+    display: block;
+  }
+
+  .brand-name {
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    text-transform: uppercase;
+
+    &,
+    &:focus,
+    &:active,
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+  .brand-slogan {
+    font-size: 12px;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+
+    &,
+    &:focus,
+    &:active,
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+}
+
+// RD Navbar Nav
+.rd-navbar-nav {
+}
+
+// RD Navbar Dropdown
+.rd-navbar-dropdown {
+  display: none;
+}
+
+// RD Navbar Search
+.rd-navbar-search {
+  &-toggle {
+    display: inline-block;
+    font: 400 18px/36px "FontAwesome";
+
+    &,
+    &:before,
+    &:after {
+      text-align: center;
+      width: 36px;
+      height: 36px;
+    }
+
+    &:before,
+    &:after {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    &:before {
+      content: "\f002";
+      transition: 0.3s all ease;
+      @include transform(scale(1) rotate(0deg));
+    }
+
+    .rd-navbar:not(.rd-navbar-fixed) & {
+      &:after {
+        content: "\f00d";
+        transition: 0.3s all ease;
+        @include transform(scale(0) rotate(-90deg));
+      }
+
+      &.active {
+        &:before {
+          @include transform(scale(0) rotate(90deg));
+        }
+
+        &:after {
+          @include transform(scale(1) rotate(0deg));
+        }
+      }
+    }
+
+    .rd-navbar-fixed &,
+    .rd-navbar-fixed &:before {
+      width: $rd-navbar-min-line-height;
+      line-height: $rd-navbar-min-line-height;
+    }
+  }
+
+  &-form-submit {
+    @include make-toggle(
+      $rd-navbar-search-toggle-preset,
+      $rd-navbar-min-line-height,
+      $rd-navbar-min-font-size,
+      $rd-navbar-panel-color
+    );
+  }
+}
+
+.rd-navbar-search-results {
+  .result-item {
+    padding: 35px 5px;
+
+    &,
+    * {
+      text-align: left;
+    }
+
+    & + .result-item {
+      border-top: 1px solid $hr-border;
+    }
+
+    * + p {
+      margin-top: 21px;
+    }
+  }
+}
+
+// RD Navbar Live Search Results
+.rd-navbar-live-search-results {
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  padding: 16px 8px 8px;
+  top: 100%;
+  font-size: 16px;
+  line-height: 34px;
+  color: $text-color;
+  background: $rd-navbar-background;
+  box-shadow: $rd-navbar-shadow;
+  opacity: 0;
+  visibility: hidden;
+  text-align: left;
+  z-index: 998;
+
+  .search-quick-result {
+    padding-left: 8px;
+    font-size: 14px;
+    line-height: 30px;
+    color: $text-color;
+  }
+
+  .search_list {
+    margin-top: 4px;
+    font-size: 16px;
+    line-height: 30px;
+
+    li + li {
+      margin-top: 2px;
+    }
+
+    .search_list li + li:last-child {
+      margin-top: 8px;
+      border-top: 1px solid $gray-light;
+      padding-top: 7px;
+    }
+  }
+
+  .search_link {
+    display: block;
+    padding: 8px;
+    color: $text-color;
+    border-radius: 2px;
+
+    &:hover {
+      background: $gray-lighter;
+    }
+
+    p {
+      margin-top: 0;
+      font-size: 14px;
+      display: none;
+    }
+  }
+
+  .search_title {
+    color: $gray-darker;
+    font-weight: 400;
+  }
+
+  .search_submit {
+    display: block;
+    text-align: center;
+    padding: 8px;
+    font-weight: 700;
+    color: $brand-primary;
+    text-transform: uppercase;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+
+    &:hover {
+      background: $gray;
+    }
+  }
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  @media (min-width: $screen-lg-min) {
+    .search_link {
+      p {
+        display: block;
+      }
+    }
+  }
+}
+
+.search_error {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.rd-navbar-live-search-results {
+  @include transform(translateY(-100%));
+
+  &.active {
+    @include transform(translateY(0));
+  }
+}
+
+// RD Navbar aside
+.rd-navbar-aside {
+  pointer-events: none;
+
+  > * {
+    pointer-events: auto;
+  }
+}
+
+.rd-navbar-aside-toggle {
+  display: none;
+  pointer-events: auto;
+}

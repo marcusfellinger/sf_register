@@ -1,0 +1,95 @@
+@import "../../variables";
+
+/*
+* Static Layout
+*/
+
+.rd-navbar-static {
+  display: block;
+  background-image: url("../Images/Bild_Kreuz_klein.jpg");
+  background-size: cover;
+
+  .rd-navbar-inner {
+    @include display-flex;
+    @include flex-wrap(nowrap);
+    @include justify-content(space-between);
+    @include align-items(flex-end);
+    padding: 1em 15px 15em 15px;
+    margin-left: 1%;
+
+    @media screen and (min-width: $screen-lg-min) {
+      margin-left: 6%;
+      padding-bottom: 18em;
+    }
+
+    @media screen and (min-width: $screen-xl-min) {
+      padding-bottom: 30em;
+    }
+  }
+
+  .rd-navbar-panel,
+  .rd-navbar-aside {
+  }
+
+  .rd-navbar-brand {
+    display: inline-block;
+
+    .brand-slogan {
+      display: block;
+      margin-top: 9px;
+      font-size: 12px;
+      letter-spacing: 0.15em;
+    }
+  }
+
+  .rd-navbar-aside {
+    @include order(1);
+  }
+
+  .rd-navbar-nav-wrap {
+    @include flex-grow(1);
+    text-align: left;
+    align-self: center;
+    width: 85%;
+  }
+
+  .rd-navbar-panel {
+    width: 15%;
+  }
+
+  // RD Navbar brand
+  .rd-navbar-brand {
+  }
+
+  // RD Navbar nav wrap
+  .rd-navbar-nav-wrap {
+    font-size: 0;
+    text-align: right;
+  }
+
+  &.rd-navbar--is-clone {
+    display: block;
+    @include transform(translateY(-105%));
+    transition: 0.4s all ease-in-out;
+
+    &.rd-navbar--is-stuck {
+      @include transform(translateY(0));
+    }
+  }
+
+  &.rd-navbar--is-clone,
+  &.rd-navbar--is-stuck {
+    .rd-navbar-inner {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+
+    .rd-navbar-panel {
+      display: none;
+    }
+
+    .rd-navbar-nav-wrap {
+      top: 0;
+    }
+  }
+}

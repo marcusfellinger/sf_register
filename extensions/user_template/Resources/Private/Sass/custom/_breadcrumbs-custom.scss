@@ -1,0 +1,58 @@
+@import "../variables";
+@import "mixins/vendors-custom";
+//
+// Breadcrumbs
+// --------------------------------------------------
+.breadcrumbs-custom {
+  position: relative;
+
+  a {
+    &,
+    &:active,
+    &:focus {
+      color: $breadcrumb-color;
+    }
+  }
+
+  li {
+    position: relative;
+    display: inline-block;
+    padding-right: 36px;
+  }
+
+  li:after {
+    content: $breadcrumb-separator;
+    position: absolute;
+    top: 50%;
+    right: 9px;
+    display: inline-block;
+    color: $gray;
+    font-family: "Material Design Icons", fantasy;
+    @include transform(translateY(-50%));
+  }
+
+  li:last-child {
+    padding-right: 0;
+
+    &:after {
+      display: none;
+    }
+  }
+
+  a:hover,
+  li.active {
+    color: $breadcrumb-active-color;
+  }
+}
+
+@media (min-width: $screen-sm-min) {
+  .breadcrumbs-custom {
+    li {
+      padding-right: 44px;
+    }
+
+    li:after {
+      right: 13px;
+    }
+  }
+}

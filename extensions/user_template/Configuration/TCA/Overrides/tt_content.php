@@ -29,7 +29,7 @@ ExtensionManagementUtility::addPlugin(
 
 // Configure the default backend fields for the content element
 $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
-    'showitem' => '
+    'showitem'         => '
       --div--;LLL:EXT:core/Resources/Private/Language/Form/locallang_tabs.xlf:general,
          --palette--;;general,
          --palette--;;headers,
@@ -51,7 +51,7 @@ $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
     'columnsOverrides' => [
         'bodytext' => [
             'config' => [
-                'enableRichtext' => true,
+                'enableRichtext'        => true,
                 'richtextConfiguration' => 'default'
             ]
         ]
@@ -60,3 +60,44 @@ $GLOBALS['TCA']['tt_content']['types']['usertemplate_cell'] = [
 
 $GLOBALS['TCA']['tx_news_domain_model_news']['columns']['fal_media']['config']['overrideChildTca']['columns']['uid_local']['config']['appearance']['elementBrowserAllowed'] = 'jpg,jpeg,png,mp3,mp4,youtube';
 $GLOBALS['TCA']['tx_news_domain_model_news']['columns']['fal_media']['config']['filter']['0']['parameters']['allowedFileExtensions'] .= ',mp3,mp4,youtube';
+\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class)->configureContainer(
+    (
+    new \B13\Container\Tca\ContainerConfiguration(
+        'grafing-2cols-with-header-container', // CType
+        '2 Column Container With Header', // label
+        'Some Description of the Container', // description
+        [
+            [
+                ['name' => 'header', 'colPos' => 200, 'colspan' => 2, 'allowed' => ['CType' => 'header, textmedia']]
+            ],
+            [
+                ['name' => 'left side', 'colPos' => 201],
+                ['name' => 'right side', 'colPos' => 202]
+            ]
+        ] // grid configuration
+    )
+    )
+        // override default configurations
+        ->setIcon('EXT:user_template/Resources/Public/Icons/grafing-2cols-with-header-container.svg')
+        ->setSaveAndCloseInNewContentElementWizard(false)
+);
+
+// override default settings
+$GLOBALS['TCA']['tt_content']['types']['grafing-2cols-with-header-container']['showitem'] = 'sys_language_uid,CType,header,tx_container_parent,colPos';
+
+// second container
+\TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\B13\Container\Tca\Registry::class)->configureContainer(
+    (
+    new \B13\Container\Tca\ContainerConfiguration(
+        'grafing-2cols', // CType
+        '2 Column', // label
+        'Some Description of the Container', // description
+        [
+            [
+                ['name' => '2-cols-left', 'colPos' => 200],
+                ['name' => '2-cols-right', 'colPos' => 201]
+            ]
+        ] // grid configuration
+    )
+    )
+);

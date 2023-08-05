@@ -104,6 +104,10 @@ return [
             'robotMode' => '0',
             'verify_server' => 'https://www.google.com/recaptcha/api/siteverify',
         ],
+        'sr_freecap' => [
+            'encryptionAlgorithm' => 'aes-256-cbc',
+            'salt' => 'cH!swe!retReGu7W6bEDRup7usuDUh9THeD2CHeGE*ewr4n39=E@rAsp7c-Ph@pH',
+        ],
         'static_info_tables' => [
             'constraints' => [
                 'depends' => [
@@ -258,6 +262,7 @@ return [
         'features' => [
             'unifiedPageTranslationHandling' => true,
         ],
+        'productionExceptionHandler' => 'TYPO3\\CMS\\Core\\Error\\DebugExceptionHandler',
         'sitename' => 'Christliche Gemeinde Grafing',
         'systemMaintainers' => [
             1,

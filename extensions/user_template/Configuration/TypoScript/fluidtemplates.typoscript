@@ -1,0 +1,50 @@
+// use default/general ContainerProcessor
+lib {
+  fluidContent {
+    templateRootPaths {
+      100 = EXT:user_template/Resources/Private/Templates
+    }
+  }
+
+  stdContent = FLUIDTEMPLATE
+  stdContent {
+    templateName = Page
+    layoutRootPaths {
+      10 = EXT:user_template/Resources/Private/Layouts
+    }
+
+    partialRootPaths {
+      10 = EXT:user_template/Resources/Private/Partials
+    }
+
+    templateRootPaths {
+      10 = EXT:user_template/Resources/Private/Templates
+    }
+
+    dataProcessing {
+      10 = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+      10 {
+        special = directory
+        special.value = {$plugin.user_template.view.headerID}
+        levels = 2
+        includeSpacer = 1
+        as = headerMenu
+        expandAll = 1
+      }
+
+      20 < lib.footerMenu
+    }
+
+    variables {
+      brandSlogan = {$plugin.user_template.view.brandSlogan}
+      mainContent < styles.content.get
+    }
+  }
+
+  contentElement {
+    templateRootPaths {
+      10 = EXT:user_template/Resources/Private/Templates
+    }
+  }
+}
+

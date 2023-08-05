@@ -1,3 +1,16 @@
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/setup.typoscript'
+@import 'EXT:user_template/Configuration/TypoScript/fluidtemplates.typoscript'
+@import 'EXT:user_template/Configuration/TypoScript/2cols.typoscript'
+
+config {
+    doctype = <!DOCTYPE html>
+    htmlTag_setParams = lang="de" class="wide wow-animation"
+    contentObjectExceptionHandler = 1
+    contentObjectExceptionHandler = CGGrafing\Template\ContentObject\Exception\DebugExceptionHandler
+    typolinkLinkAccessRestrictedPages = 12
+    typolinkLinkAccessRestrictedPages_addParams = &return_url=###RETURN_URL###
+}
+
 lib {
     contentElement {
         partialRootPaths {
@@ -6,6 +19,15 @@ lib {
         templateRootPaths {
             20 = EXT:user_template/Resources/Private/Templates
         }
+    }
+    footerMenu = TYPO3\CMS\Frontend\DataProcessing\MenuProcessor
+    footerMenu {
+        special = directory
+        special.value = {$plugin.user_template.view.footerID}
+        levels = 2
+        includeSpacer = 1
+        as = footerMenu
+        expandAll = 1
     }
     stdContent = FLUIDTEMPLATE
     stdContent {
@@ -73,6 +95,7 @@ tt_content {
 }
 
 [frontend.user.isLoggedIn]
+lib.footerMenu.excludeUidList = 12
 lib.stdContent.dataProcessing.20.excludeUidList = 12
 [global]
 ["{$plugin.tx_usertemplate.settings.includejQuery}" == "1"]
@@ -99,18 +122,20 @@ page {
     includeCSS {
         1 = EXT:user_template/Resources/Public/Css/style.css
         2 = //fonts.googleapis.com/css?family=Roboto:400%7CRoboto+Condensed:300,400,700
-        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
-        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
+        #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.css
+        #        slick-theme = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick-theme.css
     }
     includeJS {
         1 = EXT:user_template/Resources/Public/JavaScript/html5shiv.min.js
     }
     includeJSFooter {
-        core = EXT:user_template/Resources/Public/JavaScript/core.min.js
-        script = EXT:user_template/Resources/Public/JavaScript/script.js
-        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
+        # script = EXT:user_template/Resources/Public/JavaScript/script.js
+        #        slick = EXT:user_template/Resources/Public/Vendor/slick-carousel/slick/slick.min.js
         slick.disableCompression = 1
-        fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
+        # fluidStyledSlider = EXT:user_template/Resources/Public/JavaScript/FluidStyledSlider.js
+    includeJSLibs {
+        bootstrap = EXT:user_template/Resources/Public/Vendor/js/bootstrap.bundle.js
+    }
     }
     config {
         typolinkLinkAccessRestrictedPages = 2
@@ -119,7 +144,15 @@ page {
 }
 
 plugin {
-    tx_felogin_login.settings.redirectMode = getpost
+    tx_felogin_login {
+        settings {
+            pages = 20
+            redirectMode = getpost,referer,login
+            redirectFirstMethod = 1
+            showLogoutFormAfterLogin = 0
+        }
+    }
+
     tx_seo {
         config {
             xmlSitemap {
@@ -138,10 +171,13 @@ plugin {
                                 fieldToParameterMap {
                                     uid = tx_extension_pi1[news]
                                 }
+
                                 additionalGetParameters {
                                     tx_extension_pi1.controller = News
                                     tx_extension_pi1.action = detail
                                 }
+
+                                useCacheHash = 1
                             }
                         }
                     }
@@ -149,17 +185,61 @@ plugin {
             }
         }
     }
+
     tx_news {
         view {
             templateRootPaths {
-                3 = EXT:user_template/Resources/Private/Templates/
+                3 = EXT:user_template/Resources/Private/Templates
             }
         }
     }
 }
 
+settings {
+    overrideFlexformSettingsIfEmpty {
+        list.paginate.itemsPerPage = 10
+    }
+}
+
+tt_content {
+    grafing-2cols-with-header-container < lib.contentElement
+    grafing-2cols-with-header-container {
+        templateName = 2ColsWithHeader
+        templateRootPaths.10 = EXT:container_example/Resources/Private/Templates
+        dataProcessing {
+            200 = B13\Container\DataProcessing\ContainerProcessor
+        }
+    }
+
+    fs_slider < lib.fluidContent
+    fs_slider {
+        templateName = FluidStyledSlider
+        dataProcessing {
+            10 = TYPO3\CMS\Frontend\DataProcessing\FilesProcessor
+            10 {
+                references.fieldName = assets
+            }
+
+            20 = CGGrafing\Template\FluidStyledSlider\DataProcessing\FluidStyledSliderProcessor
+        }
+    }
+
+    cg_teaser < lib.contentElement
+    cg_teaser {
+        templateName = Teaser
+    }
+}
+
+["{$plugin.tx_usertemplate.settings.includejQuery}" == "1"]
+    page.includeJSFooterlibs {
+        jquery = EXT:user_template/Resources/Public/Vendor/jquery/dist/jquery.min.js
+        jquery.disableCompression = 1
+    }
+[global]
+
 # Restricted area starts at pid 123.
 # Check if user is logged in:
 [24 in tree.rootLineIds and !frontend.user.isLoggedIn]
+    page.config >
     page.config.additionalHeaders.20.header = Location: /anmelden
 [global]

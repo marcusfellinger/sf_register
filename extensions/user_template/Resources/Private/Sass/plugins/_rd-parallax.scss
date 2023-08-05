@@ -1,0 +1,55 @@
+@import "../variables";
+
+/*
+* @subsection   RD Parallax
+*
+* @description  Describes style declarations for RD Parallax extension
+*
+* @author       Evgeniy Gusarov
+* @link         https://ua.linkedin.com/pub/evgeniy-gusarov/8a/a40/54a
+* @version      3.5.1
+*/
+.rd-parallax {
+  &-inner {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0px, 0px, 0px);
+    z-index: 1;
+  }
+
+  &-layer[data-type="media"] {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-layer[data-url] {
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center center;
+  }
+  &[class*="rd-parallax-overlay"] {
+    background-color: $gray-base;
+    color: $white;
+    .rd-parallax-layer[data-type="media"] {
+      opacity: 0.2;
+
+      & + * {
+        position: relative;
+      }
+    }
+  }
+  &.rd-parallax-overlay-2 {
+    .rd-parallax-layer[data-type="media"] {
+      opacity: 0.8;
+    }
+  }
+}

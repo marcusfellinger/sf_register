@@ -1,4 +1,17 @@
-<div class="page" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers">
+<div class="page" xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
+    <f:section name="HeaderAssets">
+        <title>Super title from fluid</title>
+    </f:section>
+    <header class="page-head">
+        <f:render section="Header"/>
+    </header>
+    <main class="page-content">
+        <f:render section="Content"/>
+    </main>
+    <footer>
+        <f:render section="Footer"/>
+    </footer>
+
     <f:render section="Header"/>
     <f:render section="Content"/>
     <f:alias map="{events_path:'EXT:user_template/Resources/Public/Images/home-11-2050x991.jpg',
@@ -45,8 +58,8 @@
             </div>
         </div>
     </footer>
-
 </div>
+
 <!-- Global Mailform Output-->
 <div class="snackbars" id="form-output-global"></div>
 <!-- PhotoSwipe Gallery-->

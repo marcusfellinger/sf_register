@@ -1,4 +1,5 @@
 <?php
+
 /***************************************************************
  *  Copyright notice
  *
@@ -33,7 +34,6 @@ class Teaser extends AbstractElement
         $typeName = 'teaser';
         $prefix = 'cg_';
         $extKey = 'EXT:user_template';
-        $languageFilePrefix = 'LLL:' . $extKey . '/Resources/Private/Language/Database.xlf:';
         $customLanguageFilePrefix = 'LLL:' . $extKey . '/Resources/Private/Language/locallang_' . $typeName . '_be.xlf:';
         $frontendLanguageFilePrefix = 'LLL:EXT:frontend/Resources/Private/Language/locallang_ttc.xlf:';
 
@@ -54,7 +54,7 @@ class Teaser extends AbstractElement
 
         // Define what fields to display
         $GLOBALS['TCA']['tt_content']['types'][$prefix . $typeName] = [
-            'showitem' => '
+            'showitem'         => '
                 --div--;' . $frontendLanguageFilePrefix . 'tabs.text,
                 --palette--;' . $frontendLanguageFilePrefix . 'palette.general;general,
                 --palette--;' . $frontendLanguageFilePrefix . 'palette.header;header,

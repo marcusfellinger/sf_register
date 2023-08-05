@@ -1,5 +1,7 @@
+node_modules/
 Resources/Public/Css/style.css.map
 Resources/Public/Css/style.css
+Resources/Public/Vendor/
 Resources/Private/sass/style.css
 Resources/Private/sass/style.css.map
-node_modules/
+Resources/Private/Vendor/

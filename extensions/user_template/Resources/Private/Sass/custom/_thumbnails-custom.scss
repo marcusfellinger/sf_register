@@ -1,0 +1,104 @@
+//
+// Custom Thumbnails
+// --------------------------------------------------
+
+.thumbnail {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+  border-radius: 0;
+
+  img {
+    position: relative;
+    left: 50%;
+    @include transform(translateX(-50%));
+    width: auto;
+    max-width: none;
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  .caption {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    @include display-flex;
+    @include flex-direction(column);
+    @include justify-content(center);
+    @include align-items(center);
+    padding: 15px;
+    font-size: 22px;
+    color: $white;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.33s all ease;
+
+    &:before {
+      display: block;
+      font-size: 72px;
+      line-height: 72px;
+      transition: 0.33s all ease;
+    }
+
+    > * {
+      max-width: 100%;
+      color: $white;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  .img-fluid {
+    height: 100%;
+  }
+
+  &:hover {
+    .caption {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.img-thumbnail,
+.thumbnail {
+  box-shadow: none;
+}
+
+// Variant 1
+.thumbnail-variant-1 {
+  .caption {
+    &:before {
+      position: relative;
+      transform: scale(0.8);
+    }
+
+    background: rgba($brand-primary, 0.8);
+  }
+
+  &:hover {
+    .caption:before {
+      transform: scale(1);
+    }
+  }
+}
+
+// Make thumbnails to fit entire container width
+.thumbnail-block {
+  display: block;
+
+  > img,
+  a > img {
+    width: 100%;
+    height: auto;
+  }
+}

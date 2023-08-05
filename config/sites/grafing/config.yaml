@@ -7,8 +7,7 @@ baseVariants:
     base: 'https://cg-grafing.felliweb.de'
     condition: 'applicationContext == "Development"'
 errorHandling:
-  -
-    errorCode: 403
+  - errorCode: '403'
     errorHandler: Page
     errorContentSource: 't3://page?uid=12'
 languages:
@@ -36,26 +35,21 @@ routeEnhancers:
       - 28
       - 30
     routes:
-      -
-        routePath: /
+      - routePath: '/'
         _controller: 'News::list'
-      -
-        routePath: '/page-{page}'
+      - routePath: '/page-{page}'
         _controller: 'News::list'
         _arguments:
-          page: currentPage
-      -
-        routePath: '/{news-title}'
+          page: 'currentPage'
+      - routePath: '/{news-title}'
         _controller: 'News::detail'
         _arguments:
           news-title: news
-      -
-        routePath: '/{category-name}'
+      - routePath: '/{category-name}'
         _controller: 'News::list'
         _arguments:
           category-name: overwriteDemand/categories
-      -
-        routePath: '/{tag-name}'
+      - routePath: '/{tag-name}'
         _controller: 'News::list'
         _arguments:
           tag-name: overwriteDemand/tags
@@ -82,6 +76,6 @@ routeEnhancers:
   PageTypeSuffix:
     type: PageType
     map:
-      feed.xml: 9818
-      calendar.ical: 9819
+      'feed.xml': 9818
+      'calendar.ical': 9819
 websiteTitle: 'Christliche Gemeinde Grafing'

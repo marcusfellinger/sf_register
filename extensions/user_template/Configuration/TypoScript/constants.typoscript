@@ -1,16 +1,26 @@
-plugin.user_template {
-    view {
-        # cat=plugin.user_template/file; type=int; label=Page ID for Header menu (FE)
-        headerID = 7
-        # cat=plugin.user_template/file; type=int; label=Page ID for Footer menu (FE)
-        footerID = 8
-        # cat=plugin.user_template/file; type=string; label=Brand Slogan (FE)
-        #brandSlogan = Christliche Gemeinde Grafing
-        brandSlogan =
+@import 'EXT:fluid_styled_content/Configuration/TypoScript/constants.typoscript'
+
+plugin {
+    user_template {
+        view {
+            # cat=plugin.user_template/file; type=int; label=Page ID for Header menu (FE)
+            headerID = 7
+            # cat=plugin.user_template/file; type=int; label=Page ID for Footer menu (FE)
+            footerID = 8
+            # cat=plugin.user_template/file; type=string; label=Brand Slogan (FE)
+            #brandSlogan = Christliche Gemeinde Grafing
+            brandSlogan =
+        }
+
+        settings {
+            # cat=plugin.user_template/include; type=check; label=Include jQuery in JSFooterLibs
+            includejQuery = 1
+        }
     }
 
-    settings {
-        # cat=plugin.user_template/include; type=check; label=Include jQuery in JSFooterLibs
-        includejQuery = 1
+    tx_sfregister {
+        settings {
+            captchaId = srfreecap
+        }
     }
 }
