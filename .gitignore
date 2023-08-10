@@ -9,3 +9,7 @@
 /public/typo3
 /public/typo3conf/ext
 /.idea
+/.reports
+*.gz
+*.sql
+*.mp3
