@@ -24,6 +24,12 @@ languages:
     hreflang: ''
     direction: ''
     flag: de
+matomoIntegrationErrorPagesTemplate: '{statusCode}/URL = {path}/From = {referrer}'
+matomoIntegrationOptions: 'noScript,cookieTracking,linkTracking,performanceTracking,heartBeatTimer,disableBrowserFeatureDetection,doNotTrack,trackAllContentImpressions,trackVisibleContentImpressions,trackErrorPages,trackJavaScriptErrors'
+matomoIntegrationSiteId: '1'
+matomoIntegrationTagManagerContainerId: ''
+matomoIntegrationTagManagerDebugMode: false
+matomoIntegrationUrl: 'https://cg-grafing.de/tracking'
 rootPageId: 1
 routeEnhancers:
   News:
